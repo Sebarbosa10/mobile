@@ -250,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 694799681}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -7.603}
+  m_LocalPosition: {x: 0, y: 2, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -268,9 +268,14 @@ GameObject:
   - component: {fileID: 1364744156}
   - component: {fileID: 1364744155}
   - component: {fileID: 1364744154}
-  - component: {fileID: 1364744158}
   - component: {fileID: 1364744159}
   - component: {fileID: 1364744160}
+  - component: {fileID: 1364744161}
+  - component: {fileID: 1364744165}
+  - component: {fileID: 1364744164}
+  - component: {fileID: 1364744163}
+  - component: {fileID: 1364744162}
+  - component: {fileID: 1364744166}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Ball
@@ -365,28 +370,12 @@ Transform:
   m_GameObject: {fileID: 1364744152}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.38128, y: 0.38128, z: 0.38128}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1364744158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364744152}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0257b6a4a58e14a4da74b02f4d540f8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BallController
-  jumpForce: 10
-  mainCamera: {fileID: 694799684}
-  screenMargin: 0.5
-  distanceFromCamera: 10
 --- !u!54 &1364744159
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -428,12 +417,92 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BallLauncher
   throwForceMultiplier: 0.5
   maxThrowSpeed: 20
-  followSpeed: 15
-  depthFromCamera: 8
-  curveForceMultiplier: 2
-  velocitySampleFrames: 3
+  swipeSpeedForMaxThrow: 1200
+  upwardArc: 0.7
   groundTag: ground
   resetDelay: 0.5
+--- !u!114 &1364744161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364744152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f351a8ac2f24a729ba90c0f4a4fb91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallHoldPositionConstraint
+  separationPadding: 0.001
+  maximumResolutionIterations: 4
+  groundProbeHeight: 20
+  blockingLayers:
+    serializedVersion: 2
+    m_Bits: 51
+--- !u!114 &1364744162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364744152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab80e7f4e05a4a7a849481ce8c7ec202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallTouchInput
+--- !u!114 &1364744163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364744152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e70e208852745b7a06b17dcda576661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallScreenWrapController
+--- !u!114 &1364744164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364744152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b609f1f0fe88408d8e26e5912b87baed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallJumpMotor
+--- !u!114 &1364744165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364744152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e2e7a228ee4e48a8eaa2f5173c0e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallTapInput
+--- !u!114 &1364744166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364744152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dfe0afcd9eb4d6da71c4b18d957424c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallTouchSelectionValidator
+  raycastDistance: 100
+  selectableLayers:
+    serializedVersion: 2
+    m_Bits: 51
 --- !u!1 &1394143104
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +516,7 @@ GameObject:
   - component: {fileID: 1394143106}
   - component: {fileID: 1394143105}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Piso
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -541,7 +610,7 @@ Transform:
   m_GameObject: {fileID: 1394143104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.77, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.7288, y: 5.7288, z: 5.7288}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -687,7 +756,7 @@ GameObject:
   - component: {fileID: 1768097157}
   - component: {fileID: 1768097156}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: Techo (ONLY FOR TESTING)
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
