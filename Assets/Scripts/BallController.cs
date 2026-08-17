@@ -1,55 +1,106 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
-/// Punto de composición para el comportamiento alternativo de salto y wrap.
-/// La entrada, el salto y el límite de pantalla se delegan a componentes dedicados.
+/// Controla el comportamiento simple de la pelota:
+/// - Detecta un tap.
+/// - Aplica el salto.
+/// - Habilita el wrap vertical de pantalla.
+///
+/// Este componente no controla el lanzamiento por swipe.
+/// Ese comportamiento pertenece a BallLauncher.
 /// </summary>
+[RequireComponent(typeof(Rigidbody))]
 public sealed class BallController : MonoBehaviour
 {
-    [Header("Física")]
-    [SerializeField, Min(0f)] private float jumpForce = 10f;
+    [Header("Salto")]
+    [SerializeField, Min(0f)]
+    private float jumpForce = 10f;
 
-    [Header("Pantalla")]
-    [SerializeField, Min(0f)] private float screenMargin = 0.5f;
-    [SerializeField, Min(0f)] private float distanceFromCamera = 10f;
+    [Header("Screen Wrap")]
+    [SerializeField, Min(0f)]
+    private float screenMargin = 0.5f;
 
-    private BallTapInput tapInput;
-    private BallJumpMotor jumpMotor;
-    private BallScreenWrapController screenWrapController;
+    [SerializeField, Min(0f)]
+    private float distanceFromCamera = 10f;
+
+    private Rigidbody rigidbodyComponent;
     private Camera mainCamera;
+
+    private float screenTopY;
+    private float screenBottomY;
+
+    private bool wrappingEnabled;
 
     private void Awake()
     {
-        tapInput = GetOrAddComponent<BallTapInput>();
-        jumpMotor = GetOrAddComponent<BallJumpMotor>();
-        screenWrapController = GetOrAddComponent<BallScreenWrapController>();
-        mainCamera ??= Camera.main;
+        rigidbodyComponent = GetComponent<Rigidbody>();
+        mainCamera = Camera.main;
 
-        jumpMotor.Configure(jumpForce);
-        screenWrapController.Configure(mainCamera, screenMargin, distanceFromCamera);
+        CalculateScreenBounds();
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        if (tapInput != null)
-            tapInput.Tapped += HandleTap;
-    }
-
-    private void OnDisable()
-    {
-        if (tapInput != null)
-            tapInput.Tapped -= HandleTap;
+        HandleTap();
+        HandleScreenWrap();
     }
 
     private void HandleTap()
     {
-        jumpMotor.Jump();
-        screenWrapController.EnableWrapping();
+        if (Pointer.current == null)
+            return;
+
+        if (!Pointer.current.press.wasPressedThisFrame)
+            return;
+
+        Jump();
+        wrappingEnabled = true;
     }
 
-    private T GetOrAddComponent<T>() where T : Component
+    private void Jump()
     {
-        T component = GetComponent<T>();
-        return component != null ? component : gameObject.AddComponent<T>();
+        rigidbodyComponent.isKinematic = false;
+
+        Vector3 velocity = rigidbodyComponent.linearVelocity;
+        velocity.y = 0f;
+
+        rigidbodyComponent.linearVelocity = velocity;
+
+        rigidbodyComponent.AddForce(
+            Vector3.up * jumpForce,
+            ForceMode.Impulse);
+    }
+
+    private void HandleScreenWrap()
+    {
+        if (!wrappingEnabled)
+            return;
+
+        if (mainCamera == null)
+            return;
+
+        if (transform.position.y >= screenBottomY - screenMargin)
+            return;
+
+        Vector3 position = transform.position;
+        position.y = screenTopY + screenMargin;
+
+        transform.position = position;
+    }
+
+    private void CalculateScreenBounds()
+    {
+        if (mainCamera == null)
+            return;
+
+        Vector3 bottomPoint = mainCamera.ViewportToWorldPoint(
+            new Vector3(0f, 0f, distanceFromCamera));
+
+        Vector3 topPoint = mainCamera.ViewportToWorldPoint(
+            new Vector3(1f, 1f, distanceFromCamera));
+
+        screenBottomY = bottomPoint.y;
+        screenTopY = topPoint.y;
     }
 }
