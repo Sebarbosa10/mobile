@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 342226715}
   - component: {fileID: 342226718}
   - component: {fileID: 342226717}
-  - component: {fileID: 342226716}
+  - component: {fileID: 342226719}
   m_Layer: 0
   m_Name: Backboard
   m_TagString: Untagged
@@ -147,33 +147,12 @@ Transform:
   m_GameObject: {fileID: 342226714}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.31855, y: 0.5, z: 0.9089899}
+  m_LocalPosition: {x: -9.72645, y: 3.5, z: 4.47681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1802796999}
+  m_Father: {fileID: 1594039232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &342226716
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342226714}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &342226717
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -231,6 +210,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342226714}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &342226719
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342226714}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &694799681
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,8 +379,8 @@ GameObject:
   - component: {fileID: 724743872}
   - component: {fileID: 724743876}
   - component: {fileID: 724743875}
-  - component: {fileID: 724743874}
-  - component: {fileID: 724743873}
+  - component: {fileID: 724743878}
+  - component: {fileID: 724743877}
   m_Layer: 0
   m_Name: Rim
   m_TagString: Untagged
@@ -397,47 +397,12 @@ Transform:
   m_GameObject: {fileID: 724743871}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.31855, y: -0.5, z: -0.09101009}
+  m_LocalPosition: {x: -9.72645, y: 2.5, z: 3.47681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1802796999}
+  m_Father: {fileID: 1594039232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &724743873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724743871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b894f87771e1f40419b9516e50200064, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoopScoreTrigger
-  progression: {fileID: 0}
-  ballTag: Ball
---- !u!65 &724743874
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724743871}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &724743875
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -495,6 +460,43 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724743871}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &724743877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724743871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b894f87771e1f40419b9516e50200064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoopScoreTrigger
+  hoopController: {fileID: 1802796998}
+  ballTag: Ball
+  minimumDownwardVelocity: 0.1
+  scoreCooldown: 0.5
+--- !u!65 &724743878
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724743871}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7, y: 0.7, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &745039340
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +640,7 @@ GameObject:
   - component: {fileID: 1364744160}
   - component: {fileID: 1364744161}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -917,6 +919,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1594039231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1594039232}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1594039232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594039231}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.045, y: -3, z: -3.56782}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 342226715}
+  - {fileID: 724743872}
+  m_Father: {fileID: 1802796999}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768097155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1802796999}
   - component: {fileID: 1802796998}
+  - component: {fileID: 1802797000}
   m_Layer: 0
   m_Name: Hoop
   m_TagString: Untagged
@@ -1060,8 +1096,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoopController
   difficultyProfile: {fileID: 11400000, guid: c7d2307515ed63146914f2b2c3ac531d, type: 2}
-  visualRoot: {fileID: 724743872}
-  movement: {fileID: 0}
+  visualRoot: {fileID: 1594039232}
+  scoreTriggerRoot: {fileID: 0}
+  movement: {fileID: 1802797000}
+  enablePrototypeInput: 1
+  currentScore: 0
 --- !u!4 &1802796999
 Transform:
   m_ObjectHideFlags: 0
@@ -1075,10 +1114,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 342226715}
-  - {fileID: 724743872}
+  - {fileID: 1594039232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1802797000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802796997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6b0d1c5d25f0b47aa4149a85c3fe4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoopMovement
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

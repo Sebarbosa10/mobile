@@ -15,15 +15,29 @@ MonoBehaviour:
   stages:
   - requiredScore: 0
     positionMode: 0
+    positionOffset: {x: 0, y: 0, z: 0}
     movementMode: 0
-    scale: 1
     movementAmplitude: 0
     movementSpeed: 1
-    positionOffset: {x: 0, y: 0, z: 0}
+    scale: 1
   - requiredScore: 2
     positionMode: 1
+    positionOffset: {x: 0, y: 0, z: 0}
     movementMode: 0
-    scale: 1.05
     movementAmplitude: 0
     movementSpeed: 1
+    scale: 1.05
+  - requiredScore: 4
+    positionMode: 2
     positionOffset: {x: 0, y: 0, z: 0}
+    movementMode: 0
+    movementAmplitude: 0.5
+    movementSpeed: 1
+    scale: 1.1
+  - requiredScore: 6
+    positionMode: 3
+    positionOffset: {x: 0, y: 0, z: 0}
+    movementMode: 0
+    movementAmplitude: 1
+    movementSpeed: 1
+    scale: 1.2

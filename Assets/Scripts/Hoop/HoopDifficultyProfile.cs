@@ -1,64 +1,69 @@
-using UnityEngine;
+    using UnityEngine;
 
-public enum HoopPositionMode
-{
-    Fixed,
-    Depth,
-    Horizontal,
-    Diagonal
-}
-
-public enum HoopMovementMode
-{
-    Static,
-    Moving
-}
-
-[CreateAssetMenu(
-    fileName = "HoopDifficultyProfile",
-    menuName = "Basketball/Hoop Difficulty Profile")]
-
-public sealed class HoopDifficultyProfile : ScriptableObject
-{
-    [SerializeField]
-    private HoopStage[] stages;
-
-    public HoopStage GetStageForScore(int score)
+    public enum HoopPositionMode
     {
-        if (stages == null || stages.Length == 0)
-            return default;
-
-        HoopStage selectedStage = stages[0];
-
-        for (int i = 0; i < stages.Length; i++)
-        {
-            if (score < stages[i].requiredScore)
-                break;
-
-            selectedStage = stages[i];
-        }
-
-        return selectedStage;
+        Fixed,
+        Depth,
+        Horizontal,
+        Diagonal
     }
-}
 
-[System.Serializable]
-public struct HoopStage
-{
-    [Min(0)]
-    public int requiredScore;
+    public enum HoopMovementMode
+    {
+        Static,
+        Moving
+    }
 
-    public HoopPositionMode positionMode;
-    public HoopMovementMode movementMode;
+    [CreateAssetMenu(
+        fileName = "HoopDifficultyProfile",
+        menuName = "Basketball/Hoop Difficulty Profile")]
+    public sealed class HoopDifficultyProfile : ScriptableObject
+    {
+        [SerializeField]
+        private HoopStage[] stages;
 
-    [Min(0f)]
-    public float scale;
+        public HoopStage GetStageForScore(int score)
+        {
+            if (stages == null || stages.Length == 0)
+                return default;
 
-    [Min(0f)]
-    public float movementAmplitude;
+            HoopStage selectedStage = stages[0];
 
-    [Min(0f)]
-    public float movementSpeed;
+            for (int i = 0; i < stages.Length; i++)
+            {
+                if (score < stages[i].requiredScore)
+                    break;
 
-    public Vector3 positionOffset;
-}
+                selectedStage = stages[i];
+            }
+
+            return selectedStage;
+        }
+    }
+
+    [System.Serializable]
+    public struct HoopStage
+    {
+        [Header("Progression")]
+        [Min(0)]
+        public int requiredScore;
+
+        [Header("Position")]
+        public HoopPositionMode positionMode;
+
+        [Tooltip("Posición fija respecto a la posición inicial del aro.")]
+        public Vector3 positionOffset;
+
+        [Header("Movement")]
+        public HoopMovementMode movementMode;
+
+        [Min(0f)]
+        public float movementAmplitude;
+
+        [Min(0f)]
+        public float movementSpeed;
+
+        [Header("Size")]
+        [Min(0.01f)]
+        public float scale;
+    }

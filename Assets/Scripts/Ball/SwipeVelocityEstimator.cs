@@ -1,16 +1,18 @@
 using UnityEngine;
 
 /// <summary>
-/// Calcula la velocidad y dirección de un gesto de swipe.
-/// No depende de GameObjects, Rigidbody ni cámaras.
+/// Calcula la dirección y velocidad de un swipe.
+///
+/// La dirección se obtiene principalmente del desplazamiento
+/// total del dedo, evitando que pequeños movimientos laterales
+/// al agarrar o soltar la pelota alteren demasiado el lanzamiento.
 /// </summary>
 public sealed class SwipeVelocityEstimator
 {
-    private const float MinimumAimDistancePixels = 20f;
+    private const float MinimumAimDistancePixels = 35f;
 
     private Vector2 startPosition;
     private Vector2 lastPosition;
-    private Vector2 lastMovementDirection;
 
     private float startTime;
     private float travelledDistance;
@@ -24,8 +26,6 @@ public sealed class SwipeVelocityEstimator
         startPosition = screenPosition;
         lastPosition = screenPosition;
 
-        lastMovementDirection = Vector2.zero;
-
         startTime = timestamp;
         travelledDistance = 0f;
 
@@ -37,7 +37,12 @@ public sealed class SwipeVelocityEstimator
         if (!isTracking)
             return;
 
-        RegisterMovement(screenPosition);
+        Vector2 movement =
+            screenPosition - lastPosition;
+
+        travelledDistance += movement.magnitude;
+
+        lastPosition = screenPosition;
     }
 
     public SwipeReleaseGesture Release(
@@ -47,54 +52,52 @@ public sealed class SwipeVelocityEstimator
         if (!isTracking)
             return default;
 
+        Move(screenPosition);
+
         isTracking = false;
 
-        RegisterMovement(screenPosition);
+        Vector2 totalMovement =
+            screenPosition - startPosition;
+
+        float distance =
+            totalMovement.magnitude;
 
         float elapsedTime =
             Mathf.Max(
                 timestamp - startTime,
-                Mathf.Epsilon);
+                0.001f);
 
-        Vector2 directAim =
-            screenPosition - startPosition;
+        Vector2 aimDirection;
 
-        Vector2 aimDirection =
-            directAim.magnitude >=
-            MinimumAimDistancePixels
-                ? directAim
-                : lastMovementDirection;
+        /*
+         * Si el dedo prácticamente no se movió,
+         * no intentamos inventar una dirección.
+         */
+        if (distance < MinimumAimDistancePixels)
+        {
+            aimDirection = Vector2.up;
+        }
+        else
+        {
+            /*
+             * La dirección ahora sale del recorrido TOTAL
+             * del dedo y no del último movimiento.
+             */
+            aimDirection =
+                totalMovement.normalized;
+        }
 
         float speed =
-            travelledDistance /
-            elapsedTime;
+            travelledDistance / elapsedTime;
 
         return new SwipeReleaseGesture(
             aimDirection,
             speed);
     }
-
-    private void RegisterMovement(
-        Vector2 screenPosition)
-    {
-        Vector2 movement =
-            screenPosition - lastPosition;
-
-        if (movement.sqrMagnitude >
-            Mathf.Epsilon)
-        {
-            lastMovementDirection = movement;
-        }
-
-        travelledDistance += movement.magnitude;
-
-        lastPosition = screenPosition;
-    }
 }
 
 /// <summary>
-/// Datos inmutables producidos al finalizar
-/// un gesto de lanzamiento.
+/// Información generada cuando termina un swipe.
 /// </summary>
 public readonly struct SwipeReleaseGesture
 {

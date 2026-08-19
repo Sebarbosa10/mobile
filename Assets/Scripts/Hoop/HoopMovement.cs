@@ -6,17 +6,18 @@ public sealed class HoopMovement : MonoBehaviour
     private Quaternion baseRotation;
 
     private HoopStage currentStage;
-    private float elapsedTime;
 
+    private float elapsedTime;
     private bool initialized;
     private bool movementEnabled;
 
     public void Initialize(
-        Vector3 position,
-        Quaternion rotation)
+        Vector3 initialPosition,
+        Quaternion initialRotation)
     {
-        basePosition = position;
-        baseRotation = rotation;
+        basePosition = initialPosition;
+        baseRotation = initialRotation;
+
         initialized = true;
     }
 
@@ -31,12 +32,12 @@ public sealed class HoopMovement : MonoBehaviour
         movementEnabled =
             stage.movementMode == HoopMovementMode.Moving;
 
-        if (!movementEnabled)
-        {
-            transform.SetPositionAndRotation(
-                basePosition + stage.positionOffset,
-                baseRotation);
-        }
+        // En etapas estáticas, Unity directamente deja de invocar Update en
+        // este componente en vez de llamarlo cada frame solo para hacer un
+        // early-return. Costo cero cuando el aro no se mueve.
+        enabled = movementEnabled;
+
+        ApplyCurrentPosition();
     }
 
     private void Update()
@@ -46,19 +47,32 @@ public sealed class HoopMovement : MonoBehaviour
 
         elapsedTime += Time.deltaTime;
 
-        Vector3 direction =
-            GetMovementDirection(
-                currentStage.positionMode);
+        ApplyCurrentPosition();
+    }
 
-        float offset =
-            Mathf.Sin(
-                elapsedTime * currentStage.movementSpeed)
-            * currentStage.movementAmplitude;
-
+    private void ApplyCurrentPosition()
+    {
         Vector3 position =
-            basePosition
-            + currentStage.positionOffset
-            + direction * offset;
+            basePosition +
+            currentStage.positionOffset;
+
+        if (movementEnabled)
+        {
+            Vector3 direction =
+                GetMovementDirection(
+                    currentStage.positionMode);
+
+            float movementOffset =
+                Mathf.Sin(
+                    elapsedTime *
+                    currentStage.movementSpeed)
+                *
+                currentStage.movementAmplitude;
+
+            position +=
+                direction *
+                movementOffset;
+        }
 
         transform.SetPositionAndRotation(
             position,
@@ -68,18 +82,22 @@ public sealed class HoopMovement : MonoBehaviour
     private static Vector3 GetMovementDirection(
         HoopPositionMode mode)
     {
-        return mode switch
+        switch (mode)
         {
-            HoopPositionMode.Depth =>
-                Vector3.forward,
+            case HoopPositionMode.Depth:
+                return Vector3.forward;
 
-            HoopPositionMode.Horizontal =>
-                Vector3.right,
+            case HoopPositionMode.Horizontal:
+                return Vector3.right;
 
-            HoopPositionMode.Diagonal =>
-                (Vector3.right + Vector3.forward).normalized,
+            case HoopPositionMode.Diagonal:
+                return (
+                    Vector3.right +
+                    Vector3.forward
+                ).normalized;
 
-            _ => Vector3.zero
-        };
+            default:
+                return Vector3.zero;
+        }
     }
 }
