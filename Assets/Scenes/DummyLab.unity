@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 1364744159}
   - component: {fileID: 1364744160}
   - component: {fileID: 1364744161}
+  - component: {fileID: 1364744162}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -806,6 +807,25 @@ MonoBehaviour:
   blockingLayers:
     serializedVersion: 2
     m_Bits: 51
+--- !u!114 &1364744162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364744152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84c8227d3859f142a77ba708061b5de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallShakeColorChanger
+  shakeThreshold: 2.5
+  shakeCooldown: 0.5
+  colorPalette:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 1, g: 0.45945948, b: 0, a: 1}
+  - {r: 0, g: 0.41863346, b: 1, a: 1}
+  - {r: 0.2871106, g: 0.8962264, b: 0.17332679, a: 1}
 --- !u!1 &1394143104
 GameObject:
   m_ObjectHideFlags: 0
