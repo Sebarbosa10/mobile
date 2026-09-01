@@ -31,6 +31,9 @@ public sealed class HoopController : MonoBehaviour
     public int CurrentScore =>
         currentScore;
 
+    public float CurrentShotTimeLimit =>
+        currentStage.shotTimeLimit;
+
     private HoopStage currentStage;
 
     private void Awake()
