@@ -20,6 +20,7 @@ MonoBehaviour:
     movementAmplitude: 0
     movementSpeed: 1
     scale: 1
+    shotTimeLimit: 6
   - requiredScore: 2
     positionMode: 1
     positionOffset: {x: 0, y: 0, z: 0}
@@ -27,6 +28,7 @@ MonoBehaviour:
     movementAmplitude: 0
     movementSpeed: 1
     scale: 1.05
+    shotTimeLimit: 5
   - requiredScore: 4
     positionMode: 2
     positionOffset: {x: 0, y: 0, z: 0}
@@ -34,6 +36,7 @@ MonoBehaviour:
     movementAmplitude: 0.5
     movementSpeed: 1
     scale: 1.1
+    shotTimeLimit: 4
   - requiredScore: 6
     positionMode: 3
     positionOffset: {x: 0, y: 0, z: 0}
@@ -41,3 +44,4 @@ MonoBehaviour:
     movementAmplitude: 1
     movementSpeed: 1
     scale: 1.2
+    shotTimeLimit: 3

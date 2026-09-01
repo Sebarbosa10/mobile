@@ -89,6 +89,15 @@ public sealed class BallLauncher : MonoBehaviour
         rigidbodyComponent.collisionDetectionMode =
             CollisionDetectionMode.ContinuousDynamic;
 
+        /*
+         * Sin interpolación, un Rigidbody kinematic movido con
+         * MovePosition en FixedUpdate se ve "a los saltos" en
+         * pantallas con refresh rate más alto que el physics
+         * timestep. Esto es lo que hace que el drag se sienta tosco.
+         */
+        rigidbodyComponent.interpolation =
+            RigidbodyInterpolation.Interpolate;
+
         SetHeldPhysicsState();
 
         state = BallLaunchState.Ready;
@@ -170,7 +179,7 @@ public sealed class BallLauncher : MonoBehaviour
         pendingScreenPosition = screenPosition;
         hasPendingMove = true;
 
-        gestureEstimator.Move(screenPosition);
+        gestureEstimator.Move(screenPosition, Time.unscaledTime);
     }
 
     private void ReleaseThrow(Vector2 screenPosition)
@@ -209,6 +218,30 @@ public sealed class BallLauncher : MonoBehaviour
             QueryTriggerInteraction.Ignore);
 
         return hitSomething && hit.collider == ballCollider;
+    }
+
+    /// <summary>
+    /// True cuando la pelota está lista para ser agarrada.
+    /// Usado por sistemas externos (por ejemplo, un reloj de intento)
+    /// que necesitan saber cuándo empieza un intento nuevo.
+    /// </summary>
+    public bool IsReady =>
+        state == BallLaunchState.Ready;
+
+    /// <summary>
+    /// Fuerza el reinicio inmediato de la pelota sin importar el
+    /// estado actual (agarrada, en vuelo, etc.). A diferencia del
+    /// reinicio normal por contacto con el suelo, este no espera
+    /// resetDelay: se usa para cortar un intento en seco, por ejemplo
+    /// cuando se agota el tiempo disponible.
+    /// </summary>
+    public void ForceReset()
+    {
+        CancelInvoke(nameof(ResetBall));
+
+        state = BallLaunchState.ResetScheduled;
+
+        ResetBall();
     }
 
     private void OnCollisionEnter(Collision collision)
