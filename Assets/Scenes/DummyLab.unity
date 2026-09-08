@@ -784,6 +784,7 @@ MonoBehaviour:
   maxThrowSpeed: 20
   swipeSpeedForMaxThrow: 1200
   upwardArc: 0.7
+  maxAimDeviationDegrees: 40
   raycastDistance: 100
   selectableLayers:
     serializedVersion: 2
@@ -837,7 +838,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8cf13beb9744a5aa4e7ae40c5732f80, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallShotClock
   ballLauncher: {fileID: 1364744160}
   hoopController: {fileID: 1802796998}
@@ -1133,7 +1134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoopController
   difficultyProfile: {fileID: 11400000, guid: c7d2307515ed63146914f2b2c3ac531d, type: 2}
   visualRoot: {fileID: 1594039232}
-  scoreTriggerRoot: {fileID: 0}
+  scoreTriggerRoot: {fileID: 724743872}
   movement: {fileID: 1802797000}
   enablePrototypeInput: 1
   currentScore: 0

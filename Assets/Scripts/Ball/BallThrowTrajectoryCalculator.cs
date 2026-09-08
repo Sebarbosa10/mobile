@@ -46,8 +46,19 @@ public sealed class BallThrowTrajectoryCalculator
                 gesture.Speed /
                 swipeSpeedForMaxThrow);
 
+        /*
+         * Con una respuesta lineal hace falta un swipe casi al
+         * límite para sentir potencia real. Este ease-out hace que
+         * un esfuerzo medio ya se sienta fuerte (en x=0.5 da 0.75
+         * en vez de 0.5), sin tocar el techo de velocidad.
+         */
+        float easedSpeed =
+            1f -
+            (1f - normalizedSpeed) *
+            (1f - normalizedSpeed);
+
         float launchSpeed =
-            normalizedSpeed *
+            easedSpeed *
             maxThrowSpeed *
             forceMultiplier;
 
