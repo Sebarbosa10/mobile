@@ -31,8 +31,13 @@ public sealed class HoopController : MonoBehaviour
     public int CurrentScore =>
         currentScore;
 
-    public float CurrentShotTimeLimit =>
-        currentStage.shotTimeLimit;
+    /// <summary>
+    /// Se dispara cada vez que se registra una encestada (AddPoint),
+    /// pero no cuando el puntaje se fuerza a un valor puntual (por
+    /// ejemplo, al reiniciar la partida). Lo usa BallShotClock para
+    /// reiniciar el timer del modo por récord.
+    /// </summary>
+    public event System.Action ShotScored;
 
     private HoopStage currentStage;
 
@@ -84,6 +89,7 @@ public sealed class HoopController : MonoBehaviour
     public void AddPoint()
     {
         SetScore(currentScore + 1);
+        ShotScored?.Invoke();
     }
 
     public void SetScore(int score)

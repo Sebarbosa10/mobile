@@ -1,19 +1,22 @@
 using UnityEngine;
 
 /// <summary>
-/// Cuenta atrás el tiempo disponible para completar un intento
-/// (agarrar, apuntar, lanzar y encestar). El límite depende de la
-/// etapa de dificultad actual del aro, así que la presión del reloj
-/// escala junto con el resto de la dificultad a medida que sube el
-/// puntaje.
+/// Motor del modo "por récord": el jugador debe encestar antes de que se
+/// agote un timer fijo. Cada encestada reinicia el timer; un tiro errado
+/// no lo hace, así que la presión se acumula hasta la próxima encestada.
 ///
-/// Los intentos son ilimitados: si el tiempo se agota, la pelota
-/// simplemente se reinicia como si hubiera fallado (BallLauncher.
-/// ForceReset) y arranca un intento nuevo con el límite que
-/// corresponda al puntaje actual.
+/// Si el timer llega a cero mientras la pelota ya está en el aire, el
+/// tiro se deja resolver: si encesta, vale igual y el timer se reinicia
+/// como cualquier otra encestada. Recién si esa pelota cae sin encestar
+/// (o si el timer llega a cero sin que haya ningún tiro en curso)
+/// termina la partida: la pelota se congela, el puntaje se compara
+/// contra el récord guardado (PlayerPrefs), y el jugador reinicia desde
+/// cero con el botón de la pantalla de Game Over.
 /// </summary>
 public sealed class BallShotClock : MonoBehaviour
 {
+    private const string HighScoreKey = "HighScore";
+
     [Header("References")]
     [SerializeField]
     private BallLauncher ballLauncher;
@@ -21,60 +24,170 @@ public sealed class BallShotClock : MonoBehaviour
     [SerializeField]
     private HoopController hoopController;
 
-    [Header("Fallback")]
-    [Tooltip("Límite usado si no hay un HoopController asignado.")]
+    [Header("Timing")]
+    [Tooltip("Segundos disponibles para encestar antes de perder. Se reinicia con cada encestada.")]
     [SerializeField, Min(0.1f)]
-    private float fallbackTimeLimit = 5f;
+    private float timeLimit = 5f;
+
+    private SurvivalHud hud;
 
     private float remainingTime;
-    private bool wasReady;
+    private bool isGameOver;
+    private bool pendingGameOver;
+    private int bestScore;
 
     public float RemainingTime =>
         remainingTime;
 
-    public float CurrentTimeLimit =>
-        Mathf.Max(
-            hoopController != null
-                ? hoopController.CurrentShotTimeLimit
-                : fallbackTimeLimit,
-            0.1f);
+    public float TimeLimit =>
+        timeLimit;
+
+    private void Awake()
+    {
+        hud = GetComponent<SurvivalHud>();
+
+        if (hud == null)
+            hud = gameObject.AddComponent<SurvivalHud>();
+
+        bestScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+    }
+
+    private void OnEnable()
+    {
+        hud.RestartRequested += HandleRestartRequested;
+
+        if (hoopController != null)
+            hoopController.ShotScored += HandleShotScored;
+
+        if (ballLauncher != null)
+            ballLauncher.BallLanded += HandleBallLanded;
+    }
+
+    private void OnDisable()
+    {
+        hud.RestartRequested -= HandleRestartRequested;
+
+        if (hoopController != null)
+            hoopController.ShotScored -= HandleShotScored;
+
+        if (ballLauncher != null)
+            ballLauncher.BallLanded -= HandleBallLanded;
+    }
 
     private void Start()
     {
-        BeginNewAttempt();
+        StartRun();
     }
 
     private void Update()
     {
-        if (ballLauncher == null)
+        hud.SetScore(
+            hoopController != null ? hoopController.CurrentScore : 0);
+
+        hud.SetRecord(bestScore);
+
+        if (isGameOver)
             return;
 
-        /*
-         * Un intento nuevo también puede empezar sin que nosotros lo
-         * forcemos (la pelota tocó el suelo y se reinició sola). Acá
-         * detectamos esa transición para arrancar el reloj con el
-         * límite que corresponda al puntaje ya actualizado.
-         */
-        bool isReady = ballLauncher.IsReady;
-
-        if (isReady && !wasReady)
+        if (!pendingGameOver)
         {
-            BeginNewAttempt();
+            remainingTime -= Time.deltaTime;
+
+            if (remainingTime <= 0f)
+            {
+                remainingTime = 0f;
+                HandleTimeExpired();
+            }
         }
 
-        wasReady = isReady;
-
-        remainingTime -= Time.deltaTime;
-
-        if (remainingTime > 0f)
-            return;
-
-        ballLauncher.ForceReset();
-        BeginNewAttempt();
+        hud.SetRemainingTime(
+            Mathf.Max(remainingTime, 0f),
+            timeLimit);
     }
 
-    private void BeginNewAttempt()
+    /// <summary>
+    /// El timer llegó a cero. Si hay un tiro en el aire, lo dejamos
+    /// resolver (puede seguir encestando); recién si no hay ningún
+    /// tiro en curso la partida termina en el acto.
+    /// </summary>
+    private void HandleTimeExpired()
     {
-        remainingTime = CurrentTimeLimit;
+        bool shotInFlight =
+            ballLauncher != null && ballLauncher.IsLaunched;
+
+        if (shotInFlight)
+        {
+            pendingGameOver = true;
+            return;
+        }
+
+        EndRun();
+    }
+
+    private void HandleShotScored()
+    {
+        pendingGameOver = false;
+        remainingTime = timeLimit;
+    }
+
+    private void HandleBallLanded()
+    {
+        if (!pendingGameOver)
+            return;
+
+        EndRun();
+    }
+
+    private void HandleRestartRequested()
+    {
+        if (!isGameOver)
+            return;
+
+        hoopController?.SetScore(0);
+
+        StartRun();
+    }
+
+    private void StartRun()
+    {
+        isGameOver = false;
+        pendingGameOver = false;
+        remainingTime = timeLimit;
+
+        if (ballLauncher != null)
+        {
+            ballLauncher.ForceReset();
+            ballLauncher.enabled = true;
+        }
+
+        hud.HideGameOver();
+    }
+
+    private void EndRun()
+    {
+        isGameOver = true;
+        pendingGameOver = false;
+        remainingTime = 0f;
+
+        if (ballLauncher != null)
+        {
+            ballLauncher.ForceReset();
+            ballLauncher.enabled = false;
+        }
+
+        int finalScore =
+            hoopController != null ? hoopController.CurrentScore : 0;
+
+        bool isNewRecord = finalScore > bestScore;
+
+        if (isNewRecord)
+        {
+            bestScore = finalScore;
+
+            PlayerPrefs.SetInt(HighScoreKey, bestScore);
+            PlayerPrefs.Save();
+        }
+
+        hud.ShowGameOver(finalScore, bestScore, isNewRecord);
     }
 }

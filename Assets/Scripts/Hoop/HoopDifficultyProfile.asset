@@ -20,28 +20,24 @@ MonoBehaviour:
     movementAmplitude: 0
     movementSpeed: 1
     scale: 1
-    shotTimeLimit: 6
   - requiredScore: 2
     positionMode: 1
     positionOffset: {x: 0, y: 0, z: 0}
-    movementMode: 0
-    movementAmplitude: 0
-    movementSpeed: 1
+    movementMode: 1
+    movementAmplitude: 0.4
+    movementSpeed: 1.2
     scale: 1.05
-    shotTimeLimit: 5
   - requiredScore: 4
     positionMode: 2
     positionOffset: {x: 0, y: 0, z: 0}
-    movementMode: 0
-    movementAmplitude: 0.5
-    movementSpeed: 1
+    movementMode: 1
+    movementAmplitude: 0.7
+    movementSpeed: 1.6
     scale: 1.1
-    shotTimeLimit: 4
   - requiredScore: 6
     positionMode: 3
     positionOffset: {x: 0, y: 0, z: 0}
-    movementMode: 0
+    movementMode: 1
     movementAmplitude: 1
-    movementSpeed: 1
+    movementSpeed: 2.2
     scale: 1.2
-    shotTimeLimit: 3
