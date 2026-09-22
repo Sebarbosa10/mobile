@@ -46,7 +46,7 @@ public sealed class BallLauncher : MonoBehaviour
 
     [Header("Reinicio")]
     [SerializeField]
-    private string groundTag = "Ground";
+    private string groundTag = "ground";
 
     private readonly SwipeVelocityEstimator gestureEstimator = new();
 
