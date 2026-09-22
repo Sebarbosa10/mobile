@@ -5,7 +5,9 @@
         Fixed,
         Depth,
         Horizontal,
-        Diagonal
+        Diagonal,
+        Circular,
+        Vertical
     }
 
     public enum HoopMovementMode
