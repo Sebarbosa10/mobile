@@ -3,21 +3,39 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Interfaz mínima del modo por récord: puntaje, récord y timer arriba
-/// de la pantalla, más una pantalla de Game Over con botón de reinicio.
+/// Interfaz del modo por récord: puntaje, récord y timer arriba de la
+/// pantalla, más una pantalla de Game Over con botones de reinicio y
+/// menú.
 ///
-/// Se arma enteramente por código (ver UguiFactory), así BallShotClock
-/// puede agregarla como componente propio sin necesitar wiring manual
-/// en el Inspector.
+/// Toda la UI ya existe armada en la escena (Canvas, textos, botones):
+/// este componente no instancia nada, solo lee/escribe sobre esas
+/// referencias y las activa/desactiva. Así no hay costo de generar UI
+/// en tiempo de ejecución cada vez que arranca la partida.
 /// </summary>
 public sealed class SurvivalHud : MonoBehaviour
 {
+    [Header("HUD")]
+    [SerializeField]
     private Text scoreText;
+
+    [SerializeField]
     private Text recordText;
+
+    [SerializeField]
     private Text timerText;
 
+    [Header("Game Over")]
+    [SerializeField]
     private GameObject gameOverPanel;
+
+    [SerializeField]
     private Text gameOverSummaryText;
+
+    [SerializeField]
+    private Button restartButton;
+
+    [SerializeField]
+    private Button exitButton;
 
     private readonly Color urgentColor = new(0.9f, 0.2f, 0.2f);
     private readonly Color calmColor = Color.white;
@@ -27,8 +45,8 @@ public sealed class SurvivalHud : MonoBehaviour
 
     private void Awake()
     {
-        UguiFactory.EnsureEventSystem();
-        BuildHud();
+        restartButton.onClick.AddListener(() => RestartRequested?.Invoke());
+        exitButton.onClick.AddListener(() => ExitRequested?.Invoke());
     }
 
     public void SetScore(int score)
@@ -60,64 +78,6 @@ public sealed class SurvivalHud : MonoBehaviour
 
     public void HideGameOver()
     {
-        gameOverPanel.SetActive(false);
-    }
-
-    private void BuildHud()
-    {
-        GameObject canvasObject = UguiFactory.CreateCanvas(transform, "SurvivalHud");
-
-        scoreText = UguiFactory.CreateText(
-            canvasObject.transform, "ScoreText",
-            new Vector2(0, -140), 64, FontStyle.Normal);
-
-        recordText = UguiFactory.CreateText(
-            canvasObject.transform, "RecordText",
-            new Vector2(0, -210), 40, FontStyle.Normal);
-
-        timerText = UguiFactory.CreateText(
-            canvasObject.transform, "TimerText",
-            new Vector2(0, -320), 100, FontStyle.Bold);
-
-        BuildGameOverPanel(canvasObject.transform);
-    }
-
-    private void BuildGameOverPanel(Transform parent)
-    {
-        gameOverPanel = new GameObject("GameOverPanel", typeof(Image));
-        gameOverPanel.transform.SetParent(parent, false);
-
-        RectTransform panelRect = gameOverPanel.GetComponent<RectTransform>();
-        panelRect.anchorMin = Vector2.zero;
-        panelRect.anchorMax = Vector2.one;
-        panelRect.offsetMin = Vector2.zero;
-        panelRect.offsetMax = Vector2.zero;
-
-        gameOverPanel.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.75f);
-
-        Text title = UguiFactory.CreateText(
-            gameOverPanel.transform, "Title",
-            new Vector2(0, 180), 90, FontStyle.Bold);
-        title.text = "PERDISTE";
-
-        gameOverSummaryText = UguiFactory.CreateText(
-            gameOverPanel.transform, "Summary",
-            new Vector2(0, 30), 52, FontStyle.Normal);
-
-        Button restartButton = UguiFactory.CreateButton(
-            gameOverPanel.transform, "RestartButton",
-            new Vector2(0, -100), new Vector2(480, 140),
-            "REINTENTAR", new Color(0.89f, 0.44f, 0.13f, 1f));
-
-        restartButton.onClick.AddListener(() => RestartRequested?.Invoke());
-
-        Button exitButton = UguiFactory.CreateButton(
-            gameOverPanel.transform, "ExitButton",
-            new Vector2(0, -280), new Vector2(480, 140),
-            "MENÚ", new Color(0.3f, 0.3f, 0.3f, 1f));
-
-        exitButton.onClick.AddListener(() => ExitRequested?.Invoke());
-
         gameOverPanel.SetActive(false);
     }
 }
