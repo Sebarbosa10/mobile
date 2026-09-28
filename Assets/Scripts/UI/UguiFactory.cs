@@ -23,6 +23,12 @@ public static class UguiFactory
             typeof(InputSystemUIInputModule));
     }
 
+    /// <summary>
+    /// Crea el Canvas y devuelve su área segura (ver SafeAreaFitter),
+    /// no el Canvas en sí: todo lo que se parentee al GameObject
+    /// devuelto queda automáticamente fuera de notches, cámaras
+    /// perforadas y barras de gestos.
+    /// </summary>
     public static GameObject CreateCanvas(Transform parent, string name)
     {
         GameObject canvasObject = new(
@@ -42,7 +48,23 @@ public static class UguiFactory
         scaler.referenceResolution = new Vector2(1080, 1920);
         scaler.matchWidthOrHeight = 0.5f;
 
-        return canvasObject;
+        return CreateSafeArea(canvasObject.transform);
+    }
+
+    private static GameObject CreateSafeArea(Transform parent)
+    {
+        GameObject safeAreaObject = new("SafeArea", typeof(RectTransform));
+        safeAreaObject.transform.SetParent(parent, false);
+
+        RectTransform rect = safeAreaObject.GetComponent<RectTransform>();
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+
+        safeAreaObject.AddComponent<SafeAreaFitter>();
+
+        return safeAreaObject;
     }
 
     public static Text CreateText(
