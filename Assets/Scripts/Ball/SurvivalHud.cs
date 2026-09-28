@@ -23,6 +23,7 @@ public sealed class SurvivalHud : MonoBehaviour
     private readonly Color calmColor = Color.white;
 
     public event Action RestartRequested;
+    public event Action ExitRequested;
 
     private void Awake()
     {
@@ -68,15 +69,15 @@ public sealed class SurvivalHud : MonoBehaviour
 
         scoreText = UguiFactory.CreateText(
             canvasObject.transform, "ScoreText",
-            new Vector2(0, -60), 64, FontStyle.Normal);
+            new Vector2(0, -140), 64, FontStyle.Normal);
 
         recordText = UguiFactory.CreateText(
             canvasObject.transform, "RecordText",
-            new Vector2(0, -130), 40, FontStyle.Normal);
+            new Vector2(0, -210), 40, FontStyle.Normal);
 
         timerText = UguiFactory.CreateText(
             canvasObject.transform, "TimerText",
-            new Vector2(0, -230), 100, FontStyle.Bold);
+            new Vector2(0, -320), 100, FontStyle.Bold);
 
         BuildGameOverPanel(canvasObject.transform);
     }
@@ -105,10 +106,17 @@ public sealed class SurvivalHud : MonoBehaviour
 
         Button restartButton = UguiFactory.CreateButton(
             gameOverPanel.transform, "RestartButton",
-            new Vector2(0, -180), new Vector2(480, 140),
+            new Vector2(0, -100), new Vector2(480, 140),
             "REINTENTAR", new Color(0.89f, 0.44f, 0.13f, 1f));
 
         restartButton.onClick.AddListener(() => RestartRequested?.Invoke());
+
+        Button exitButton = UguiFactory.CreateButton(
+            gameOverPanel.transform, "ExitButton",
+            new Vector2(0, -280), new Vector2(480, 140),
+            "MENÚ", new Color(0.3f, 0.3f, 0.3f, 1f));
+
+        exitButton.onClick.AddListener(() => ExitRequested?.Invoke());
 
         gameOverPanel.SetActive(false);
     }

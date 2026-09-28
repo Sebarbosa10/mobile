@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Motor del modo "por récord": el jugador debe encestar antes de que se
@@ -16,6 +17,10 @@ using UnityEngine;
 public sealed class BallShotClock : MonoBehaviour
 {
     private const string HighScoreKey = "HighScore";
+
+    [Header("Navegación")]
+    [SerializeField]
+    private string menuSceneName = "MainMenu";
 
     [Header("References")]
     [SerializeField]
@@ -55,6 +60,7 @@ public sealed class BallShotClock : MonoBehaviour
     private void OnEnable()
     {
         hud.RestartRequested += HandleRestartRequested;
+        hud.ExitRequested += HandleExitRequested;
 
         if (hoopController != null)
             hoopController.ShotScored += HandleShotScored;
@@ -66,6 +72,7 @@ public sealed class BallShotClock : MonoBehaviour
     private void OnDisable()
     {
         hud.RestartRequested -= HandleRestartRequested;
+        hud.ExitRequested -= HandleExitRequested;
 
         if (hoopController != null)
             hoopController.ShotScored -= HandleShotScored;
@@ -146,6 +153,14 @@ public sealed class BallShotClock : MonoBehaviour
         hoopController?.SetScore(0);
 
         StartRun();
+    }
+
+    private void HandleExitRequested()
+    {
+        if (!isGameOver)
+            return;
+
+        SceneManager.LoadScene(menuSceneName);
     }
 
     private void StartRun()
