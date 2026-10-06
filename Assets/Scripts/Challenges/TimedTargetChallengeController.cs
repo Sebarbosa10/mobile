@@ -26,6 +26,7 @@ public sealed class TimedTargetChallengeController : MonoBehaviour
     private float timeLimit = 20f;
 
     private ChallengeHud hud;
+    private PauseMenu pauseMenu;
     private int score;
     private float remainingTime;
     private bool isFinished;
@@ -36,12 +37,22 @@ public sealed class TimedTargetChallengeController : MonoBehaviour
 
         if (hud == null)
             hud = gameObject.AddComponent<ChallengeHud>();
+
+        pauseMenu = GetComponent<PauseMenu>();
+
+        if (pauseMenu == null)
+            pauseMenu = gameObject.AddComponent<PauseMenu>();
+
+        pauseMenu.SetBallLauncher(ballLauncher);
     }
 
     private void OnEnable()
     {
         hud.RestartRequested += HandleRestartRequested;
         hud.ExitRequested += HandleExitRequested;
+
+        pauseMenu.RestartRequested += HandleRestartRequested;
+        pauseMenu.ExitRequested += HandleExitRequested;
 
         foreach (HoopScoreTrigger hoop in hoops)
             if (hoop != null)
@@ -52,6 +63,9 @@ public sealed class TimedTargetChallengeController : MonoBehaviour
     {
         hud.RestartRequested -= HandleRestartRequested;
         hud.ExitRequested -= HandleExitRequested;
+
+        pauseMenu.RestartRequested -= HandleRestartRequested;
+        pauseMenu.ExitRequested -= HandleExitRequested;
 
         foreach (HoopScoreTrigger hoop in hoops)
             if (hoop != null)
@@ -114,6 +128,8 @@ public sealed class TimedTargetChallengeController : MonoBehaviour
 
     private void FreezeBall()
     {
+        pauseMenu.SetAvailable(false);
+
         if (ballLauncher == null)
             return;
 
@@ -123,11 +139,15 @@ public sealed class TimedTargetChallengeController : MonoBehaviour
 
     private void HandleRestartRequested()
     {
+        pauseMenu.ClearPause();
+
         StartChallenge();
     }
 
     private void HandleExitRequested()
     {
+        pauseMenu.ClearPause();
+
         SceneManager.LoadScene(menuSceneName);
     }
 
@@ -140,6 +160,7 @@ public sealed class TimedTargetChallengeController : MonoBehaviour
         hud.SetProgress("Puntos", 0, targetScore);
         hud.ShowTimer(timeLimit);
         hud.HideResult();
+        pauseMenu.SetAvailable(true);
 
         if (ballLauncher != null)
         {

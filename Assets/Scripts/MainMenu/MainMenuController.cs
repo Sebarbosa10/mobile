@@ -57,12 +57,20 @@ public sealed class MainMenuController : MonoBehaviour
 
         Text title = UguiFactory.CreateText(
             challengePanel.transform, "Title",
-            new Vector2(0, 260), 70, FontStyle.Bold);
+            new Vector2(0, -480), 70, FontStyle.Bold);
         title.text = "DESAFIOS";
 
-        CreateChallengeButton(challengePanel.transform, 1, new Vector2(0, 60), available: true);
-        CreateChallengeButton(challengePanel.transform, 2, new Vector2(0, -120), available: true);
-        CreateChallengeButton(challengePanel.transform, 3, new Vector2(0, -300), available: true);
+        // CreateText ancla al borde superior: estas Y se miden desde arriba.
+        Text progress = UguiFactory.CreateText(
+            challengePanel.transform, "Progress",
+            new Vector2(0, -620), 36, FontStyle.Normal);
+        progress.text =
+            $"Encestadas en el endless: {ChallengeProgress.TotalBaskets}\n" +
+            $"Cada {ChallengeProgress.BasketsPerUnlock} desbloqueás un desafío";
+
+        CreateChallengeButton(challengePanel.transform, 1, new Vector2(0, 0));
+        CreateChallengeButton(challengePanel.transform, 2, new Vector2(0, -180));
+        CreateChallengeButton(challengePanel.transform, 3, new Vector2(0, -360));
 
         Button backButton = UguiFactory.CreateButton(
             challengePanel.transform, "BackButton",
@@ -77,16 +85,17 @@ public sealed class MainMenuController : MonoBehaviour
     private void CreateChallengeButton(
         Transform parent,
         int number,
-        Vector2 anchoredPosition,
-        bool available)
+        Vector2 anchoredPosition)
     {
+        bool available = ChallengeProgress.IsUnlocked(number);
+
         Color color = available
             ? new Color(0.19607843f, 0.4117647f, 0.7607843f, 1f)
             : new Color(0.35f, 0.35f, 0.35f, 1f);
 
         string label = available
             ? $"DESAFIO {number}"
-            : $"DESAFIO {number} (PRONTO)";
+            : $"DESAFIO {number}\n<size=32>BLOQUEADO · {ChallengeProgress.RequiredBaskets(number)} ENCESTADAS</size>";
 
         Button button = UguiFactory.CreateButton(
             parent, $"Challenge{number}Button",

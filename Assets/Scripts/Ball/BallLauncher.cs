@@ -1,6 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.UI;
 
 /// <summary>
 /// Controla el ciclo completo de interacción de lanzamiento:
@@ -13,8 +16,12 @@ using UnityEngine.InputSystem.Controls;
 ///   ↓
 /// Ready
 ///
-/// Gestiona el input táctil, selección de la pelota,
-/// movimiento durante el arrastre, lanzamiento y reinicio.
+/// Gestiona el input táctil, movimiento durante el arrastre,
+/// lanzamiento y reinicio.
+///
+/// El toque puede empezar en cualquier parte de la pantalla: la
+/// pelota no salta hasta el dedo, sino que se desplaza lo mismo que
+/// el dedo desde donde empezó el toque.
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
@@ -37,13 +44,6 @@ public sealed class BallLauncher : MonoBehaviour
     [SerializeField, Range(0f, 90f)]
     private float maxAimDeviationDegrees = 40f;
 
-    [Header("Selección")]
-    [SerializeField, Min(0.1f)]
-    private float raycastDistance = 100f;
-
-    [SerializeField]
-    private LayerMask selectableLayers = Physics.DefaultRaycastLayers;
-
     [Header("Reinicio")]
     [SerializeField]
     private string groundTag = "ground";
@@ -52,7 +52,6 @@ public sealed class BallLauncher : MonoBehaviour
 
     private Camera mainCamera;
     private Rigidbody rigidbodyComponent;
-    private Collider ballCollider;
 
     private BallHoldPositionConstraint holdPositionConstraint;
     private BallThrowTrajectoryCalculator trajectoryCalculator;
@@ -64,8 +63,19 @@ public sealed class BallLauncher : MonoBehaviour
 
     private float holdDepth;
 
+    /*
+     * Posición en pantalla de la pelota y del dedo al empezar el
+     * toque. Durante el arrastre la pelota se ubica en
+     * ballScreenAtGrab + (dedo - touchScreenAtGrab).
+     */
+    private Vector2 ballScreenAtGrab;
+    private Vector2 touchScreenAtGrab;
+
     private Vector2 pendingScreenPosition;
     private bool hasPendingMove;
+
+    private readonly List<RaycastResult> uiHits = new();
+    private PointerEventData uiPointerData;
 
     /// <summary>
     /// Se dispara apenas la pelota toca el suelo tras un lanzamiento
@@ -79,7 +89,6 @@ public sealed class BallLauncher : MonoBehaviour
     private void Awake()
     {
         rigidbodyComponent = GetComponent<Rigidbody>();
-        ballCollider = GetComponent<Collider>();
         holdPositionConstraint = GetComponent<BallHoldPositionConstraint>();
 
         mainCamera = Camera.main;
@@ -159,17 +168,26 @@ public sealed class BallLauncher : MonoBehaviour
         if (state == BallLaunchState.Launched)
             return;
 
-        if (!IsSelected(screenPosition))
+        if (mainCamera == null)
+            return;
+
+        // Como el toque vale en cualquier parte de la pantalla, un toque
+        // sobre un botón del HUD (por ejemplo pausa) no debe agarrar la pelota.
+        if (IsOverButton(screenPosition))
             return;
 
         state = BallLaunchState.Held;
 
         SetHeldPhysicsState();
 
-        holdDepth = mainCamera.WorldToScreenPoint(
-            transform.position).z;
+        Vector3 ballScreenPoint =
+            mainCamera.WorldToScreenPoint(transform.position);
 
-        pendingScreenPosition = screenPosition;
+        holdDepth = ballScreenPoint.z;
+        ballScreenAtGrab = ballScreenPoint;
+        touchScreenAtGrab = screenPosition;
+
+        pendingScreenPosition = ballScreenAtGrab;
         hasPendingMove = false;
 
         gestureEstimator.Begin(
@@ -177,12 +195,37 @@ public sealed class BallLauncher : MonoBehaviour
             Time.unscaledTime);
     }
 
+    private bool IsOverButton(Vector2 screenPosition)
+    {
+        EventSystem eventSystem = EventSystem.current;
+
+        if (eventSystem == null)
+            return false;
+
+        uiPointerData ??= new PointerEventData(eventSystem);
+        uiPointerData.position = screenPosition;
+
+        uiHits.Clear();
+        eventSystem.RaycastAll(uiPointerData, uiHits);
+
+        // Solo los controles interactivos bloquean: los textos del HUD
+        // pueden recibir raycasts pero no deberían impedir el lanzamiento.
+        foreach (RaycastResult hit in uiHits)
+        {
+            if (hit.gameObject.GetComponentInParent<Selectable>() != null)
+                return true;
+        }
+
+        return false;
+    }
+
     private void MoveHold(Vector2 screenPosition)
     {
         if (state != BallLaunchState.Held)
             return;
 
-        pendingScreenPosition = screenPosition;
+        pendingScreenPosition =
+            ballScreenAtGrab + (screenPosition - touchScreenAtGrab);
         hasPendingMove = true;
 
         gestureEstimator.Move(screenPosition, Time.unscaledTime);
@@ -207,23 +250,6 @@ public sealed class BallLauncher : MonoBehaviour
             trajectoryCalculator.Calculate(
                 gesture,
                 mainCamera);
-    }
-
-    private bool IsSelected(Vector2 screenPosition)
-    {
-        if (mainCamera == null)
-            return false;
-
-        Ray ray = mainCamera.ScreenPointToRay(screenPosition);
-
-        bool hitSomething = Physics.Raycast(
-            ray,
-            out RaycastHit hit,
-            raycastDistance,
-            selectableLayers,
-            QueryTriggerInteraction.Ignore);
-
-        return hitSomething && hit.collider == ballCollider;
     }
 
     /// <summary>
