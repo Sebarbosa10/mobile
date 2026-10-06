@@ -31,6 +31,10 @@ public sealed class HoopController : MonoBehaviour
     public int CurrentScore =>
         currentScore;
 
+    /// <summary>Posición del aro en el mundo (para ubicar efectos de UI).</summary>
+    public Vector3 RimPosition =>
+        scoreTriggerRoot != null ? scoreTriggerRoot.position : transform.position;
+
     /// <summary>
     /// Se dispara cada vez que se registra una encestada (AddPoint),
     /// pero no cuando el puntaje se fuerza a un valor puntual (por
