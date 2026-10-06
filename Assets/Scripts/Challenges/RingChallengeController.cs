@@ -24,6 +24,7 @@ public sealed class RingChallengeController : MonoBehaviour
     private readonly Dictionary<HoopScoreTrigger, Color> originalColors = new();
 
     private ChallengeHud hud;
+    private PauseMenu pauseMenu;
     private bool isWon;
 
     private void Awake()
@@ -32,6 +33,13 @@ public sealed class RingChallengeController : MonoBehaviour
 
         if (hud == null)
             hud = gameObject.AddComponent<ChallengeHud>();
+
+        pauseMenu = GetComponent<PauseMenu>();
+
+        if (pauseMenu == null)
+            pauseMenu = gameObject.AddComponent<PauseMenu>();
+
+        pauseMenu.SetBallLauncher(ballLauncher);
 
         foreach (HoopScoreTrigger hoop in hoops)
         {
@@ -50,6 +58,9 @@ public sealed class RingChallengeController : MonoBehaviour
         hud.RestartRequested += HandleRestartRequested;
         hud.ExitRequested += HandleExitRequested;
 
+        pauseMenu.RestartRequested += HandleRestartRequested;
+        pauseMenu.ExitRequested += HandleExitRequested;
+
         foreach (HoopScoreTrigger hoop in hoops)
             if (hoop != null)
                 hoop.Scored += HandleHoopScored;
@@ -59,6 +70,9 @@ public sealed class RingChallengeController : MonoBehaviour
     {
         hud.RestartRequested -= HandleRestartRequested;
         hud.ExitRequested -= HandleExitRequested;
+
+        pauseMenu.RestartRequested -= HandleRestartRequested;
+        pauseMenu.ExitRequested -= HandleExitRequested;
 
         foreach (HoopScoreTrigger hoop in hoops)
             if (hoop != null)
@@ -98,16 +112,21 @@ public sealed class RingChallengeController : MonoBehaviour
             ballLauncher.enabled = false;
         }
 
+        pauseMenu.SetAvailable(false);
         hud.ShowResult(true, "¡Encestaste los 5 aros!");
     }
 
     private void HandleRestartRequested()
     {
+        pauseMenu.ClearPause();
+
         StartChallenge();
     }
 
     private void HandleExitRequested()
     {
+        pauseMenu.ClearPause();
+
         SceneManager.LoadScene(menuSceneName);
     }
 
@@ -124,6 +143,7 @@ public sealed class RingChallengeController : MonoBehaviour
 
         hud.SetProgress("Aros", 0, hoops.Length);
         hud.HideResult();
+        pauseMenu.SetAvailable(true);
 
         if (ballLauncher != null)
         {

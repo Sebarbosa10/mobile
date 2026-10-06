@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 /// termina la partida: la pelota se congela, el puntaje se compara
 /// contra el récord guardado (PlayerPrefs), y el jugador reinicia desde
 /// cero con el botón de la pantalla de Game Over.
+///
+/// La partida se puede pausar (ver PauseMenu). Reiniciar o volver al
+/// menú desde la pausa también cuenta el puntaje para el récord.
 /// </summary>
 public sealed class BallShotClock : MonoBehaviour
 {
@@ -37,6 +40,8 @@ public sealed class BallShotClock : MonoBehaviour
     [SerializeField, Min(0.1f)]
     private float timeLimit = 7f;
 
+    private PauseMenu pauseMenu;
+
     private float remainingTime;
     private bool isGameOver;
     private bool pendingGameOver;
@@ -48,15 +53,28 @@ public sealed class BallShotClock : MonoBehaviour
     public float TimeLimit =>
         timeLimit;
 
+    private int CurrentScore =>
+        hoopController != null ? hoopController.CurrentScore : 0;
+
     private void Awake()
     {
         bestScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+
+        pauseMenu = GetComponent<PauseMenu>();
+
+        if (pauseMenu == null)
+            pauseMenu = gameObject.AddComponent<PauseMenu>();
+
+        pauseMenu.SetBallLauncher(ballLauncher);
     }
 
     private void OnEnable()
     {
         hud.RestartRequested += HandleRestartRequested;
         hud.ExitRequested += HandleExitRequested;
+
+        pauseMenu.RestartRequested += HandleRestartRequested;
+        pauseMenu.ExitRequested += HandleExitRequested;
 
         if (hoopController != null)
             hoopController.ShotScored += HandleShotScored;
@@ -69,6 +87,9 @@ public sealed class BallShotClock : MonoBehaviour
     {
         hud.RestartRequested -= HandleRestartRequested;
         hud.ExitRequested -= HandleExitRequested;
+
+        pauseMenu.RestartRequested -= HandleRestartRequested;
+        pauseMenu.ExitRequested -= HandleExitRequested;
 
         if (hoopController != null)
             hoopController.ShotScored -= HandleShotScored;
@@ -84,12 +105,11 @@ public sealed class BallShotClock : MonoBehaviour
 
     private void Update()
     {
-        hud.SetScore(
-            hoopController != null ? hoopController.CurrentScore : 0);
+        hud.SetScore(CurrentScore);
 
         hud.SetRecord(bestScore);
 
-        if (isGameOver)
+        if (isGameOver || pauseMenu.IsPaused)
             return;
 
         if (!pendingGameOver)
@@ -131,6 +151,16 @@ public sealed class BallShotClock : MonoBehaviour
     {
         pendingGameOver = false;
         remainingTime = timeLimit;
+
+        ChallengeProgress.RegisterBasket();
+    }
+
+    private void OnApplicationPause(bool paused)
+    {
+        // En mobile la app puede morir estando en background sin volver
+        // a pasar por EndRun: guardamos el progreso de desbloqueo acá.
+        if (paused)
+            ChallengeProgress.Save();
     }
 
     private void HandleBallLanded()
@@ -143,8 +173,14 @@ public sealed class BallShotClock : MonoBehaviour
 
     private void HandleRestartRequested()
     {
-        if (!isGameOver)
+        if (!isGameOver && !pauseMenu.IsPaused)
             return;
+
+        if (pauseMenu.IsPaused)
+        {
+            CommitScore();
+            pauseMenu.ClearPause();
+        }
 
         hoopController?.SetScore(0);
 
@@ -153,8 +189,14 @@ public sealed class BallShotClock : MonoBehaviour
 
     private void HandleExitRequested()
     {
-        if (!isGameOver)
+        if (!isGameOver && !pauseMenu.IsPaused)
             return;
+
+        if (pauseMenu.IsPaused)
+        {
+            CommitScore();
+            pauseMenu.ClearPause();
+        }
 
         SceneManager.LoadScene(menuSceneName);
     }
@@ -172,6 +214,7 @@ public sealed class BallShotClock : MonoBehaviour
         }
 
         hud.HideGameOver();
+        pauseMenu.SetAvailable(true);
     }
 
     private void EndRun()
@@ -186,8 +229,22 @@ public sealed class BallShotClock : MonoBehaviour
             ballLauncher.enabled = false;
         }
 
-        int finalScore =
-            hoopController != null ? hoopController.CurrentScore : 0;
+        int finalScore = CurrentScore;
+
+        bool isNewRecord = CommitScore();
+
+        pauseMenu.SetAvailable(false);
+        hud.ShowGameOver(finalScore, bestScore, isNewRecord);
+    }
+
+    /// <summary>
+    /// Compara el puntaje actual con el récord, lo guarda si lo supera y
+    /// persiste también el progreso de desbloqueo. Devuelve true si hubo
+    /// récord nuevo.
+    /// </summary>
+    private bool CommitScore()
+    {
+        int finalScore = CurrentScore;
 
         bool isNewRecord = finalScore > bestScore;
 
@@ -196,9 +253,10 @@ public sealed class BallShotClock : MonoBehaviour
             bestScore = finalScore;
 
             PlayerPrefs.SetInt(HighScoreKey, bestScore);
-            PlayerPrefs.Save();
         }
 
-        hud.ShowGameOver(finalScore, bestScore, isNewRecord);
+        ChallengeProgress.Save();
+
+        return isNewRecord;
     }
 }
