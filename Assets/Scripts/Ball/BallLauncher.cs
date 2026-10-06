@@ -86,6 +86,16 @@ public sealed class BallLauncher : MonoBehaviour
     /// </summary>
     public event System.Action BallLanded;
 
+    /// <summary>
+    /// Se dispara al soltar el swipe y lanzar la pelota. Lo usa la UI
+    /// (vía IGameSession) para ocultar el onboarding tras el primer tiro.
+    /// </summary>
+    public event System.Action Launched;
+
+    /// <summary>Posición de partida de la pelota.</summary>
+    public Vector3 RestPosition =>
+        startPosition;
+
     private void Awake()
     {
         rigidbodyComponent = GetComponent<Rigidbody>();
@@ -250,6 +260,8 @@ public sealed class BallLauncher : MonoBehaviour
             trajectoryCalculator.Calculate(
                 gesture,
                 mainCamera);
+
+        Launched?.Invoke();
     }
 
     /// <summary>

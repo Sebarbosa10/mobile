@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,16 +11,16 @@ using UnityEngine.SceneManagement;
 /// tiro se deja resolver: si encesta, vale igual y el timer se reinicia
 /// como cualquier otra encestada. Recién si esa pelota cae sin encestar
 /// (o si el timer llega a cero sin que haya ningún tiro en curso)
-/// termina la partida: la pelota se congela, el puntaje se compara
-/// contra el récord guardado (PlayerPrefs), y el jugador reinicia desde
-/// cero con el botón de la pantalla de Game Over.
+/// termina la partida: la pelota se congela y el puntaje se compara
+/// contra el récord guardado (PlayerPrefs).
 ///
-/// La partida se puede pausar (ver PauseMenu). Reiniciar o volver al
+/// No conoce la UI: implementa IGameSession y la UI escucha sus eventos.
+/// La partida se puede pausar (ver GamePause). Reiniciar o volver al
 /// menú desde la pausa también cuenta el puntaje para el récord.
 /// </summary>
-public sealed class BallShotClock : MonoBehaviour
+public sealed class BallShotClock : MonoBehaviour, IGameSession
 {
-    private const string HighScoreKey = "HighScore";
+    public const string HighScoreKey = "HighScore";
 
     [Header("Navegación")]
     [SerializeField]
@@ -32,20 +33,43 @@ public sealed class BallShotClock : MonoBehaviour
     [SerializeField]
     private HoopController hoopController;
 
-    [SerializeField]
-    private SurvivalHud hud;
-
     [Header("Timing")]
     [Tooltip("Segundos disponibles para encestar antes de perder. Se reinicia con cada encestada.")]
     [SerializeField, Min(0.1f)]
     private float timeLimit = 7f;
 
-    private PauseMenu pauseMenu;
+    private GamePause pause;
 
     private float remainingTime;
     private bool isGameOver;
     private bool pendingGameOver;
     private int bestScore;
+
+    public event Action RunStarted;
+    public event Action<ScoreEvent> Scored;
+    public event Action<float, float> TimerChanged;
+    public event Action ShotLaunched;
+    public event Action<bool> PausedChanged;
+    public event Action<GameOverInfo> GameOver;
+
+    // El endless no tiene progreso de desafío: estos eventos nunca se disparan.
+    public event Action<int, int> ChallengeProgressChanged { add { } remove { } }
+    public event Action<ChallengeEndInfo> ChallengeEnded { add { } remove { } }
+
+    public GameMode Mode =>
+        GameMode.Endless;
+
+    public ChallengeDefinition Challenge =>
+        null;
+
+    public int Record =>
+        bestScore;
+
+    public Vector3 BallRestPosition =>
+        ballLauncher != null ? ballLauncher.RestPosition : Vector3.zero;
+
+    public bool IsPaused =>
+        pause.IsPaused;
 
     public float RemainingTime =>
         remainingTime;
@@ -56,46 +80,48 @@ public sealed class BallShotClock : MonoBehaviour
     private int CurrentScore =>
         hoopController != null ? hoopController.CurrentScore : 0;
 
+    /// <summary>Récord guardado, para pantallas que no tienen partida (menú).</summary>
+    public static int LoadRecord() =>
+        PlayerPrefs.GetInt(HighScoreKey, 0);
+
     private void Awake()
     {
-        bestScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+        bestScore = LoadRecord();
 
-        pauseMenu = GetComponent<PauseMenu>();
+        pause = GetComponent<GamePause>();
 
-        if (pauseMenu == null)
-            pauseMenu = gameObject.AddComponent<PauseMenu>();
+        if (pause == null)
+            pause = gameObject.AddComponent<GamePause>();
 
-        pauseMenu.SetBallLauncher(ballLauncher);
+        pause.SetBallLauncher(ballLauncher);
     }
 
     private void OnEnable()
     {
-        hud.RestartRequested += HandleRestartRequested;
-        hud.ExitRequested += HandleExitRequested;
-
-        pauseMenu.RestartRequested += HandleRestartRequested;
-        pauseMenu.ExitRequested += HandleExitRequested;
+        pause.PausedChanged += HandlePausedChanged;
 
         if (hoopController != null)
             hoopController.ShotScored += HandleShotScored;
 
         if (ballLauncher != null)
+        {
             ballLauncher.BallLanded += HandleBallLanded;
+            ballLauncher.Launched += HandleLaunched;
+        }
     }
 
     private void OnDisable()
     {
-        hud.RestartRequested -= HandleRestartRequested;
-        hud.ExitRequested -= HandleExitRequested;
-
-        pauseMenu.RestartRequested -= HandleRestartRequested;
-        pauseMenu.ExitRequested -= HandleExitRequested;
+        pause.PausedChanged -= HandlePausedChanged;
 
         if (hoopController != null)
             hoopController.ShotScored -= HandleShotScored;
 
         if (ballLauncher != null)
+        {
             ballLauncher.BallLanded -= HandleBallLanded;
+            ballLauncher.Launched -= HandleLaunched;
+        }
     }
 
     private void Start()
@@ -105,11 +131,7 @@ public sealed class BallShotClock : MonoBehaviour
 
     private void Update()
     {
-        hud.SetScore(CurrentScore);
-
-        hud.SetRecord(bestScore);
-
-        if (isGameOver || pauseMenu.IsPaused)
+        if (isGameOver || pause.IsPaused)
             return;
 
         if (!pendingGameOver)
@@ -123,9 +145,7 @@ public sealed class BallShotClock : MonoBehaviour
             }
         }
 
-        hud.SetRemainingTime(
-            Mathf.Max(remainingTime, 0f),
-            timeLimit);
+        TimerChanged?.Invoke(Mathf.Max(remainingTime, 0f), timeLimit);
     }
 
     /// <summary>
@@ -149,10 +169,28 @@ public sealed class BallShotClock : MonoBehaviour
 
     private void HandleShotScored()
     {
+        if (isGameOver)
+            return;
+
         pendingGameOver = false;
         remainingTime = timeLimit;
 
         ChallengeProgress.RegisterBasket();
+
+        Vector3 hoopPosition =
+            hoopController != null ? hoopController.RimPosition : Vector3.zero;
+
+        Scored?.Invoke(new ScoreEvent(CurrentScore, hoopPosition));
+    }
+
+    private void HandleLaunched()
+    {
+        ShotLaunched?.Invoke();
+    }
+
+    private void HandlePausedChanged(bool paused)
+    {
+        PausedChanged?.Invoke(paused);
     }
 
     private void OnApplicationPause(bool paused)
@@ -171,15 +209,25 @@ public sealed class BallShotClock : MonoBehaviour
         EndRun();
     }
 
-    private void HandleRestartRequested()
+    public void Pause()
     {
-        if (!isGameOver && !pauseMenu.IsPaused)
+        pause.Pause();
+    }
+
+    public void Resume()
+    {
+        pause.Resume();
+    }
+
+    public void Restart()
+    {
+        if (!isGameOver && !pause.IsPaused)
             return;
 
-        if (pauseMenu.IsPaused)
+        if (pause.IsPaused)
         {
             CommitScore();
-            pauseMenu.ClearPause();
+            pause.ClearPause();
         }
 
         hoopController?.SetScore(0);
@@ -187,15 +235,15 @@ public sealed class BallShotClock : MonoBehaviour
         StartRun();
     }
 
-    private void HandleExitRequested()
+    public void ExitToMenu()
     {
-        if (!isGameOver && !pauseMenu.IsPaused)
+        if (!isGameOver && !pause.IsPaused)
             return;
 
-        if (pauseMenu.IsPaused)
+        if (pause.IsPaused)
         {
             CommitScore();
-            pauseMenu.ClearPause();
+            pause.ClearPause();
         }
 
         SceneManager.LoadScene(menuSceneName);
@@ -213,8 +261,10 @@ public sealed class BallShotClock : MonoBehaviour
             ballLauncher.enabled = true;
         }
 
-        hud.HideGameOver();
-        pauseMenu.SetAvailable(true);
+        pause.SetAvailable(true);
+
+        RunStarted?.Invoke();
+        TimerChanged?.Invoke(remainingTime, timeLimit);
     }
 
     private void EndRun()
@@ -229,12 +279,13 @@ public sealed class BallShotClock : MonoBehaviour
             ballLauncher.enabled = false;
         }
 
-        int finalScore = CurrentScore;
-
+        int previousRecord = bestScore;
         bool isNewRecord = CommitScore();
 
-        pauseMenu.SetAvailable(false);
-        hud.ShowGameOver(finalScore, bestScore, isNewRecord);
+        pause.SetAvailable(false);
+
+        TimerChanged?.Invoke(0f, timeLimit);
+        GameOver?.Invoke(new GameOverInfo(CurrentScore, bestScore, previousRecord, isNewRecord));
     }
 
     /// <summary>
