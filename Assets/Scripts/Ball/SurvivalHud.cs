@@ -5,7 +5,8 @@ using UnityEngine.UI;
 /// <summary>
 /// Interfaz del modo por récord: puntaje, récord y timer arriba de la
 /// pantalla, más una pantalla de Game Over con botones de reinicio y
-/// menú.
+/// menú. La pausa no vive acá sino en PauseMenu, compartido con los
+/// desafíos.
 ///
 /// Toda la UI ya existe armada en la escena (Canvas, textos, botones):
 /// este componente no instancia nada, solo lee/escribe sobre esas
