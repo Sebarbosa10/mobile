@@ -36,6 +36,9 @@ public sealed class BallLauncher : MonoBehaviour
     [SerializeField, Min(0f)]
     private float upwardArc = 0.7f;
 
+    [SerializeField, Range(0f, 90f)]
+    private float maxAimDeviationDegrees = 40f;
+
     [Header("Selección")]
     [SerializeField, Min(0.1f)]
     private float raycastDistance = 100f;
@@ -81,7 +84,8 @@ public sealed class BallLauncher : MonoBehaviour
             maxThrowSpeed,
             throwForceMultiplier,
             swipeSpeedForMaxThrow,
-            upwardArc);
+            upwardArc,
+            maxAimDeviationDegrees);
 
         startPosition = transform.position;
         startRotation = transform.rotation;

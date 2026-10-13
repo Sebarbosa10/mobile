@@ -4,25 +4,27 @@ using UnityEngine;
 /// <summary>
 /// Calcula la dirección y velocidad de un swipe.
 ///
-/// La dirección se obtiene principalmente del desplazamiento
-/// total del dedo, evitando que pequeños movimientos laterales
-/// al agarrar o soltar la pelota alteren demasiado el lanzamiento.
+/// Ambas se toman de una ventana reciente del gesto, no de todo
+/// el recorrido desde que se agarró la pelota. Promediar sobre
+/// todo el gesto hace que el lanzamiento se sienta desconectado
+/// del recorrido real del dedo justo antes de soltar: un agarre
+/// lento seguido de un flick rápido sale débil, y una curva en el
+/// camino termina lanzando en línea recta desde el punto de agarre
+/// en vez de seguir hacia donde el dedo se estaba moviendo al
+/// soltar.
 ///
-/// La velocidad, en cambio, se toma solo de una ventana reciente
-/// del gesto. Promediarla sobre todo el gesto (desde que se agarra
-/// la pelota) hace que un agarre lento seguido de un flick rápido
-/// se sienta débil, porque el tiempo sostenido diluye el promedio.
-/// Con la ventana reciente, el lanzamiento responde al golpe final
-/// de la muñeca, que es lo que el jugador realmente siente.
+/// La ventana de dirección es más larga que la de velocidad para
+/// no perder la intención de un apuntado lento y deliberado (poco
+/// desplazamiento por cuadro, pero sostenido), mientras que la de
+/// velocidad es corta para capturar el golpe final de la muñeca.
 /// </summary>
 public sealed class SwipeVelocityEstimator
 {
     private const float MinimumAimDistancePixels = 35f;
-    private const float RecentVelocityWindowSeconds = 0.1f;
+    private const float DirectionWindowSeconds = 0.25f;
+    private const float SpeedWindowSeconds = 0.1f;
 
     private readonly Queue<Sample> recentSamples = new();
-
-    private Vector2 startPosition;
 
     private bool isTracking;
 
@@ -30,8 +32,6 @@ public sealed class SwipeVelocityEstimator
         Vector2 screenPosition,
         float timestamp)
     {
-        startPosition = screenPosition;
-
         recentSamples.Clear();
         recentSamples.Enqueue(new Sample(screenPosition, timestamp));
 
@@ -61,30 +61,23 @@ public sealed class SwipeVelocityEstimator
 
         isTracking = false;
 
-        Vector2 totalMovement =
-            screenPosition - startPosition;
-
-        float distance =
-            totalMovement.magnitude;
+        Vector2 recentDisplacement =
+            screenPosition - recentSamples.Peek().Position;
 
         Vector2 aimDirection;
 
         /*
-         * Si el dedo prácticamente no se movió,
-         * no intentamos inventar una dirección.
+         * Si el dedo prácticamente no se movió en la ventana
+         * reciente, no intentamos inventar una dirección.
          */
-        if (distance < MinimumAimDistancePixels)
+        if (recentDisplacement.magnitude < MinimumAimDistancePixels)
         {
             aimDirection = Vector2.up;
         }
         else
         {
-            /*
-             * La dirección sale del recorrido TOTAL
-             * del dedo y no del último movimiento.
-             */
             aimDirection =
-                totalMovement.normalized;
+                recentDisplacement.normalized;
         }
 
         float speed =
@@ -98,7 +91,7 @@ public sealed class SwipeVelocityEstimator
     private void TrimOldSamples(float now)
     {
         while (recentSamples.Count > 1 &&
-               now - recentSamples.Peek().Timestamp > RecentVelocityWindowSeconds)
+               now - recentSamples.Peek().Timestamp > DirectionWindowSeconds)
         {
             recentSamples.Dequeue();
         }
@@ -106,22 +99,18 @@ public sealed class SwipeVelocityEstimator
 
     private float ComputeRecentSpeed(float now)
     {
-        TrimOldSamples(now);
-
-        if (recentSamples.Count < 2)
-            return 0f;
-
-        float elapsedTime =
-            Mathf.Max(
-                now - recentSamples.Peek().Timestamp,
-                0.001f);
-
         float pathLength = 0f;
         Vector2 previousPosition = default;
         bool hasPrevious = false;
+        float? oldestTimestampInWindow = null;
 
         foreach (Sample sample in recentSamples)
         {
+            if (now - sample.Timestamp > SpeedWindowSeconds)
+                continue;
+
+            oldestTimestampInWindow ??= sample.Timestamp;
+
             if (hasPrevious)
             {
                 pathLength +=
@@ -131,6 +120,14 @@ public sealed class SwipeVelocityEstimator
             previousPosition = sample.Position;
             hasPrevious = true;
         }
+
+        if (oldestTimestampInWindow == null)
+            return 0f;
+
+        float elapsedTime =
+            Mathf.Max(
+                now - oldestTimestampInWindow.Value,
+                0.001f);
 
         return pathLength / elapsedTime;
     }
