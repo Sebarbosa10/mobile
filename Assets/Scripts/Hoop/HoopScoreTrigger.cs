@@ -23,22 +23,20 @@ public sealed class HoopScoreTrigger : MonoBehaviour
     private float lastScoreTime =
         -Mathf.Infinity;
 
+    /// <summary>
+    /// Se dispara en cada encestada detectada, tenga o no un
+    /// HoopController asignado. La usan los desafíos (por ejemplo el
+    /// carrusel de aros) para reaccionar a una encestada sin depender
+    /// del sistema de puntaje/dificultad del modo endless.
+    /// </summary>
+    public event System.Action<HoopScoreTrigger> Scored;
+
     private void Awake()
     {
         triggerCollider =
             GetComponent<Collider>();
 
         triggerCollider.isTrigger = true;
-
-        if (hoopController == null)
-        {
-            // Sin esta referencia el trigger detecta la pelota pero nunca suma
-            // puntos, y eso es silencioso y difícil de diagnosticar en un
-            // dispositivo. Mejor avisar apenas arranca la escena.
-            Debug.LogWarning(
-                "HoopScoreTrigger: no tiene un HoopController asignado, no va a sumar puntos.",
-                this);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -91,5 +89,6 @@ public sealed class HoopScoreTrigger : MonoBehaviour
         Debug.Log("[HoopScoreTrigger] Encestada detectada.", this);
 
         hoopController?.AddPoint();
+        Scored?.Invoke(this);
     }
 }

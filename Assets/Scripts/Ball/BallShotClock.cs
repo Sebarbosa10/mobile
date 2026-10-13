@@ -27,7 +27,7 @@ public sealed class BallShotClock : MonoBehaviour
     [Header("Timing")]
     [Tooltip("Segundos disponibles para encestar antes de perder. Se reinicia con cada encestada.")]
     [SerializeField, Min(0.1f)]
-    private float timeLimit = 5f;
+    private float timeLimit = 7f;
 
     private SurvivalHud hud;
 

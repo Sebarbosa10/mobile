@@ -1,16 +1,14 @@
 using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 /// <summary>
 /// Interfaz mínima del modo por récord: puntaje, récord y timer arriba
 /// de la pantalla, más una pantalla de Game Over con botón de reinicio.
 ///
-/// Se arma enteramente por código (no depende de un Canvas ya armado en
-/// la escena), así BallShotClock puede agregarla como componente propio
-/// sin necesitar wiring manual en el Inspector.
+/// Se arma enteramente por código (ver UguiFactory), así BallShotClock
+/// puede agregarla como componente propio sin necesitar wiring manual
+/// en el Inspector.
 /// </summary>
 public sealed class SurvivalHud : MonoBehaviour
 {
@@ -28,7 +26,7 @@ public sealed class SurvivalHud : MonoBehaviour
 
     private void Awake()
     {
-        EnsureEventSystem();
+        UguiFactory.EnsureEventSystem();
         BuildHud();
     }
 
@@ -64,44 +62,19 @@ public sealed class SurvivalHud : MonoBehaviour
         gameOverPanel.SetActive(false);
     }
 
-    private static void EnsureEventSystem()
-    {
-        if (FindFirstObjectByType<EventSystem>() != null)
-            return;
-
-        _ = new GameObject(
-            "EventSystem",
-            typeof(EventSystem),
-            typeof(InputSystemUIInputModule));
-    }
-
     private void BuildHud()
     {
-        GameObject canvasObject = new(
-            "SurvivalHud",
-            typeof(Canvas),
-            typeof(CanvasScaler),
-            typeof(GraphicRaycaster));
+        GameObject canvasObject = UguiFactory.CreateCanvas(transform, "SurvivalHud");
 
-        canvasObject.transform.SetParent(transform, false);
-
-        Canvas canvas = canvasObject.GetComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-
-        CanvasScaler scaler = canvasObject.GetComponent<CanvasScaler>();
-        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        scaler.referenceResolution = new Vector2(1080, 1920);
-        scaler.matchWidthOrHeight = 0.5f;
-
-        scoreText = CreateText(
+        scoreText = UguiFactory.CreateText(
             canvasObject.transform, "ScoreText",
             new Vector2(0, -60), 64, FontStyle.Normal);
 
-        recordText = CreateText(
+        recordText = UguiFactory.CreateText(
             canvasObject.transform, "RecordText",
             new Vector2(0, -130), 40, FontStyle.Normal);
 
-        timerText = CreateText(
+        timerText = UguiFactory.CreateText(
             canvasObject.transform, "TimerText",
             new Vector2(0, -230), 100, FontStyle.Bold);
 
@@ -121,95 +94,22 @@ public sealed class SurvivalHud : MonoBehaviour
 
         gameOverPanel.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.75f);
 
-        Text title = CreateText(
+        Text title = UguiFactory.CreateText(
             gameOverPanel.transform, "Title",
             new Vector2(0, 180), 90, FontStyle.Bold);
         title.text = "PERDISTE";
 
-        gameOverSummaryText = CreateText(
+        gameOverSummaryText = UguiFactory.CreateText(
             gameOverPanel.transform, "Summary",
             new Vector2(0, 30), 52, FontStyle.Normal);
 
-        Button restartButton = CreateButton(
-            gameOverPanel.transform, new Vector2(0, -180), "REINTENTAR");
+        Button restartButton = UguiFactory.CreateButton(
+            gameOverPanel.transform, "RestartButton",
+            new Vector2(0, -180), new Vector2(480, 140),
+            "REINTENTAR", new Color(0.89f, 0.44f, 0.13f, 1f));
 
         restartButton.onClick.AddListener(() => RestartRequested?.Invoke());
 
         gameOverPanel.SetActive(false);
-    }
-
-    private static Text CreateText(
-        Transform parent,
-        string name,
-        Vector2 anchoredPosition,
-        int fontSize,
-        FontStyle fontStyle)
-    {
-        GameObject textObject = new(name, typeof(Text));
-        textObject.transform.SetParent(parent, false);
-
-        RectTransform rect = textObject.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0.5f, 1f);
-        rect.anchorMax = new Vector2(0.5f, 1f);
-        rect.pivot = new Vector2(0.5f, 1f);
-        rect.anchoredPosition = anchoredPosition;
-        rect.sizeDelta = new Vector2(1000, 140);
-
-        Text text = textObject.GetComponent<Text>();
-        text.font = GetDefaultFont();
-        text.fontSize = fontSize;
-        text.fontStyle = fontStyle;
-        text.alignment = TextAnchor.MiddleCenter;
-        text.color = Color.white;
-        text.horizontalOverflow = HorizontalWrapMode.Overflow;
-        text.verticalOverflow = VerticalWrapMode.Overflow;
-
-        /*
-         * El HUD no debe robar los toques del swipe de lanzamiento:
-         * solo el botón de reinicio necesita responder a input.
-         */
-        text.raycastTarget = false;
-
-        return text;
-    }
-
-    private static Button CreateButton(
-        Transform parent,
-        Vector2 anchoredPosition,
-        string label)
-    {
-        GameObject buttonObject = new("RestartButton", typeof(Image), typeof(Button));
-        buttonObject.transform.SetParent(parent, false);
-
-        RectTransform rect = buttonObject.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0.5f, 0.5f);
-        rect.anchorMax = new Vector2(0.5f, 0.5f);
-        rect.pivot = new Vector2(0.5f, 0.5f);
-        rect.anchoredPosition = anchoredPosition;
-        rect.sizeDelta = new Vector2(480, 140);
-
-        buttonObject.GetComponent<Image>().color = new Color(0.89f, 0.44f, 0.13f, 1f);
-
-        Text buttonText = CreateText(
-            buttonObject.transform, "Label",
-            Vector2.zero, 48, FontStyle.Bold);
-
-        buttonText.GetComponent<RectTransform>().anchorMin = Vector2.zero;
-        buttonText.GetComponent<RectTransform>().anchorMax = Vector2.one;
-        buttonText.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
-        buttonText.GetComponent<RectTransform>().sizeDelta = Vector2.zero;
-        buttonText.text = label;
-
-        return buttonObject.GetComponent<Button>();
-    }
-
-    private static Font GetDefaultFont()
-    {
-        Font font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-
-        if (font == null)
-            font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-
-        return font;
     }
 }

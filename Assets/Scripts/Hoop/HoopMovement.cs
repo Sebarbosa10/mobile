@@ -58,20 +58,10 @@ public sealed class HoopMovement : MonoBehaviour
 
         if (movementEnabled)
         {
-            Vector3 direction =
-                GetMovementDirection(
-                    currentStage.positionMode);
-
-            float movementOffset =
-                Mathf.Sin(
-                    elapsedTime *
-                    currentStage.movementSpeed)
-                *
-                currentStage.movementAmplitude;
-
-            position +=
-                direction *
-                movementOffset;
+            position += GetMovementOffset(
+                currentStage.positionMode,
+                elapsedTime * currentStage.movementSpeed,
+                currentStage.movementAmplitude);
         }
 
         transform.SetPositionAndRotation(
@@ -79,22 +69,37 @@ public sealed class HoopMovement : MonoBehaviour
             baseRotation);
     }
 
-    private static Vector3 GetMovementDirection(
-        HoopPositionMode mode)
+    private static Vector3 GetMovementOffset(
+        HoopPositionMode mode,
+        float phase,
+        float amplitude)
     {
         switch (mode)
         {
             case HoopPositionMode.Depth:
-                return Vector3.forward;
+                return Vector3.forward * (Mathf.Sin(phase) * amplitude);
 
             case HoopPositionMode.Horizontal:
-                return Vector3.right;
+                return Vector3.right * (Mathf.Sin(phase) * amplitude);
 
             case HoopPositionMode.Diagonal:
-                return (
-                    Vector3.right +
-                    Vector3.forward
-                ).normalized;
+                return (Vector3.right + Vector3.forward).normalized *
+                    (Mathf.Sin(phase) * amplitude);
+
+            case HoopPositionMode.Vertical:
+                return Vector3.up * (Mathf.Sin(phase) * amplitude);
+
+            case HoopPositionMode.Circular:
+                /*
+                 * Órbita real en el plano horizontal (no un vaivén de ida
+                 * y vuelta): arranca en el offset cero (fase 0 -> seno 0,
+                 * coseno-1 0) y traza un círculo completo de radio
+                 * "amplitude" alrededor de la posición base.
+                 */
+                return new Vector3(
+                    Mathf.Sin(phase) * amplitude,
+                    0f,
+                    (Mathf.Cos(phase) - 1f) * amplitude);
 
             default:
                 return Vector3.zero;
