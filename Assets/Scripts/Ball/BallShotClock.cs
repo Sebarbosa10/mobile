@@ -29,12 +29,13 @@ public sealed class BallShotClock : MonoBehaviour
     [SerializeField]
     private HoopController hoopController;
 
+    [SerializeField]
+    private SurvivalHud hud;
+
     [Header("Timing")]
     [Tooltip("Segundos disponibles para encestar antes de perder. Se reinicia con cada encestada.")]
     [SerializeField, Min(0.1f)]
     private float timeLimit = 7f;
-
-    private SurvivalHud hud;
 
     private float remainingTime;
     private bool isGameOver;
@@ -49,11 +50,6 @@ public sealed class BallShotClock : MonoBehaviour
 
     private void Awake()
     {
-        hud = GetComponent<SurvivalHud>();
-
-        if (hud == null)
-            hud = gameObject.AddComponent<SurvivalHud>();
-
         bestScore = PlayerPrefs.GetInt(HighScoreKey, 0);
     }
 
