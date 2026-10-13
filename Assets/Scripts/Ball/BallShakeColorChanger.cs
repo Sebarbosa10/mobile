@@ -1,13 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Cambia el color de la pelota cuando detecta un shake del dispositivo,
+/// usando el acelerómetro del Input System.
+///
+/// El shake se detecta comparando la magnitud de la aceleración contra
+/// un umbral, restando la gravedad (~1g) para no disparar en reposo.
+/// </summary>
 [RequireComponent(typeof(Renderer))]
 public sealed class BallShakeColorChanger : MonoBehaviour
 {
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
     private static readonly int ColorId = Shader.PropertyToID("_Color");
 
-    [Header("Detecci�n de shake")]
+    [Header("Detección de shake")]
     [SerializeField, Min(0f)]
     private float shakeThreshold = 2.5f;
 
