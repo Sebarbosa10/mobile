@@ -11,8 +11,6 @@ using UnityEngine.InputSystem.Controls;
 ///   ↓
 /// Launched
 ///   ↓
-/// ResetScheduled
-///   ↓
 /// Ready
 ///
 /// Gestiona el input táctil, selección de la pelota,
@@ -50,9 +48,6 @@ public sealed class BallLauncher : MonoBehaviour
     [SerializeField]
     private string groundTag = "Ground";
 
-    [SerializeField, Min(0f)]
-    private float resetDelay = 0.5f;
-
     private readonly SwipeVelocityEstimator gestureEstimator = new();
 
     private Camera mainCamera;
@@ -71,6 +66,15 @@ public sealed class BallLauncher : MonoBehaviour
 
     private Vector2 pendingScreenPosition;
     private bool hasPendingMove;
+
+    /// <summary>
+    /// Se dispara apenas la pelota toca el suelo tras un lanzamiento
+    /// (haya o no encestado) y se reinicia a la posición de partida.
+    /// Lo usa BallShotClock para saber cuándo un tiro que quedó
+    /// pendiente de resolver (el timer llegó a cero mientras estaba
+    /// en el aire) terminó siendo un fallo.
+    /// </summary>
+    public event System.Action BallLanded;
 
     private void Awake()
     {
@@ -158,8 +162,6 @@ public sealed class BallLauncher : MonoBehaviour
         if (!IsSelected(screenPosition))
             return;
 
-        CancelInvoke(nameof(ResetBall));
-
         state = BallLaunchState.Held;
 
         SetHeldPhysicsState();
@@ -225,26 +227,20 @@ public sealed class BallLauncher : MonoBehaviour
     }
 
     /// <summary>
-    /// True cuando la pelota está lista para ser agarrada.
-    /// Usado por sistemas externos (por ejemplo, un reloj de intento)
-    /// que necesitan saber cuándo empieza un intento nuevo.
+    /// True mientras la pelota está en el aire después de un lanzamiento.
+    /// Lo usa BallShotClock para saber si, cuando el timer llega a cero,
+    /// hay un tiro en curso que todavía puede encestar.
     /// </summary>
-    public bool IsReady =>
-        state == BallLaunchState.Ready;
+    public bool IsLaunched =>
+        state == BallLaunchState.Launched;
 
     /// <summary>
     /// Fuerza el reinicio inmediato de la pelota sin importar el
-    /// estado actual (agarrada, en vuelo, etc.). A diferencia del
-    /// reinicio normal por contacto con el suelo, este no espera
-    /// resetDelay: se usa para cortar un intento en seco, por ejemplo
-    /// cuando se agota el tiempo disponible.
+    /// estado actual (agarrada, en vuelo, etc.). Se usa para cortar
+    /// un intento en seco, por ejemplo al perder la partida.
     /// </summary>
     public void ForceReset()
     {
-        CancelInvoke(nameof(ResetBall));
-
-        state = BallLaunchState.ResetScheduled;
-
         ResetBall();
     }
 
@@ -256,18 +252,13 @@ public sealed class BallLauncher : MonoBehaviour
         if (!collision.gameObject.CompareTag(groundTag))
             return;
 
-        state = BallLaunchState.ResetScheduled;
+        ResetBall();
 
-        Invoke(
-            nameof(ResetBall),
-            resetDelay);
+        BallLanded?.Invoke();
     }
 
     private void ResetBall()
     {
-        if (state != BallLaunchState.ResetScheduled)
-            return;
-
         transform.SetPositionAndRotation(
             startPosition,
             startRotation);
@@ -302,7 +293,6 @@ public sealed class BallLauncher : MonoBehaviour
     {
         Ready,
         Held,
-        Launched,
-        ResetScheduled
+        Launched
     }
 }
