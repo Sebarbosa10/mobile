@@ -20,8 +20,14 @@ public sealed class HoopScoreTrigger : MonoBehaviour
 
     private Collider triggerCollider;
 
+    private HoopVisual visual;
+
     private float lastScoreTime =
         -Mathf.Infinity;
+
+    /// <summary>Parte visual del aro al que pertenece este trigger (puede ser null).</summary>
+    public HoopVisual Visual =>
+        visual;
 
     /// <summary>
     /// Se dispara en cada encestada detectada, tenga o no un
@@ -37,6 +43,9 @@ public sealed class HoopScoreTrigger : MonoBehaviour
             GetComponent<Collider>();
 
         triggerCollider.isTrigger = true;
+
+        visual =
+            GetComponentInParent<HoopVisual>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -89,6 +98,11 @@ public sealed class HoopScoreTrigger : MonoBehaviour
         Debug.Log("[HoopScoreTrigger] Encestada detectada.", this);
 
         hoopController?.AddPoint();
+
+        // Efecto 3D (red y destello del aro); los efectos 2D los dispara la UI.
+        if (visual != null)
+            visual.PlayScoreFlash();
+
         Scored?.Invoke(this);
     }
 }
