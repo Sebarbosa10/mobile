@@ -640,6 +640,7 @@ GameObject:
   - component: {fileID: 1364744160}
   - component: {fileID: 1364744161}
   - component: {fileID: 1364744162}
+  - component: {fileID: 1364744163}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -764,7 +765,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 1
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &1364744160
@@ -826,6 +827,21 @@ MonoBehaviour:
   - {r: 1, g: 0.45945948, b: 0, a: 1}
   - {r: 0, g: 0.41863346, b: 1, a: 1}
   - {r: 0.2871106, g: 0.8962264, b: 0.17332679, a: 1}
+--- !u!114 &1364744163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364744152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cf13beb9744a5aa4e7ae40c5732f80, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::BallShotClock
+  ballLauncher: {fileID: 1364744160}
+  hoopController: {fileID: 1802796998}
+  fallbackTimeLimit: 5
 --- !u!1 &1394143104
 GameObject:
   m_ObjectHideFlags: 0

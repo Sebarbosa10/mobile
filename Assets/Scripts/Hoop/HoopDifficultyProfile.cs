@@ -66,4 +66,9 @@
         [Header("Size")]
         [Min(0.01f)]
         public float scale;
+
+        [Header("Timing")]
+        [Tooltip("Segundos disponibles para completar un intento (agarrar, apuntar y encestar) antes de que la pelota se reinicie sola.")]
+        [Min(0.1f)]
+        public float shotTimeLimit;
     }
