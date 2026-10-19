@@ -1,11 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Navegación desde el menú principal. No arma UI: las pantallas del
-/// menú (ver MainMenuScreen y ChallengeSelectScreen) llaman a estos
-/// métodos desde sus botones.
-/// </summary>
 public sealed class MainMenuController : MonoBehaviour
 {
     [SerializeField]

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0765556b5d6b4cf458750636e6a4699b, type: 3}
+  m_Name: 05_pixel
+  m_EditorClassIdentifier: Assembly-CSharp::BallSkin
+  id: pixel
+  displayName: Pixel
+  prefab: {fileID: 3456401147751618863, guid: 29b75ac2083954d4d9c6455b46edfd69, type: 3}
+  mesh: {fileID: 4300000, guid: dca2fe3f1b64c7248872b14480a8ee0a, type: 2}
+  materials:
+  - {fileID: 2100000, guid: abdc61fc9272dd745bb58efd1a702bc2, type: 2}
+  variants:
+  - colors:
+    - {r: 0.19607843, g: 0.4117647, b: 0.7607843, a: 1}
+  - colors:
+    - {r: 0.9411765, g: 0.30588236, b: 0.5411765, a: 1}
+  - colors:
+    - {r: 0.9490196, g: 0.8235294, b: 0.11764706, a: 1}
+  - colors:
+    - {r: 0.9490196, g: 0.5411765, b: 0.11764706, a: 1}
+  unlock:
+    type: 2
+    value: 60
+    shortText: 60 encestadas
+  icon: {fileID: 21300000, guid: 6e13959fb7149df468926e6a30d7c8fc, type: 3}

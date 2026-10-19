@@ -1,55 +1,38 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-/// <summary>
-/// Paleta de la escena "básquet callejero al atardecer" y sus
-/// materiales: uno por color, compartidos por todas las piezas. Los
-/// colores salen del brief y del mockup (Escena / Dirección de arte).
-///
-/// Algunos tonos no estaban en la paleta escrita pero sí en el mockup
-/// (borde del tablero, cuarto tono del piso, grietas, hub del
-/// carrusel); van marcados como "del mockup". Los que el mockup dibuja
-/// con transparencia sobre otro color (sombra diagonal y óxido del
-/// tablero) se precalcularon como color opaco para no pagar blending.
-/// </summary>
 public sealed class CourtMaterials
 {
-    // Cemento y cancha
     public static readonly Color Cemento = Hex("#5F5D7C");
     public static readonly Color CementoLuz = Hex("#7A7392");
     public static readonly Color CementoSombra = Hex("#585674");
-    public static readonly Color CementoMedio = Hex("#666485");   // del mockup
-    public static readonly Color Grieta = Hex("#4C4A68");         // del mockup
+    public static readonly Color CementoMedio = Hex("#666485");
+    public static readonly Color Grieta = Hex("#4C4A68");
     public static readonly Color Llave = Hex("#41598F");
     public static readonly Color Lineas = Hex("#EFE7D8");
 
-    // Tablero
     public static readonly Color Tablero = Hex("#EDE4D0");
     public static readonly Color TableroGastado = Hex("#C8B99A");
-    public static readonly Color TableroSombra = Hex("#E3D8C0");  // #DCD0B6 al 60% sobre el tablero
-    public static readonly Color TableroBorde = Hex("#B9AB8C");   // del mockup
-    public static readonly Color Oxido = Hex("#D4B697");          // #C9A27E al 70% sobre el tablero
+    public static readonly Color TableroSombra = Hex("#E3D8C0");
+    public static readonly Color TableroBorde = Hex("#B9AB8C");
+    public static readonly Color Oxido = Hex("#D4B697");
     public static readonly Color Recuadro = Hex("#E3701F");
 
-    // Aro y red
     public static readonly Color Aro = Hex("#E0452B");
-    public static readonly Color Soporte = Hex("#B8381F");        // del mockup
+    public static readonly Color Soporte = Hex("#B8381F");
     public static readonly Color Cadena = Hex("#D5DAE3");
     public static readonly Color AroRed = Hex("#AEB5C2");
 
-    // Postes
     public static readonly Color Poste = Hex("#2A2140");
     public static readonly Color PosteFilo = Hex("#4A3B6B");
-    public static readonly Color HubLado = Hex("#3A2D5C");        // del mockup
-    public static readonly Color HubTapa = Hex("#5A4A86");        // del mockup
+    public static readonly Color HubLado = Hex("#3A2D5C");
+    public static readonly Color HubTapa = Hex("#5A4A86");
 
-    // Fondo
     public static readonly Color Reja = Hex("#241540");
     public static readonly Color Arboles = Hex("#2E1B4D");
     public static readonly Color EdificiosCerca = Hex("#4A2468");
     public static readonly Color EdificiosLejos = Hex("#7A3382");
 
-    // Cielo
     public static readonly Color CieloCenit = Hex("#2B1B5E");
     public static readonly Color CieloVioleta = Hex("#6A2C8C");
     public static readonly Color CieloRosa = Hex("#C9437A");
@@ -60,21 +43,18 @@ public sealed class CourtMaterials
     public static readonly Color Nube2 = Hex("#D9527C", 0.7f);
     public static readonly Color Nube3 = Hex("#EE6F6A", 0.7f);
 
-    // Pelota
     public static readonly Color Pelota = Hex("#F28A1E");
     public static readonly Color PelotaCostura = Hex("#3B1A0A");
 
-    // Luz y efectos
     public static readonly Color SombraTinte = Hex("#2A2140");
     public static readonly Color Ambiente = Hex("#6A5A9E");
     public static readonly Color LuzSol = Hex("#FFC58A");
     public static readonly Color Filo = Hex("#FFD9A0");
     public static readonly Color Exito = Hex("#40D959");
-    public static readonly Color CheckTrazo = Hex("#10241A");     // del mockup
+    public static readonly Color CheckTrazo = Hex("#10241A");
     public static readonly Color SombraPlana = Hex("#2A2140", 0.18f);
     public static readonly Color SombraPelota = Hex("#2A2140", 0.35f);
 
-    // Materiales (uno por color)
     public Material MCemento, MCementoLuz, MCementoSombra, MCementoMedio, MGrieta, MLlave, MLineas;
     public Material MTablero, MTableroGastado, MTableroSombra, MTableroBorde, MOxido, MRecuadro, MFilo;
     public Material MAro, MSoporte, MCadena, MAroRed;
@@ -104,7 +84,6 @@ public sealed class CourtMaterials
             outline = CourtAssets.FindShader("Court/Outline")
         };
 
-        // Piso: normal hacia arriba, recibe la luz rasante y queda en su color.
         m.MCemento = m.Toon("M_Cemento", Cemento);
         m.MCementoLuz = m.Toon("M_CementoLuz", CementoLuz, decal: 1);
         m.MCementoSombra = m.Toon("M_CementoSombra", CementoSombra, decal: 1);
@@ -113,8 +92,6 @@ public sealed class CourtMaterials
         m.MLlave = m.Toon("M_Llave", Llave, decal: 2);
         m.MLineas = m.Toon("M_Lineas", Lineas, decal: 4);
 
-        // Piezas gráficas que miran a cámara: siempre "iluminadas" para que se
-        // vean en su color exacto; el sombreado lo dan polígonos planos.
         m.MTablero = m.Graphic("M_Tablero", Tablero);
         m.MTableroGastado = m.Graphic("M_TableroGastado", TableroGastado);
         m.MTableroSombra = m.Graphic("M_TableroSombra", TableroSombra);
@@ -128,20 +105,16 @@ public sealed class CourtMaterials
         m.MHubLado = m.Toon("M_HubLado", HubLado);
         m.MHubTapa = m.Graphic("M_HubTapa", HubTapa);
 
-        // Aro: toro facetado con 2 pasos y filo del lado del sol.
         m.MAro = m.Toon("M_Aro", Aro, rim: true);
         m.MCadena = m.Toon("M_Cadena", Cadena, vertexColor: true, shadowStrength: 0.15f);
         m.MCadena.SetFloat("_Cull", (float)CullMode.Off);
         m.MAroRed = m.Toon("M_AroRed", AroRed, shadowStrength: 0.15f);
 
-        // Siluetas del fondo: color plano exacto.
         m.MReja = m.Graphic("M_Reja", Reja);
         m.MArboles = m.Toon("M_Arboles", Arboles, shadowStrength: 0.15f);
         m.MEdificiosCerca = m.Graphic("M_EdificiosCerca", EdificiosCerca);
         m.MEdificiosLejos = m.Graphic("M_EdificiosLejos", EdificiosLejos);
 
-        // Cielo: opaco, dibujado después de lo opaco (cola 2450) para que
-        // early-Z descarte los píxeles tapados por el escenario.
         m.MCielo = m.Unlit("M_Cielo", Color.white, vertexColor: true, queue: 2450);
         m.MSol = m.Unlit("M_Sol", Sol, queue: 2450);
         m.MSolHalo = m.Transparent("M_SolHalo", SolHalo, 3000);
@@ -149,19 +122,14 @@ public sealed class CourtMaterials
         m.MNube2 = m.Transparent("M_Nube2", Nube2, 3001);
         m.MNube3 = m.Transparent("M_Nube3", Nube3, 3001);
 
-        // Pelota: sombra suave (18%, como el mockup) para que siga siendo lo
-        // más saturado del tercio inferior, y filo de luz del lado del sol.
         m.MPelota = m.Toon("M_Pelota", Pelota, rim: true, shadowStrength: 0.18f, threshold: -0.1f);
         m.MPelotaCostura = m.Graphic("M_PelotaCostura", PelotaCostura);
         m.MPelotaContorno = CourtAssets.SaveMaterial("M_PelotaContorno", m.outline, mat =>
         {
             mat.SetColor("_BaseColor", PelotaCostura);
-            // Unidades del mesh (radio 0.5): ~4% del radio, como los 6 px
-            // de contorno sobre 150 px de radio del mockup.
             mat.SetFloat("_OutlineWidth", 0.022f);
         });
 
-        // Sombras planas y efectos
         m.MSombraPlana = m.Transparent("M_SombraPlana", SombraPlana, 2990, offset: true);
         m.MSombraPelota = m.Transparent("M_SombraPelota", SombraPelota, 2991, offset: true);
         m.MBrilloAro = m.Transparent("M_BrilloAro", Hex("#40D959", 0.35f), 3002);
@@ -195,15 +163,12 @@ public sealed class CourtMaterials
             SetKeyword(mat, "_RIM", "_UseRim", rim);
             SetKeyword(mat, "_VERTEX_COLOR", "_UseVertexColor", vertexColor);
 
-            // Capas sobre el piso: además de estar elevadas unos milímetros,
-            // empujan el depth para que nunca haya z-fighting.
             mat.SetFloat("_OffsetFactor", -decal);
             mat.SetFloat("_OffsetUnits", -decal);
             mat.renderQueue = 2000 + decal;
         });
     }
 
-    /// <summary>FlatToon siempre del lado iluminado: muestra el color exacto de la paleta.</summary>
     private Material Graphic(string name, Color color)
     {
         Material mat = Toon(name, color);

@@ -1,12 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Hace orbitar a un grupo de aros alrededor de este transform, cada
-/// uno a su propio radio y ángulo inicial (los que ya traigan de la
-/// escena). Solo se mueve la posición: la rotación de cada aro no se
-/// toca, así que orbitan sin girar sobre su propio eje ni inclinarse
-/// hacia la pelota.
-/// </summary>
 public sealed class ChallengeCarousel : MonoBehaviour
 {
     [SerializeField]

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0765556b5d6b4cf458750636e6a4699b, type: 3}
+  m_Name: 02_playera
+  m_EditorClassIdentifier: Assembly-CSharp::BallSkin
+  id: playera
+  displayName: Playera
+  prefab: {fileID: 5732836898130121883, guid: 182949b825ec3b849a1727b0cd2751b0, type: 3}
+  mesh: {fileID: 4300000, guid: 3c41a22d7ee58c64bbb44214ebbeca8b, type: 2}
+  materials:
+  - {fileID: 2100000, guid: 205ca772b17e85046bd05e991f225e64, type: 2}
+  - {fileID: 2100000, guid: 948706cc90c27b24997ccce064d95ed5, type: 2}
+  - {fileID: 2100000, guid: b747984578aa6f94b9a94cbc8085937b, type: 2}
+  variants:
+  - colors:
+    - {r: 0.9019608, g: 0.2, b: 0.2, a: 1}
+    - {r: 0.18039216, g: 0.49019608, b: 0.8784314, a: 1}
+  - colors:
+    - {r: 0.2509804, g: 0.8509804, b: 0.34901962, a: 1}
+    - {r: 0.9490196, g: 0.8235294, b: 0.11764706, a: 1}
+  - colors:
+    - {r: 0.9411765, g: 0.30588236, b: 0.5411765, a: 1}
+    - {r: 0.18039216, g: 0.76862746, b: 0.9019608, a: 1}
+  - colors:
+    - {r: 0.8901961, g: 0.4392157, b: 0.12156863, a: 1}
+    - {r: 0.41568628, g: 0.17254902, b: 0.54901963, a: 1}
+  unlock:
+    type: 0
+    value: 0
+    shortText: 
+  icon: {fileID: 21300000, guid: 56de9c6f5b2834f4ea065481522d3fbc, type: 3}

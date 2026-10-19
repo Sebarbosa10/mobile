@@ -1,9 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Mantiene la pelota fuera de colliders sólidos mientras es arrastrada.
-/// Resuelve penetraciones y evita que la pelota atraviese el suelo.
-/// </summary>
 [RequireComponent(typeof(Collider))]
 public sealed class BallHoldPositionConstraint : MonoBehaviour
 {
@@ -37,10 +33,6 @@ public sealed class BallHoldPositionConstraint : MonoBehaviour
         ownCollider = GetComponent<Collider>();
     }
 
-    /// <summary>
-    /// Devuelve la posición más cercana al objetivo
-    /// que no penetra colliders bloqueantes.
-    /// </summary>
     public Vector3 Constrain(Vector3 desiredPosition)
     {
         if (ownCollider == null)

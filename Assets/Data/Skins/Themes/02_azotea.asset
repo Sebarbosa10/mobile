@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bbdc7a6bd312141bfd361831471f15, type: 3}
+  m_Name: 02_azotea
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
+  id: azotea
+  displayName: Azotea
+  description: "Una terraza en el centro, de noche: carteles de ne\xF3n, tanque de
+    agua y la ciudad prendida."
+  palette:
+  - {r: 0.05490196, g: 0.0627451, b: 0.1882353, a: 1}
+  - {r: 0.22745098, g: 0.14117648, b: 0.4392157, a: 1}
+  - {r: 0.9411765, g: 0.30588236, b: 0.5411765, a: 1}
+  - {r: 0.18039216, g: 0.76862746, b: 0.9019608, a: 1}
+  - {r: 1, g: 0.8156863, b: 0.44313726, a: 1}
+  skyColors:
+  - {r: 0.05490196, g: 0.0627451, b: 0.1882353, a: 1}
+  - {r: 0.22745098, g: 0.14117648, b: 0.4392157, a: 1}
+  environmentPrefab: {fileID: 22566516574190515, guid: de123a515bd5f7b47bb17586a390e99a, type: 3}
+  environmentMaterials:
+  - {fileID: 2100000, guid: efbfafec3fdc7bb44b83fca8e37ebdf5, type: 2}
+  - {fileID: 2100000, guid: 7de88586e116d1848a8a1b23c34836c2, type: 2}
+  - {fileID: 2100000, guid: 6659344778175354282e6090e3a922cd, type: 2}
+  - {fileID: 2100000, guid: 789fd39e3d0bff148803d77c7a3f5471, type: 2}
+  - {fileID: 2100000, guid: fbbb61270e4a4ef45a27f83e8b4d760a, type: 2}
+  - {fileID: 2100000, guid: a4854fe4186803b4d824852fe18d7d7f, type: 2}
+  - {fileID: 2100000, guid: 2b095bb588bcf1a4a913aaa50de2ab26, type: 2}
+  - {fileID: 2100000, guid: f3c4bee02e6455943b305baf52bd303a, type: 2}
+  - {fileID: 2100000, guid: 54f2330a2a5ce1643810e7c94ec26d16, type: 2}
+  floor: {r: 0.22745098, g: 0.20784314, b: 0.3137255, a: 1}
+  floorLight: {r: 0.3047059, g: 0.28705883, b: 0.38235295, a: 1}
+  floorShadow: {r: 0.21380392, g: 0.19537255, b: 0.29490197, a: 1}
+  floorMid: {r: 0.25062746, g: 0.23160784, b: 0.33431375, a: 1}
+  crack: {r: 0.1865098, g: 0.17043138, b: 0.2572549, a: 1}
+  key: {r: 0.2109804, g: 0.40411764, b: 0.51960784, a: 1}
+  unlock:
+    type: 0
+    value: 0
+    shortText: 
+  thumbnail: {fileID: 2800000, guid: 18da6c0b17a67cb4389c331b7856f328, type: 3}
+  triangleCount: 666

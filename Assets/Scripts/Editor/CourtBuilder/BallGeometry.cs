@@ -3,15 +3,6 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-/// <summary>
-/// Prefabs Ball (visual de la pelota) y BallShadow (blob en el piso).
-///
-/// La pelota es una icoesfera de nivel 2 (320 caras) facetada, de
-/// diámetro 1: se cuelga de la pelota de gameplay, que ya está escalada
-/// a 0.381. Las costuras son cintas apenas por encima de la superficie
-/// (submesh 1). El contorno es un casco invertido aparte, con normales
-/// suaves para que no se abra en las aristas.
-/// </summary>
 public static class BallGeometry
 {
     private const float Radius = 0.5f;
@@ -21,7 +12,6 @@ public static class BallGeometry
     {
         List<Vector3[]> faces = Icosphere(Level);
 
-        // Cuerpo facetado + costuras.
         MeshKit body = new(2);
         body.Sub(0);
         foreach (Vector3[] f in faces)
@@ -30,7 +20,6 @@ public static class BallGeometry
         body.Sub(1);
         AddSeams(body);
 
-        // Contorno: misma icoesfera con vértices compartidos (normales suaves).
         MeshKit outline = new();
         Dictionary<Vector3Int, int> shared = new();
 
@@ -47,8 +36,6 @@ public static class BallGeometry
 
         foreach (Vector3[] f in faces)
         {
-            // Orden horario visto desde afuera (el frente de Unity); el
-            // shader dibuja la cara de atrás (Cull Front).
             int a = Shared(f[0]), b = Shared(f[1]), c = Shared(f[2]);
             if (Vector3.Dot(Vector3.Cross(f[1] - f[0], f[2] - f[0]), f[0]) >= 0f)
                 outline.Index(a, b, c);
@@ -77,7 +64,7 @@ public static class BallGeometry
         GameObject root = new("BallShadow");
         Mesh disc = CourtAssets.SaveMesh(CourtGeometry.Disc(20, Vector3.up).ToMesh("Blob"), "BallShadow_Blob");
         GameObject blob = CourtAssets.MeshObject("Blob", root.transform, disc, m.MSombraPelota);
-        blob.transform.localScale = Vector3.one * 0.5f; // disco de radio 1 → diámetro 1
+        blob.transform.localScale = Vector3.one * 0.5f;
 
         BallBlobShadow shadow = root.AddComponent<BallBlobShadow>();
         SerializedObject so = new(shadow);
@@ -88,11 +75,6 @@ public static class BallGeometry
         return CourtAssets.SavePrefab(root, "BallShadow");
     }
 
-    /// <summary>
-    /// Costuras de pelota de básquet: ecuador, meridiano y dos curvas
-    /// laterales. Todo girado para que en reposo se vean en tres cuartos
-    /// (si no, las laterales quedarían de canto como líneas rectas).
-    /// </summary>
     private static void AddSeams(MeshKit kit)
     {
         Quaternion orient = Quaternion.Euler(20f, 35f, 0f);
@@ -108,8 +90,8 @@ public static class BallGeometry
         };
 
         const int segments = 32;
-        const float halfWidth = 0.015f;          // costura de ~3% del diámetro, como en el mockup
-        const float lift = Radius * 1.012f;      // apenas por encima de las caras planas
+        const float halfWidth = 0.015f;
+        const float lift = Radius * 1.012f;
 
         foreach (Func<float, Vector3> curve in curves)
         {
@@ -126,8 +108,7 @@ public static class BallGeometry
         }
     }
 
-    /// <summary>Icoesfera unitaria: lista de triángulos (posiciones normalizadas).</summary>
-    private static List<Vector3[]> Icosphere(int level)
+    public static List<Vector3[]> Icosphere(int level)
     {
         float t = (1f + Mathf.Sqrt(5f)) * 0.5f;
         Vector3[] v =

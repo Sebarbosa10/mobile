@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bbdc7a6bd312141bfd361831471f15, type: 3}
+  m_Name: 05_desierto
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
+  id: desierto
+  displayName: Desierto
+  description: Mesetas rojas, cactus y un sol enorme sobre la arena caliente de la
+    tarde.
+  palette:
+  - {r: 0.9647059, g: 0.64705884, b: 0.2901961, a: 1}
+  - {r: 0.9843137, g: 0.8862745, b: 0.6509804, a: 1}
+  - {r: 0.76862746, g: 0.34117648, b: 0.18039216, a: 1}
+  - {r: 0.90588236, g: 0.7058824, b: 0.41568628, a: 1}
+  - {r: 0.18431373, g: 0.49019608, b: 0.30980393, a: 1}
+  skyColors:
+  - {r: 0.9647059, g: 0.64705884, b: 0.2901961, a: 1}
+  - {r: 0.9843137, g: 0.8862745, b: 0.6509804, a: 1}
+  environmentPrefab: {fileID: 398394088641665002, guid: e2f3e782b18c6ff43a6bc58c5fa6845a, type: 3}
+  environmentMaterials:
+  - {fileID: 2100000, guid: efbfafec3fdc7bb44b83fca8e37ebdf5, type: 2}
+  - {fileID: 2100000, guid: ec3e6bbeb0b86804bbdf83ab57e448bc, type: 2}
+  - {fileID: 2100000, guid: 2ff6dd95f955bb84c948293c96113940, type: 2}
+  - {fileID: 2100000, guid: fccc54ddac03ff040b65cb9f6a93995a, type: 2}
+  - {fileID: 2100000, guid: 34a88f147d4cc374197e76dbde364bcb, type: 2}
+  floor: {r: 0.90588236, g: 0.7058824, b: 0.41568628, a: 1}
+  floorLight: {r: 0.9152941, g: 0.73529416, b: 0.47411767, a: 1}
+  floorShadow: {r: 0.8515294, g: 0.66352946, b: 0.3907451, a: 1}
+  floorMid: {r: 0.9087059, g: 0.7147059, b: 0.43321568, a: 1}
+  crack: {r: 0.74282354, g: 0.57882357, b: 0.34086275, a: 1}
+  key: {r: 0.8372549, g: 0.5235294, b: 0.29803923, a: 1}
+  unlock:
+    type: 1
+    value: 50
+    shortText: "R\xE9cord 50"
+  thumbnail: {fileID: 2800000, guid: b34cb1bcf5a83a2428a227ce6d41d58b, type: 3}
+  triangleCount: 132

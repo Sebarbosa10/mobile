@@ -2,12 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// 4 · HUD de desafíos: chip centrado arriba con "DESAFÍO N · NOMBRE",
-/// el contador ("Aros: 2/5", "Encestadas: 1/3", "Puntos: 5/8") y los
-/// puntos de progreso. Solo en Contrarreloj aparece además un anillo de
-/// 200 arriba a la izquierda con los segundos.
-/// </summary>
 public sealed class ChallengeHudScreen : UIScreen
 {
     private const float ChipWidth = 500f;
@@ -40,7 +34,6 @@ public sealed class ChallengeHudScreen : UIScreen
             chipRect, "Header", "", UIFont.Label, 28f, palette.sun, 6f);
         UIKit.PlaceTop(screen.headerText.rectTransform, 24f, new Vector2(ChipWidth - 40f, 34f));
 
-        // Etiqueta y número comparten línea de base.
         RectTransform counter = UIKit.CreateRect(chipRect, "Counter");
         UIKit.PlaceTop(counter, 68f, new Vector2(ChipWidth - 64f, 114f));
 
@@ -78,7 +71,6 @@ public sealed class ChallengeHudScreen : UIScreen
 
         headerText.text = header;
 
-        // Los nombres largos usan tracking +4 para entrar en el chip.
         headerText.characterSpacing = (header.Length > 20 ? 4f : 6f) / headerText.fontSize * 100f;
 
         counterLabel.text = $"{challenge.ProgressLabel}:";
@@ -93,7 +85,6 @@ public sealed class ChallengeHudScreen : UIScreen
 
         UIPalette palette = UIKit.Palette;
 
-        // En Carrusel cada aro acertado se pinta de verde; en el resto, Sol.
         Color filled = definition.Number == 1 ? palette.success : palette.sun;
 
         bool fewPips = total <= 5;

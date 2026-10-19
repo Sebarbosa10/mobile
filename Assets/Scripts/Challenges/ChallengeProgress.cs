@@ -1,12 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Progreso de desbloqueo de los desafíos. Cada encestada en el modo
-/// endless suma al total acumulado (de todas las partidas, guardado en
-/// PlayerPrefs), y cada BasketsPerUnlock encestadas se desbloquea el
-/// siguiente desafío: 10 → Desafío 1, 20 → Desafío 2, etc. También
-/// recuerda qué desafíos ya se completaron.
-/// </summary>
 public static class ChallengeProgress
 {
     public const int BasketsPerUnlock = 10;

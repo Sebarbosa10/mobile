@@ -2,22 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Motor del modo "por récord": el jugador debe encestar antes de que se
-/// agote un timer fijo. Cada encestada reinicia el timer; un tiro errado
-/// no lo hace, así que la presión se acumula hasta la próxima encestada.
-///
-/// Si el timer llega a cero mientras la pelota ya está en el aire, el
-/// tiro se deja resolver: si encesta, vale igual y el timer se reinicia
-/// como cualquier otra encestada. Recién si esa pelota cae sin encestar
-/// (o si el timer llega a cero sin que haya ningún tiro en curso)
-/// termina la partida: la pelota se congela y el puntaje se compara
-/// contra el récord guardado (PlayerPrefs).
-///
-/// No conoce la UI: implementa IGameSession y la UI escucha sus eventos.
-/// La partida se puede pausar (ver GamePause). Reiniciar o volver al
-/// menú desde la pausa también cuenta el puntaje para el récord.
-/// </summary>
 public sealed class BallShotClock : MonoBehaviour, IGameSession
 {
     public const string HighScoreKey = "HighScore";
@@ -52,7 +36,6 @@ public sealed class BallShotClock : MonoBehaviour, IGameSession
     public event Action<bool> PausedChanged;
     public event Action<GameOverInfo> GameOver;
 
-    // El endless no tiene progreso de desafío: estos eventos nunca se disparan.
     public event Action<int, int> ChallengeProgressChanged { add { } remove { } }
     public event Action<ChallengeEndInfo> ChallengeEnded { add { } remove { } }
 
@@ -71,16 +54,9 @@ public sealed class BallShotClock : MonoBehaviour, IGameSession
     public bool IsPaused =>
         pause.IsPaused;
 
-    public float RemainingTime =>
-        remainingTime;
-
-    public float TimeLimit =>
-        timeLimit;
-
     private int CurrentScore =>
         hoopController != null ? hoopController.CurrentScore : 0;
 
-    /// <summary>Récord guardado, para pantallas que no tienen partida (menú).</summary>
     public static int LoadRecord() =>
         PlayerPrefs.GetInt(HighScoreKey, 0);
 
@@ -148,11 +124,6 @@ public sealed class BallShotClock : MonoBehaviour, IGameSession
         TimerChanged?.Invoke(Mathf.Max(remainingTime, 0f), timeLimit);
     }
 
-    /// <summary>
-    /// El timer llegó a cero. Si hay un tiro en el aire, lo dejamos
-    /// resolver (puede seguir encestando); recién si no hay ningún
-    /// tiro en curso la partida termina en el acto.
-    /// </summary>
     private void HandleTimeExpired()
     {
         bool shotInFlight =
@@ -195,8 +166,6 @@ public sealed class BallShotClock : MonoBehaviour, IGameSession
 
     private void OnApplicationPause(bool paused)
     {
-        // En mobile la app puede morir estando en background sin volver
-        // a pasar por EndRun: guardamos el progreso de desbloqueo acá.
         if (paused)
             ChallengeProgress.Save();
     }
@@ -288,11 +257,6 @@ public sealed class BallShotClock : MonoBehaviour, IGameSession
         GameOver?.Invoke(new GameOverInfo(CurrentScore, bestScore, previousRecord, isNewRecord));
     }
 
-    /// <summary>
-    /// Compara el puntaje actual con el récord, lo guarda si lo supera y
-    /// persiste también el progreso de desbloqueo. Devuelve true si hubo
-    /// récord nuevo.
-    /// </summary>
     private bool CommitScore()
     {
         int finalScore = CurrentScore;

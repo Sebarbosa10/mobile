@@ -2,7 +2,6 @@ using System;
 using TMPro;
 using UnityEngine;
 
-/// <summary>5 · Pausa: "PAUSA" + REANUDAR (azul), REINICIAR (naranja), MENÚ (gris).</summary>
 public sealed class PauseScreen : UIScreen
 {
     private OverlayPanel overlay;

@@ -2,15 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Base de los tres desafíos. Resuelve lo que comparten: pausa,
-/// reinicio, salida al menú, congelar la pelota al terminar, marcar el
-/// desafío como completado y exponer todo como IGameSession para la UI.
-///
-/// Cada desafío concreto solo define su número, cómo se reinicia su
-/// estado y qué pasa en cada encestada (llamando a ReportProgress y, al
-/// final, a Finish).
-/// </summary>
 public abstract class ChallengeControllerBase : MonoBehaviour, IGameSession
 {
     [SerializeField]
@@ -32,13 +23,10 @@ public abstract class ChallengeControllerBase : MonoBehaviour, IGameSession
     public event Action<int, int> ChallengeProgressChanged;
     public event Action<ChallengeEndInfo> ChallengeEnded;
 
-    // Los desafíos no tienen Game Over de récord: nunca se dispara.
     public event Action<GameOverInfo> GameOver { add { } remove { } }
 
-    /// <summary>1 = Carrusel, 2 = Aro esquivo, 3 = Contrarreloj.</summary>
     protected abstract int ChallengeNumber { get; }
 
-    /// <summary>Progreso actual y meta, para el HUD.</summary>
     protected abstract int CurrentProgress { get; }
     protected abstract int TargetProgress { get; }
 
@@ -98,10 +86,8 @@ public abstract class ChallengeControllerBase : MonoBehaviour, IGameSession
         StartChallenge();
     }
 
-    /// <summary>Vuelve el estado propio del desafío a cero.</summary>
     protected abstract void ResetChallengeState();
 
-    /// <summary>Se encestó en uno de los aros del desafío.</summary>
     protected abstract void OnHoopScored(HoopScoreTrigger hoop);
 
     private void HandleHoopScored(HoopScoreTrigger hoop)
@@ -122,7 +108,6 @@ public abstract class ChallengeControllerBase : MonoBehaviour, IGameSession
         PausedChanged?.Invoke(paused);
     }
 
-    /// <summary>Avisa a la UI de una encestada que sumó progreso.</summary>
     protected void ReportProgress(HoopScoreTrigger hoop)
     {
         Vector3 hoopPosition =
@@ -137,7 +122,6 @@ public abstract class ChallengeControllerBase : MonoBehaviour, IGameSession
         TimerChanged?.Invoke(remaining, total);
     }
 
-    /// <summary>Termina el desafío: congela la pelota y avisa el resultado.</summary>
     protected void Finish(bool won, string summary)
     {
         if (IsFinished)

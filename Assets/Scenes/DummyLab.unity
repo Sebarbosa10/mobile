@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 694799683}
   - component: {fileID: 694799682}
   - component: {fileID: 694799686}
+  - component: {fileID: 694799687}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -360,7 +361,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 400
-  field of view: 36.752625
+  field of view: 40.648083
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -386,8 +387,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694799681}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0089959, y: 0, z: 0, w: 0.9999595}
-  m_LocalPosition: {x: 0, y: 1.7471879, z: -3.6868525}
+  m_LocalRotation: {x: 0.049238093, y: 0, z: 0, w: 0.99878705}
+  m_LocalPosition: {x: 0, y: 3.93, z: -7.8067274}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -400,14 +401,33 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694799681}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   referenceAspect: 0.5625
-  referenceVerticalFov: 36.752625
+  referenceVerticalFov: 33
   verticalFovClamp: {x: 20, y: 100}
+--- !u!114 &694799687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694799681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b5fd7aa9efc2f43be20cc5cd3e82f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CourtCameraRig
+  ballPoint: {x: 0, y: 1, z: 0}
+  rimPoint: {x: 0, y: 2.5, z: 8}
+  height: 3.93
+  verticalFov: 33
+  ballScreenY: 0.95
+  rimScreenY: 0.486
+  referenceAspect: 0.5625
 --- !u!1 &745039340
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +650,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2973489764293218452, guid: 66e6a4149e91bac4fba42589d5204992, type: 3}
   m_PrefabInstance: {fileID: 872897650}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1043340588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043340590}
+  - component: {fileID: 1043340589}
+  m_Layer: 0
+  m_Name: StylizedLook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1043340589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043340588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac3e02122eb344459d0670b6e531369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StylizedLook
+  posterize: 1
+  posterizeSteps: 8
+  posterizeAmount: 1
+  posterizeDither: 0.35
+  stylized: 1
+  outline: 1
+  outlineColor: {r: 0.165, g: 0.129, b: 0.251, a: 1}
+  outlineThickness: 1.5
+  outlineThreshold: 0.15
+  outlineFadeDistance: 60
+  saturation: 1.15
+  contrast: 1.08
+  shadowTint: {r: 0.45, g: 0.35, b: 0.85, a: 1}
+  highlightTint: {r: 1, g: 0.78, b: 0.55, a: 1}
+  splitToning: 0.25
+  vignetteColor: {r: 0.165, g: 0.129, b: 0.251, a: 1}
+  vignetteIntensity: 0.35
+  vignetteRadius: 1.05
+  vignetteSoftness: 0.6
+--- !u!4 &1043340590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043340588}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364744152
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +729,7 @@ GameObject:
   - component: {fileID: 1364744160}
   - component: {fileID: 1364744161}
   - component: {fileID: 1364744163}
+  - component: {fileID: 1364744164}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -825,7 +909,23 @@ MonoBehaviour:
   menuSceneName: MainMenu
   ballLauncher: {fileID: 1364744160}
   hoopController: {fileID: 1802796998}
-  timeLimit: 7
+  timeLimit: 10
+--- !u!114 &1364744164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364744152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a67ce0162c5f24f883fccea327d604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallCloseUpScale
+  art: {fileID: 1415503840}
+  shadow: {fileID: 1682665597}
+  closeUpScale: 1.5
+  fullSizeDistance: 5
 --- !u!1001 &1415503839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -949,6 +1049,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7c4a8bba8651c8408032ee9637fd09e, type: 3}
+--- !u!114 &1682665597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7503053411732842790, guid: d7c4a8bba8651c8408032ee9637fd09e, type: 3}
+  m_PrefabInstance: {fileID: 1682665596}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141e8d05001c7424da35395348233542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallBlobShadow
 --- !u!1 &1802796997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,8 +1131,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 694799685}
   - {fileID: 1364744157}
-  - {fileID: 745039343}
   - {fileID: 1802796999}
+  - {fileID: 745039343}
   - {fileID: 960001}
   - {fileID: 225251614}
   - {fileID: 1682665596}
+  - {fileID: 1043340590}

@@ -2,11 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Barra de progreso de desbloqueo: 904×36, radio 18, pista #3A2D5C y
-/// relleno Sol. El relleno es una píldora 9-slice cuyo ancho sigue el
-/// progreso (así conserva las puntas redondeadas).
-/// </summary>
 public sealed class ProgressBar : MonoBehaviour
 {
     private const float FlashDuration = 0.2f;
@@ -48,7 +43,6 @@ public sealed class ProgressBar : MonoBehaviour
     {
         value = Mathf.Clamp01(value);
 
-        // Por debajo del alto de la barra la píldora se deformaría: se oculta.
         float width = RectTransform.rect.width > 0f ? RectTransform.rect.width : RectTransform.sizeDelta.x;
         bool visible = value * width >= height;
 
@@ -57,7 +51,6 @@ public sealed class ProgressBar : MonoBehaviour
         fillRect.offsetMax = Vector2.zero;
     }
 
-    /// <summary>Destello blanco de 0,2 s (al completar un tramo).</summary>
     public void Flash()
     {
         if (flashRoutine != null)

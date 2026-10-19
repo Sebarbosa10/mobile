@@ -4,28 +4,18 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
-/// <summary>
-/// Fábrica de piezas uGUI + TextMeshPro con el estilo de "Última Luz".
-/// Todas las medidas están en px sobre la resolución de referencia
-/// 1080×1920 (Canvas Scaler con Match = 0, ancho). Colores, fuentes y
-/// sprites salen siempre de UISkin / UIPalette.
-/// </summary>
 public static class UIKit
 {
     public const float ReferenceWidth = 1080f;
     public const float ReferenceHeight = 1920f;
 
-    /// <summary>Reserva mínima de safe area del design system.</summary>
     public const float TopReserve = 96f;
     public const float BottomReserve = 64f;
 
-    /// <summary>Margen lateral mínimo.</summary>
     public const float SideMargin = 48f;
 
-    /// <summary>Alto del "labio" inferior de botones y tarjetas.</summary>
     public const float ButtonLip = 12f;
 
-    /// <summary>Alto del "labio" inferior de los paneles.</summary>
     public const float PanelLip = 14f;
 
     private const float ChipSpriteRadius = 28f;
@@ -35,8 +25,6 @@ public static class UIKit
 
     public static UIPalette Palette =>
         UISkin.Palette;
-
-    // ---------- Canvas ----------
 
     public static void EnsureEventSystem()
     {
@@ -71,7 +59,6 @@ public static class UIKit
         return canvas;
     }
 
-    /// <summary>Rect que sigue la safe area, con la reserva mínima del design system.</summary>
     public static RectTransform CreateSafeArea(Transform parent)
     {
         RectTransform safe = CreateRect(parent, "SafeArea");
@@ -83,12 +70,10 @@ public static class UIKit
         return safe;
     }
 
-    // ---------- RectTransform ----------
-
     public static RectTransform CreateRect(Transform parent, string name)
     {
         GameObject go = new(name, typeof(RectTransform));
-        go.layer = 5; // UI
+        go.layer = 5;
 
         RectTransform rect = go.GetComponent<RectTransform>();
         rect.SetParent(parent, false);
@@ -119,7 +104,6 @@ public static class UIKit
         rect.sizeDelta = size;
     }
 
-    /// <summary>Centrado en X, con el borde superior a "top" px del borde superior del padre.</summary>
     public static void PlaceTop(RectTransform rect, float top, Vector2 size, float x = 0f) =>
         Place(rect, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(x, -top), size);
 
@@ -135,12 +119,6 @@ public static class UIKit
     public static void PlaceCenter(RectTransform rect, Vector2 offset, Vector2 size) =>
         Place(rect, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), offset, size);
 
-    // ---------- Imágenes ----------
-
-    /// <summary>
-    /// Image con el sprite teñido. Si el sprite tiene bordes 9-slice se
-    /// dibuja Sliced. Sin sprite es un rectángulo liso del color dado.
-    /// </summary>
     public static Image CreateImage(
         Transform parent,
         string name,
@@ -161,16 +139,10 @@ public static class UIKit
         return image;
     }
 
-    /// <summary>
-    /// Ajusta el radio de las esquinas de un Image Sliced hecho con el
-    /// sprite "chip" (radio 28) para que se vean con el radio pedido.
-    /// </summary>
     public static void SetChipRadius(Image image, float radius)
     {
         image.pixelsPerUnitMultiplier = ChipSpriteRadius / Mathf.Max(1f, radius);
     }
-
-    // ---------- Texto ----------
 
     public static TextMeshProUGUI CreateText(
         Transform parent,
@@ -192,26 +164,15 @@ public static class UIKit
         label.textWrappingMode = TextWrappingModes.NoWrap;
         label.overflowMode = TextOverflowModes.Overflow;
 
-        // El tracking del design system está en px; TMP lo mide en
-        // centésimas de em.
         label.characterSpacing = size > 0f ? trackingPx / size * 100f : 0f;
 
         label.text = text;
 
-        // El HUD no debe robar los toques del swipe de lanzamiento: solo
-        // los botones necesitan responder a input.
         label.raycastTarget = false;
 
         return label;
     }
 
-    /// <summary>
-    /// Texto con "sombra" plana (una copia en Noche desplazada hacia
-    /// abajo), como el underlay de títulos del design system. Se hace con
-    /// una segunda copia en vez de con el underlay del shader para no
-    /// depender de una variante de shader que el build podría descartar.
-    /// Devuelve el contenedor; el texto principal queda en "label".
-    /// </summary>
     public static RectTransform CreateShadowedText(
         Transform parent,
         string name,
@@ -237,12 +198,6 @@ public static class UIKit
         return container;
     }
 
-    // ---------- Chips (píldoras con contenido en fila) ----------
-
-    /// <summary>
-    /// Píldora con fondo y contenido en fila que se ajusta a lo ancho
-    /// (HorizontalLayoutGroup + ContentSizeFitter). Pivot arriba al centro.
-    /// </summary>
     public static RectTransform CreateChip(
         Transform parent,
         string name,
@@ -299,7 +254,6 @@ public static class UIKit
         return label;
     }
 
-    /// <summary>Chip de récord: trofeo + "RÉCORD" + número en Sol.</summary>
     public static TextMeshProUGUI CreateRecordChip(
         Transform parent,
         string name,
@@ -321,9 +275,6 @@ public static class UIKit
         return AddChipText(chip, "0", UIFont.Display, valueSize, Palette.sun);
     }
 
-    // ---------- Fondos ----------
-
-    /// <summary>Fondo a pantalla completa: color liso, cielo o ninguno, más skyline abajo.</summary>
     public static RectTransform CreateBackground(Transform parent, bool sky)
     {
         Image background = sky

@@ -1,25 +1,7 @@
 using UnityEngine;
 
-/// <summary>
-/// Parte visual de un aro (prefabs Hoop y HoopSmall). No sabe nada del
-/// puntaje: el gameplay le pide cosas y ella las muestra.
-///
-///  - SetScale: achica o agranda el aro, el tablero, la red y el
-///    trigger (todo lo que cuelga de "Scaled"). El poste no se escala:
-///    se estira para seguir apoyado en el piso.
-///  - SetColor / ResetColor: pinta el aro (por ejemplo de verde al
-///    acertarlo en el Carrusel) y muestra un anillo de brillo plano.
-///  - SetCheckVisible: el check que flota sobre el aro acertado.
-///  - PlayScoreFlash: el efecto 3D de una encestada (la red se sacude y
-///    el anillo destella). Los efectos 2D (fx_burst, fx_ring, "+1") los
-///    sigue disparando la UI desde IGameSession.Scored.
-///
-/// Si el aro se mueve (HoopMovement, EvasiveHoopMover), el poste y su
-/// sombra se recalculan cada frame para quedar anclados al piso.
-/// </summary>
 public sealed class HoopVisual : MonoBehaviour
 {
-    /// <summary>Verde de "acertado" (#40D959), igual que en la UI.</summary>
     public static readonly Color SuccessColor = new(0.251f, 0.851f, 0.349f, 1f);
 
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
@@ -119,7 +101,6 @@ public sealed class HoopVisual : MonoBehaviour
         UpdatePole();
     }
 
-    /// <summary>Pinta el aro de un color y muestra el anillo de brillo detrás.</summary>
     public void SetColor(Color color)
     {
         highlighted = true;
@@ -138,7 +119,6 @@ public sealed class HoopVisual : MonoBehaviour
         ApplyGlow(color, glowAlpha, 1f);
     }
 
-    /// <summary>Vuelve al color del material y apaga el brillo.</summary>
     public void ResetColor()
     {
         highlighted = false;
@@ -157,7 +137,6 @@ public sealed class HoopVisual : MonoBehaviour
             checkMark.SetActive(visible);
     }
 
-    /// <summary>Efecto 3D de encestada: sacude la red y hace destellar el aro.</summary>
     public void PlayScoreFlash()
     {
         if (net != null)
@@ -174,7 +153,6 @@ public sealed class HoopVisual : MonoBehaviour
         flashTime += Time.deltaTime;
         float t = Mathf.Clamp01(flashTime / flashDuration);
 
-        // Pop rápido del aro (sube y vuelve) y un anillo que se abre y apaga.
         float pop = Mathf.Sin(t * Mathf.PI);
         for (int i = 0; i < rimRenderers.Length; i++)
             if (rimRenderers[i] != null)
@@ -211,21 +189,12 @@ public sealed class HoopVisual : MonoBehaviour
         glowRenderer.SetPropertyBlock(block);
     }
 
-    /// <summary>
-    /// Apoya el poste en el piso ya mismo (también en el Editor, donde
-    /// no corre Awake/LateUpdate). Lo usa el builder al ubicar el aro.
-    /// </summary>
     public void SnapPoleToGround()
     {
         lastAttachPosition = new Vector3(float.NaN, 0f, 0f);
         UpdatePole();
     }
 
-    /// <summary>
-    /// Estira el poste desde el piso hasta el punto de enganche del
-    /// tablero y alarga su sombra en proporción a la altura. Solo hace
-    /// algo cuando el enganche se movió.
-    /// </summary>
     private void UpdatePole()
     {
         if (pole == null || poleAttach == null)

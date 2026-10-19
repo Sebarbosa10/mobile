@@ -3,12 +3,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-/// <summary>
-/// Guardado idempotente de los assets que genera el builder: si el asset
-/// ya existe se actualiza en el lugar (mismo GUID, así las referencias de
-/// escenas y prefabs no se rompen); si no, se crea. Correr el builder dos
-/// veces no duplica nada.
-/// </summary>
 public static class CourtAssets
 {
     public const string Root = "Assets/Art/Scene";
@@ -36,7 +30,6 @@ public static class CourtAssets
         AssetDatabase.CreateFolder(parent, Path.GetFileName(path));
     }
 
-    /// <summary>Guarda (o actualiza) un mesh como .asset y devuelve el asset persistido.</summary>
     public static Mesh SaveMesh(Mesh mesh, string name)
     {
         string path = $"{MeshesFolder}/{name}.asset";
@@ -50,8 +43,6 @@ public static class CourtAssets
             return mesh;
         }
 
-        // Copia explícita de los canales que usamos (posición, normal,
-        // color y submeshes): sin UVs ni tangentes, porque no hay texturas.
         existing.Clear();
         existing.indexFormat = mesh.indexFormat;
         existing.vertices = mesh.vertices;
@@ -69,12 +60,6 @@ public static class CourtAssets
         return existing;
     }
 
-    /// <summary>
-    /// Crea o actualiza un material. El callback configura las
-    /// propiedades; se aplica igual sobre un material existente, así
-    /// cambiar un color en la paleta y volver a correr el builder lo
-    /// actualiza sin perder referencias.
-    /// </summary>
     public static Material SaveMaterial(string name, Shader shader, System.Action<Material> configure)
     {
         string path = $"{MaterialsFolder}/{name}.mat";
@@ -91,12 +76,11 @@ public static class CourtAssets
         }
 
         configure(material);
-        material.enableInstancing = false; // el SRP Batcher ya agrupa; instancing no suma acá.
+        material.enableInstancing = false;
         EditorUtility.SetDirty(material);
         return material;
     }
 
-    /// <summary>Guarda el GameObject como prefab (reemplazando el existente) y lo destruye.</summary>
     public static GameObject SavePrefab(GameObject root, string name)
     {
         string path = $"{PrefabsFolder}/{name}.prefab";
@@ -119,7 +103,6 @@ public static class CourtAssets
         return shader;
     }
 
-    /// <summary>Hijo con MeshFilter + MeshRenderer (un material por submesh).</summary>
     public static GameObject MeshObject(string name, Transform parent, Mesh mesh, params Material[] materials)
     {
         GameObject go = new(name);
@@ -139,7 +122,6 @@ public static class CourtAssets
         return go;
     }
 
-    /// <summary>Marca todo como estático (batching, oclusión, probes); sin GI porque no se hornea nada.</summary>
     public static void MarkStatic(GameObject root)
     {
         const StaticEditorFlags flags =
@@ -152,7 +134,6 @@ public static class CourtAssets
             GameObjectUtility.SetStaticEditorFlags(t.gameObject, flags);
     }
 
-    /// <summary>Configura un renderer para el look de la escena: sin sombras, probes ni motion vectors.</summary>
     public static void SetupRenderer(Renderer renderer)
     {
         renderer.shadowCastingMode = ShadowCastingMode.Off;

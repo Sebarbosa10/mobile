@@ -2,10 +2,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-/// <summary>
-/// Botón de pausa: área táctil de 140×140, placa visible de 112×112 en
-/// Noche (radio 28) con el ícono de 56. Presionado: escala 0,92.
-/// </summary>
 public sealed class PauseButton : MonoBehaviour,
     IPointerDownHandler,
     IPointerUpHandler,
@@ -21,7 +17,6 @@ public sealed class PauseButton : MonoBehaviour,
 
     public static PauseButton Create(Transform parent)
     {
-        // El área táctil es un Image transparente: invisible pero recibe toques.
         Image hitArea = UIKit.CreateImage(parent, "PauseButton", null, Color.clear, raycast: true);
         hitArea.rectTransform.sizeDelta = new Vector2(140f, 140f);
 

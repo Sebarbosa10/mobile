@@ -1,10 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Sombra de la pelota como un disco plano que la sigue sobre el piso
-/// (no usa shadow map). Se achica y se aclara cuanto más alta está la
-/// pelota. El piso es plano en y = groundY.
-/// </summary>
 public sealed class BallBlobShadow : MonoBehaviour
 {
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
@@ -39,10 +34,7 @@ public sealed class BallBlobShadow : MonoBehaviour
     private Renderer shadowRenderer;
     private MaterialPropertyBlock block;
 
-    public void SetTarget(Transform newTarget)
-    {
-        target = newTarget;
-    }
+    public float SizeMultiplier { get; set; } = 1f;
 
     private void Awake()
     {
@@ -68,7 +60,7 @@ public sealed class BallBlobShadow : MonoBehaviour
 
         float k = Mathf.Clamp01(height / fadeHeight);
         transform.SetPositionAndRotation(new Vector3(position.x, groundY + lift, position.z), Quaternion.identity);
-        transform.localScale = Vector3.one * (size * Mathf.Lerp(1f, minScale, k));
+        transform.localScale = Vector3.one * (size * SizeMultiplier * Mathf.Lerp(1f, minScale, k));
 
         block.SetColor(BaseColorId, new Color(color.r, color.g, color.b, color.a * Mathf.Lerp(1f, minAlphaFactor, k)));
         shadowRenderer.SetPropertyBlock(block);

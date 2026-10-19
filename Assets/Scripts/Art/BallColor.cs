@@ -1,19 +1,17 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
-/// Al sacudir el celular, la pelota rota al siguiente color de la
-/// paleta (naranja, celeste, rosa, amarillo) con un "pop" de escala
-/// corto. El contorno y las costuras no cambian.
-///
-/// La sacudida se detecta con el acelerómetro: |aceleración| − 1 g
-/// (lo que sobra de la gravedad) por encima de un umbral, con cooldown
-/// para que una sola sacudida no cambie varios colores seguidos.
-/// En el Editor, la tecla C hace lo mismo para probar sin celular.
-/// </summary>
 public sealed class BallColor : MonoBehaviour
 {
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
+
+    [System.Serializable]
+    public struct ExtraTint
+    {
+        public Renderer renderer;
+        public int materialIndex;
+        public Color[] colors;
+    }
 
     [Header("Render")]
     [SerializeField]
@@ -31,11 +29,15 @@ public sealed class BallColor : MonoBehaviour
     [SerializeField]
     private Color[] colors =
     {
-        new(0.949f, 0.541f, 0.118f, 1f), // #F28A1E naranja
-        new(0.180f, 0.769f, 0.902f, 1f), // #2EC4E6 celeste
-        new(0.941f, 0.306f, 0.541f, 1f), // #F04E8A rosa
-        new(0.949f, 0.824f, 0.118f, 1f)  // #F2D21E amarillo
+        new(0.949f, 0.541f, 0.118f, 1f),
+        new(0.180f, 0.769f, 0.902f, 1f),
+        new(0.941f, 0.306f, 0.541f, 1f),
+        new(0.949f, 0.824f, 0.118f, 1f)
     };
+
+    [Tooltip("Partes que cambian junto con el cuerpo (vacío en la Clásica).")]
+    [SerializeField]
+    private ExtraTint[] extraTints = System.Array.Empty<ExtraTint>();
 
     [Header("Sacudida")]
     [Tooltip("Aceleración extra (en g, descontando la gravedad) que cuenta como sacudida.")]
@@ -56,12 +58,13 @@ public sealed class BallColor : MonoBehaviour
     private int index;
     private Color fromColor;
     private Color toColor;
+    private Color[] extraFrom = System.Array.Empty<Color>();
+    private Color[] extraTo = System.Array.Empty<Color>();
     private float transitionTime = -1f;
     private float lastShakeTime = float.NegativeInfinity;
     private Vector3 baseScale = Vector3.one;
 
-    public Color CurrentColor =>
-        colors.Length > 0 ? colors[index] : Color.white;
+    public float PopFactor { get; private set; } = 1f;
 
     private void Awake()
     {
@@ -72,8 +75,16 @@ public sealed class BallColor : MonoBehaviour
 
         baseScale = popTarget.localScale;
 
+        extraFrom = new Color[extraTints.Length];
+        extraTo = new Color[extraTints.Length];
+
         if (colors.Length > 0)
+        {
             ApplyColor(colors[0]);
+
+            for (int i = 0; i < extraTints.Length; i++)
+                ApplyExtra(i, ExtraColor(i, 0));
+        }
     }
 
     private void OnEnable()
@@ -121,15 +132,25 @@ public sealed class BallColor : MonoBehaviour
         return true;
     }
 
-    /// <summary>Pasa al siguiente color de la paleta con la transición.</summary>
     public void NextColor()
     {
         if (colors.Length == 0)
             return;
 
-        fromColor = transitionTime >= 0f ? Color.Lerp(fromColor, toColor, transitionTime / transitionDuration) : colors[index];
+        bool midTransition = transitionTime >= 0f;
+        float progress = midTransition ? Mathf.Clamp01(transitionTime / transitionDuration) : 0f;
+
+        fromColor = midTransition ? Color.Lerp(fromColor, toColor, progress) : colors[index];
+
+        for (int i = 0; i < extraTints.Length; i++)
+            extraFrom[i] = midTransition ? Color.Lerp(extraFrom[i], extraTo[i], progress) : ExtraColor(i, index);
+
         index = (index + 1) % colors.Length;
         toColor = colors[index];
+
+        for (int i = 0; i < extraTints.Length; i++)
+            extraTo[i] = ExtraColor(i, index);
+
         transitionTime = 0f;
     }
 
@@ -138,16 +159,21 @@ public sealed class BallColor : MonoBehaviour
         if (transitionTime < 0f)
             return;
 
-        // unscaled: si se sacude en pausa, la transición igual termina.
         transitionTime += Time.unscaledDeltaTime;
         float t = Mathf.Clamp01(transitionTime / transitionDuration);
 
         ApplyColor(Color.Lerp(fromColor, toColor, t));
-        popTarget.localScale = baseScale * Mathf.Lerp(1f, popScale, Mathf.Sin(t * Mathf.PI));
+
+        for (int i = 0; i < extraTints.Length; i++)
+            ApplyExtra(i, Color.Lerp(extraFrom[i], extraTo[i], t));
+
+        PopFactor = Mathf.Lerp(1f, popScale, Mathf.Sin(t * Mathf.PI));
+        popTarget.localScale = baseScale * PopFactor;
 
         if (t >= 1f)
         {
             transitionTime = -1f;
+            PopFactor = 1f;
             popTarget.localScale = baseScale;
         }
     }
@@ -160,5 +186,27 @@ public sealed class BallColor : MonoBehaviour
         bodyRenderer.GetPropertyBlock(block, bodyMaterialIndex);
         block.SetColor(BaseColorId, color);
         bodyRenderer.SetPropertyBlock(block, bodyMaterialIndex);
+    }
+
+    private Color ExtraColor(int extra, int variant)
+    {
+        Color[] extraColors = extraTints[extra].colors;
+
+        if (extraColors == null || extraColors.Length == 0)
+            return Color.white;
+
+        return extraColors[Mathf.Min(variant, extraColors.Length - 1)];
+    }
+
+    private void ApplyExtra(int extra, Color color)
+    {
+        ExtraTint tint = extraTints[extra];
+
+        if (tint.renderer == null)
+            return;
+
+        tint.renderer.GetPropertyBlock(block, tint.materialIndex);
+        block.SetColor(BaseColorId, color);
+        tint.renderer.SetPropertyBlock(block, tint.materialIndex);
     }
 }

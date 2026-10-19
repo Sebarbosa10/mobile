@@ -2,23 +2,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-/// <summary>
-/// Prefabs de aros: Hoop (aro grande con tablero y poste), HoopSmall
-/// (aro chico del carrusel, con placa) y HoopCarousel (poste central,
-/// hub hexagonal, 5 brazos y 5 HoopSmall).
-///
-/// Convención de los prefabs de aro: el pivote es el centro del aro.
-/// Todo lo que escala con la dificultad cuelga de "Scaled" (aro,
-/// tablero, red, colliders y trigger); el poste y su sombra quedan
-/// afuera y HoopVisual los mantiene apoyados en el piso.
-/// </summary>
 public static class HoopGeometry
 {
     private const int NetStrands = 12;
 
-    // ----------------------------------------------------------- Primitivas
-
-    /// <summary>Toro low-poly facetado alrededor del eje Y.</summary>
     public static void Torus(MeshKit kit, float radius, float tube, int segments, int sides, Vector3 offset = default)
     {
         for (int i = 0; i < segments; i++)
@@ -44,7 +31,6 @@ public static class HoopGeometry
         }
     }
 
-    /// <summary>Anillo plano horizontal (brillo detrás del aro).</summary>
     private static void Annulus(MeshKit kit, float radius, float halfWidth, int segments)
     {
         for (int i = 0; i < segments; i++)
@@ -57,14 +43,6 @@ public static class HoopGeometry
         }
     }
 
-    /// <summary>
-    /// Red de cadena: 12 tiras del aro a un anillo inferior más chico, en
-    /// zigzag (cada tira se cruza alternadamente con su vecina de un lado
-    /// y del otro, como una red real). Cada tramo son dos eslabones con un
-    /// hueco en el medio, así se lee "punteada". Las tiras de atrás son un
-    /// poco más oscuras (vertex color) para dar profundidad.
-    /// Submesh 0: cadena; 1: anillo inferior.
-    /// </summary>
     private static Mesh Net(string name, float topRadius, float bottomRadius, float depth, int levels, float linkWidth, float ringTube, float topY)
     {
         MeshKit kit = new(2);
@@ -116,7 +94,6 @@ public static class HoopGeometry
         return CourtAssets.SaveMesh(kit.ToMesh(name), name);
     }
 
-    /// <summary>Colliders del aro: cápsulas a lo largo del toro.</summary>
     private static void RimColliders(Transform parent, float radius, float tube, int count)
     {
         Transform holder = CourtAssets.Empty("RimColliders", parent).transform;
@@ -148,14 +125,6 @@ public static class HoopGeometry
         return trigger;
     }
 
-    // --------------------------------------------------- Mallas compartidas
-
-    /// <summary>
-    /// Poste de altura 1 con el pivote en la base (se estira en Y). Prisma
-    /// cuadrado girado 30°: la cara angosta de la izquierda lleva el filo
-    /// (#4A3B6B), la ancha mira a cámara en el color del poste.
-    /// Submesh 0: poste; 1: filo.
-    /// </summary>
     public static Mesh PoleMesh()
     {
         MeshKit kit = new(2);
@@ -186,7 +155,6 @@ public static class HoopGeometry
         return CourtAssets.SaveMesh(kit.ToMesh("Pole"), "Pole");
     }
 
-    /// <summary>Tira de sombra plana sobre el piso, de largo 1 hacia +Z (se estira en Z).</summary>
     public static Mesh ShadowStripMesh()
     {
         MeshKit kit = new();
@@ -213,8 +181,6 @@ public static class HoopGeometry
         return poleObject;
     }
 
-    // ------------------------------------------------------------- Aro grande
-
     public static GameObject BuildHoop(CourtMaterials m, Mesh pole, Mesh strip)
     {
         const float R = CourtLayout.RimRadius;
@@ -229,7 +195,6 @@ public static class HoopGeometry
         HoopVisual visual = root.AddComponent<HoopVisual>();
         Transform scaled = CourtAssets.Empty("Scaled", root.transform).transform;
 
-        // Aro: toro de 16 segmentos.
         MeshKit rimKit = new();
         Torus(rimKit, R, tube, 16, 6);
         GameObject rim = CourtAssets.MeshObject("Rim", scaled, CourtAssets.SaveMesh(rimKit.ToMesh("Rim"), "Hoop_Rim"), m.MAro);
@@ -239,14 +204,12 @@ public static class HoopGeometry
         Annulus(glowKit, R, 0.09f, 32);
         GameObject glow = CourtAssets.MeshObject("Glow", scaled, CourtAssets.SaveMesh(glowKit.ToMesh("Glow"), "Hoop_Glow"), m.MBrilloAro);
 
-        // Soporte del aro al tablero.
         MeshKit bracketKit = new();
         float bracketStart = R - 0.02f;
         bracketKit.Box(new Vector3(0f, 0.03f, (bracketStart + front) * 0.5f), new Vector3(0.18f, 0.1f, front - bracketStart),
             BoxFaces.All & ~BoxFaces.Back);
         CourtAssets.MeshObject("Bracket", scaled, CourtAssets.SaveMesh(bracketKit.ToMesh("Bracket"), "Hoop_Bracket"), m.MSoporte);
 
-        // Tablero: frente crema, cantos en el color del borde.
         Vector3 boardCenter = new(0f, bottom + H * 0.5f, front + T * 0.5f);
         Vector3 boardSize = new(W, H, T);
         MeshKit boardKit = new(2);
@@ -261,7 +224,6 @@ public static class HoopGeometry
         CourtAssets.MeshObject("BackboardDetails", scaled, BackboardDetails(),
             m.MTableroSombra, m.MOxido, m.MTableroBorde, m.MTableroGastado, m.MRecuadro, m.MFilo);
 
-        // Red de cadena.
         Mesh netMesh = Net("Hoop_Net", R, CourtLayout.NetBottomRadius, CourtLayout.NetDepth, 6, 0.028f, 0.014f, -tube);
         GameObject net = CourtAssets.MeshObject("Net", scaled, netMesh, m.MCadena, m.MAroRed);
         ChainNet chain = net.AddComponent<ChainNet>();
@@ -269,8 +231,6 @@ public static class HoopGeometry
         Transform attach = CourtAssets.Empty("PoleAttach", scaled, new Vector3(0f, bottom + H * 0.5f, CourtLayout.PoleZ)).transform;
         ScoreTrigger(scaled, CourtLayout.HoopTriggerSize, CourtLayout.HoopTriggerY);
 
-        // Poste y sombra: posición de vista previa para el aro a su altura de
-        // juego; en runtime HoopVisual los recalcula contra el piso.
         float rimHeight = CourtLayout.RimCenter.y;
         GameObject poleObject = PoleWithShadow(root.transform, pole, strip, m,
             new Vector3(0f, -rimHeight, CourtLayout.PoleZ), rimHeight + attach.localPosition.y);
@@ -292,12 +252,6 @@ public static class HoopGeometry
         return CourtAssets.SavePrefab(root, "Hoop");
     }
 
-    /// <summary>
-    /// Detalles planos del tablero, en coordenadas del mockup (el tablero
-    /// ocupa de (350, 560) a (730, 800)): sombra diagonal, óxido, borde,
-    /// esquinas descascaradas, recuadro de puntería y filo de luz.
-    /// Cada capa un poco más adelante que la anterior.
-    /// </summary>
     private static Mesh BackboardDetails()
     {
         MeshKit kit = new(6);
@@ -318,37 +272,29 @@ public static class HoopGeometry
         void Rect(int sub, float eps, float x0, float y0, float x1, float y1) =>
             Poly(sub, eps, x0, y0, x1, y0, x1, y1, x0, y1);
 
-        // 0: sombra diagonal (triángulo inferior derecho)
         Poly(0, 0.002f, 350f, 800f, 730f, 800f, 730f, 560f);
 
-        // 1: óxido
         Poly(1, 0.003f, 640f, 560f, 668f, 560f, 660f, 640f, 648f, 612f);
 
-        // 2: borde del tablero
         Rect(2, 0.004f, 350f, 560f, 730f, 566f);
         Rect(2, 0.004f, 350f, 794f, 730f, 800f);
         Rect(2, 0.004f, 350f, 566f, 356f, 794f);
         Rect(2, 0.004f, 724f, 566f, 730f, 794f);
 
-        // 3: esquinas descascaradas
         Poly(3, 0.005f, 350f, 560f, 404f, 560f, 372f, 594f, 350f, 586f);
         Poly(3, 0.005f, 690f, 800f, 730f, 768f, 730f, 800f);
         Poly(3, 0.005f, 428f, 800f, 468f, 780f, 502f, 800f);
 
-        // 4: recuadro naranja de puntería
         Rect(4, 0.004f, 457f, 663f, 623f, 673f);
         Rect(4, 0.004f, 457f, 775f, 623f, 785f);
         Rect(4, 0.004f, 457f, 673f, 467f, 775f);
         Rect(4, 0.004f, 613f, 673f, 623f, 775f);
 
-        // 5: filo de luz del sol en el borde izquierdo y el de arriba
         Rect(5, 0.006f, 350f, 566f, 355f, 800f);
         Rect(5, 0.006f, 352f, 560f, 724f, 565f);
 
         return CourtAssets.SaveMesh(kit.ToMesh("BackboardDetails"), "Hoop_BackboardDetails");
     }
-
-    // ------------------------------------------------------------- Aro chico
 
     public static GameObject BuildHoopSmall(CourtMaterials m)
     {
@@ -379,7 +325,6 @@ public static class HoopGeometry
             BoxFaces.All & ~BoxFaces.Back);
         CourtAssets.MeshObject("Bracket", scaled, CourtAssets.SaveMesh(bracketKit.ToMesh("Bracket"), "HoopSmall_Bracket"), m.MPoste);
 
-        // Placa chica (92×64 en el mockup) con su borde.
         Vector3 plateCenter = new(0f, bottom + H * 0.5f, front + T * 0.5f);
         Vector3 plateSize = new(W, H, T);
         MeshKit plateKit = new(2);
@@ -408,7 +353,6 @@ public static class HoopGeometry
         CourtAssets.Empty("ArmAttach", scaled, new Vector3(0f, bottom + H * 0.5f, front + T));
         ScoreTrigger(scaled, CourtLayout.SmallTriggerSize, -0.1f);
 
-        // Check verde que flota sobre el aro acertado.
         GameObject check = CourtAssets.MeshObject("Check", root.transform, CheckMesh(), m.MExito, m.MCheckTrazo);
         check.transform.localPosition = new Vector3(0f, bottom + H + 0.24f, front - 0.02f);
         check.SetActive(false);
@@ -441,7 +385,6 @@ public static class HoopGeometry
                 new Vector3(Mathf.Cos(a1), Mathf.Sin(a1), 0f) * radius, Vector3.back);
         }
 
-        // Trazo del check (dos tramos), apenas delante del disco.
         Vector3[] stroke = { new(-0.06f, 0f, -0.004f), new(-0.018f, -0.045f, -0.004f), new(0.065f, 0.05f, -0.004f) };
         const float width = 0.032f;
         kit.Sub(1);
@@ -459,8 +402,6 @@ public static class HoopGeometry
         return CourtAssets.SaveMesh(kit.ToMesh("Check"), "Check");
     }
 
-    // -------------------------------------------------------------- Carrusel
-
     public static GameObject BuildCarousel(CourtMaterials m, GameObject hoopSmall, Mesh pole, Mesh strip)
     {
         GameObject root = new("HoopCarousel");
@@ -468,7 +409,6 @@ public static class HoopGeometry
 
         PoleWithShadow(root.transform, pole, strip, m, new Vector3(0f, -rimHeight, 0f), rimHeight + CourtLayout.HubY);
 
-        // Hub hexagonal: lados en violeta oscuro, tapas más claras.
         MeshKit hubKit = new(2);
         const float hubHalfHeight = 0.13f;
         Vector3[] ring = new Vector3[6];
@@ -497,13 +437,11 @@ public static class HoopGeometry
             m.MHubLado, m.MHubTapa);
         hub.transform.localPosition = new Vector3(0f, CourtLayout.HubY, 0f);
 
-        // Brazo de largo 1 sobre +Z, pivote en el hub.
         MeshKit armKit = new();
         armKit.Box(new Vector3(0f, 0f, 0.5f), new Vector3(0.06f, 0.06f, 1f), BoxFaces.Left | BoxFaces.Right | BoxFaces.Top | BoxFaces.Bottom);
         Mesh armMesh = CourtAssets.SaveMesh(armKit.ToMesh("Arm"), "Carousel_Arm");
         Transform armsHolder = CourtAssets.Empty("Arms", root.transform).transform;
 
-        // Los 5 aros, en las mismas posiciones que tenía el desafío.
         Transform[] hoops = new Transform[5];
         Transform[] arms = new Transform[5];
         Transform[] targets = new Transform[5];
@@ -541,8 +479,6 @@ public static class HoopGeometry
 
         return CourtAssets.SavePrefab(root, "HoopCarousel");
     }
-
-    // ------------------------------------------------------------ Utilidades
 
     public static void SetArray(SerializedProperty array, params Object[] values)
     {

@@ -5,26 +5,13 @@ using UnityEngine.TextCore.LowLevel;
 
 public enum UIFont
 {
-    /// <summary>Anton Regular: títulos, números, botones.</summary>
     Display,
 
-    /// <summary>Barlow SemiBold: textos de cuerpo.</summary>
     Body,
 
-    /// <summary>Barlow Bold: etiquetas en mayúsculas.</summary>
     Label
 }
 
-/// <summary>
-/// Punto único de acceso a los recursos de la UI: paleta, fuentes y
-/// sprites. Vive en Assets/UI/Resources/UISkin.asset (lo genera
-/// Tools/GenerateUiAssets.ps1) y se carga con UISkin.Instance.
-///
-/// Los Font Assets de TextMeshPro se crean en runtime a partir de los
-/// TTF (SDF, atlas 1024, padding 6, dinámicos): así incluyen cualquier
-/// carácter que aparezca (tildes, ñ, ¡¿, «») sin tener que hornear un
-/// juego de caracteres a mano en el editor.
-/// </summary>
 [CreateAssetMenu(fileName = "UISkin", menuName = "Última Luz/UI Skin")]
 public sealed class UISkin : ScriptableObject
 {

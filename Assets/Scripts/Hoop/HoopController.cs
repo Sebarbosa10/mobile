@@ -35,16 +35,9 @@ public sealed class HoopController : MonoBehaviour
     public int CurrentScore =>
         currentScore;
 
-    /// <summary>Posición del aro en el mundo (para ubicar efectos de UI).</summary>
     public Vector3 RimPosition =>
         scoreTriggerRoot != null ? scoreTriggerRoot.position : transform.position;
 
-    /// <summary>
-    /// Se dispara cada vez que se registra una encestada (AddPoint),
-    /// pero no cuando el puntaje se fuerza a un valor puntual (por
-    /// ejemplo, al reiniciar la partida). Lo usa BallShotClock para
-    /// reiniciar el timer del modo por récord.
-    /// </summary>
     public event System.Action ShotScored;
 
     private HoopStage currentStage;
@@ -67,20 +60,8 @@ public sealed class HoopController : MonoBehaviour
 #if UNITY_EDITOR
     private void Update()
     {
-        // Input de prueba solo para PC/Editor. Se compila afuera del build de
-        // mobile por completo (no llega ni a existir en el .apk/.ipa), y usa
-        // el New Input System en vez de la clase Input legacy, que directamente
-        // no funciona si "Active Input Handling" está seteado a "Input System
-        // Package (New)" únicamente.
         if (!enablePrototypeInput || Keyboard.current == null)
             return;
-
-        /*
-         * TESTING:
-         *
-         * Space = sumar punto.
-         * R = reiniciar.
-         */
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
@@ -112,10 +93,9 @@ public sealed class HoopController : MonoBehaviour
         currentScore =
             sanitizedScore;
 
-        // Confirmación visible en consola de que el puntaje efectivamente
-        // se está actualizando (útil para probar en dispositivo, donde no
-        // siempre es cómodo poner breakpoints).
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         Debug.Log($"[HoopController] Puntaje actualizado: {currentScore}", this);
+#endif
 
         ApplyScore(currentScore);
     }
@@ -150,8 +130,6 @@ public sealed class HoopController : MonoBehaviour
                 0.01f,
                 scale);
 
-        // HoopVisual escala aro, tablero, red y trigger juntos (el trigger
-        // cuelga de su raíz escalada) y mantiene el poste en el piso.
         if (hoopVisual != null)
         {
             hoopVisual.SetScale(safeScale);

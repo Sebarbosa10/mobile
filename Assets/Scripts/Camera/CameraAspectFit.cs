@@ -1,20 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Mantiene el campo de visión HORIZONTAL constante sin importar el
-/// aspect ratio real de la pantalla, ajustando en runtime el FOV
-/// vertical de la cámara (que es el que Unity expone).
-///
-/// Sin esto, una cámara con FOV vertical fijo muestra menos ancho en
-/// celulares angostos/altos que en uno más "cuadrado" — lo cual puede
-/// recortar contenido que se separa horizontalmente (los aros del
-/// carrusel del Desafío 1, el movimiento lateral/diagonal del aro en
-/// el modo endless). Fijando el FOV horizontal en cambio, el encuadre
-/// horizontal es siempre el mismo que el usado para diseñar y probar
-/// la escena; lo único que varía entre dispositivos es cuánto se ve
-/// de más o de menos verticalmente (piso/cielo, no contenido de
-/// juego).
-/// </summary>
 [RequireComponent(typeof(Camera))]
 public sealed class CameraAspectFit : MonoBehaviour
 {
@@ -45,8 +30,6 @@ public sealed class CameraAspectFit : MonoBehaviour
 
     private void Update()
     {
-        // El aspect ratio puede cambiar en runtime (rotación de pantalla,
-        // ventana redimensionada en el editor); recalculamos solo si cambió.
         if (!Mathf.Approximately(targetCamera.aspect, lastAspect))
         {
             Apply();
@@ -58,8 +41,9 @@ public sealed class CameraAspectFit : MonoBehaviour
         float targetHorizontalFov =
             VerticalToHorizontalFov(referenceVerticalFov, referenceAspect);
 
-        float verticalFov =
-            HorizontalToVerticalFov(targetHorizontalFov, targetCamera.aspect);
+        float verticalFov = Mathf.Max(
+            referenceVerticalFov,
+            HorizontalToVerticalFov(targetHorizontalFov, targetCamera.aspect));
 
         targetCamera.fieldOfView = Mathf.Clamp(
             verticalFov,

@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 901005}
   - component: {fileID: 901006}
   - component: {fileID: 901007}
+  - component: {fileID: 901008}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -298,6 +299,22 @@ MonoBehaviour:
   upwardArc: 0.7
   maxAimDeviationDegrees: 40
   groundTag: ground
+--- !u!114 &901008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a67ce0162c5f24f883fccea327d604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallCloseUpScale
+  art: {fileID: 999366333}
+  shadow: {fileID: 1527337954}
+  closeUpScale: 1.5
+  fullSizeDistance: 5
 --- !u!1 &903000
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +694,69 @@ MonoBehaviour:
   - {fileID: 920000}
   - {fileID: 930000}
   - {fileID: 940000}
+--- !u!1 &344272084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 344272086}
+  - component: {fileID: 344272085}
+  m_Layer: 0
+  m_Name: StylizedLook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &344272085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344272084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac3e02122eb344459d0670b6e531369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StylizedLook
+  posterize: 1
+  posterizeSteps: 8
+  posterizeAmount: 1
+  posterizeDither: 0.35
+  stylized: 1
+  outline: 1
+  outlineColor: {r: 0.165, g: 0.129, b: 0.251, a: 1}
+  outlineThickness: 1.5
+  outlineThreshold: 0.15
+  outlineFadeDistance: 60
+  saturation: 1.15
+  contrast: 1.08
+  shadowTint: {r: 0.45, g: 0.35, b: 0.85, a: 1}
+  highlightTint: {r: 1, g: 0.78, b: 0.55, a: 1}
+  splitToning: 0.25
+  vignetteColor: {r: 0.165, g: 0.129, b: 0.251, a: 1}
+  vignetteIntensity: 0.35
+  vignetteRadius: 1.05
+  vignetteSoftness: 0.6
+--- !u!4 &344272086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344272084}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &694799681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,6 +1415,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7c4a8bba8651c8408032ee9637fd09e, type: 3}
+--- !u!114 &1527337954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7503053411732842790, guid: d7c4a8bba8651c8408032ee9637fd09e, type: 3}
+  m_PrefabInstance: {fileID: 1527337953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141e8d05001c7424da35395348233542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallBlobShadow
 --- !u!1001 &1889244423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1429,3 +1520,4 @@ SceneRoots:
   - {fileID: 950001}
   - {fileID: 1502340254}
   - {fileID: 1527337953}
+  - {fileID: 344272086}

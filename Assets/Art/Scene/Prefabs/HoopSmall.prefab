@@ -790,6 +790,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoopScoreTrigger
   hoopController: {fileID: 0}
   ballTag: Ball
+  rimCenter: {fileID: 0}
+  rimInnerRadius: 0
   minimumDownwardVelocity: 0.1
   scoreCooldown: 0.5
 --- !u!1 &6110618429995097546
@@ -1087,7 +1089,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6590660165240539312}
-  m_Mesh: {fileID: 4300000, guid: 7cb5ac9fe2954604b9b5dbd36d7c1aef, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 393fe98ce954cea40ae5289988f9a1c6, type: 2}
 --- !u!23 &8134924531626006907
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1113,7 +1115,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c61874e4a3c75b44382f2996075fc59d, type: 2}
+  - {fileID: 2100000, guid: 0e47b8c8d977cf44d9933b6295de67af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1417,7 +1419,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9107701494761371401}
-  m_Mesh: {fileID: 4300000, guid: d560aee99f911ab4ab2d42ff0de25963, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 7ea8f252dc5e44c448d27a507cc22d81, type: 2}
 --- !u!23 &1825556631943082223
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1443,8 +1445,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 17766211c8f63884dba586e134d09789, type: 2}
-  - {fileID: 2100000, guid: bdac0da013c60b94098664f67bf38b3c, type: 2}
+  - {fileID: 2100000, guid: 0e47b8c8d977cf44d9933b6295de67af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

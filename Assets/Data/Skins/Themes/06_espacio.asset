@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bbdc7a6bd312141bfd361831471f15, type: 3}
+  m_Name: 06_espacio
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
+  id: espacio
+  displayName: Espacio
+  description: "Una cancha en la Luna: cr\xE1teres, estrellas y la Tierra mirando
+    desde arriba."
+  palette:
+  - {r: 0.043137256, g: 0.03137255, b: 0.1254902, a: 1}
+  - {r: 0.16470589, g: 0.078431375, b: 0.3137255, a: 1}
+  - {r: 0.18039216, g: 0.49019608, b: 0.8784314, a: 1}
+  - {r: 0.2509804, g: 0.8509804, b: 0.34901962, a: 1}
+  - {r: 0.5411765, g: 0.5294118, b: 0.59607846, a: 1}
+  skyColors:
+  - {r: 0.043137256, g: 0.03137255, b: 0.1254902, a: 1}
+  - {r: 0.16470589, g: 0.078431375, b: 0.3137255, a: 1}
+  environmentPrefab: {fileID: 5137359977687194347, guid: 154f560fe9cc65b47bfcc3befcafcb8e, type: 3}
+  environmentMaterials:
+  - {fileID: 2100000, guid: efbfafec3fdc7bb44b83fca8e37ebdf5, type: 2}
+  - {fileID: 2100000, guid: fbbb61270e4a4ef45a27f83e8b4d760a, type: 2}
+  - {fileID: 2100000, guid: 8998b9ae29cc558499e81ba36744b80a, type: 2}
+  - {fileID: 2100000, guid: 90fb3d12d2ba5da40804242ab5b49957, type: 2}
+  - {fileID: 2100000, guid: b6dc0af20f1c18746805f706e9bf616c, type: 2}
+  floor: {r: 0.5411765, g: 0.5294118, b: 0.59607846, a: 1}
+  floorLight: {r: 0.58705884, g: 0.5764706, b: 0.6364706, a: 1}
+  floorShadow: {r: 0.5087059, g: 0.49764708, b: 0.56031376, a: 1}
+  floorMid: {r: 0.5549412, g: 0.54352945, b: 0.6081961, a: 1}
+  crack: {r: 0.44376472, g: 0.43411767, b: 0.48878434, a: 1}
+  key: {r: 0.5411765, g: 0.5294118, b: 0.59607846, a: 1}
+  unlock:
+    type: 4
+    value: 0
+    shortText: "Los 3 desaf\xEDos"
+  thumbnail: {fileID: 2800000, guid: 2c660c69cbf2b334eb58d0df6fd6fbe1, type: 3}
+  triangleCount: 408

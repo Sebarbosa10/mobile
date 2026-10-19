@@ -1,10 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Desafío 2 "Aro esquivo": encestar una cantidad fija de veces en un
-/// aro que se mueve de forma esquiva (ver EvasiveHoopMover). No importa
-/// cuántos tiros falles en el camino, solo cuenta cuántas veces encestaste.
-/// </summary>
 public sealed class TargetCountChallengeController : ChallengeControllerBase
 {
     [SerializeField, Min(1)]

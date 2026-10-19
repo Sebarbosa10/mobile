@@ -32,9 +32,6 @@ public sealed class HoopMovement : MonoBehaviour
         movementEnabled =
             stage.movementMode == HoopMovementMode.Moving;
 
-        // En etapas estáticas, Unity directamente deja de invocar Update en
-        // este componente en vez de llamarlo cada frame solo para hacer un
-        // early-return. Costo cero cuando el aro no se mueve.
         enabled = movementEnabled;
 
         ApplyCurrentPosition();
@@ -90,12 +87,6 @@ public sealed class HoopMovement : MonoBehaviour
                 return Vector3.up * (Mathf.Sin(phase) * amplitude);
 
             case HoopPositionMode.Circular:
-                /*
-                 * Órbita real en el plano horizontal (no un vaivén de ida
-                 * y vuelta): arranca en el offset cero (fase 0 -> seno 0,
-                 * coseno-1 0) y traza un círculo completo de radio
-                 * "amplitude" alrededor de la posición base.
-                 */
                 return new Vector3(
                     Mathf.Sin(phase) * amplitude,
                     0f,

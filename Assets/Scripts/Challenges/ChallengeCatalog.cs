@@ -1,7 +1,3 @@
-/// <summary>
-/// Datos de presentación de un desafío: lo que muestran el selector, el
-/// HUD y la pantalla de resultado.
-/// </summary>
 public sealed class ChallengeDefinition
 {
     public ChallengeDefinition(
@@ -18,12 +14,10 @@ public sealed class ChallengeDefinition
 
     public int Number { get; }
 
-    /// <summary>Nombre para mostrar, por ejemplo "Aro esquivo".</summary>
     public string Name { get; }
 
     public string Description { get; }
 
-    /// <summary>Etiqueta del contador del HUD: "Aros", "Encestadas", "Puntos".</summary>
     public string ProgressLabel { get; }
 
     public int RequiredBaskets =>
@@ -42,7 +36,6 @@ public static class ChallengeCatalog
     public static int Count =>
         Challenges.Length;
 
-    /// <summary>Desafío por número (1, 2, 3...).</summary>
     public static ChallengeDefinition Get(int number) =>
         Challenges[number - 1];
 }

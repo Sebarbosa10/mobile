@@ -3,15 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Anillo de timer con un número adentro (el puntaje en el endless, los
-/// segundos en Contrarreloj). Image Filled Radial 360, origen arriba,
-/// sentido horario, sobre una pista blanca al 25% y un disco Noche al 78%.
-///
-/// Color según el tiempo restante: blanco de 100 a 50%, interpola a
-/// rojo de 50 a 20%, y por debajo de 20% rojo con un pulso de escala
-/// 1 → 1,06 dos veces por segundo.
-/// </summary>
 public sealed class TimerRing : MonoBehaviour
 {
     private const float DiscAlpha = 0.78f;
@@ -31,7 +22,6 @@ public sealed class TimerRing : MonoBehaviour
     public RectTransform RectTransform =>
         (RectTransform)transform;
 
-    /// <param name="size">340 (endless) o 200 (Contrarreloj).</param>
     public static TimerRing Create(Transform parent, string name, float size, float fontSize)
     {
         UISkin skin = UIKit.Skin;
@@ -40,7 +30,6 @@ public sealed class TimerRing : MonoBehaviour
         bool large = size >= 300f;
         Sprite ringSprite = large ? skin.ring340 : skin.ring200;
 
-        // Diámetro de la línea media del anillo (donde va el disco de fondo).
         float discDiameter = large ? 300f : 172f;
 
         RectTransform root = UIKit.CreateRect(parent, name);
@@ -82,7 +71,6 @@ public sealed class TimerRing : MonoBehaviour
         label.text = text;
     }
 
-    /// <summary>Tiempo restante sobre el total, de 0 a 1.</summary>
     public void SetFraction(float value)
     {
         fraction = Mathf.Clamp01(value);
@@ -98,7 +86,6 @@ public sealed class TimerRing : MonoBehaviour
             fill.color = palette.urgent;
     }
 
-    /// <summary>"Pop" del número al encestar: crece, se pinta de Sol y vuelve.</summary>
     public void Pop()
     {
         if (popRoutine != null)

@@ -5,24 +5,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
-/// <summary>
-/// Controla el ciclo completo de interacción de lanzamiento:
-///
-/// Ready
-///   ↓
-/// Held
-///   ↓
-/// Launched
-///   ↓
-/// Ready
-///
-/// Gestiona el input táctil, movimiento durante el arrastre,
-/// lanzamiento y reinicio.
-///
-/// El toque puede empezar en cualquier parte de la pantalla: la
-/// pelota no salta hasta el dedo, sino que se desplaza lo mismo que
-/// el dedo desde donde empezó el toque.
-/// </summary>
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(BallHoldPositionConstraint))]
@@ -63,11 +45,6 @@ public sealed class BallLauncher : MonoBehaviour
 
     private float holdDepth;
 
-    /*
-     * Posición en pantalla de la pelota y del dedo al empezar el
-     * toque. Durante el arrastre la pelota se ubica en
-     * ballScreenAtGrab + (dedo - touchScreenAtGrab).
-     */
     private Vector2 ballScreenAtGrab;
     private Vector2 touchScreenAtGrab;
 
@@ -77,22 +54,10 @@ public sealed class BallLauncher : MonoBehaviour
     private readonly List<RaycastResult> uiHits = new();
     private PointerEventData uiPointerData;
 
-    /// <summary>
-    /// Se dispara apenas la pelota toca el suelo tras un lanzamiento
-    /// (haya o no encestado) y se reinicia a la posición de partida.
-    /// Lo usa BallShotClock para saber cuándo un tiro que quedó
-    /// pendiente de resolver (el timer llegó a cero mientras estaba
-    /// en el aire) terminó siendo un fallo.
-    /// </summary>
     public event System.Action BallLanded;
 
-    /// <summary>
-    /// Se dispara al soltar el swipe y lanzar la pelota. Lo usa la UI
-    /// (vía IGameSession) para ocultar el onboarding tras el primer tiro.
-    /// </summary>
     public event System.Action Launched;
 
-    /// <summary>Posición de partida de la pelota.</summary>
     public Vector3 RestPosition =>
         startPosition;
 
@@ -116,12 +81,6 @@ public sealed class BallLauncher : MonoBehaviour
         rigidbodyComponent.collisionDetectionMode =
             CollisionDetectionMode.ContinuousDynamic;
 
-        /*
-         * Sin interpolación, un Rigidbody kinematic movido con
-         * MovePosition en FixedUpdate se ve "a los saltos" en
-         * pantallas con refresh rate más alto que el physics
-         * timestep. Esto es lo que hace que el drag se sienta tosco.
-         */
         rigidbodyComponent.interpolation =
             RigidbodyInterpolation.Interpolate;
 
@@ -181,8 +140,6 @@ public sealed class BallLauncher : MonoBehaviour
         if (mainCamera == null)
             return;
 
-        // Como el toque vale en cualquier parte de la pantalla, un toque
-        // sobre un botón del HUD (por ejemplo pausa) no debe agarrar la pelota.
         if (IsOverButton(screenPosition))
             return;
 
@@ -218,8 +175,6 @@ public sealed class BallLauncher : MonoBehaviour
         uiHits.Clear();
         eventSystem.RaycastAll(uiPointerData, uiHits);
 
-        // Solo los controles interactivos bloquean: los textos del HUD
-        // pueden recibir raycasts pero no deberían impedir el lanzamiento.
         foreach (RaycastResult hit in uiHits)
         {
             if (hit.gameObject.GetComponentInParent<Selectable>() != null)
@@ -264,19 +219,9 @@ public sealed class BallLauncher : MonoBehaviour
         Launched?.Invoke();
     }
 
-    /// <summary>
-    /// True mientras la pelota está en el aire después de un lanzamiento.
-    /// Lo usa BallShotClock para saber si, cuando el timer llega a cero,
-    /// hay un tiro en curso que todavía puede encestar.
-    /// </summary>
     public bool IsLaunched =>
         state == BallLaunchState.Launched;
 
-    /// <summary>
-    /// Fuerza el reinicio inmediato de la pelota sin importar el
-    /// estado actual (agarrada, en vuelo, etc.). Se usa para cortar
-    /// un intento en seco, por ejemplo al perder la partida.
-    /// </summary>
     public void ForceReset()
     {
         ResetBall();

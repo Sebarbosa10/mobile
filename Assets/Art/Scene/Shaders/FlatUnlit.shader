@@ -1,7 +1,3 @@
-// Color plano sin luz para lo que no debe sombrearse: cielo (degradé
-// por vertex color), sol y halo, nubes, sombras planas, blob de la
-// pelota, brillo del aro y check. Opaco o con alfa según el material
-// (el builder configura blend, ZWrite y cola de render).
 Shader "Court/FlatUnlit"
 {
     Properties

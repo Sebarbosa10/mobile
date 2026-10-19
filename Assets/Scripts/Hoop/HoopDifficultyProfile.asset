@@ -19,39 +19,39 @@ MonoBehaviour:
     movementMode: 0
     movementAmplitude: 0
     movementSpeed: 1
-    scale: 1
+    scale: 1.15
   - requiredScore: 2
     positionMode: 2
     positionOffset: {x: 0, y: 0, z: 0}
     movementMode: 1
     movementAmplitude: 0.4
     movementSpeed: 1.2
-    scale: 1
+    scale: 1.15
   - requiredScore: 4
     positionMode: 1
     positionOffset: {x: 0, y: 0, z: 0}
     movementMode: 1
     movementAmplitude: 0.6
     movementSpeed: 1.5
-    scale: 1
+    scale: 1.15
   - requiredScore: 6
     positionMode: 5
     positionOffset: {x: 0, y: 0, z: 0}
     movementMode: 1
     movementAmplitude: 0.35
     movementSpeed: 1.8
-    scale: 1
+    scale: 1.15
   - requiredScore: 8
     positionMode: 3
     positionOffset: {x: 0, y: 0, z: 0}
     movementMode: 1
     movementAmplitude: 0.8
     movementSpeed: 2
-    scale: 1
+    scale: 1.15
   - requiredScore: 10
     positionMode: 4
     positionOffset: {x: 0, y: 0, z: 0}
     movementMode: 1
     movementAmplitude: 0.6
     movementSpeed: 2.4
-    scale: 1
+    scale: 1.15

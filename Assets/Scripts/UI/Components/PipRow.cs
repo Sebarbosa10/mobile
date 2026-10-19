@@ -2,10 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Fila de puntos de progreso: llenos (disco teñido) y vacíos (aro de
-/// 6 px en #8E86A8). Se usa en el HUD de desafíos y en los resultados.
-/// </summary>
 public sealed class PipRow : MonoBehaviour
 {
     private readonly List<Image> pips = new();

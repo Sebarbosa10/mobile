@@ -1,17 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Ajusta este RectTransform para que ocupe solo el área "segura" de
-/// la pantalla (fuera de notches, cámaras perforadas, barra de
-/// gestos, esquinas redondeadas, etc.), recalculando sus anchors a
-/// partir de Screen.safeArea. El HUD tiene que ir parentado bajo este
-/// rect (no directo al Canvas) para que nada quede tapado en equipos
-/// con recortes de pantalla.
-///
-/// Opcionalmente garantiza una reserva mínima arriba y abajo (en
-/// unidades de la resolución de referencia del Canvas), para que el
-/// layout quede igual en equipos con y sin notch.
-/// </summary>
 [RequireComponent(typeof(RectTransform))]
 public sealed class SafeAreaFitter : MonoBehaviour
 {
@@ -43,9 +31,6 @@ public sealed class SafeAreaFitter : MonoBehaviour
 
     private void Update()
     {
-        // La safe area puede cambiar en runtime (rotación de pantalla,
-        // notch que aparece/desaparece en algunos Android), y el factor
-        // de escala del Canvas recién se conoce después del primer frame.
         if (Screen.safeArea != lastSafeArea ||
             Screen.width != lastScreenSize.x ||
             Screen.height != lastScreenSize.y ||

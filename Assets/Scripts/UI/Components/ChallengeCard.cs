@@ -11,15 +11,6 @@ public enum ChallengeCardState
     Completed
 }
 
-/// <summary>
-/// Tarjeta del selector de desafíos, 984×280 más el labio de 12:
-/// número en un círculo, nombre (Anton 68), descripción (Barlow 34) y un
-/// ícono a la derecha.
-///  - Desbloqueada: azul, número en círculo Noche, flecha de jugar.
-///  - Bloqueada: gris, candado, "Requiere N encestadas". Al tocarla vibra
-///    6 px en horizontal durante 0,15 s y no hace nada más.
-///  - Completada: azul con borde verde de 8 px y un check en el círculo.
-/// </summary>
 public sealed class ChallengeCard : MonoBehaviour
 {
     public static readonly Vector2 Size = new(984f, 280f);
@@ -45,7 +36,6 @@ public sealed class ChallengeCard : MonoBehaviour
     private ChallengeCardState state;
     private Coroutine shakeRoutine;
 
-    /// <summary>Se tocó una tarjeta jugable (desbloqueada o completada).</summary>
     public event Action<ChallengeDefinition> Selected;
 
     public RectTransform RectTransform =>
@@ -73,12 +63,10 @@ public sealed class ChallengeCard : MonoBehaviour
         UIKit.Stretch(card.content);
         card.content.offsetMin = new Vector2(0f, UIKit.ButtonLip);
 
-        // Borde de "completada": marco de 8 px sobre la cara (sin el labio).
         card.border = UIKit.CreateImage(card.content, "Border", skin.panelBorder, palette.success);
         UIKit.Stretch(card.border.rectTransform);
         card.border.pixelsPerUnitMultiplier = 48f / 36f;
 
-        // Círculo con el número (o el check).
         card.numberDisc = UIKit.CreateImage(card.content, "NumberDisc", skin.disc, palette.night);
         UIKit.Place(
             card.numberDisc.rectTransform,
@@ -93,7 +81,6 @@ public sealed class ChallengeCard : MonoBehaviour
         card.checkIcon = UIKit.CreateImage(card.numberDisc.rectTransform, "Check", skin.iconCheck, palette.onSuccess);
         UIKit.PlaceCenter(card.checkIcon.rectTransform, Vector2.zero, new Vector2(92f, 92f));
 
-        // Nombre + descripción, centrados en vertical.
         RectTransform textBlock = UIKit.CreateRect(card.content, "TextBlock");
         textBlock.anchorMin = new Vector2(0f, 0.5f);
         textBlock.anchorMax = new Vector2(1f, 0.5f);
@@ -121,7 +108,6 @@ public sealed class ChallengeCard : MonoBehaviour
             UIFont.Body, 34f, palette.text, 0f, TextAlignmentOptions.Left);
         card.descriptionText.textWrappingMode = TextWrappingModes.Normal;
 
-        // Ícono derecho: flecha o candado.
         card.playIcon = UIKit.CreateImage(card.content, "Play", skin.iconPlay, palette.text);
         UIKit.Place(
             card.playIcon.rectTransform,
@@ -203,7 +189,6 @@ public sealed class ChallengeCard : MonoBehaviour
     {
         yield return UITween.Run(ShakeDuration, t =>
         {
-            // Tres idas y vueltas que se amortiguan.
             float offset = Mathf.Sin(t * Mathf.PI * 6f) * ShakeDistance * (1f - t);
             content.anchoredPosition = new Vector2(offset, content.anchoredPosition.y);
         });

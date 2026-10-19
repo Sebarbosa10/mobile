@@ -2,10 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// Animaciones mínimas para la UI, siempre con tiempo no escalado: la
-/// pausa pone Time.timeScale en 0 y los paneles igual tienen que animar.
-/// </summary>
 public static class UITween
 {
     public static float EaseOutCubic(float t)
@@ -22,7 +18,6 @@ public static class UITween
         return 1f + c3 * t * t * t + c1 * t * t;
     }
 
-    /// <summary>Corre "step" con un progreso de 0 a 1 durante "duration" segundos reales.</summary>
     public static IEnumerator Run(float duration, Action<float> step)
     {
         float elapsed = 0f;

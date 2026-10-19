@@ -1,14 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Red de cadena del aro: al encestar se sacude moviendo vértices en
-/// CPU (sin cloth ni huesos). El desplazamiento crece hacia abajo (la
-/// parte de arriba está atada al aro), se infla hacia afuera, cae un
-/// poco y se balancea, con una envolvente que se apaga sola.
-///
-/// Solo trabaja mientras dura la sacudida; el resto del tiempo el
-/// componente está deshabilitado y no cuesta nada.
-/// </summary>
 [RequireComponent(typeof(MeshFilter))]
 public sealed class ChainNet : MonoBehaviour
 {
@@ -51,7 +42,6 @@ public sealed class ChainNet : MonoBehaviour
             return;
         }
 
-        // Copia propia: el asset compartido no se toca.
         mesh = Instantiate(filter.sharedMesh);
         mesh.name = filter.sharedMesh.name + " (animada)";
         mesh.MarkDynamic();
@@ -81,7 +71,6 @@ public sealed class ChainNet : MonoBehaviour
             radial[i] = flat.sqrMagnitude > 1e-8f ? flat.normalized : Vector3.zero;
         }
 
-        // Bounds holgados para que no se recorte mientras se mueve.
         Bounds bounds = mesh.bounds;
         bounds.Expand(new Vector3(swell + sway, drop, swell + sway) * 2f);
         mesh.bounds = bounds;

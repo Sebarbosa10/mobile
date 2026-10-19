@@ -1,14 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Mantiene unido el carrusel mientras ChallengeCarousel hace orbitar
-/// los aros: cada brazo va del hub al enganche de su aro y el hub gira
-/// con ellos. ChallengeCarousel solo mueve posiciones, así que los aros
-/// siguen mirando a cámara; los brazos se reorientan cada frame.
-///
-/// Los brazos son un mesh de largo 1 sobre +Z con el pivote en el hub:
-/// alcanza con rotarlos y escalarlos en Z.
-/// </summary>
 public sealed class CarouselRig : MonoBehaviour
 {
     [SerializeField]
@@ -48,7 +39,6 @@ public sealed class CarouselRig : MonoBehaviour
             arm.localScale = new Vector3(1f, 1f, length);
         }
 
-        // El hub gira acompañando al primer aro.
         if (armTargets.Length > 0 && armTargets[0] != null)
         {
             Vector3 offset = armTargets[0].position - from;

@@ -1,23 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Calcula la dirección y velocidad de un swipe.
-///
-/// Ambas se toman de una ventana reciente del gesto, no de todo
-/// el recorrido desde que se agarró la pelota. Promediar sobre
-/// todo el gesto hace que el lanzamiento se sienta desconectado
-/// del recorrido real del dedo justo antes de soltar: un agarre
-/// lento seguido de un flick rápido sale débil, y una curva en el
-/// camino termina lanzando en línea recta desde el punto de agarre
-/// en vez de seguir hacia donde el dedo se estaba moviendo al
-/// soltar.
-///
-/// La ventana de dirección es más larga que la de velocidad para
-/// no perder la intención de un apuntado lento y deliberado (poco
-/// desplazamiento por cuadro, pero sostenido), mientras que la de
-/// velocidad es corta para capturar el golpe final de la muñeca.
-/// </summary>
 public sealed class SwipeVelocityEstimator
 {
     private const float MinimumAimDistancePixels = 35f;
@@ -66,10 +49,6 @@ public sealed class SwipeVelocityEstimator
 
         Vector2 aimDirection;
 
-        /*
-         * Si el dedo prácticamente no se movió en la ventana
-         * reciente, no intentamos inventar una dirección.
-         */
         if (recentDisplacement.magnitude < MinimumAimDistancePixels)
         {
             aimDirection = Vector2.up;
@@ -146,9 +125,6 @@ public sealed class SwipeVelocityEstimator
     }
 }
 
-/// <summary>
-/// Información generada cuando termina un swipe.
-/// </summary>
 public readonly struct SwipeReleaseGesture
 {
     public SwipeReleaseGesture(

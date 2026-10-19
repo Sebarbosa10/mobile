@@ -3,12 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// 7 · Resultado de desafío. Victoria: "¡DESAFÍO COMPLETO!" en verde
-/// con un check; derrota: "PERDISTE" con un reloj sobre rojo. Ambas con
-/// el nombre del desafío, el resumen ("Llegaste a X de Y"), los puntos
-/// de progreso y REINTENTAR / MENÚ.
-/// </summary>
 public sealed class ChallengeResultScreen : UIScreen
 {
     private Panel victory;

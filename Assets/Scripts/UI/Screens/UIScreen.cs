@@ -1,6 +1,5 @@
 using UnityEngine;
 
-/// <summary>Pantalla que UIManager muestra u oculta.</summary>
 public abstract class UIScreen : MonoBehaviour
 {
     public bool IsVisible =>

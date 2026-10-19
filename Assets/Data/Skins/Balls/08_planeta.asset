@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0765556b5d6b4cf458750636e6a4699b, type: 3}
+  m_Name: 08_planeta
+  m_EditorClassIdentifier: Assembly-CSharp::BallSkin
+  id: planeta
+  displayName: Planeta
+  prefab: {fileID: 4740749504134824775, guid: 9024ce607c868ab4891bd9b002c0c042, type: 3}
+  mesh: {fileID: 4300000, guid: 6f12a9b1df5dadc438cb899a9c84383c, type: 2}
+  materials:
+  - {fileID: 2100000, guid: 70c072f7967319f4aa1e30af96de3a15, type: 2}
+  - {fileID: 2100000, guid: 08869c0cbc1712b43bedb02420acaa38, type: 2}
+  variants:
+  - colors:
+    - {r: 0.48235294, g: 0.36078432, b: 0.8784314, a: 1}
+  - colors:
+    - {r: 0.18039216, g: 0.76862746, b: 0.9019608, a: 1}
+  - colors:
+    - {r: 0.9411765, g: 0.30588236, b: 0.5411765, a: 1}
+  - colors:
+    - {r: 0.9490196, g: 0.8235294, b: 0.11764706, a: 1}
+  unlock:
+    type: 3
+    value: 3
+    shortText: "Complet\xE1 Contrarreloj"
+  icon: {fileID: 21300000, guid: 8ee897df6bd95c64b8e55ad71bce336b, type: 3}

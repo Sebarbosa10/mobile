@@ -1,17 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Dueño del Canvas de una escena: crea el Canvas raíz (Scale With
-/// Screen Size, 1080×1920, Match 0) y registra las pantallas para
-/// mostrarlas u ocultarlas. La conexión con el gameplay vive en
-/// MenuUI y GameplayUI.
-/// </summary>
 public sealed class UIManager : MonoBehaviour
 {
     private readonly List<UIScreen> screens = new();
 
-    /// <summary>Rect del Canvas a pantalla completa (para fondos y overlays).</summary>
     public RectTransform Root { get; private set; }
 
     public static UIManager Create(string name)
@@ -45,7 +38,6 @@ public sealed class UIManager : MonoBehaviour
         screen.Hide();
     }
 
-    /// <summary>Muestra una pantalla y oculta todas las demás registradas.</summary>
     public void ShowOnly(UIScreen screen)
     {
         foreach (UIScreen other in screens)

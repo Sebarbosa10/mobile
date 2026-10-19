@@ -1,12 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Desafío 3 "Contrarreloj": encestar una cantidad fija de veces antes
-/// de que se acabe el tiempo gana; que el tiempo llegue a cero sin
-/// llegar a la meta pierde. A diferencia del modo endless (que es por
-/// récord y no tiene final), acá hay una meta concreta y un límite de
-/// tiempo fijo.
-/// </summary>
 public sealed class TimedTargetChallengeController : ChallengeControllerBase
 {
     [SerializeField, Min(1)]

@@ -5,16 +5,6 @@ using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.U2D;
 
-/// <summary>
-/// Crea el Sprite Atlas "UI" (Assets/UI/UI.spriteatlasv2) con los
-/// sprites de Assets/UI/Sprites: sin mipmaps, bilinear, sin rotación ni
-/// tight packing (los 9-slice lo necesitan), padding 4 y sin compresión.
-/// Los fondos (bg_*, sky_*) quedan afuera: son grandes y el degradé de
-/// 4 px sangraría por los bordes dentro del atlas.
-///
-/// Se ejecuta solo la primera vez que se abre el proyecto sin atlas, y
-/// también a mano desde el menú "Última Luz".
-/// </summary>
 [InitializeOnLoad]
 public static class UiSpriteAtlasSetup
 {
@@ -90,7 +80,6 @@ public static class UiSpriteAtlasSetup
             importer.SaveAndReimport();
         }
 
-        // Sin esto Unity ignora los atlas y cada sprite va en su propia textura.
         if (EditorSettings.spritePackerMode == SpritePackerMode.Disabled)
             EditorSettings.spritePackerMode = SpritePackerMode.SpriteAtlasV2;
 

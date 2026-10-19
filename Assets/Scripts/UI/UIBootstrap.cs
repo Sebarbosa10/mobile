@@ -2,17 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Arma la UI de cada escena al cargarla, sin que haga falta poner nada
-/// en las escenas:
-///  - Si la escena tiene un IGameSession activo (BallShotClock, un
-///    desafío o GameplayEventsStub), crea GameplayUI conectado a él.
-///  - Si no, y hay un MainMenuController, crea MenuUI.
-///
-/// Corre en sceneLoaded, que llega después de Awake/OnEnable de la
-/// escena y antes de Start, así la UI ya está suscripta cuando el
-/// gameplay dispara su primer RunStarted.
-/// </summary>
 public static class UIBootstrap
 {
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

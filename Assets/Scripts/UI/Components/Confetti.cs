@@ -2,11 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Confeti de "¡Nuevo récord!": rectángulos (Image sin sprite) y
-/// triángulos (fx_confetti_tri) en los colores de la paleta, que caen
-/// girando mientras el panel está visible. Usa tiempo no escalado.
-/// </summary>
 public sealed class Confetti : MonoBehaviour
 {
     private const int PieceCount = 26;
@@ -64,7 +59,6 @@ public sealed class Confetti : MonoBehaviour
 
     private void OnEnable()
     {
-        // Arranca repartido por toda la pantalla, como en el mockup.
         Rect bounds = area.rect;
 
         foreach (Piece piece in pieces)

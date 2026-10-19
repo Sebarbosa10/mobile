@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0765556b5d6b4cf458750636e6a4699b, type: 3}
+  m_Name: 07_lava
+  m_EditorClassIdentifier: Assembly-CSharp::BallSkin
+  id: lava
+  displayName: Lava
+  prefab: {fileID: 4746960470481747509, guid: e663ecdf76755fc48b2a8d9bf4100144, type: 3}
+  mesh: {fileID: 4300000, guid: 474fecf992d81984c8a4a68aa70cb4bf, type: 2}
+  materials:
+  - {fileID: 2100000, guid: 04c485641f189de4f966526e42ebe302, type: 2}
+  - {fileID: 2100000, guid: 97af76c4c74aae445859d85be6eb28be, type: 2}
+  variants:
+  - colors:
+    - {r: 1, g: 0.47843137, b: 0.101960786, a: 1}
+  - colors:
+    - {r: 0.18039216, g: 0.76862746, b: 0.9019608, a: 1}
+  - colors:
+    - {r: 0.9411765, g: 0.30588236, b: 0.5411765, a: 1}
+  - colors:
+    - {r: 0.9490196, g: 0.8235294, b: 0.11764706, a: 1}
+  unlock:
+    type: 1
+    value: 30
+    shortText: "R\xE9cord 30"
+  icon: {fileID: 21300000, guid: c8b5d54b8ddc2c04d8a813aa10f4015f, type: 3}

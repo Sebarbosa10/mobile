@@ -3,13 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// 6 · Game Over del endless. Dos variantes:
-///  - Normal: "FIN DEL JUEGO", puntaje (Anton 300), chip de récord.
-///  - Nuevo récord: borde y textos en Sol, trofeo, confeti y
-///    "Récord anterior: N".
-/// Ambas con REINICIAR y MENÚ.
-/// </summary>
 public sealed class GameOverScreen : UIScreen
 {
     private OverlayPanel normalPanel;

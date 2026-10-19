@@ -1,12 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Desafío 1 "Carrusel": varios aros girando en círculo. Hay que
-/// encestar en cada uno (una sola vez cada uno) para ganar; el aro
-/// acertado queda pintado de verde, con su brillo y un check arriba
-/// (ver HoopVisual). No hay límite de tiempo.
-/// </summary>
 public sealed class RingChallengeController : ChallengeControllerBase
 {
     private readonly HashSet<HoopScoreTrigger> scoredHoops = new();

@@ -4,22 +4,13 @@ using UnityEngine.UI;
 
 public enum ButtonVariant
 {
-    /// <summary>Azul: acción principal (JUGAR, REANUDAR).</summary>
     Primary,
 
-    /// <summary>Naranja: reintentar / reiniciar.</summary>
     Secondary,
 
-    /// <summary>Gris: volver / menú.</summary>
     Neutral
 }
 
-/// <summary>
-/// Botón del design system: 520×150 (640×170 la variante grande de
-/// JUGAR) más el labio de 12 px, Anton 64 (84) con tracking +3, teñido
-/// según la variante. Presionado: sprite de labio 4, color presionado y
-/// el contenido baja 8 px. Deshabilitado: colores de Bloqueado.
-/// </summary>
 public sealed class UIButton : MonoBehaviour
 {
     public static readonly Vector2 DefaultSize = new(520f, 150f);
@@ -36,7 +27,6 @@ public sealed class UIButton : MonoBehaviour
     public RectTransform RectTransform =>
         (RectTransform)transform;
 
-    /// <summary>Alto que ocupa en un layout (sin contar el labio, que sobresale abajo).</summary>
     public float LayoutHeight { get; private set; }
 
     public static UIButton Create(

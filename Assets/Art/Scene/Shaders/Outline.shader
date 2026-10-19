@@ -1,10 +1,3 @@
-// Contorno por casco invertido: dibuja las caras traseras del mesh
-// infladas a lo largo de la normal, en un color plano. Se usa en la
-// pelota para que siempre se lea sobre el piso, la llave y el cielo.
-//
-// Necesita normales suaves (vértices compartidos): con normales por cara
-// el casco se abre en las aristas. El builder genera un mesh aparte
-// para el contorno.
 Shader "Court/Outline"
 {
     Properties

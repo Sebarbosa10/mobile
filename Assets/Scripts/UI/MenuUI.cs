@@ -1,9 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// UI de la escena del menú: menú principal y selector de desafíos.
-/// Los botones navegan a través de MainMenuController.
-/// </summary>
 public sealed class MenuUI : MonoBehaviour
 {
     private UIManager ui;
@@ -11,6 +7,7 @@ public sealed class MenuUI : MonoBehaviour
 
     private MainMenuScreen mainMenu;
     private ChallengeSelectScreen challengeSelect;
+    private CustomizeScreen customize;
 
     public static MenuUI Create(MainMenuController controller)
     {
@@ -22,9 +19,12 @@ public sealed class MenuUI : MonoBehaviour
 
         menu.mainMenu = ui.Register(MainMenuScreen.Create(ui.Root));
         menu.challengeSelect = ui.Register(ChallengeSelectScreen.Create(ui.Root));
+        menu.customize = ui.Register(CustomizeScreen.Create(ui.Root));
 
         menu.mainMenu.PlayRequested += controller.PlayGame;
         menu.mainMenu.ChallengesRequested += menu.OpenChallenges;
+        menu.mainMenu.CustomizeRequested += () => ui.ShowOnly(menu.customize);
+        menu.customize.BackRequested += () => ui.ShowOnly(menu.mainMenu);
 
         menu.challengeSelect.BackRequested += menu.CloseChallenges;
         menu.challengeSelect.ChallengeSelected += definition => controller.PlayChallenge(definition.Number);

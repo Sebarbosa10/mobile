@@ -1,11 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// UI de las escenas de juego (endless y desafíos). Escucha los eventos
-/// de IGameSession y muestra/oculta HUD, pausa, resultados, feedback y
-/// onboarding. Lo único que le pide al gameplay son los comandos de los
-/// botones (pausar, reanudar, reiniciar, salir).
-/// </summary>
 public sealed class GameplayUI : MonoBehaviour
 {
     private IGameSession session;
@@ -88,7 +82,6 @@ public sealed class GameplayUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        // La sesión puede haberse destruido antes (cambio de escena).
         if (session is Object sessionObject && sessionObject == null)
             return;
 
@@ -121,8 +114,7 @@ public sealed class GameplayUI : MonoBehaviour
             challengeHud.SetChallenge(session.Challenge);
         }
 
-        if (!OnboardingHint.IsDone)
-            onboarding.Show(session.BallRestPosition);
+        onboarding.Show(session.BallRestPosition);
     }
 
     private void HandleScored(ScoreEvent score)
@@ -132,7 +124,6 @@ public sealed class GameplayUI : MonoBehaviour
 
         UIPalette palette = UIKit.Palette;
 
-        // En Carrusel el anillo del efecto es verde, como el aro acertado.
         bool carousel = !IsEndless && session.Challenge.Number == 1;
 
         feedback.PlayScore(score.HoopPosition, carousel ? palette.success : palette.text);
@@ -165,6 +156,8 @@ public sealed class GameplayUI : MonoBehaviour
     {
         runEnded = true;
 
+        SkinProgress.EvaluateUnlocks();
+
         pauseButton.gameObject.SetActive(false);
         endlessHud.SetRecord(info.Record);
         gameOverScreen.Show(info);
@@ -178,6 +171,8 @@ public sealed class GameplayUI : MonoBehaviour
     private void HandleChallengeEnded(ChallengeEndInfo info)
     {
         runEnded = true;
+
+        SkinProgress.EvaluateUnlocks();
 
         pauseButton.gameObject.SetActive(false);
         resultScreen.Show(session.Challenge, info);

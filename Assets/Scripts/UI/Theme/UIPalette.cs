@@ -1,12 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Todos los colores de la UI de "Última Luz". Ningún componente de UI
-/// tiene colores escritos en el código: los toma de acá (vía UISkin).
-///
-/// Los valores salen del design system del mockup y los escribe
-/// Tools/GenerateUiAssets.ps1 en Assets/UI/Resources/UIPalette.asset.
-/// </summary>
 [CreateAssetMenu(fileName = "UIPalette", menuName = "Última Luz/UI Palette")]
 public sealed class UIPalette : ScriptableObject
 {

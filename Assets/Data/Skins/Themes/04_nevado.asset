@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bbdc7a6bd312141bfd361831471f15, type: 3}
+  m_Name: 04_nevado
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
+  id: nevado
+  displayName: Nevado
+  description: "Una cancha helada entre pinos, con las monta\xF1as nevadas y el fr\xEDo
+    de la tarde."
+  palette:
+  - {r: 0.105882354, g: 0.16470589, b: 0.2901961, a: 1}
+  - {r: 0.4862745, g: 0.5764706, b: 0.7607843, a: 1}
+  - {r: 0.9098039, g: 0.93333334, b: 0.96862745, a: 1}
+  - {r: 0.7176471, g: 0.7764706, b: 0.87058824, a: 1}
+  - {r: 0.11764706, g: 0.23137255, b: 0.2901961, a: 1}
+  skyColors:
+  - {r: 0.105882354, g: 0.16470589, b: 0.2901961, a: 1}
+  - {r: 0.4862745, g: 0.5764706, b: 0.7607843, a: 1}
+  environmentPrefab: {fileID: 489870697878995875, guid: a66f5165c379ec349a6011cc8e50b8df, type: 3}
+  environmentMaterials:
+  - {fileID: 2100000, guid: efbfafec3fdc7bb44b83fca8e37ebdf5, type: 2}
+  - {fileID: 2100000, guid: e77f3eabbc8b3e44baf2c5559a0a8aa3, type: 2}
+  - {fileID: 2100000, guid: cee9d9242d1db3743aed02e4e077bbb9, type: 2}
+  - {fileID: 2100000, guid: 3d210b429e18e124db26f12787ec83cf, type: 2}
+  - {fileID: 2100000, guid: acc5089ead274ef4c959e0fe690f96b8, type: 2}
+  floor: {r: 0.8627451, g: 0.9098039, b: 0.9490196, a: 1}
+  floorLight: {r: 0.8764706, g: 0.91882354, b: 0.95411766, a: 1}
+  floorShadow: {r: 0.8109804, g: 0.85521567, b: 0.89207846, a: 1}
+  floorMid: {r: 0.8668628, g: 0.9125098, b: 0.950549, a: 1}
+  crack: {r: 0.707451, g: 0.7460392, b: 0.7781961, a: 1}
+  key: {r: 0.4862745, g: 0.5764706, b: 0.7607843, a: 1}
+  unlock:
+    type: 2
+    value: 150
+    shortText: 150 encestadas
+  thumbnail: {fileID: 2800000, guid: 3fcb481543552a84b8dd067ebf21b6c4, type: 3}
+  triangleCount: 102

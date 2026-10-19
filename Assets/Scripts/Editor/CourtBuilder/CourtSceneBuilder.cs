@@ -9,20 +9,6 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Tools > Build Court Scene
-///
-/// Genera toda la escena "básquet callejero al atardecer" por código:
-///  1. Resuelve la cámara contra el mockup (CourtCamera.Solve).
-///  2. Crea/actualiza materiales, meshes y prefabs en Assets/Art/Scene.
-///  3. Abre DummyLab y Challenges y les pone el entorno, la pelota y los
-///     aros nuevos, reemplazando solo la parte visual: BallLauncher,
-///     BallShotClock, HoopController y los desafíos siguen conectados.
-///  4. Configura cámara, luz y ambiente, y reporta los triángulos.
-///
-/// Se puede correr las veces que haga falta: los assets se actualizan en
-/// el lugar y las instancias que ya están en las escenas se reutilizan.
-/// </summary>
 public static class CourtSceneBuilder
 {
     private const string EndlessScenePath = "Assets/Scenes/DummyLab.unity";
@@ -95,6 +81,9 @@ public static class CourtSceneBuilder
 
             EnableStaticBatching(report);
             AssetDatabase.SaveAssets();
+
+            Progress("Atlas de paleta", 0.95f);
+            report.AppendLine(PaletteAtlasBuilder.Build());
         }
         finally
         {
@@ -110,8 +99,6 @@ public static class CourtSceneBuilder
 
     private static void Progress(string step, float t) =>
         EditorUtility.DisplayProgressBar("Build Court Scene", step, t);
-
-    // ------------------------------------------------------------ Entorno
 
     private static GameObject BuildEnvironment(
         GameObject sky, GameObject court, GameObject fence, GameObject buildings, GameObject tree,
@@ -133,7 +120,6 @@ public static class CourtSceneBuilder
         Add(fence, "Fence", Vector3.zero, Vector3.one);
         Add(buildings, "Buildings", Vector3.zero, Vector3.one);
         Add(tree, "TreeLeft", leftTree, Vector3.one);
-        // El árbol derecho del mockup es un poco más ancho: mismo prefab, espejado.
         Add(tree, "TreeRight", rightTree, new Vector3(-1.1f, 1f, 1.1f));
 
         GameObjectUtility.SetStaticEditorFlags(root,
@@ -141,8 +127,6 @@ public static class CourtSceneBuilder
 
         return CourtAssets.SavePrefab(root, EnvironmentName);
     }
-
-    // ------------------------------------------------------------- Escenas
 
     private static string WireScene(string path, Prefabs prefabs, CourtCamera camera)
     {
@@ -220,7 +204,6 @@ public static class CourtSceneBuilder
         return instance;
     }
 
-    /// <summary>El piso viejo (plano o cubo con tag "ground") lo reemplaza el collider de Court.</summary>
     private static void RemoveLegacyFloor(Scene scene, StringBuilder log)
     {
         foreach (GameObject root in scene.GetRootGameObjects())
@@ -233,7 +216,6 @@ public static class CourtSceneBuilder
         }
     }
 
-    /// <summary>Sin post-procesado: se quitan los Volume de la escena.</summary>
     private static void RemoveVolumes(Scene scene, StringBuilder log)
     {
         foreach (Volume volume in FindAll<Volume>(scene))
@@ -266,9 +248,8 @@ public static class CourtSceneBuilder
         UniversalAdditionalCameraData data = camera.GetUniversalAdditionalCameraData();
         data.renderPostProcessing = false;
         data.renderShadows = false;
-        data.antialiasing = AntialiasingMode.None; // los bordes los suaviza el MSAA del URP Asset
+        data.antialiasing = AntialiasingMode.None;
 
-        // FOV horizontal constante: en 9:20 / 9:21 se gana cielo arriba y piso abajo.
         if (!camera.TryGetComponent(out CameraAspectFit fit))
             fit = camera.gameObject.AddComponent<CameraAspectFit>();
 
@@ -276,6 +257,9 @@ public static class CourtSceneBuilder
         so.FindProperty("referenceAspect").floatValue = CourtLayout.MockWidth / CourtLayout.MockHeight;
         so.FindProperty("referenceVerticalFov").floatValue = solved.VerticalFov;
         so.ApplyModifiedPropertiesWithoutUndo();
+
+        if (camera.TryGetComponent(out CourtCameraRig rig))
+            rig.ApplyNow();
     }
 
     private static void SetupLight(Scene scene)
@@ -290,7 +274,6 @@ public static class CourtSceneBuilder
             SceneManager.MoveGameObjectToScene(sun.gameObject, scene);
         }
 
-        // Una sola luz en tiempo real: cualquier otra se apaga.
         foreach (Light other in lights)
             if (other != sun)
                 other.enabled = false;
@@ -329,25 +312,27 @@ public static class CourtSceneBuilder
         if (missing > 0)
             log.AppendLine($"  - se quitaron {missing} scripts faltantes de la pelota (BallShakeColorChanger revertido; lo reemplaza BallColor)");
 
-        // La esfera de Unity queda apagada: la ve el prefab Ball. El
-        // SphereCollider y el Rigidbody siguen siendo los de siempre.
         if (ball.TryGetComponent(out MeshRenderer oldRenderer))
             oldRenderer.enabled = false;
 
-        EnsureChildInstance(ball.transform, prefabs.Ball, BallArtName);
+        GameObject art = EnsureChildInstance(ball.transform, prefabs.Ball, BallArtName);
 
         GameObject shadow = EnsureRootInstance(scene, prefabs.BallShadow, BallShadowName);
         SerializedObject so = new(shadow.GetComponent<BallBlobShadow>());
         so.FindProperty("target").objectReferenceValue = ball.transform;
         so.ApplyModifiedPropertiesWithoutUndo();
+
+        if (!ball.TryGetComponent(out BallCloseUpScale closeUp))
+        {
+            closeUp = ball.AddComponent<BallCloseUpScale>();
+            SerializedObject closeUpSo = new(closeUp);
+            closeUpSo.FindProperty("art").objectReferenceValue = art.transform;
+            closeUpSo.FindProperty("shadow").objectReferenceValue = shadow.GetComponent<BallBlobShadow>();
+            closeUpSo.ApplyModifiedPropertiesWithoutUndo();
+        }
         shadow.transform.position = new Vector3(ball.transform.position.x, 0.012f, ball.transform.position.z);
     }
 
-    /// <summary>
-    /// Endless: el GameObject del HoopController (con HoopMovement) queda
-    /// como raíz, ubicado en el centro del aro; su parte visual pasa a ser
-    /// una instancia del prefab Hoop.
-    /// </summary>
     private static void SetupEndlessHoop(HoopController controller, Prefabs prefabs, StringBuilder log)
     {
         Transform root = controller.transform;
@@ -429,8 +414,6 @@ public static class CourtSceneBuilder
             return;
         }
 
-        // Aro esquivo y Contrarreloj: un aro grande colgado del objeto que
-        // lo mueve (EvasiveHoopMover) o lo sostiene.
         Transform hoopRoot = null;
 
         if (first != null)
@@ -462,13 +445,6 @@ public static class CourtSceneBuilder
         artObject.GetComponent<HoopVisual>().SnapPoleToGround();
     }
 
-    // -------------------------------------------------------- Triángulos
-
-    /// <summary>
-    /// Cuenta triángulos de los renderers de la escena (los que usan los
-    /// shaders Court/*). En Challenges solo uno de los tres desafíos está
-    /// activo a la vez: se informa la base más cada desafío.
-    /// </summary>
     private static string TriangleReport(Scene scene)
     {
         List<ChallengeControllerBase> challenges = FindAll<ChallengeControllerBase>(scene);
@@ -508,13 +484,6 @@ public static class CourtSceneBuilder
         return text.ToString();
     }
 
-    // ---------------------------------------------------- Static batching
-
-    /// <summary>
-    /// Static batching para Android e iOS. La API pública no lo expone en
-    /// todas las versiones; se intenta por reflexión y, si no está, se
-    /// avisa para activarlo a mano en Player Settings.
-    /// </summary>
     private static void EnableStaticBatching(StringBuilder report)
     {
         const BindingFlags flags = BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;

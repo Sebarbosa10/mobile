@@ -1,17 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Onboarding del primer lanzamiento: un punto de dedo sobre la pelota,
-/// tres chevrons que se encienden en secuencia hacia arriba y el cartel
-/// "Deslizá hacia arriba para lanzar". Se muestra hasta el primer tiro
-/// y no vuelve a aparecer (PlayerPrefs).
-/// </summary>
 public sealed class OnboardingHint : MonoBehaviour
 {
-    private const string DoneKey = "OnboardingDone";
-
-    // Separaciones del mockup, medidas desde el centro de la pelota.
     private static readonly float[] ChevronOffsets = { 210f, 280f, 350f };
     private const float CaptionOffset = 462f;
 
@@ -21,9 +12,6 @@ public sealed class OnboardingHint : MonoBehaviour
     private RectTransform finger;
     private Image[] chevrons;
     private RectTransform caption;
-
-    public static bool IsDone =>
-        PlayerPrefs.GetInt(DoneKey, 0) == 1;
 
     public static OnboardingHint Create(Transform parent, FeedbackLayer projector)
     {
@@ -66,15 +54,8 @@ public sealed class OnboardingHint : MonoBehaviour
         Follow();
     }
 
-    /// <summary>Oculta el onboarding y lo marca como visto.</summary>
     public void Complete()
     {
-        if (!gameObject.activeSelf)
-            return;
-
-        PlayerPrefs.SetInt(DoneKey, 1);
-        PlayerPrefs.Save();
-
         gameObject.SetActive(false);
     }
 
@@ -82,7 +63,6 @@ public sealed class OnboardingHint : MonoBehaviour
     {
         Follow();
 
-        // Los chevrons se encienden de abajo hacia arriba, en loop.
         float cycle = Time.unscaledTime * 1.4f;
 
         for (int i = 0; i < chevrons.Length; i++)

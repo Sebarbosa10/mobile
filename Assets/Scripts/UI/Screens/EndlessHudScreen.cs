@@ -1,11 +1,6 @@
 using TMPro;
 using UnityEngine;
 
-/// <summary>
-/// 3 · HUD del endless: anillo de 340 centrado arriba con el puntaje
-/// adentro (Anton 150) y el timer de 7 s alrededor, y el chip de récord
-/// debajo. Todo queda por encima de y = 560 para no tapar el swipe.
-/// </summary>
 public sealed class EndlessHudScreen : UIScreen
 {
     private TimerRing ring;

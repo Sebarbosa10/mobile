@@ -2,11 +2,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-/// <summary>
-/// Estado presionado de botones y tarjetas: cambia al sprite con labio
-/// de 4 px, oscurece la cara y la baja 8 px (el contenido baja con ella).
-/// Va en el mismo GameObject que el Button.
-/// </summary>
 public sealed class PressableFace : MonoBehaviour,
     IPointerDownHandler,
     IPointerUpHandler,
@@ -43,7 +38,6 @@ public sealed class PressableFace : MonoBehaviour,
         Apply(false);
     }
 
-    /// <summary>Las tarjetas bloqueadas no muestran el estado presionado.</summary>
     public void SetPressEnabled(bool enabled)
     {
         pressEnabled = enabled;

@@ -1,38 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Escenario estático: cielo, cancha, reja, edificios y árboles. Todo
-/// se arma con meshes low-poly propios, se guarda como .asset y cada
-/// pieza queda en su prefab (Sky, Court, Fence, Buildings, Tree) para
-/// poder reemplazarla después por un modelo de Blender.
-///
-/// Las posiciones del fondo salen del mockup: se toman sus coordenadas
-/// en píxeles y se desproyectan con la cámara resuelta sobre el plano de
-/// profundidad de cada capa.
-/// </summary>
 public static class CourtGeometry
 {
     private static readonly Vector3 TowardCamera = Vector3.back;
-
-    // ---------------------------------------------------------------- Cielo
 
     public static GameObject BuildSky(CourtCamera cam, CourtMaterials m)
     {
         GameObject root = new("Sky");
 
-        // Degradé de 4 paradas (0%, 38%, 72%, 100% de la franja de cielo
-        // del mockup, que va de la fila 0 al horizonte). Entre paradas se
-        // agregan filas intermedias interpoladas en sRGB, así el degradé se
-        // ve como en el mockup y no como una interpolación lineal.
         (float row, Color color)[] stops =
         {
-            (-900f, CourtMaterials.CieloCenit), // extensión para pantallas 9:20 / 9:21
+            (-900f, CourtMaterials.CieloCenit),
             (0f, CourtMaterials.CieloCenit),
             (CourtLayout.HorizonRow * 0.38f, CourtMaterials.CieloVioleta),
             (CourtLayout.HorizonRow * 0.72f, CourtMaterials.CieloRosa),
             (CourtLayout.HorizonRow, CourtMaterials.CieloHorizonte),
-            (1700f, CourtMaterials.CieloHorizonte) // por debajo del horizonte (tapado por el fondo)
+            (1700f, CourtMaterials.CieloHorizonte)
         };
 
         List<(float row, Color color)> rows = new();
@@ -69,7 +53,6 @@ public static class CourtGeometry
 
         CourtAssets.MeshObject("Gradient", root.transform, CourtAssets.SaveMesh(sky.ToMesh("Sky"), "Sky_Gradient"), m.MCielo);
 
-        // Sol: disco plano bajo, a la izquierda del aro, con halo detrás.
         Mesh disc = CourtAssets.SaveMesh(Disc(24, Vector3.back).ToMesh("Disc"), "Disc24");
 
         Vector3 sunCenter = cam.OnPlaneZ(250f, 940f, CourtLayout.SunZ);
@@ -85,7 +68,6 @@ public static class CourtGeometry
         halo.transform.SetLocalPositionAndRotation(haloCenter, Quaternion.identity);
         halo.transform.localScale = Vector3.one * haloRadius;
 
-        // Nubes: franjas planas alargadas (paralelogramos del mockup).
         MeshKit clouds = new(3);
         float[][] cloudShapes =
         {
@@ -112,13 +94,10 @@ public static class CourtGeometry
         return CourtAssets.SavePrefab(root, "Sky");
     }
 
-    // --------------------------------------------------------------- Cancha
-
     public static GameObject BuildCourt(CourtCamera cam, CourtMaterials m)
     {
         GameObject root = new("Court");
 
-        // Medidas de la cancha leídas del mockup (ver CourtCamera.CourtRow).
         float baseline = CourtLayout.BaselineZ;
         float freeThrowZ = cam.OnCourt(540f, 1480f).z;
         float keyHalf = Mathf.Abs(cam.OnCourt(865f, 1480f).x);
@@ -127,26 +106,19 @@ public static class CourtGeometry
         float half = CourtLayout.CourtHalfWidth;
         float w = CourtLayout.LineWidth;
 
-        // Submeshes: 0 cemento, 1 luz, 2 sombra, 3 medio, 4 llave, 5 líneas, 6 grietas
         MeshKit floor = new(7);
 
-        // Piso base y, detrás de la línea de fondo, la franja iluminada.
         floor.Sub(0).Quad(new Vector3(-80f, 0f, -12f), new Vector3(80f, 0f, -12f), new Vector3(80f, 0f, 150f), new Vector3(-80f, 0f, 150f), Vector3.up);
         floor.Sub(1).Quad(new Vector3(-80f, 0.003f, baseline + w * 0.5f), new Vector3(80f, 0.003f, baseline + w * 0.5f),
             new Vector3(80f, 0.003f, 150f), new Vector3(-80f, 0.003f, 150f), Vector3.up);
 
-        // Facetas grandes: cuña en sombra abajo a la izquierda y cuña media
-        // a la derecha, como en el mockup (extendidas fuera de cuadro para
-        // cubrir pantallas más altas).
         floor.Sub(2).Fan(CourtPolygon(cam, 0.002f, -1400f, 1300f, 0f, 1300f, 948f, 2700f, -1400f, 2700f), Vector3.up);
         floor.Sub(3).Fan(CourtPolygon(cam, 0.002f, 720f, 1050f, 2400f, 1050f, 2400f, 2700f, 1984f, 2700f), Vector3.up);
 
-        // Llave rellena en azul.
         floor.Sub(4).Quad(
             new Vector3(-keyHalf, 0.004f, freeThrowZ), new Vector3(keyHalf, 0.004f, freeThrowZ),
             new Vector3(keyHalf, 0.004f, baseline), new Vector3(-keyHalf, 0.004f, baseline), Vector3.up);
 
-        // Líneas pintadas, algo gastadas (cortes en algunos tramos).
         const float lineY = 0.008f;
         floor.Sub(5);
         floor.GroundRibbon(new[] { new Vector3(-half, 0f, baseline), new Vector3(half, 0f, baseline) }, w, lineY,
@@ -163,7 +135,6 @@ public static class CourtGeometry
         floor.GroundRibbon(ThreePointLine(arcRadius, baseline), w, lineY,
             gaps: new[] { new Vector2(0.28f, 0.31f), new Vector2(0.71f, 0.73f) });
 
-        // Grietas: líneas finas.
         floor.Sub(6);
         floor.GroundRibbon(CourtPolyline(cam, 760f, 1240f, 800f, 1300f, 780f, 1350f, 830f, 1420f), 0.03f, 0.006f);
         floor.GroundRibbon(CourtPolyline(cam, 170f, 1640f, 230f, 1680f, 215f, 1740f), 0.03f, 0.006f);
@@ -172,7 +143,6 @@ public static class CourtGeometry
         CourtAssets.MeshObject("Floor", root.transform, CourtAssets.SaveMesh(floor.ToMesh("Court"), "Court_Floor"),
             m.MCemento, m.MCementoLuz, m.MCementoSombra, m.MCementoMedio, m.MLlave, m.MLineas, m.MGrieta);
 
-        // Collider del piso: la pelota se reinicia al tocar algo con tag "ground".
         GameObject collider = CourtAssets.Empty("FloorCollider", root.transform);
         collider.tag = "ground";
         BoxCollider box = collider.AddComponent<BoxCollider>();
@@ -230,15 +200,12 @@ public static class CourtGeometry
         return points;
     }
 
-    // ----------------------------------------------------------------- Reja
-
     public static GameObject BuildFence(CourtCamera cam, CourtMaterials m)
     {
         GameObject root = new("Fence");
         MeshKit fence = new();
         float z = CourtLayout.FenceZ;
 
-        // Postes (cada 190 px en el mockup) y travesaño superior.
         float[] postColumns = { -320f, -130f, 60f, 250f, 440f, 630f, 820f, 1010f, 1200f, 1390f };
         float top = cam.OnPlaneZ(540f, 900f, z).y;
         float railTop = cam.OnPlaneZ(540f, 908f, z).y;
@@ -259,7 +226,6 @@ public static class CourtGeometry
         fence.Box(new Vector3((xMin + xMax) * 0.5f, (railTop + railBottom) * 0.5f, z),
             new Vector3(xMax - xMin + post, railTop - railBottom, 0.06f), BoxFaces.Visible);
 
-        // Malla de alambre en rombos, como líneas finas (sin texturas ni alfa).
         const float spacing = 0.2f;
         const float wire = 0.016f;
         float meshTop = railBottom;
@@ -269,7 +235,6 @@ public static class CourtGeometry
         {
             for (float c = xMin - meshTop; c <= xMax + meshTop; c += spacing)
             {
-                // Recta x = c + direction·y, recortada al rectángulo de la malla.
                 float y0 = 0f;
                 float y1 = meshTop;
                 ClipToRange(c, direction, xMin, xMax, ref y0, ref y1);
@@ -290,7 +255,6 @@ public static class CourtGeometry
         return CourtAssets.SavePrefab(root, "Fence");
     }
 
-    /// <summary>Recorta el tramo [y0, y1] de la recta x = c + dir·y para que x quede en [xMin, xMax].</summary>
     private static void ClipToRange(float c, int direction, float xMin, float xMax, ref float y0, ref float y1)
     {
         float ya = (xMin - c) / direction;
@@ -299,13 +263,10 @@ public static class CourtGeometry
         y1 = Mathf.Min(y1, Mathf.Max(ya, yb));
     }
 
-    // ------------------------------------------------------------ Edificios
-
     public static GameObject BuildBuildings(CourtCamera cam, CourtMaterials m)
     {
         GameObject root = new("Buildings");
 
-        // Siluetas del mockup como escalones: (columna desde, columna hasta, fila del techo).
         float[,] far =
         {
             { -300, 0, 900 }, { 0, 70, 900 }, { 70, 150, 860 }, { 150, 210, 910 }, { 210, 300, 830 }, { 300, 380, 880 },
@@ -348,13 +309,6 @@ public static class CourtGeometry
         return kit;
     }
 
-    // --------------------------------------------------------------- Árbol
-
-    /// <summary>
-    /// Árbol de copa hexagonal low-poly (silueta del árbol izquierdo del
-    /// mockup). El pivote queda en la base del tronco. Devuelve también
-    /// dónde van los dos árboles del mockup.
-    /// </summary>
     public static GameObject BuildTree(CourtCamera cam, CourtMaterials m, out Vector3 leftBase, out Vector3 rightBase)
     {
         float z = CourtLayout.TreesZ;
@@ -397,9 +351,6 @@ public static class CourtGeometry
         return CourtAssets.SavePrefab(root, "Tree");
     }
 
-    // ------------------------------------------------------------- Comunes
-
-    /// <summary>Disco plano de radio 1 (sol, halo, check, sombras).</summary>
     public static MeshKit Disc(int segments, Vector3 facing)
     {
         MeshKit kit = new();

@@ -3,12 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Feedback de encestada sobre el aro: destello de rayos (fx_burst),
-/// anillo que se expande (fx_ring) y un "+1" en Sol que sube y se
-/// desvanece. Las posiciones se calculan proyectando el aro del mundo a
-/// la pantalla.
-/// </summary>
 public sealed class FeedbackLayer : MonoBehaviour
 {
     private const float BurstSize = 512f;
@@ -34,7 +28,6 @@ public sealed class FeedbackLayer : MonoBehaviour
         return feedback;
     }
 
-    /// <summary>Juega el feedback completo en la posición del aro.</summary>
     public void PlayScore(Vector3 hoopWorldPosition, Color ringColor)
     {
         if (!TryWorldToLocal(hoopWorldPosition, out Vector2 local))

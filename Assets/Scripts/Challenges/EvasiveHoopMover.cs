@@ -1,10 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Mueve al aro en un patrón combinado (círculo horizontal + rebote
-/// vertical, cada uno a su propia velocidad) que nunca se repite de
-/// forma predecible. Es el aro "esquivo" del Desafío 2.
-/// </summary>
 public sealed class EvasiveHoopMover : MonoBehaviour
 {
     [SerializeField, Min(0f)]

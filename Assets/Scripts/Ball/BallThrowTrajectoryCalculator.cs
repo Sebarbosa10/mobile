@@ -1,11 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Convierte un gesto de swipe en una velocidad de lanzamiento.
-///
-/// La dirección se basa en la intención general del swipe,
-/// limitando pequeñas desviaciones laterales involuntarias.
-/// </summary>
 public sealed class BallThrowTrajectoryCalculator
 {
     private readonly float maxThrowSpeed;
@@ -13,10 +7,6 @@ public sealed class BallThrowTrajectoryCalculator
     private readonly float swipeSpeedForMaxThrow;
     private readonly float upwardArc;
 
-    /*
-     * Ángulo máximo que puede desviarse el lanzamiento
-     * horizontalmente respecto de la dirección frontal.
-     */
     private readonly float maximumHorizontalAngle;
 
     public BallThrowTrajectoryCalculator(
@@ -46,12 +36,6 @@ public sealed class BallThrowTrajectoryCalculator
                 gesture.Speed /
                 swipeSpeedForMaxThrow);
 
-        /*
-         * Con una respuesta lineal hace falta un swipe casi al
-         * límite para sentir potencia real. Este ease-out hace que
-         * un esfuerzo medio ya se sienta fuerte (en x=0.5 da 0.75
-         * en vez de 0.5), sin tocar el techo de velocidad.
-         */
         float easedSpeed =
             1f -
             (1f - normalizedSpeed) *
@@ -65,16 +49,8 @@ public sealed class BallThrowTrajectoryCalculator
         Vector2 aim =
             gesture.AimDirection;
 
-        /*
-         * Evitamos que pequeños movimientos laterales
-         * generen una desviación exagerada.
-         */
         aim = ClampHorizontalDeviation(aim);
 
-        /*
-         * Convertimos el input de pantalla
-         * a una dirección 3D.
-         */
         Vector3 forward =
             Vector3.ProjectOnPlane(
                 camera.transform.forward,
@@ -102,9 +78,6 @@ public sealed class BallThrowTrajectoryCalculator
 
         planarDirection.Normalize();
 
-        /*
-         * Agregamos la parábola vertical.
-         */
         Vector3 launchDirection =
             (
                 planarDirection +
@@ -114,13 +87,6 @@ public sealed class BallThrowTrajectoryCalculator
         return launchDirection * launchSpeed;
     }
 
-    /// <summary>
-    /// Limita la desviación horizontal del lanzamiento.
-    ///
-    /// Un tiro perfectamente frontal permanece frontal.
-    /// Una desviación deliberada se respeta, pero nunca
-    /// puede superar el ángulo máximo configurado.
-    /// </summary>
     private Vector2 ClampHorizontalDeviation(
         Vector2 aim)
     {

@@ -5,10 +5,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-/// <summary>
-/// 2 · Selector de desafíos: título, panel "Encestadas en el endless: N"
-/// con la barra hacia el próximo desbloqueo, las tres tarjetas y VOLVER.
-/// </summary>
 public sealed class ChallengeSelectScreen : UIScreen
 {
     private readonly List<ChallengeCard> cards = new();
@@ -40,7 +36,6 @@ public sealed class ChallengeSelectScreen : UIScreen
             safe, "Title", "DESAFÍOS", UIFont.Display, 120f, palette.text, 3f);
         UIKit.PlaceTop(title.rectTransform, 16f, new Vector2(984f, 138f));
 
-        // Panel de progreso hacia el próximo desbloqueo.
         Image panel = UIKit.CreateImage(safe, "ProgressPanel", skin.chip, palette.night);
         UIKit.SetChipRadius(panel, 36f);
         UIKit.PlaceTop(panel.rectTransform, 86f, new Vector2(984f, 258f));
@@ -73,7 +68,6 @@ public sealed class ChallengeSelectScreen : UIScreen
             panelRect, "To", "10", UIFont.Body, 30f, palette.text, 0f, TextAlignmentOptions.MidlineRight);
         UIKit.PlaceTopRight(screen.toLabel.rectTransform, 40f, 180f, new Vector2(100f, 42f));
 
-        // Tarjetas.
         Vector2 cardSize = new(ChallengeCard.Size.x, ChallengeCard.Size.y + UIKit.ButtonLip);
 
         for (int number = 1; number <= ChallengeCatalog.Count; number++)
@@ -99,7 +93,6 @@ public sealed class ChallengeSelectScreen : UIScreen
 
     private void Update()
     {
-        // Botón "atrás" de Android (Escape en el Input System).
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
             BackRequested?.Invoke();
     }

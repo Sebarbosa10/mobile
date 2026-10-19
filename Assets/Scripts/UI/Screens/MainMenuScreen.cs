@@ -2,17 +2,13 @@ using System;
 using TMPro;
 using UnityEngine;
 
-/// <summary>
-/// 1 · Menú principal: bajada "BÁSQUET DE PLAZA", logo "ÚLTIMA LUZ"
-/// (Anton 196, rotado −4°, "LUZ" en Sol, sombra Noche), chip de récord,
-/// botones JUGAR y DESAFÍOS y la pista de "sacudí el celu".
-/// </summary>
 public sealed class MainMenuScreen : UIScreen
 {
     private TextMeshProUGUI recordValue;
 
     public event Action PlayRequested;
     public event Action ChallengesRequested;
+    public event Action CustomizeRequested;
 
     public static MainMenuScreen Create(RectTransform parent)
     {
@@ -28,8 +24,6 @@ public sealed class MainMenuScreen : UIScreen
 
         RectTransform safe = UIKit.CreateSafeArea(root);
 
-        // Posiciones "top" medidas desde el borde superior de la safe area
-        // (el mockup reserva 96 px arriba).
         TextMeshProUGUI tagline = UIKit.CreateText(
             safe, "Tagline", "BÁSQUET DE PLAZA", UIFont.Label, 36f, palette.text, 10f);
         UIKit.PlaceTop(tagline.rectTransform, 54f, new Vector2(984f, 44f));
@@ -59,6 +53,11 @@ public sealed class MainMenuScreen : UIScreen
         UIButton challenges = UIButton.Create(safe, "ChallengesButton", "DESAFÍOS", ButtonVariant.Primary);
         UIKit.PlaceCenter(challenges.RectTransform, new Vector2(0f, -389f), challenges.RectTransform.sizeDelta);
         challenges.OnClick.AddListener(() => screen.ChallengesRequested?.Invoke());
+
+        UIButton customize = UIButton.Create(safe, "CustomizeButton", "PERSONALIZAR", ButtonVariant.Primary);
+        float customizeY = -389f - challenges.RectTransform.sizeDelta.y - 36f;
+        UIKit.PlaceCenter(customize.RectTransform, new Vector2(0f, customizeY), customize.RectTransform.sizeDelta);
+        customize.OnClick.AddListener(() => screen.CustomizeRequested?.Invoke());
 
         RectTransform hint = UIKit.CreateChip(safe, "ShakeHint", 64f, palette.night, 28f, 16f);
         hint.anchorMin = hint.anchorMax = new Vector2(0.5f, 0f);
