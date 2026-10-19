@@ -19,6 +19,10 @@ public sealed class HoopController : MonoBehaviour
     [SerializeField]
     private HoopMovement movement;
 
+    [Tooltip("Parte visual del aro (prefab Hoop). Si está asignada, la escala de cada etapa se le pide a ella y visualRoot no se usa.")]
+    [SerializeField]
+    private HoopVisual hoopVisual;
+
 #if UNITY_EDITOR
     [Header("Prototype Score (solo Editor)")]
     [SerializeField]
@@ -145,6 +149,14 @@ public sealed class HoopController : MonoBehaviour
             Mathf.Max(
                 0.01f,
                 scale);
+
+        // HoopVisual escala aro, tablero, red y trigger juntos (el trigger
+        // cuelga de su raíz escalada) y mantiene el poste en el piso.
+        if (hoopVisual != null)
+        {
+            hoopVisual.SetScale(safeScale);
+            return;
+        }
 
         if (visualRoot != null)
         {
