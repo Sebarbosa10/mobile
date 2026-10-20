@@ -4,13 +4,13 @@ using UnityEngine;
 [RequireComponent(typeof(BallLauncher))]
 public sealed class ShotAssist : MonoBehaviour
 {
-    public const float CaptureMargin = 0.3f;
+    public const float CaptureMargin = 0.15f;
 
-    public const float MaxHeightAbove = 3f;
+    public const float MaxHeightAbove = 0.9f;
 
-    public const float Strength = 6f;
+    public const float Strength = 3f;
 
-    public const float MaxAcceleration = 12f;
+    public const float MaxAcceleration = 4f;
 
     private Rigidbody body;
     private BallLauncher launcher;

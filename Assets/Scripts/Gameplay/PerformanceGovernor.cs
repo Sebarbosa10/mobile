@@ -13,6 +13,8 @@ public sealed class PerformanceGovernor : MonoBehaviour
     private const float CoolDownTime = 45f;
     private const int MinFrameRate = 60;
 
+    private static readonly bool AdaptToHeat = false;
+
     private static PerformanceGovernor instance;
 
     private int maxFrameRate;
@@ -93,6 +95,9 @@ public sealed class PerformanceGovernor : MonoBehaviour
         bool hot = ThermalStatus >= ThermalModerate;
         bool warm = ThermalStatus >= ThermalLight || ThermalStatus == ThermalUnknown;
         bool warmAndSlow = warm && slowTime >= SlowWindow;
+
+        if (!AdaptToHeat)
+            return;
 
         if ((hot || warmAndSlow) && target > MinFrameRate)
         {

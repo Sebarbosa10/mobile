@@ -43,6 +43,10 @@ public sealed class BallLauncher : MonoBehaviour
 
     private BallLaunchState state;
 
+    private const float StuckSpeed = 0.15f;
+    private const float StuckSeconds = 1.5f;
+    private float stuckTime;
+
     private float holdDepth;
 
     private Vector2 ballScreenAtGrab;
@@ -116,6 +120,12 @@ public sealed class BallLauncher : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (state == BallLaunchState.Launched)
+        {
+            CheckStuck();
+            return;
+        }
+
         if (state != BallLaunchState.Held)
             return;
 
@@ -240,8 +250,27 @@ public sealed class BallLauncher : MonoBehaviour
         BallLanded?.Invoke();
     }
 
+    private void CheckStuck()
+    {
+        if (rigidbodyComponent.linearVelocity.sqrMagnitude > StuckSpeed * StuckSpeed)
+        {
+            stuckTime = 0f;
+            return;
+        }
+
+        stuckTime += Time.fixedDeltaTime;
+
+        if (stuckTime < StuckSeconds)
+            return;
+
+        ResetBall();
+        BallLanded?.Invoke();
+    }
+
     private void ResetBall()
     {
+        stuckTime = 0f;
+
         transform.SetPositionAndRotation(
             startPosition,
             startRotation);

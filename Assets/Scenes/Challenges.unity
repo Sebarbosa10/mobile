@@ -770,6 +770,7 @@ GameObject:
   - component: {fileID: 694799683}
   - component: {fileID: 694799682}
   - component: {fileID: 694799686}
+  - component: {fileID: 694799687}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1521,3 +1522,22 @@ SceneRoots:
   - {fileID: 1502340254}
   - {fileID: 1527337953}
   - {fileID: 344272086}
+--- !u!114 &694799687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694799681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b5fd7aa9efc2f43be20cc5cd3e82f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CourtCameraRig
+  ballPoint: {x: 0, y: 1, z: 0}
+  rimPoint: {x: 0, y: 2.5, z: 8}
+  height: 3.93
+  verticalFov: 33
+  ballScreenY: 0.95
+  rimScreenY: 0.486
+  referenceAspect: 0.5625

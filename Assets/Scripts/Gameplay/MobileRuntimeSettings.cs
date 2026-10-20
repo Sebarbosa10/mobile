@@ -6,18 +6,20 @@ public static class MobileRuntimeSettings
 
     private const int CappedFrameRate = 60;
 
+    private const int UnlimitedFrameRate = 1000;
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Apply()
     {
         QualitySettings.vSyncCount = 0;
 
-        int frameRate = Uncapped ? -1 : CappedFrameRate;
+        int frameRate = Uncapped ? UnlimitedFrameRate : CappedFrameRate;
 
 #if UNITY_ANDROID && !UNITY_EDITOR
-        frameRate = Uncapped ? SelectHighestRefreshRate() : SelectRefreshRateFor(CappedFrameRate);
-#elif UNITY_IOS && !UNITY_EDITOR
         if (Uncapped)
-            frameRate = Mathf.RoundToInt((float)Screen.currentResolution.refreshRateRatio.value);
+            SelectHighestRefreshRate();
+        else
+            SelectRefreshRateFor(CappedFrameRate);
 #endif
 
         Application.targetFrameRate = frameRate;

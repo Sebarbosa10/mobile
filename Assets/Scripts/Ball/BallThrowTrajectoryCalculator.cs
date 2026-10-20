@@ -2,6 +2,8 @@ using UnityEngine;
 
 public sealed class BallThrowTrajectoryCalculator
 {
+    private const float StraightSoftnessDegrees = 9f;
+
     private readonly float maxThrowSpeed;
     private readonly float forceMultiplier;
     private readonly float swipeSpeedForMaxThrow;
@@ -100,6 +102,11 @@ public sealed class BallThrowTrajectoryCalculator
                 aim.x,
                 aim.y)
             * Mathf.Rad2Deg;
+
+        float squared = angle * angle;
+        float softness = StraightSoftnessDegrees * StraightSoftnessDegrees;
+
+        angle *= squared / (squared + softness);
 
         angle =
             Mathf.Clamp(

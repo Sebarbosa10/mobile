@@ -28,6 +28,12 @@ public static class MobileBuildSettings
             changed = true;
         }
 
+        if (!PlayerSettings.enableFrameTimingStats)
+        {
+            PlayerSettings.enableFrameTimingStats = true;
+            changed = true;
+        }
+
         changed |= DisableShadows();
 
         if (changed)
