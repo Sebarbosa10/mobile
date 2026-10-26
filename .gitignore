@@ -105,3 +105,19 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# Wwise
+/WwiseUnityIntegration_*_Src.zip
+/logRunSetup.txt
+/mobile_WwiseProject_incomplete_backup/
+/mobile_WwiseProject/.cache/
+/mobile_WwiseProject/*.validationcache
+/mobile_WwiseProject/*.akd
+/mobile_WwiseProject/GeneratedSoundBanks/
+/[Aa]ssets/Wwise/API/Runtime/Plugins/**/*.pdb
+/[Aa]ssets/Wwise/API/Runtime/Plugins/**/*.pdb.meta
+# Plataformas Wwise no usadas (si el Launcher las reinstala)
+/[Aa]ssets/Wwise/**/tvOS/
+/[Aa]ssets/Wwise/**/tvOS.meta
+/[Aa]ssets/Wwise/**/visionOS/
+/[Aa]ssets/Wwise/**/visionOS.meta
