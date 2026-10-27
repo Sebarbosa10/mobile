@@ -207,6 +207,17 @@ public sealed class HoopScoreTrigger : MonoBehaviour
         Debug.Log("[HoopScoreTrigger] Encestada detectada.", this);
 #endif
 
+        // El sonido va antes de AddPoint: si el aro se achica, el shrink suena después del swish
+        if (trackedBall.TryGetComponent(out BallLauncher ball))
+        {
+            ball.RegisterBasket();
+            AudioManager.PlayScore(ball.BasketType);
+        }
+        else
+        {
+            AudioManager.PlayScore(ScoreType.Clean);
+        }
+
         hoopController?.AddPoint();
 
         if (visual != null)

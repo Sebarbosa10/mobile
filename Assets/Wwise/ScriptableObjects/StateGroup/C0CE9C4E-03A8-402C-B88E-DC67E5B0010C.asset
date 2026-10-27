@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a9c558c57020b469c0b555703c5dc0, type: 3}
+  m_Name: C0CE9C4E-03A8-402C-B88E-DC67E5B0010C
+  m_EditorClassIdentifier: AK.Wwise.Unity.API.WwiseTypes::WwiseStateGroupReference
+  objectName: GameState
+  id: 4091656514
+  guid: C0CE9C4E-03A8-402C-B88E-DC67E5B0010C

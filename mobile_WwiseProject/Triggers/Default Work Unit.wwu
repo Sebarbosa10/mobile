@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{CD9A1151-0538-4ECD-9FBD-15A75C976060}" SchemaVersion="119">
 	<Triggers>
-		<WorkUnit Name="Default Work Unit" ID="{CD9A1151-0538-4ECD-9FBD-15A75C976060}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{CD9A1151-0538-4ECD-9FBD-15A75C976060}" PersistMode="Standalone">
+			<ChildrenList>
+				<Trigger Name="Stg_NuevoRecord" ID="{3D6D272D-3092-4118-9F2E-DF7475D9BFBA}"/>
+				<Trigger Name="Stg_Victoria" ID="{1AF2E729-4EC7-499F-B7F9-0B4BE8C5733E}"/>
+				<Trigger Name="Stg_Derrota" ID="{BF773610-239E-419D-A970-DE1C3BEB2879}"/>
+				<Trigger Name="Stg_GameOver" ID="{D9897D91-FFF5-48C8-8427-50102347C963}"/>
+			</ChildrenList>
+		</WorkUnit>
 	</Triggers>
 </WwiseDocument>

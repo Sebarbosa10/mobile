@@ -1,0 +1,364 @@
+{
+ "Event": [
+  {
+   "name": "Play_ball_grab",
+   "guid": "{A03417CF-6D70-4C20-BBD3-24E99B798CA4}"
+  },
+  {
+   "name": "Play_ball_throw",
+   "guid": "{6A1E9D4C-3FB6-4899-962B-79FE36CB0E8E}"
+  },
+  {
+   "name": "Play_ball_air",
+   "guid": "{5B049543-942D-4515-8759-F746FEFFC062}"
+  },
+  {
+   "name": "Stop_ball_air",
+   "guid": "{B5EE27EC-08DA-4AF5-AE6C-0BCCB8D1E041}"
+  },
+  {
+   "name": "Play_ball_respawn",
+   "guid": "{4B66DE25-AB65-4643-909C-1F61DA44B33A}"
+  },
+  {
+   "name": "Play_ball_shake_color",
+   "guid": "{238815FD-544E-4ECA-BFC1-0F7143DA043F}"
+  },
+  {
+   "name": "Play_ball_hit_rim",
+   "guid": "{11CDE417-A280-48EA-9B76-B769898DEF17}"
+  },
+  {
+   "name": "Play_ball_hit_backboard",
+   "guid": "{1C671B9F-9713-4A7E-9AEF-AFE90EF61FA1}"
+  },
+  {
+   "name": "Play_ball_hit_pole",
+   "guid": "{2226D0C3-379F-48A6-9C05-C7C93B873DBD}"
+  },
+  {
+   "name": "Play_ball_bounce_floor",
+   "guid": "{6C2C57AF-E253-4DE3-9E48-4E0378B5F3A1}"
+  },
+  {
+   "name": "Play_ball_bounce_soft",
+   "guid": "{DF9221EE-C1D7-4476-94EA-A2251F47F6A5}"
+  },
+  {
+   "name": "Play_net_swish_chain",
+   "guid": "{827C42CC-270B-4B76-86E8-3889A60B3F26}"
+  },
+  {
+   "name": "Play_score_plus_one",
+   "guid": "{8DC6217C-F28C-425C-9E98-90115D989F0F}"
+  },
+  {
+   "name": "Play_score_flash",
+   "guid": "{3A296C82-D849-4B63-8B5D-C54961E34185}"
+  },
+  {
+   "name": "Play_miss_out",
+   "guid": "{12426CCA-D093-4AD8-81D2-E65F42B83901}"
+  },
+  {
+   "name": "Play_timer_tick",
+   "guid": "{B64F06F2-A2D8-499C-AD79-093E88D53417}"
+  },
+  {
+   "name": "Play_timer_urgent",
+   "guid": "{561EB8B4-6A7F-4A3F-8909-579EC1EA4270}"
+  },
+  {
+   "name": "Play_timer_reset",
+   "guid": "{632E29AA-2964-4957-85E7-EEE4CEBA78B0}"
+  },
+  {
+   "name": "Play_timer_out",
+   "guid": "{B1F27975-75DF-43C3-AAD8-51546CD845AF}"
+  },
+  {
+   "name": "Play_hoop_shrink",
+   "guid": "{D2E82B57-A874-41B4-8997-E5792BDB83ED}"
+  },
+  {
+   "name": "Play_hoop_move_loop",
+   "guid": "{52B7FD8E-9925-4C80-AA05-CF6E3232BC10}"
+  },
+  {
+   "name": "Stop_hoop_move_loop",
+   "guid": "{FA8551E1-D0C6-4B3C-88E0-299CF9201FC1}"
+  },
+  {
+   "name": "Play_carousel_loop",
+   "guid": "{B5ACB00E-17EE-45D9-B480-837DD8D6B96F}"
+  },
+  {
+   "name": "Stop_carousel_loop",
+   "guid": "{5F6E1EF7-4FA4-4BC6-9BC8-7ADAF75BC5AD}"
+  },
+  {
+   "name": "Play_carousel_hoop_done",
+   "guid": "{B355AC1C-7BD8-46A8-AC2F-BCE4F69B890B}"
+  },
+  {
+   "name": "Play_evasive_dash",
+   "guid": "{583EF294-62A5-4C66-BFF3-523A23E14107}"
+  },
+  {
+   "name": "Play_challenge_start",
+   "guid": "{CF51469F-7034-4092-B1E8-D3F2B0610C82}"
+  },
+  {
+   "name": "Play_ui_tap",
+   "guid": "{91709CC2-C61C-4444-BD0F-B3D716D01C36}"
+  },
+  {
+   "name": "Play_ui_tap_primary",
+   "guid": "{05EC502C-F755-4B4C-BDA1-A7515CE71DAF}"
+  },
+  {
+   "name": "Play_ui_back",
+   "guid": "{1C8CBA3F-C1EA-4D26-854F-C0D45AC84CEF}"
+  },
+  {
+   "name": "Play_ui_disabled",
+   "guid": "{65D2D122-B4E1-4E26-AAAA-96B2CE787E7E}"
+  },
+  {
+   "name": "Play_ui_tab",
+   "guid": "{15D0899C-0C46-4C4E-9FFA-4D86F50B9D84}"
+  },
+  {
+   "name": "Play_ui_select",
+   "guid": "{B8355C59-C7F0-4ECE-8206-6332DEE54BFB}"
+  },
+  {
+   "name": "Play_ui_equip",
+   "guid": "{C41B00C4-5151-4D7F-AEA0-FF606CC9AF34}"
+  },
+  {
+   "name": "Play_ui_pause_in",
+   "guid": "{10CF76C1-588F-42C0-814E-07B8026E2E22}"
+  },
+  {
+   "name": "Play_ui_pause_out",
+   "guid": "{50E4B303-B85B-4B5F-830E-CD000CE5032F}"
+  },
+  {
+   "name": "Play_ui_panel_in",
+   "guid": "{581AD5C1-331A-4B2A-922D-FCCA5255EC10}"
+  },
+  {
+   "name": "Play_ui_count_up",
+   "guid": "{1C1839EA-0C95-43DD-99CD-40E2F95CE086}"
+  },
+  {
+   "name": "Play_ui_progress_fill",
+   "guid": "{7BA15DEB-0331-4591-8238-FDEE0CF57EE6}"
+  },
+  {
+   "name": "Play_ui_unlock",
+   "guid": "{75AE9A10-C0FC-460D-A254-2825FE5917E3}"
+  },
+  {
+   "name": "Play_ui_confetti",
+   "guid": "{7279A312-BF1F-4595-9818-14B16DB95D82}"
+  },
+  {
+   "name": "Play_ui_onboarding",
+   "guid": "{8D3F3240-EB5A-49D9-B107-25465D688CCA}"
+  },
+  {
+   "name": "Play_Score_Clean",
+   "guid": "{E3687BDE-2F9F-4E0C-9BCB-AD13D8309531}"
+  },
+  {
+   "name": "Play_Score_Rim",
+   "guid": "{B95A40B2-794F-4CE7-B3AD-62488ECFD3BC}"
+  },
+  {
+   "name": "Play_Score_Backboard",
+   "guid": "{8ED9328F-1183-4714-8051-30AD8AE5A264}"
+  },
+  {
+   "name": "Play_Ambience",
+   "guid": "{5F204DA2-7E94-425B-B070-63128EF8D605}"
+  },
+  {
+   "name": "Stop_Ambience",
+   "guid": "{8DB6529A-0B69-45C8-A5A3-FEE69C49080B}"
+  },
+  {
+   "name": "Play_Music",
+   "guid": "{32474A25-A778-452B-BBEA-AF9C07AE7B41}"
+  },
+  {
+   "name": "Stop_Music",
+   "guid": "{1D7766DF-8BDD-4B93-ACE2-217560F12B64}"
+  },
+  {
+   "name": "Play_stg_nuevo_record",
+   "guid": "{056A6ABE-E83E-4507-89A1-14E494E902B6}"
+  },
+  {
+   "name": "Play_stg_victoria",
+   "guid": "{D1D42E52-6F6B-426F-A651-AA828337CDFA}"
+  },
+  {
+   "name": "Play_stg_derrota",
+   "guid": "{267643AF-ABC3-4B54-B622-27CCA6F069AC}"
+  },
+  {
+   "name": "Play_stg_game_over",
+   "guid": "{003807BD-37D5-4ADC-96D1-9680751EB869}"
+  }
+ ],
+ "Soundbank": [
+  {
+   "name": "Main",
+   "guid": "{B9C850D7-BEC9-4ADE-86BE-2A47253A9AFA}"
+  },
+  {
+   "name": "Music",
+   "guid": "{E1446C17-9074-4FB3-8AF9-D583999993C4}"
+  },
+  {
+   "name": "Amb_Plaza",
+   "guid": "{0AE5D718-0F03-4659-908B-21855104B401}"
+  },
+  {
+   "name": "Amb_Azotea",
+   "guid": "{A06CE0DD-8F53-48CC-BD9A-ED78AFBB88E7}"
+  },
+  {
+   "name": "Amb_Playa",
+   "guid": "{8A18E564-EA17-4DE0-9BC6-9541F19FF561}"
+  },
+  {
+   "name": "Amb_Nevado",
+   "guid": "{ED200A3E-4498-4117-A535-2326C10E43C4}"
+  },
+  {
+   "name": "Amb_Desierto",
+   "guid": "{B5B22D5D-EA3B-4E12-8628-BF5B967381FF}"
+  },
+  {
+   "name": "Amb_Espacio",
+   "guid": "{821382EB-F176-4250-B5C7-6EFED0302398}"
+  }
+ ],
+ "State": [
+  {
+   "name": "GameMode/None",
+   "guid": "{9320A4C5-FACB-49AC-99CB-F7CECF104C18}"
+  },
+  {
+   "name": "GameMode/Menu",
+   "guid": "{A90D7E89-566B-4A76-B24E-B0464881A932}"
+  },
+  {
+   "name": "GameMode/Endless",
+   "guid": "{CD4D0FA5-6E1E-451B-8892-7C70B8039DEE}"
+  },
+  {
+   "name": "GameMode/Challenge",
+   "guid": "{B773DA1B-3941-415B-AC22-E1BAF6B61ED0}"
+  },
+  {
+   "name": "GameMode/TimeAttack",
+   "guid": "{3BEC55D4-EEE3-42E4-8811-DE4E878484EB}"
+  },
+  {
+   "name": "GameState/None",
+   "guid": "{EF48129E-70E5-4A92-BA83-8BF1C16C6ACA}"
+  },
+  {
+   "name": "GameState/Playing",
+   "guid": "{35CA6DBA-CD71-4131-B4AA-1DF99B66B645}"
+  },
+  {
+   "name": "GameState/Paused",
+   "guid": "{2B624984-33F2-428C-808A-E5B3DA5831FD}"
+  },
+  {
+   "name": "GameState/Results",
+   "guid": "{764DEC6C-44D4-4856-B14B-645556A5EF58}"
+  },
+  {
+   "name": "Theme/None",
+   "guid": "{320FF904-E34A-40D3-8E21-3CCE70ABE9BA}"
+  },
+  {
+   "name": "Theme/Plaza",
+   "guid": "{FD1B8902-7930-43A5-8A2B-0499D3F8C365}"
+  },
+  {
+   "name": "Theme/Azotea",
+   "guid": "{F2C1F42B-D3CA-43A7-8715-5E98D0B123FD}"
+  },
+  {
+   "name": "Theme/Playa",
+   "guid": "{06D12AC6-6CB7-40AF-836D-6F76BA3E37F8}"
+  },
+  {
+   "name": "Theme/Nevado",
+   "guid": "{AE9F5645-C146-410C-83F7-7F7C4675E771}"
+  },
+  {
+   "name": "Theme/Desierto",
+   "guid": "{19620901-0FCC-4506-8A41-D77EE9FC522D}"
+  },
+  {
+   "name": "Theme/Espacio",
+   "guid": "{B7CD1D41-DF66-4C46-B672-95F32E765535}"
+  }
+ ],
+ "StateGroup": [
+  {
+   "name": "GameMode",
+   "guid": "{F36D37B9-E242-4D3E-8179-CCE7F0A15883}"
+  },
+  {
+   "name": "GameState",
+   "guid": "{C0CE9C4E-03A8-402C-B88E-DC67E5B0010C}"
+  },
+  {
+   "name": "Theme",
+   "guid": "{1B6C1D7B-85D7-434F-9637-CEB7EC44413B}"
+  }
+ ],
+ "GameParameter": [
+  {
+   "name": "ThrowForce",
+   "guid": "{EF7FA386-3BBF-4D42-8480-E48E3C140B79}"
+  },
+  {
+   "name": "ImpactVelocity",
+   "guid": "{FC32115A-07B0-49E0-B08F-080AC8A75CC6}"
+  },
+  {
+   "name": "ScoreStreak",
+   "guid": "{9E22FBAB-36E9-47A0-822D-8FA13E54C706}"
+  },
+  {
+   "name": "TimerRemaining",
+   "guid": "{0A89F39B-04E3-45AA-AACB-907B90155ECF}"
+  },
+  {
+   "name": "Score",
+   "guid": "{52D8BE30-C372-4F9C-85C6-AC6420FE02E3}"
+  },
+  {
+   "name": "CarouselHoopIndex",
+   "guid": "{C442336B-9F6E-423E-B981-0E3D82C62CB3}"
+  },
+  {
+   "name": "MusicVolume",
+   "guid": "{AC3BF056-9A9C-425C-A16C-F48D4CCEE00D}"
+  },
+  {
+   "name": "SFXVolume",
+   "guid": "{5F2479A9-C6D2-4D52-9C81-2019C0669E6D}"
+  }
+ ]
+}

@@ -1,10 +1,18 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public sealed class GameOverScreen : UIScreen
 {
+    private const int CountUpMaxSteps = 20;
+    private const float CountUpStepTime = 0.06f;
+    private const float CountUpMaxDuration = 1.2f;
+    private const float CountUpDelay = 0.25f;
+
+    private Coroutine countUpRoutine;
+
     private OverlayPanel normalPanel;
     private OverlayPanel recordPanel;
 
@@ -36,21 +44,56 @@ public sealed class GameOverScreen : UIScreen
         gameObject.SetActive(true);
         transform.SetAsLastSibling();
 
+        AudioManager.PlayUI(UISound.PanelIn);
+
         if (info.IsNewRecord)
         {
-            recordScore.text = info.Score.ToString();
             previousRecord.text = $"Récord anterior: {info.PreviousRecord}";
 
             normalPanel.Hide();
             recordPanel.Show();
+
+            AudioManager.PlayUI(UISound.Confetti);
+            StartCountUp(recordScore, info.Score);
         }
         else
         {
-            normalScore.text = info.Score.ToString();
             normalRecord.text = info.Record.ToString();
 
             recordPanel.Hide();
             normalPanel.Show();
+
+            StartCountUp(normalScore, info.Score);
+        }
+    }
+
+    private void StartCountUp(TextMeshProUGUI label, int score)
+    {
+        if (countUpRoutine != null)
+            StopCoroutine(countUpRoutine);
+
+        countUpRoutine = StartCoroutine(CountUp(label, score));
+    }
+
+    // El puntaje sube desde 0 con un tic por paso (como mucho CountUpMaxSteps pasos)
+    private static IEnumerator CountUp(TextMeshProUGUI label, int score)
+    {
+        label.text = "0";
+
+        if (score <= 0)
+            yield break;
+
+        int steps = Mathf.Min(score, CountUpMaxSteps);
+        float stepTime = Mathf.Min(CountUpStepTime, CountUpMaxDuration / steps);
+
+        yield return new WaitForSecondsRealtime(CountUpDelay);
+
+        for (int i = 1; i <= steps; i++)
+        {
+            label.text = Mathf.RoundToInt((float)score * i / steps).ToString();
+            AudioManager.PlayUI(UISound.CountUp);
+
+            yield return new WaitForSecondsRealtime(stepTime);
         }
     }
 

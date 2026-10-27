@@ -1,0 +1,137 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3608916	Play_challenge_start			\Default Work Unit\Play_challenge_start	
+	36974246	Play_ui_progress_fill			\Default Work Unit\Play_ui_progress_fill	
+	260460445	Play_hoop_move_loop			\Default Work Unit\Play_hoop_move_loop	
+	270909094	Play_score_plus_one			\Default Work Unit\Play_score_plus_one	
+	278617630	Play_Ambience			\Default Work Unit\Play_Ambience	
+	310818276	Play_timer_out			\Default Work Unit\Play_timer_out	
+	627350978	Play_Score_Backboard			\Default Work Unit\Play_Score_Backboard	
+	691732596	Play_ui_count_up			\Default Work Unit\Play_ui_count_up	
+	697694663	Play_ball_bounce_floor			\Default Work Unit\Play_ball_bounce_floor	
+	795209542	Stop_ball_air			\Default Work Unit\Stop_ball_air	
+	869937003	Stop_hoop_move_loop			\Default Work Unit\Stop_hoop_move_loop	
+	882258610	Play_ball_hit_rim			\Default Work Unit\Play_ball_hit_rim	
+	927447508	Play_ball_hit_pole			\Default Work Unit\Play_ball_hit_pole	
+	1036594229	Play_ui_tap_primary			\Default Work Unit\Play_ui_tap_primary	
+	1135700742	Play_ball_shake_color			\Default Work Unit\Play_ball_shake_color	
+	1356231918	Play_Score_Clean			\Default Work Unit\Play_Score_Clean	
+	1386224142	Play_ui_back			\Default Work Unit\Play_ui_back	
+	1583040052	Play_ball_air			\Default Work Unit\Play_ball_air	
+	1624521400	Play_hoop_shrink			\Default Work Unit\Play_hoop_shrink	
+	1747990230	Play_ball_grab			\Default Work Unit\Play_ball_grab	
+	1901112607	Play_score_flash			\Default Work Unit\Play_score_flash	
+	1927616251	Play_ui_pause_in			\Default Work Unit\Play_ui_pause_in	
+	2286464654	Play_ui_tap			\Default Work Unit\Play_ui_tap	
+	2286464668	Play_ui_tab			\Default Work Unit\Play_ui_tab	
+	2336897881	Play_carousel_loop			\Default Work Unit\Play_carousel_loop	
+	2337536774	Play_net_swish_chain			\Default Work Unit\Play_net_swish_chain	
+	2477713992	Stop_Ambience			\Default Work Unit\Stop_Ambience	
+	2486138719	Play_timer_urgent			\Default Work Unit\Play_timer_urgent	
+	2501962623	Play_miss_out			\Default Work Unit\Play_miss_out	
+	2626060813	Play_Score_Rim			\Default Work Unit\Play_Score_Rim	
+	2877498729	Play_ui_equip			\Default Work Unit\Play_ui_equip	
+	2933467824	Play_ball_throw			\Default Work Unit\Play_ball_throw	
+	3070709613	Play_timer_reset			\Default Work Unit\Play_timer_reset	
+	3128149687	Play_ui_confetti			\Default Work Unit\Play_ui_confetti	
+	3171106697	Play_ball_hit_backboard			\Default Work Unit\Play_ball_hit_backboard	
+	3264478742	Play_ui_pause_out			\Default Work Unit\Play_ui_pause_out	
+	3280495167	Play_ball_bounce_soft			\Default Work Unit\Play_ball_bounce_soft	
+	3308548503	Play_ui_select			\Default Work Unit\Play_ui_select	
+	3779479695	Stop_carousel_loop			\Default Work Unit\Stop_carousel_loop	
+	3825898275	Play_ui_panel_in			\Default Work Unit\Play_ui_panel_in	
+	3826685727	Play_ui_unlock			\Default Work Unit\Play_ui_unlock	
+	3934876004	Play_ball_respawn			\Default Work Unit\Play_ball_respawn	
+	4019884207	Play_ui_disabled			\Default Work Unit\Play_ui_disabled	
+	4025510816	Play_ui_onboarding			\Default Work Unit\Play_ui_onboarding	
+	4093125639	Play_timer_tick			\Default Work Unit\Play_timer_tick	
+	4251519120	Play_carousel_hoop_done			\Default Work Unit\Play_carousel_hoop_done	
+	4284634678	Play_evasive_dash			\Default Work Unit\Play_evasive_dash	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	1319017392	Theme			\Default Work Unit\Theme	
+
+State	ID	Name	State Group			Notes
+	349474162	Desierto	Theme			
+	450225173	Plaza	Theme			
+	500558156	Playa	Theme			
+	748895195	None	Theme			
+	974063651	Espacio	Theme			
+	998999334	Nevado	Theme			
+	3527560587	Azotea	Theme			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	920026278	ImpactVelocity			\Default Work Unit\ImpactVelocity	
+	1377678975	ScoreStreak			\Default Work Unit\ScoreStreak	
+	3482215671	CarouselHoopIndex			\Default Work Unit\CarouselHoopIndex	
+	3615643280	TimerRemaining			\Default Work Unit\TimerRemaining	
+	3985868512	ThrowForce			\Default Work Unit\ThrowForce	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	16533237	hoop_move_loop	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\hoop_move_loop_806A9D1A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\hoop_move_loop		108096
+	31223932	ball_bounce_floor_02	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_bounce_floor_02_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\Bounces\ball_bounce_floor\ball_bounce_floor_02		9168
+	55105976	ball_bounce_soft_02	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_bounce_soft_02_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\Bounces\ball_bounce_soft\ball_bounce_soft_02		8664
+	65038838	ui_onboarding	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_onboarding_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_onboarding		3336
+	70454762	ball_hit_backboard_02	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_hit_backboard_02_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\ball_hit_backboard\ball_hit_backboard_02		11940
+	73386079	ball_bounce_floor_03	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_bounce_floor_03_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\Bounces\ball_bounce_floor\ball_bounce_floor_03		7656
+	80480774	ui_select	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_select_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_select		1212
+	110242716	timer_tick	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\timer_tick_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\timer_tick		6180
+	126317087	hoop_shrink	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\hoop_shrink_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\hoop_shrink		50352
+	145353523	score_backboard	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Score\score_backboard_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Score\score_backboard		2796
+	147025549	ui_pause_in	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_pause_in_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_pause_in		5820
+	147184812	net_swish_chain_02	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Score\net_swish_chain_02_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Score\net_swish_chain\net_swish_chain_02		25800
+	174331190	score_clean	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Score\score_clean_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Score\score_clean		7908
+	178224488	ball_bounce_soft_01	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_bounce_soft_01_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\Bounces\ball_bounce_soft\ball_bounce_soft_01		8628
+	215802003	ball_bounce_floor_04	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_bounce_floor_04_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\Bounces\ball_bounce_floor\ball_bounce_floor_04		4488
+	226821835	challenge_start	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\challenge_start_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\challenge_start		14172
+	250282971	carousel_hoop_done	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\carousel_hoop_done_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\carousel_hoop_done		8988
+	257032538	carousel_loop	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\carousel_loop_806A9D1A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\carousel_loop		27096
+	258783750	ui_count_up	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_count_up_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_count_up		1608
+	279076994	ball_throw_01	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_throw_01_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\ball_throw\ball_throw_01		14028
+	315562530	score_flash	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Score\score_flash_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Score\score_flash		12264
+	328062473	ui_unlock	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_unlock_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_unlock		36204
+	355924840	ball_hit_pole_02	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_hit_pole_02_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\ball_hit_pole\ball_hit_pole_02		4560
+	395448578	ball_throw_03	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_throw_03_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\ball_throw\ball_throw_03		11076
+	421558589	ui_progress_fill	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_progress_fill_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_progress_fill		12444
+	430234834	net_swish_chain_01	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Score\net_swish_chain_01_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Score\net_swish_chain\net_swish_chain_01		32496
+	455885797	score_rim	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Score\score_rim_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Score\score_rim		9528
+	474257653	ball_bounce_soft_03	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_bounce_soft_03_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\Bounces\ball_bounce_soft\ball_bounce_soft_03		8160
+	536203431	ball_hit_backboard_03	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_hit_backboard_03_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\ball_hit_backboard\ball_hit_backboard_03		8484
+	539240788	timer_urgent	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\timer_urgent_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\timer_urgent		5676
+	550804673	score_plus_one	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Score\score_plus_one_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Score\score_plus_one		6648
+	557746558	ball_hit_rim_04	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_hit_rim_04_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\ball_hit_rim\ball_hit_rim_04		5460
+	624077228	ui_tap_primary	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_tap_primary_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_tap_primary		7944
+	635097245	ball_respawn	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_respawn_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\ball_respawn		6864
+	656819671	evasive_dash_02	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\evasive_dash_02_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\evasive_dash\evasive_dash_02		7044
+	662472069	timer_out	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\timer_out_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\timer_out		54096
+	700273660	ball_hit_backboard_01	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_hit_backboard_01_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\ball_hit_backboard\ball_hit_backboard_01		14208
+	739020898	ui_confetti	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_confetti_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_confetti		16584
+	764618094	ui_back	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_back_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_back		1752
+	796011168	ui_disabled	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_disabled_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_disabled		2940
+	800218913	miss_out	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Score\miss_out_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Score\miss_out		4812
+	802327772	ui_panel_in	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_panel_in_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_panel_in		8592
+	810157620	net_swish_chain_03	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Score\net_swish_chain_03_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Score\net_swish_chain\net_swish_chain_03		3768
+	813599869	ball_hit_rim_02	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_hit_rim_02_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\ball_hit_rim\ball_hit_rim_02		32496
+	852080839	evasive_dash_01	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\evasive_dash_01_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\evasive_dash\evasive_dash_01		9996
+	863270278	timer_reset	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\timer_reset_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\timer_reset		11040
+	891259082	ball_bounce_floor_01	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_bounce_floor_01_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\Bounces\ball_bounce_floor\ball_bounce_floor_01		9924
+	891281523	ui_tab	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_tab_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_tab		2580
+	893588000	ball_hit_pole_01	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_hit_pole_01_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\ball_hit_pole\ball_hit_pole_01		11796
+	913725191	evasive_dash_03	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Mechanics\evasive_dash_03_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanics\evasive_dash\evasive_dash_03		5244
+	926442054	ball_hit_rim_03	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_hit_rim_03_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\ball_hit_rim\ball_hit_rim_03		4560
+	931103629	ui_pause_out	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_pause_out_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_pause_out		5820
+	948460902	ball_grab	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_grab_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\ball_grab		4956
+	955152131	ball_throw_02	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_throw_02_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\ball_throw\ball_throw_02		4992
+	986075927	ball_shake_color	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_shake_color_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\ball_shake_color		24108
+	998934765	ui_equip	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_equip_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_equip		5208
+	1001252541	ball_hit_rim_01	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_hit_rim_01_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\Impacts\ball_hit_rim\ball_hit_rim_01		32496
+	1032800889	ui_tap	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\UI\ui_tap_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_tap		1752
+	1058303442	ball_air	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ball\ball_air_806A9D1A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\ball_air		21696
+
+Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
+	49830671	amb_plaza	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ambience\amb_plaza_56CEF360.wem	49830671.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_plaza	
+	207063030	amb_espacio	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ambience\amb_espacio_56CEF360.wem	207063030.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_espacio	
+	300589693	amb_desierto	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ambience\amb_desierto_56CEF360.wem	300589693.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_desierto	
+	394124802	amb_nevado	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ambience\amb_nevado_56CEF360.wem	394124802.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_nevado	
+	445611676	amb_azotea	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ambience\amb_azotea_56CEF360.wem	445611676.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_azotea	
+	605226269	amb_playa	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ambience\amb_playa_56CEF360.wem	605226269.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_playa	
+

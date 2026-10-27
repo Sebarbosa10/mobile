@@ -14,8 +14,13 @@ public sealed class EvasiveHoopMover : MonoBehaviour
     [SerializeField, Min(0f)]
     private float verticalSpeed = 1.7f;
 
+    [Tooltip("Mínimo de segundos entre dos sonidos de esquive.")]
+    [SerializeField, Min(0f)]
+    private float dashSoundCooldown = 0.9f;
+
     private Vector3 basePosition;
     private float elapsedTime;
+    private float lastDashSoundTime = float.NegativeInfinity;
 
     private void Awake()
     {
@@ -24,7 +29,17 @@ public sealed class EvasiveHoopMover : MonoBehaviour
 
     private void Update()
     {
+        float previousDirection = Mathf.Sign(Mathf.Cos(elapsedTime * horizontalSpeed));
+
         elapsedTime += Time.deltaTime;
+
+        // Cada vez que el aro cambia de dirección "esquiva": suena un whoosh
+        if (Mathf.Sign(Mathf.Cos(elapsedTime * horizontalSpeed)) != previousDirection &&
+            Time.time - lastDashSoundTime >= dashSoundCooldown)
+        {
+            lastDashSoundTime = Time.time;
+            AudioManager.PlayEvasiveDash();
+        }
 
         Vector3 offset = new(
             Mathf.Sin(elapsedTime * horizontalSpeed) * horizontalRadius,

@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{44054148-AA61-47C4-B8F4-523579F72A44}" SchemaVersion="119">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{44054148-AA61-47C4-B8F4-523579F72A44}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{44054148-AA61-47C4-B8F4-523579F72A44}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="ThrowForce" ID="{EF7FA386-3BBF-4D42-8480-E48E3C140B79}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0.5"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="ImpactVelocity" ID="{FC32115A-07B0-49E0-B08F-080AC8A75CC6}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="ScoreStreak" ID="{9E22FBAB-36E9-47A0-822D-8FA13E54C706}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="10"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="TimerRemaining" ID="{0A89F39B-04E3-45AA-AACB-907B90155ECF}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="Score" ID="{52D8BE30-C372-4F9C-85C6-AC6420FE02E3}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="50"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="CarouselHoopIndex" ID="{C442336B-9F6E-423E-B981-0E3D82C62CB3}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="5"/>
+						<Property Name="Min" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="MusicVolume" ID="{AC3BF056-9A9C-425C-A16C-F48D4CCEE00D}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="SFXVolume" ID="{5F2479A9-C6D2-4D52-9C81-2019C0669E6D}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

@@ -1,0 +1,41 @@
+Event	ID	Name			Wwise Object Path	Notes
+	274167434	Play_stg_derrota			\Default Work Unit\Play_stg_derrota	
+	2837384057	Stop_Music			\Default Work Unit\Stop_Music	
+	2932040671	Play_Music			\Default Work Unit\Play_Music	
+	3339741098	Play_stg_victoria			\Default Work Unit\Play_stg_victoria	
+	3362694404	Play_stg_game_over			\Default Work Unit\Play_stg_game_over	
+	3447437794	Play_stg_nuevo_record			\Default Work Unit\Play_stg_nuevo_record	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	261089142	GameMode			\Default Work Unit\GameMode	
+
+State	ID	Name	State Group			Notes
+	748895195	None	GameMode			
+	1189762416	Challenge	GameMode			
+	1335262199	Endless	GameMode			
+	2607556080	Menu	GameMode			
+	2946237934	TimeAttack	GameMode			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2398231425	Score			\Default Work Unit\Score	
+
+Trigger	ID	Name			Wwise Object Path	Notes
+	504698402	Stg_GameOver			\Default Work Unit\Stg_GameOver	
+	2711776683	Stg_Derrota			\Default Work Unit\Stg_Derrota	
+	3085014724	Stg_NuevoRecord			\Default Work Unit\Stg_NuevoRecord	
+	3291425465	Stg_Victoria			\Default Work Unit\Stg_Victoria	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	416592740	stg_derrota	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Mac\SFX\Stingers\stg_derrota_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\stg_derrota\stg_derrota		45421
+	456202160	stg_victoria	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Mac\SFX\Stingers\stg_victoria_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\stg_victoria\stg_victoria		28052
+	679515709	stg_nuevo_record	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Mac\SFX\Stingers\stg_nuevo_record_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\stg_nuevo_record\stg_nuevo_record		14610
+	709770189	stg_game_over	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Mac\SFX\Stingers\stg_game_over_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\stg_game_over\stg_game_over		27304
+
+Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
+	284942072	base	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Mac\SFX\Music\mus_endless_base_56CEF360.wem	284942072.wem	\Interactive Music Hierarchy\Default Work Unit\Music\Endless\mus_endless\base	
+	364965175	perc	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Mac\SFX\Music\mus_endless_perc_56CEF360.wem	364965175.wem	\Interactive Music Hierarchy\Default Work Unit\Music\Endless\mus_endless\perc	
+	418870367	mus_contrarreloj	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Mac\SFX\Music\mus_contrarreloj_56CEF360.wem	418870367.wem	\Interactive Music Hierarchy\Default Work Unit\Music\TimeAttack\mus_contrarreloj\mus_contrarreloj	
+	596691580	lead	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Mac\SFX\Music\mus_endless_lead_56CEF360.wem	596691580.wem	\Interactive Music Hierarchy\Default Work Unit\Music\Endless\mus_endless\lead	
+	644153017	mus_menu	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Mac\SFX\Music\mus_menu_56CEF360.wem	644153017.wem	\Interactive Music Hierarchy\Default Work Unit\Music\Menu\mus_menu\mus_menu	
+	788979685	mus_desafio	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Mac\SFX\Music\mus_desafio_56CEF360.wem	788979685.wem	\Interactive Music Hierarchy\Default Work Unit\Music\Challenge\mus_desafio\mus_desafio	
+

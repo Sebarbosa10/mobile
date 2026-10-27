@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{43567EFA-E573-411A-9C9D-68CD2886468E}" SchemaVersion="119">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{43567EFA-E573-411A-9C9D-68CD2886468E}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{43567EFA-E573-411A-9C9D-68CD2886468E}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="GameMode" ID="{F36D37B9-E242-4D3E-8179-CCE7F0A15883}">
+					<PropertyList>
+						<Property Name="DefaultTransitionTime" Type="Real64" Value="0"/>
+					</PropertyList>
+					<ChildrenList>
+						<State Name="None" ID="{9320A4C5-FACB-49AC-99CB-F7CECF104C18}"/>
+						<State Name="Menu" ID="{A90D7E89-566B-4A76-B24E-B0464881A932}"/>
+						<State Name="Endless" ID="{CD4D0FA5-6E1E-451B-8892-7C70B8039DEE}"/>
+						<State Name="Challenge" ID="{B773DA1B-3941-415B-AC22-E1BAF6B61ED0}"/>
+						<State Name="TimeAttack" ID="{3BEC55D4-EEE3-42E4-8811-DE4E878484EB}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="GameState" ID="{C0CE9C4E-03A8-402C-B88E-DC67E5B0010C}">
+					<PropertyList>
+						<Property Name="DefaultTransitionTime" Type="Real64" Value="0.3"/>
+					</PropertyList>
+					<ChildrenList>
+						<State Name="None" ID="{EF48129E-70E5-4A92-BA83-8BF1C16C6ACA}"/>
+						<State Name="Playing" ID="{35CA6DBA-CD71-4131-B4AA-1DF99B66B645}"/>
+						<State Name="Paused" ID="{2B624984-33F2-428C-808A-E5B3DA5831FD}"/>
+						<State Name="Results" ID="{764DEC6C-44D4-4856-B14B-645556A5EF58}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Theme" ID="{1B6C1D7B-85D7-434F-9637-CEB7EC44413B}">
+					<PropertyList>
+						<Property Name="DefaultTransitionTime" Type="Real64" Value="0"/>
+					</PropertyList>
+					<ChildrenList>
+						<State Name="None" ID="{320FF904-E34A-40D3-8E21-3CCE70ABE9BA}"/>
+						<State Name="Plaza" ID="{FD1B8902-7930-43A5-8A2B-0499D3F8C365}"/>
+						<State Name="Azotea" ID="{F2C1F42B-D3CA-43A7-8715-5E98D0B123FD}"/>
+						<State Name="Playa" ID="{06D12AC6-6CB7-40AF-836D-6F76BA3E37F8}"/>
+						<State Name="Nevado" ID="{AE9F5645-C146-410C-83F7-7F7C4675E771}"/>
+						<State Name="Desierto" ID="{19620901-0FCC-4506-8A41-D77EE9FC522D}"/>
+						<State Name="Espacio" ID="{B7CD1D41-DF66-4C46-B672-95F32E765535}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>

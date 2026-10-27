@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: WwiseData_Android
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: WwiseData_Android
+  m_GUID: df51e4ade46f7de4ebe0197358c309d8
+  m_SerializeEntries:
+  - m_GUID: 08913909e79585944ae0804daa251181
+    m_Address: Assets/WwiseData/Bank/Android/Main.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34bcf33718f260047aa11e3aba2a608f
+    m_Address: Assets/WwiseData/Bank/Android/Amb_Playa.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e29bcea8477f7148908d67bfc75f63b
+    m_Address: Assets/WwiseData/Bank/Android/Amb_Desierto.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80ed8ef0161e2904aacd32a4a7fcb958
+    m_Address: Assets/WwiseData/Bank/Android/Music.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ab07d8407d589949a6ad2b71b53d88e
+    m_Address: Assets/WwiseData/Bank/Android/Amb_Espacio.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3621d4573262bc49a447e67eedbb551
+    m_Address: Assets/WwiseData/Bank/Android/Amb_Nevado.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7ff5d9ea04abb14ab5029676dff5b17
+    m_Address: Assets/WwiseData/Bank/Android/Amb_Azotea.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb7e311dd5967484fadf65a350194713
+    m_Address: Assets/WwiseData/Bank/Android/Amb_Plaza.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 91f6d3587c50fdd46bc1e692b23d3889, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4bbb10fe1753ed94e8fd765df44a45ef, type: 2}

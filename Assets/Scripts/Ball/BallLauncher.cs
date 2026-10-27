@@ -58,12 +58,29 @@ public sealed class BallLauncher : MonoBehaviour
     private readonly List<RaycastResult> uiHits = new();
     private PointerEventData uiPointerData;
 
+    // Audio: con qué tocó la pelota desde el lanzamiento y si ya encestó en este tiro
+    private BallSurface lastHoopContact = BallSurface.Floor;
+    private bool scoredThisLaunch;
+
     public event System.Action BallLanded;
 
     public event System.Action Launched;
 
     public Vector3 RestPosition =>
         startPosition;
+
+    // Tipo de encestada según lo último que tocó la pelota antes de entrar: aro, tablero o nada
+    public ScoreType BasketType => lastHoopContact switch
+    {
+        BallSurface.Rim => ScoreType.Rim,
+        BallSurface.Backboard => ScoreType.Backboard,
+        _ => ScoreType.Clean
+    };
+
+    public void RegisterBasket()
+    {
+        scoredThisLaunch = true;
+    }
 
     private void Awake()
     {
@@ -170,6 +187,8 @@ public sealed class BallLauncher : MonoBehaviour
         gestureEstimator.Begin(
             screenPosition,
             Time.unscaledTime);
+
+        AudioManager.PlayGrab();
     }
 
     private bool IsOverButton(Vector2 screenPosition)
@@ -226,6 +245,12 @@ public sealed class BallLauncher : MonoBehaviour
                 gesture,
                 mainCamera);
 
+        lastHoopContact = BallSurface.Floor;
+        scoredThisLaunch = false;
+
+        AudioManager.PlayThrow(
+            maxThrowSpeed > 0f ? rigidbodyComponent.linearVelocity.magnitude / maxThrowSpeed : 0.5f);
+
         Launched?.Invoke();
     }
 
@@ -242,8 +267,23 @@ public sealed class BallLauncher : MonoBehaviour
         if (state != BallLaunchState.Launched)
             return;
 
+        BallSurface surface = BallSurfaces.Classify(collision.collider, groundTag);
+
+        AudioManager.PlayImpact(surface, collision.relativeVelocity.magnitude);
+
+        if (surface == BallSurface.Rim || surface == BallSurface.Backboard)
+            lastHoopContact = surface;
+
         if (!collision.gameObject.CompareTag(groundTag))
             return;
+
+        Land();
+    }
+
+    private void Land()
+    {
+        if (!scoredThisLaunch)
+            AudioManager.PlayMiss();
 
         ResetBall();
 
@@ -263,12 +303,14 @@ public sealed class BallLauncher : MonoBehaviour
         if (stuckTime < StuckSeconds)
             return;
 
-        ResetBall();
-        BallLanded?.Invoke();
+        Land();
     }
 
     private void ResetBall()
     {
+        if (state == BallLaunchState.Launched)
+            AudioManager.PlayRespawn();
+
         stuckTime = 0f;
 
         transform.SetPositionAndRotation(

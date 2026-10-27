@@ -1,0 +1,357 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a803f396cc1ce48a3c3fd1b50f7713, type: 3}
+  m_Name: AudioConfig
+  m_EditorClassIdentifier: Assembly-CSharp::AudioConfig
+  wwiseInitializationSettings: {fileID: 11400000, guid: f793718a5ca59c04ab1b3372cb4932ff, type: 2}
+  Main:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 229e15a82a2024941823eb3eba79fa8f, type: 2}
+  Music:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: cdc4bd14a01251348ae6b2a8500c999f, type: 2}
+  Amb_Plaza:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9ae9b8a609d59c4469097b3a3861deb3, type: 2}
+  Amb_Azotea:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 618fd33f87848624e8aa70bab5514d60, type: 2}
+  Amb_Playa:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 04ed8dbc17b82fd448005618480a2bcc, type: 2}
+  Amb_Nevado:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2fff4c9196a78bf46813e2fd4010acd6, type: 2}
+  Amb_Desierto:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 00aef51d9c6b05d4fa5cde82665a4ff6, type: 2}
+  Amb_Espacio:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d2ad51ad6a800e74fbb1de3ce3be0bb6, type: 2}
+  GameMode_Menu:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b38e9fae4b303f843be89087e5a947b6, type: 2}
+  GameMode_Endless:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 29e29d89baab49549a6d313926639579, type: 2}
+  GameMode_Challenge:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6c40c3f5e905d3843a698ad63f3ed8f2, type: 2}
+  GameMode_TimeAttack:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 593c9ae9e4bd2c0478412f02278472af, type: 2}
+  GameState_Playing:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 94503f5a9aa56054d9292d4645275985, type: 2}
+  GameState_Paused:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 405c2c54976cca2458ded06f361963c7, type: 2}
+  GameState_Results:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2a84d9c95b35af54e97ae97368a96086, type: 2}
+  Theme_Plaza:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 87f84a07c3309ec4d9289045b0cc6740, type: 2}
+  Theme_Azotea:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4e84db5a652979b498c730d6bbf2afda, type: 2}
+  Theme_Playa:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 74f9e27894343b347b7521d8ad451f65, type: 2}
+  Theme_Nevado:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e0522bcb0e9ba84499b10e8e435bd204, type: 2}
+  Theme_Desierto:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8df6dfc71e8417a40a214527e5c4e5cd, type: 2}
+  Theme_Espacio:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8ba1d7073cadf1342b3600f17b949e33, type: 2}
+  ThrowForce:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 228c94b7e0e95884dad83aaf255c7cd5, type: 2}
+  ImpactVelocity:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 82868ee3440365b4787a9f3c3cacbcb8, type: 2}
+  ScoreStreak:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9608ac7793015b64688eb858fff3a605, type: 2}
+  TimerRemaining:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0764f6a0f53f6d94c8c975b5425428bd, type: 2}
+  Score:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 09b84146a07e91f44baaef6b7ab1f05c, type: 2}
+  CarouselHoopIndex:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c276b689e137d6a479d40a363571f175, type: 2}
+  MusicVolume:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a3ab56008577c3843969a05607501e1b, type: 2}
+  SFXVolume:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ee8b6fc279be60b44b14e62725ccec1a, type: 2}
+  Play_Music:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: dd2c84e346579bb41810fe04502b8c3d, type: 2}
+  Stop_Music:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 137c63c3cc42c054194c4837a377a8b9, type: 2}
+  Play_Ambience:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 465756d589d73664686d9ee8d543c299, type: 2}
+  Stop_Ambience:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0768429f195a2c24fb1820c40203eac9, type: 2}
+  Play_stg_nuevo_record:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: be0627ba28a59cf419d2daa8aef95761, type: 2}
+  Play_stg_victoria:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2666232f147134746a83ae602a396359, type: 2}
+  Play_stg_derrota:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4fcb94972d5677043ba6601f1353fddf, type: 2}
+  Play_stg_game_over:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 30e65ffec16d99d4e9b47753e52de82d, type: 2}
+  Play_ball_grab:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e5d983d9f33927842ad991aab13b3af7, type: 2}
+  Play_ball_throw:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 08c7b0d19b630d84f91b7afef8751117, type: 2}
+  Play_ball_air:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6de86fd1ce17ddb468e48456c002b0d1, type: 2}
+  Stop_ball_air:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3594e812573a779459fd2e159377ee35, type: 2}
+  Play_ball_bounce_floor:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 781e3d98a4d3cbc409d304bc7334fd7c, type: 2}
+  Play_ball_bounce_soft:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: caf9a4382cd6cdd4992d81ebcfea9769, type: 2}
+  Play_ball_hit_rim:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5ed1dc9a04ff95b4188d537fd57f9572, type: 2}
+  Play_ball_hit_backboard:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 11512e36b72cb074593bb0ca505a446b, type: 2}
+  Play_ball_hit_pole:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 114f7bf773b90c24ea61d20e402e5986, type: 2}
+  Play_ball_respawn:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b402c60591439e345a5969ceb0a3cb08, type: 2}
+  Play_ball_shake_color:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 7913004bb5793464d88fc8d66edee28d, type: 2}
+  Play_Score_Clean:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d789334d43366ca44ad1e35547047e34, type: 2}
+  Play_Score_Rim:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8434212c1a7a2a44e9b3016f8e19cd14, type: 2}
+  Play_Score_Backboard:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9a9c2950e8b1db64899e048dbd8280e6, type: 2}
+  Play_miss_out:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e66e1e45e77b171478afb27c6b37601f, type: 2}
+  Play_timer_tick:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c04328dcc2a09584cb1f71afd069840d, type: 2}
+  Play_timer_urgent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: de2fda7adb0cf884f8754305a652e974, type: 2}
+  Play_timer_reset:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ffef3de9d3eb6bc468974a6d673abc9d, type: 2}
+  Play_timer_out:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: fe4989758fc9dc146a46c7c582ae0c18, type: 2}
+  Play_hoop_shrink:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0ac1c00d723270c47a7bbc19d4e9940b, type: 2}
+  Play_hoop_move_loop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 91d6e766119577647bc4c53e2b183eeb, type: 2}
+  Stop_hoop_move_loop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6b18734115bf46f419aaee8f8300555a, type: 2}
+  Play_carousel_loop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b334bc49848043c46b0fe146ae7b87ba, type: 2}
+  Stop_carousel_loop:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d7ab7de84c9950446a20e88ba1371e94, type: 2}
+  Play_carousel_hoop_done:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: fd1290ebb25ffa3439a3028cf90756d6, type: 2}
+  Play_evasive_dash:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 383012f68c82385458ee65529415faa0, type: 2}
+  Play_challenge_start:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3cb52cee09ddc934ab4322bb102c0208, type: 2}
+  Play_ui_tap:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 95eda91d46755ff4ba3d478d1d0a11b2, type: 2}
+  Play_ui_tap_primary:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: eb9f8575a7ee4144699cd4091b5793cf, type: 2}
+  Play_ui_back:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1f4e6f2fa018ddb44a6fb255fa9373f9, type: 2}
+  Play_ui_disabled:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 70c734469dc2ba149ab444e8786b3d03, type: 2}
+  Play_ui_tab:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c70c17d6bb09cb748a657e1a6bef13eb, type: 2}
+  Play_ui_select:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 110b0f7cb84c2b74a9b2e9fe0cd8b4bf, type: 2}
+  Play_ui_equip:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 257d21775fb393d428ad7abc73271fc2, type: 2}
+  Play_ui_pause_in:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 67cf951478f2e594dbc96faef1245f75, type: 2}
+  Play_ui_pause_out:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b0e5f0014e558f84191dcab1bf2c59ea, type: 2}
+  Play_ui_panel_in:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 839ddb83a5dd15d45b2ebec1e5013621, type: 2}
+  Play_ui_count_up:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 348ce4a12c89be244a50105b4f325490, type: 2}
+  Play_ui_progress_fill:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 789973afea50f6c40a6b8e34663f417a, type: 2}
+  Play_ui_unlock:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e52f9835bdd3c5c458080e32cb706de7, type: 2}
+  Play_ui_confetti:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8e38c8dfd25340e40906d176e0a48133, type: 2}
+  Play_ui_onboarding:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4ac30ccd1c894594f916d33e72d4d05f, type: 2}

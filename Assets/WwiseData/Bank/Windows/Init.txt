@@ -1,5 +1,39 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	261089142	GameMode			\Default Work Unit\GameMode	
+	1319017392	Theme			\Default Work Unit\Theme	
+	4091656514	GameState			\Default Work Unit\GameState	
+
+State	ID	Name	State Group			Notes
+	748895195	None	GameMode			
+	1189762416	Challenge	GameMode			
+	1335262199	Endless	GameMode			
+	2607556080	Menu	GameMode			
+	2946237934	TimeAttack	GameMode			
+	349474162	Desierto	Theme			
+	450225173	Plaza	Theme			
+	500558156	Playa	Theme			
+	748895195	None	Theme			
+	974063651	Espacio	Theme			
+	998999334	Nevado	Theme			
+	3527560587	Azotea	Theme			
+	319258907	Paused	GameState			
+	748895195	None	GameState			
+	1852808225	Playing	GameState			
+	3780578133	Results	GameState			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	988953028	SFXVolume			\Default Work Unit\SFXVolume	
+	2346531308	MusicVolume			\Default Work Unit\MusicVolume	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	85412153	Ambience			\Default Work Unit\Master Audio Bus\Ambience	
+	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
+	702482391	Game			\Default Work Unit\Master Audio Bus\SFX\Game	
+	1551306167	UI			\Default Work Unit\Master Audio Bus\SFX\UI	
+	1777984502	Ball			\Default Work Unit\Master Audio Bus\SFX\Ball	
+	2940432316	Stingers			\Default Work Unit\Master Audio Bus\Stingers	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

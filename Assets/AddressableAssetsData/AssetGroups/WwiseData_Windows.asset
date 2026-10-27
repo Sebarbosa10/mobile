@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: WwiseData_Windows
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: WwiseData_Windows
+  m_GUID: 88eff1c36b9892a439de1e3c68a6f856
+  m_SerializeEntries:
+  - m_GUID: 3024a3b92650d0548b9544d9836c62dd
+    m_Address: Assets/WwiseData/Bank/Windows/Amb_Nevado.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33477cb32346d474c9cd5937af92c104
+    m_Address: Assets/WwiseData/Bank/Windows/Music.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a4b21aa6cc1ffa49abd6fe4bda21dbe
+    m_Address: Assets/WwiseData/Bank/Windows/Amb_Desierto.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e6e744134f6dbe42a8ee0a55f987585
+    m_Address: Assets/WwiseData/Bank/Windows/Amb_Plaza.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 563e4ce2a35bed3458c8203087e684b8
+    m_Address: Assets/WwiseData/Bank/Windows/Amb_Playa.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e715a26b5638f14d925bc3dd2ea90a8
+    m_Address: Assets/WwiseData/Bank/Windows/Amb_Espacio.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a74b287c25da7714f8498be60ddf3b30
+    m_Address: Assets/WwiseData/Bank/Windows/Amb_Azotea.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4801f618f199174194a1fcab49a6fc8
+    m_Address: Assets/WwiseData/Bank/Windows/Main.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 91f6d3587c50fdd46bc1e692b23d3889, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d829b6799acaf9545961ff64153d9a38, type: 2}

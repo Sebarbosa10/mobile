@@ -78,8 +78,8 @@ public sealed class CustomizeScreen : UIScreen
 
         screen.tabButtons[0] = TabButton.Create(tabs.rectTransform, "PELOTAS", left: true);
         screen.tabButtons[1] = TabButton.Create(tabs.rectTransform, "FONDOS", left: false);
-        screen.tabButtons[0].Clicked += () => screen.SelectTab(Tab.Balls);
-        screen.tabButtons[1].Clicked += () => screen.SelectTab(Tab.Themes);
+        screen.tabButtons[0].Clicked += () => screen.ClickTab(Tab.Balls);
+        screen.tabButtons[1].Clicked += () => screen.ClickTab(Tab.Themes);
 
         screen.ballsPage = UIKit.CreateRect(safe, "BallsPage");
         UIKit.Stretch(screen.ballsPage);
@@ -108,6 +108,7 @@ public sealed class CustomizeScreen : UIScreen
         screen.equipButton.RectTransform.sizeDelta = buttonSize;
         UIKit.PlaceBottom(screen.equipButton.RectTransform, 0f, buttonSize, buttonOffset);
         screen.equipButton.OnClick.AddListener(screen.Equip);
+        screen.equipButton.ClickSound = null; // Equip() toca ui_equip
 
         screen.tab = Tab.Balls;
         return screen;
@@ -165,7 +166,11 @@ public sealed class CustomizeScreen : UIScreen
             SkinCard card = SkinCard.CreateBall(ballsPage, skin, new Vector2(cardWidth, BallCardHeight));
             UIKit.PlaceTop(card.RectTransform, gridTop + row * (BallCardHeight + Gap), card.RectTransform.sizeDelta,
                 -ContentWidth * 0.5f + cardWidth * 0.5f + column * (cardWidth + Gap));
-            card.Clicked += () => SelectBall(skin);
+            card.Clicked += () =>
+            {
+                AudioManager.PlayUI(SkinProgress.IsUnlocked(skin) ? UISound.Select : UISound.Disabled);
+                SelectBall(skin);
+            };
             ballCards.Add(card);
         }
     }
@@ -237,7 +242,11 @@ public sealed class CustomizeScreen : UIScreen
             SkinCard card = SkinCard.CreateTheme(themesPage, theme, ThemeCardSize);
             UIKit.PlaceTop(card.RectTransform, gridTop + row * (ThemeCardSize.y + ThemeRowGap), ThemeCardSize,
                 -ContentWidth * 0.5f + ThemeCardSize.x * 0.5f + column * (ThemeCardSize.x + Gap));
-            card.Clicked += () => SelectTheme(theme);
+            card.Clicked += () =>
+            {
+                AudioManager.PlayUI(SkinProgress.IsUnlocked(theme) ? UISound.Select : UISound.Disabled);
+                SelectTheme(theme);
+            };
             themeCards.Add(card);
         }
     }
@@ -284,6 +293,14 @@ public sealed class CustomizeScreen : UIScreen
             BackRequested?.Invoke();
     }
 
+    private void ClickTab(Tab newTab)
+    {
+        if (newTab != tab)
+            AudioManager.PlayUI(UISound.Tab);
+
+        SelectTab(newTab);
+    }
+
     private void SelectTab(Tab newTab)
     {
         tab = newTab;
@@ -312,6 +329,8 @@ public sealed class CustomizeScreen : UIScreen
             SkinProgress.Equip(selectedBall);
         else
             SkinProgress.Equip(selectedTheme);
+
+        AudioManager.PlayUI(UISound.Equip);
 
         Refresh();
     }

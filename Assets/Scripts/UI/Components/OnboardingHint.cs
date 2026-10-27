@@ -50,6 +50,10 @@ public sealed class OnboardingHint : MonoBehaviour
     public void Show(Vector3 ballWorld)
     {
         ballWorldPosition = ballWorld;
+
+        if (!gameObject.activeSelf)
+            AudioManager.PlayUI(UISound.Onboarding);
+
         gameObject.SetActive(true);
         Follow();
     }

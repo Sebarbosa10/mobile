@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public enum ButtonVariant
@@ -11,7 +12,7 @@ public enum ButtonVariant
     Neutral
 }
 
-public sealed class UIButton : MonoBehaviour
+public sealed class UIButton : MonoBehaviour, IPointerClickHandler
 {
     public static readonly Vector2 DefaultSize = new(520f, 150f);
     public static readonly Vector2 LargeSize = new(640f, 170f);
@@ -28,6 +29,9 @@ public sealed class UIButton : MonoBehaviour
         (RectTransform)transform;
 
     public float LayoutHeight { get; private set; }
+
+    // Sonido del click (null = sin sonido, por ejemplo si la acción ya suena por su cuenta)
+    public UISound? ClickSound { get; set; }
 
     public static UIButton Create(
         Transform parent,
@@ -66,7 +70,25 @@ public sealed class UIButton : MonoBehaviour
         view.variant = variant;
         view.ApplyColors();
 
+        view.ClickSound = name is "BackButton" or "MenuButton" ? UISound.Back
+            : variant == ButtonVariant.Primary ? UISound.TapPrimary
+            : UISound.Tap;
+        view.button.onClick.AddListener(view.PlayClickSound);
+
         return view;
+    }
+
+    private void PlayClickSound()
+    {
+        if (ClickSound is { } sound)
+            AudioManager.PlayUI(sound);
+    }
+
+    // Button no avisa los clicks cuando está deshabilitado: el sonido de "no disponible" va acá
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!button.interactable)
+            AudioManager.PlayUI(UISound.Disabled);
     }
 
     public void SetText(string text)

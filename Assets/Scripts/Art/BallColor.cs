@@ -105,7 +105,10 @@ public sealed class BallColor : MonoBehaviour
     private void Update()
     {
         if (DetectShake())
+        {
             NextColor();
+            AudioManager.PlayShakeColor();
+        }
 
         UpdateTransition();
     }

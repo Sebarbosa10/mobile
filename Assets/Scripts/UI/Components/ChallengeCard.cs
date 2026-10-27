@@ -170,10 +170,12 @@ public sealed class ChallengeCard : MonoBehaviour
     {
         if (state == ChallengeCardState.Locked)
         {
+            AudioManager.PlayUI(UISound.Disabled);
             Shake();
             return;
         }
 
+        AudioManager.PlayUI(UISound.Select);
         Selected?.Invoke(definition);
     }
 

@@ -156,11 +156,24 @@ public sealed class GameplayUI : MonoBehaviour
     {
         runEnded = true;
 
-        SkinProgress.EvaluateUnlocks();
+        PlayUnlockSoundIf(SkinProgress.EvaluateUnlocks() > 0);
 
         pauseButton.gameObject.SetActive(false);
         endlessHud.SetRecord(info.Record);
         gameOverScreen.Show(info);
+    }
+
+    // El desbloqueo suena después del stinger de fin de partida
+    private void PlayUnlockSoundIf(bool unlocked)
+    {
+        if (unlocked)
+            StartCoroutine(PlayUnlockLater());
+    }
+
+    private static System.Collections.IEnumerator PlayUnlockLater()
+    {
+        yield return new WaitForSecondsRealtime(2.2f);
+        AudioManager.PlayUI(UISound.Unlock);
     }
 
     private void HandleChallengeProgress(int current, int total)
@@ -172,7 +185,7 @@ public sealed class GameplayUI : MonoBehaviour
     {
         runEnded = true;
 
-        SkinProgress.EvaluateUnlocks();
+        PlayUnlockSoundIf(SkinProgress.EvaluateUnlocks() > 0);
 
         pauseButton.gameObject.SetActive(false);
         resultScreen.Show(session.Challenge, info);

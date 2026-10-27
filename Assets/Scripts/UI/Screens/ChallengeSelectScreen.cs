@@ -89,6 +89,9 @@ public sealed class ChallengeSelectScreen : UIScreen
     {
         base.Show();
         Refresh();
+
+        if (ChallengeProgress.TotalBaskets > 0)
+            AudioManager.PlayUI(UISound.ProgressFill);
     }
 
     private void Update()

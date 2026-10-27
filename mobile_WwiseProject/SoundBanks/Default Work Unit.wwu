@@ -1,6 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{C26DD0D6-C3F9-48E8-9DFA-D7A0DF6CEDB9}" SchemaVersion="119">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{C26DD0D6-C3F9-48E8-9DFA-D7A0DF6CEDB9}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{C26DD0D6-C3F9-48E8-9DFA-D7A0DF6CEDB9}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{B9C850D7-BEC9-4ADE-86BE-2A47253A9AFA}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_challenge_start" ID="{CF51469F-7034-4092-B1E8-D3F2B0610C82}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_hoop_shrink" ID="{D2E82B57-A874-41B4-8997-E5792BDB83ED}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Ambience" ID="{5F204DA2-7E94-425B-B070-63128EF8D605}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="3"/>
+						<ObjectRef Name="Play_score_plus_one" ID="{8DC6217C-F28C-425C-9E98-90115D989F0F}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_pause_in" ID="{10CF76C1-588F-42C0-814E-07B8026E2E22}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_timer_out" ID="{B1F27975-75DF-43C3-AAD8-51546CD845AF}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_count_up" ID="{1C1839EA-0C95-43DD-99CD-40E2F95CE086}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_tap" ID="{91709CC2-C61C-4444-BD0F-B3D716D01C36}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ball_bounce_soft" ID="{DF9221EE-C1D7-4476-94EA-A2251F47F6A5}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ball_air" ID="{5B049543-942D-4515-8759-F746FEFFC062}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_progress_fill" ID="{7BA15DEB-0331-4591-8238-FDEE0CF57EE6}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_confetti" ID="{7279A312-BF1F-4595-9818-14B16DB95D82}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_Ambience" ID="{8DB6529A-0B69-45C8-A5A3-FEE69C49080B}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="3"/>
+						<ObjectRef Name="Play_carousel_loop" ID="{B5ACB00E-17EE-45D9-B480-837DD8D6B96F}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_unlock" ID="{75AE9A10-C0FC-460D-A254-2825FE5917E3}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ball_respawn" ID="{4B66DE25-AB65-4643-909C-1F61DA44B33A}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_carousel_hoop_done" ID="{B355AC1C-7BD8-46A8-AC2F-BCE4F69B890B}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Score_Backboard" ID="{8ED9328F-1183-4714-8051-30AD8AE5A264}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ball_throw" ID="{6A1E9D4C-3FB6-4899-962B-79FE36CB0E8E}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ball_hit_pole" ID="{2226D0C3-379F-48A6-9C05-C7C93B873DBD}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ball_hit_rim" ID="{11CDE417-A280-48EA-9B76-B769898DEF17}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_timer_reset" ID="{632E29AA-2964-4957-85E7-EEE4CEBA78B0}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_timer_tick" ID="{B64F06F2-A2D8-499C-AD79-093E88D53417}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_onboarding" ID="{8D3F3240-EB5A-49D9-B107-25465D688CCA}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_timer_urgent" ID="{561EB8B4-6A7F-4A3F-8909-579EC1EA4270}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ball_hit_backboard" ID="{1C671B9F-9713-4A7E-9AEF-AFE90EF61FA1}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_miss_out" ID="{12426CCA-D093-4AD8-81D2-E65F42B83901}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_ball_air" ID="{B5EE27EC-08DA-4AF5-AE6C-0BCCB8D1E041}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_panel_in" ID="{581AD5C1-331A-4B2A-922D-FCCA5255EC10}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_hoop_move_loop" ID="{FA8551E1-D0C6-4B3C-88E0-299CF9201FC1}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_tap_primary" ID="{05EC502C-F755-4B4C-BDA1-A7515CE71DAF}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_pause_out" ID="{50E4B303-B85B-4B5F-830E-CD000CE5032F}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_score_flash" ID="{3A296C82-D849-4B63-8B5D-C54961E34185}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_net_swish_chain" ID="{827C42CC-270B-4B76-86E8-3889A60B3F26}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_carousel_loop" ID="{5F6E1EF7-4FA4-4BC6-9BC8-7ADAF75BC5AD}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ball_grab" ID="{A03417CF-6D70-4C20-BBD3-24E99B798CA4}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_tab" ID="{15D0899C-0C46-4C4E-9FFA-4D86F50B9D84}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_evasive_dash" ID="{583EF294-62A5-4C66-BFF3-523A23E14107}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_hoop_move_loop" ID="{52B7FD8E-9925-4C80-AA05-CF6E3232BC10}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Score_Rim" ID="{B95A40B2-794F-4CE7-B3AD-62488ECFD3BC}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_back" ID="{1C8CBA3F-C1EA-4D26-854F-C0D45AC84CEF}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_equip" ID="{C41B00C4-5151-4D7F-AEA0-FF606CC9AF34}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ball_bounce_floor" ID="{6C2C57AF-E253-4DE3-9E48-4E0378B5F3A1}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Score_Clean" ID="{E3687BDE-2F9F-4E0C-9BCB-AD13D8309531}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_disabled" ID="{65D2D122-B4E1-4E26-AAAA-96B2CE787E7E}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ball_shake_color" ID="{238815FD-544E-4ECA-BFC1-0F7143DA043F}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ui_select" ID="{B8355C59-C7F0-4ECE-8206-6332DEE54BFB}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Music" ID="{E1446C17-9074-4FB3-8AF9-D583999993C4}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_stg_victoria" ID="{D1D42E52-6F6B-426F-A651-AA828337CDFA}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_stg_nuevo_record" ID="{056A6ABE-E83E-4507-89A1-14E494E902B6}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Music" ID="{32474A25-A778-452B-BBEA-AF9C07AE7B41}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stingers" ID="{973B5E45-3725-495C-A7CD-9DF776619047}" WorkUnitID="{777EF7CD-D72D-49CF-82C1-1AC3A3704DDD}" Origin="Manual" Filter="6"/>
+						<ObjectRef Name="Play_stg_game_over" ID="{003807BD-37D5-4ADC-96D1-9680751EB869}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_stg_derrota" ID="{267643AF-ABC3-4B54-B622-27CCA6F069AC}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_Music" ID="{1D7766DF-8BDD-4B93-ACE2-217560F12B64}" WorkUnitID="{7D765E85-91E8-4A79-9EC1-090C3B9C8C21}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Amb_Plaza" ID="{0AE5D718-0F03-4659-908B-21855104B401}">
+					<ObjectInclusionList>
+						<ObjectRef Name="amb_plaza" ID="{7C22CD02-5001-4E99-B705-39B6C8AF0A16}" WorkUnitID="{1D567513-5A1E-484E-9E4C-E90A1F6B4B69}" Origin="Manual" Filter="4"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Amb_Azotea" ID="{A06CE0DD-8F53-48CC-BD9A-ED78AFBB88E7}">
+					<ObjectInclusionList>
+						<ObjectRef Name="amb_azotea" ID="{3469B744-8698-49F5-8B8E-52EF1FB32DDA}" WorkUnitID="{1D567513-5A1E-484E-9E4C-E90A1F6B4B69}" Origin="Manual" Filter="4"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Amb_Playa" ID="{8A18E564-EA17-4DE0-9BC6-9541F19FF561}">
+					<ObjectInclusionList>
+						<ObjectRef Name="amb_playa" ID="{028ECA3A-7D9C-4988-8C90-533E33EA240B}" WorkUnitID="{1D567513-5A1E-484E-9E4C-E90A1F6B4B69}" Origin="Manual" Filter="4"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Amb_Nevado" ID="{ED200A3E-4498-4117-A535-2326C10E43C4}">
+					<ObjectInclusionList>
+						<ObjectRef Name="amb_nevado" ID="{DABE6413-F906-47BE-B722-36876C4219F3}" WorkUnitID="{1D567513-5A1E-484E-9E4C-E90A1F6B4B69}" Origin="Manual" Filter="4"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Amb_Desierto" ID="{B5B22D5D-EA3B-4E12-8628-BF5B967381FF}">
+					<ObjectInclusionList>
+						<ObjectRef Name="amb_desierto" ID="{610D14B2-1656-468D-904F-1F4EC65ADD65}" WorkUnitID="{1D567513-5A1E-484E-9E4C-E90A1F6B4B69}" Origin="Manual" Filter="4"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Amb_Espacio" ID="{821382EB-F176-4250-B5C7-6EFED0302398}">
+					<ObjectInclusionList>
+						<ObjectRef Name="amb_espacio" ID="{AE010A68-AB30-4917-8E40-085B974A36E7}" WorkUnitID="{1D567513-5A1E-484E-9E4C-E90A1F6B4B69}" Origin="Manual" Filter="4"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

@@ -55,6 +55,8 @@ public sealed class ChallengeResultScreen : UIScreen
 
         hidden.Overlay.Hide();
         shown.Overlay.Show();
+
+        AudioManager.PlayUI(UISound.PanelIn);
     }
 
     public override void Hide()

@@ -1,0 +1,1969 @@
+{
+ "mus_endless_lead": {
+  "cat": "Music",
+  "kind": "music",
+  "note": "Capa 3 (lead): loop de synth 90 BPM (Mi mayor). Alternativa: bajo reese en Re menor, más oscuro.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Music/mus_endless_lead.wav",
+     "dur": 21.33,
+     "channels": 2,
+     "source": [
+      "fs",
+      412901
+     ],
+     "lufs": -20.0,
+     "dbtp": -9.9,
+     "gain_db": -10.0,
+     "note": null
+    }
+   ],
+   "warnings": [],
+   "bpm": 90,
+   "bars": 8
+  },
+  "alt": {
+   "files": [
+    {
+     "file": "Source/_alt/mus_endless_lead/mus_endless_lead.wav",
+     "dur": 21.33,
+     "channels": 2,
+     "source": [
+      "fs",
+      265152
+     ],
+     "lufs": -20.0,
+     "dbtp": -11.6,
+     "gain_db": -11.8,
+     "note": null
+    }
+   ],
+   "warnings": [
+    "loop sin cola: empalme con micro-fade, revisar el cierre"
+   ],
+   "bpm": 90,
+   "bars": 8
+  }
+ },
+ "amb_plaza": {
+  "cat": "Ambience",
+  "kind": "amb",
+  "note": "Parque urbano + chicos jugando a lo lejos (grabado en Argentina). Sin tráfico marcado.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ambience/amb_plaza.wav",
+     "dur": 48.0,
+     "channels": 2,
+     "source": [
+      "fs",
+      268903
+     ],
+     "lufs": -16.7,
+     "dbtp": -2.0,
+     "gain_db": 24.9,
+     "note": "limitador aplicado (8.7 dB de reducción en picos)"
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ball_hit_rim": {
+  "cat": "Ball",
+  "kind": "sfx",
+  "note": "2 golpes en el caño de un aro real + 2 golpes de un tiro errado al aro. Alternativa: anillos y piezas de metal sueltas, más agudos.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ball/ball_hit_rim_01.wav",
+     "dur": 1.2,
+     "channels": 1,
+     "source": [
+      "fs",
+      406489
+     ],
+     "lufs": -24.4,
+     "dbtp": -1.0,
+     "gain_db": -3.5,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_hit_rim_02.wav",
+     "dur": 1.2,
+     "channels": 1,
+     "source": [
+      "fs",
+      406490
+     ],
+     "lufs": -27.3,
+     "dbtp": -1.0,
+     "gain_db": -4.0,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_hit_rim_03.wav",
+     "dur": 0.17,
+     "channels": 1,
+     "source": [
+      "fs",
+      244348
+     ],
+     "lufs": -17.3,
+     "dbtp": -1.0,
+     "gain_db": -1.6,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_hit_rim_04.wav",
+     "dur": 0.2,
+     "channels": 1,
+     "source": [
+      "fs",
+      244348
+     ],
+     "lufs": -16.6,
+     "dbtp": -1.0,
+     "gain_db": -1.4,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": {
+   "files": [
+    {
+     "file": "Source/_alt/ball_hit_rim/ball_hit_rim_01.wav",
+     "dur": 1.11,
+     "channels": 1,
+     "source": [
+      "fs",
+      95275
+     ],
+     "lufs": -20.7,
+     "dbtp": -1.0,
+     "gain_db": 6.6,
+     "note": null
+    },
+    {
+     "file": "Source/_alt/ball_hit_rim/ball_hit_rim_02.wav",
+     "dur": 0.95,
+     "channels": 1,
+     "source": [
+      "fs",
+      95275
+     ],
+     "lufs": -20.3,
+     "dbtp": -1.0,
+     "gain_db": 4.8,
+     "note": null
+    },
+    {
+     "file": "Source/_alt/ball_hit_rim/ball_hit_rim_03.wav",
+     "dur": 0.55,
+     "channels": 1,
+     "source": [
+      "fs",
+      405665
+     ],
+     "lufs": -18.7,
+     "dbtp": -1.0,
+     "gain_db": 2.1,
+     "note": null
+    },
+    {
+     "file": "Source/_alt/ball_hit_rim/ball_hit_rim_04.wav",
+     "dur": 0.17,
+     "channels": 1,
+     "source": [
+      "fs",
+      815762
+     ],
+     "lufs": -18.4,
+     "dbtp": -1.0,
+     "gain_db": -0.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "ui_tap": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Click seco. Alternativa: click más blando.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_tap.wav",
+     "dur": 0.06,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/click_001.ogg"
+     ],
+     "lufs": -27.5,
+     "dbtp": -1.0,
+     "gain_db": 13.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": {
+   "files": [
+    {
+     "file": "Source/_alt/ui_tap/ui_tap.wav",
+     "dur": 0.05,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_ui-audio/Audio/click2.ogg"
+     ],
+     "lufs": -26.1,
+     "dbtp": -1.0,
+     "gain_db": -1.7,
+     "note": null
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "mus_menu": {
+  "cat": "Music",
+  "kind": "music",
+  "note": "Batería + piano, 85 BPM, tranquilo para el menú.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Music/mus_menu.wav",
+     "dur": 22.59,
+     "channels": 2,
+     "source": [
+      "fs",
+      842606
+     ],
+     "lufs": -16.6,
+     "dbtp": -2.0,
+     "gain_db": 1.2,
+     "note": "limitador aplicado (2.3 dB de reducción en picos)"
+    }
+   ],
+   "warnings": [],
+   "bpm": 85,
+   "bars": 8
+  },
+  "alt": null
+ },
+ "mus_endless_base": {
+  "cat": "Music",
+  "kind": "music",
+  "note": "Capa 1 (base): batería boom bap 90 BPM, 8 compases.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Music/mus_endless_base.wav",
+     "dur": 21.33,
+     "channels": 2,
+     "source": [
+      "fs",
+      629139
+     ],
+     "lufs": -20.0,
+     "dbtp": -5.2,
+     "gain_db": -5.1,
+     "note": null
+    }
+   ],
+   "warnings": [],
+   "bpm": 90,
+   "bars": 8
+  },
+  "alt": null
+ },
+ "mus_endless_perc": {
+  "cat": "Music",
+  "kind": "music",
+  "note": "Capa 2 (percusión): shaker 90 BPM, 8 compases.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Music/mus_endless_perc.wav",
+     "dur": 21.33,
+     "channels": 2,
+     "source": [
+      "fs",
+      337239
+     ],
+     "lufs": -26.3,
+     "dbtp": -1.0,
+     "gain_db": 13.9,
+     "note": null
+    }
+   ],
+   "warnings": [],
+   "bpm": 90,
+   "bars": 8
+  },
+  "alt": null
+ },
+ "mus_desafio": {
+  "cat": "Music",
+  "kind": "music",
+  "note": "Electro beat de acción para los desafíos (120 BPM, loop de 48 compases).",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Music/mus_desafio.wav",
+     "dur": 96.0,
+     "channels": 2,
+     "source": [
+      "fs",
+      722311
+     ],
+     "lufs": -16.0,
+     "dbtp": -6.2,
+     "gain_db": -6.6,
+     "note": null
+    }
+   ],
+   "warnings": [],
+   "bpm": 120,
+   "bars": 48
+  },
+  "alt": null
+ },
+ "mus_contrarreloj": {
+  "cat": "Music",
+  "kind": "music",
+  "note": "Synth tenso para la contrarreloj (~88,8 BPM estimado, loop de 36 compases).",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Music/mus_contrarreloj.wav",
+     "dur": 97.25,
+     "channels": 2,
+     "source": [
+      "fs",
+      676998
+     ],
+     "lufs": -16.0,
+     "dbtp": -1.3,
+     "gain_db": -2.0,
+     "note": null
+    }
+   ],
+   "warnings": [],
+   "bpm": 88.84,
+   "bars": 36
+  },
+  "alt": null
+ },
+ "stg_nuevo_record": {
+  "cat": "Stingers",
+  "kind": "stinger",
+  "note": "Jingle arcade corto de felicitación. Alternativa: fanfarria con guitarra muteada.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Stingers/stg_nuevo_record.wav",
+     "dur": 1.44,
+     "channels": 2,
+     "source": [
+      "fs",
+      607207
+     ],
+     "lufs": -16.0,
+     "dbtp": -3.9,
+     "gain_db": 5.0,
+     "note": null
+    }
+   ],
+   "warnings": [
+    "stg_nuevo_record.wav: dura 1.44 s (pedido: 1,5–3 s)"
+   ]
+  },
+  "alt": {
+   "files": [
+    {
+     "file": "Source/_alt/stg_nuevo_record/stg_nuevo_record.wav",
+     "dur": 2.07,
+     "channels": 2,
+     "source": [
+      "fs",
+      521646
+     ],
+     "lufs": -16.3,
+     "dbtp": -2.0,
+     "gain_db": 11.4,
+     "note": "limitador aplicado (0.1 dB de reducción en picos)"
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "stg_victoria": {
+  "cat": "Stingers",
+  "kind": "stinger",
+  "note": "Jingle de victoria.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Stingers/stg_victoria.wav",
+     "dur": 1.74,
+     "channels": 2,
+     "source": [
+      "fs",
+      615099
+     ],
+     "lufs": -16.0,
+     "dbtp": -2.1,
+     "gain_db": 19.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "stg_derrota": {
+  "cat": "Stingers",
+  "kind": "stinger",
+  "note": "Jingle de derrota.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Stingers/stg_derrota.wav",
+     "dur": 2.5,
+     "channels": 2,
+     "source": [
+      "fs",
+      135831
+     ],
+     "lufs": -16.0,
+     "dbtp": -2.1,
+     "gain_db": 2.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "stg_game_over": {
+  "cat": "Stingers",
+  "kind": "stinger",
+  "note": "Jingle de game over.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Stingers/stg_game_over.wav",
+     "dur": 2.13,
+     "channels": 2,
+     "source": [
+      "fs",
+      133283
+     ],
+     "lufs": -16.0,
+     "dbtp": -6.0,
+     "gain_db": 0.0,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "amb_azotea": {
+  "cat": "Ambience",
+  "kind": "amb",
+  "note": "Ciudad de noche + zumbido de neón bajo.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ambience/amb_azotea.wav",
+     "dur": 60.0,
+     "channels": 2,
+     "source": [
+      "fs",
+      427841
+     ],
+     "lufs": -16.1,
+     "dbtp": -2.0,
+     "gain_db": 14.6,
+     "note": "limitador aplicado (4.6 dB de reducción en picos)"
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "amb_playa": {
+  "cat": "Ambience",
+  "kind": "amb",
+  "note": "Olas suaves, pájaros y gaviota.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ambience/amb_playa.wav",
+     "dur": 60.0,
+     "channels": 2,
+     "source": [
+      "fs",
+      518637
+     ],
+     "lufs": -16.2,
+     "dbtp": -1.0,
+     "gain_db": 15.6,
+     "note": "limitador aplicado (2.1 dB de reducción en picos)"
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "amb_nevado": {
+  "cat": "Ambience",
+  "kind": "amb",
+  "note": "Viento ártico frío.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ambience/amb_nevado.wav",
+     "dur": 50.0,
+     "channels": 2,
+     "source": [
+      "fs",
+      117136
+     ],
+     "lufs": -16.0,
+     "dbtp": -2.0,
+     "gain_db": 2.4,
+     "note": "limitador aplicado (0.1 dB de reducción en picos)"
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "amb_desierto": {
+  "cat": "Ambience",
+  "kind": "amb",
+  "note": "Pasto seco con viento (Atacama). No tiene insectos.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ambience/amb_desierto.wav",
+     "dur": 60.0,
+     "channels": 2,
+     "source": [
+      "fs",
+      146436
+     ],
+     "lufs": -16.0,
+     "dbtp": -1.8,
+     "gain_db": 6.9,
+     "note": "limitador aplicado (1.7 dB de reducción en picos)"
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "amb_espacio": {
+  "cat": "Ambience",
+  "kind": "amb",
+  "note": "Drone grave de estación espacial.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ambience/amb_espacio.wav",
+     "dur": 60.0,
+     "channels": 2,
+     "source": [
+      "fs",
+      686237
+     ],
+     "lufs": -16.0,
+     "dbtp": -1.8,
+     "gain_db": 12.8,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ball_grab": {
+  "cat": "Ball",
+  "kind": "sfx",
+  "note": "Atrapada de pelota de goma con la mano.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ball/ball_grab.wav",
+     "dur": 0.18,
+     "channels": 1,
+     "source": [
+      "fs",
+      514989
+     ],
+     "lufs": -24.4,
+     "dbtp": -1.0,
+     "gain_db": -4.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ball_throw": {
+  "cat": "Ball",
+  "kind": "sfx",
+  "note": "Whooshes cortos. Alternativa: whooshes de bambú más agudos.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ball/ball_throw_01.wav",
+     "dur": 0.51,
+     "channels": 1,
+     "source": [
+      "fs",
+      789840
+     ],
+     "lufs": -15.8,
+     "dbtp": -1.0,
+     "gain_db": -0.1,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_throw_02.wav",
+     "dur": 0.18,
+     "channels": 1,
+     "source": [
+      "fs",
+      394873
+     ],
+     "lufs": -20.3,
+     "dbtp": -1.0,
+     "gain_db": 5.7,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_throw_03.wav",
+     "dur": 0.41,
+     "channels": 1,
+     "source": [
+      "fs",
+      427823
+     ],
+     "lufs": -19.2,
+     "dbtp": -1.0,
+     "gain_db": 1.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": {
+   "files": [
+    {
+     "file": "Source/_alt/ball_throw/ball_throw_01.wav",
+     "dur": 0.22,
+     "channels": 1,
+     "source": [
+      "fs",
+      419341
+     ],
+     "lufs": -17.6,
+     "dbtp": -1.0,
+     "gain_db": 2.7,
+     "note": null
+    },
+    {
+     "file": "Source/_alt/ball_throw/ball_throw_02.wav",
+     "dur": 0.24,
+     "channels": 1,
+     "source": [
+      "fs",
+      719637
+     ],
+     "lufs": -21.2,
+     "dbtp": -1.0,
+     "gain_db": 0.5,
+     "note": null
+    },
+    {
+     "file": "Source/_alt/ball_throw/ball_throw_03.wav",
+     "dur": 0.44,
+     "channels": 1,
+     "source": [
+      "fs",
+      60030
+     ],
+     "lufs": -19.1,
+     "dbtp": -1.0,
+     "gain_db": -3.9,
+     "note": null
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "ball_air": {
+  "cat": "Ball",
+  "kind": "sfx",
+  "note": "Loop corto sacado del medio de un whoosh largo y grave.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ball/ball_air.wav",
+     "dur": 0.8,
+     "channels": 1,
+     "source": [
+      "fs",
+      449990
+     ],
+     "lufs": -20.4,
+     "dbtp": -1.0,
+     "gain_db": 31.6,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ball_bounce_floor": {
+  "cat": "Ball",
+  "kind": "sfx",
+  "note": "4 piques de pelota de básquet reales, de la misma serie.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ball/ball_bounce_floor_01.wav",
+     "dur": 0.36,
+     "channels": 1,
+     "source": [
+      "fs",
+      319785
+     ],
+     "lufs": -22.4,
+     "dbtp": -1.0,
+     "gain_db": -2.8,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_bounce_floor_02.wav",
+     "dur": 0.34,
+     "channels": 1,
+     "source": [
+      "fs",
+      319762
+     ],
+     "lufs": -24.3,
+     "dbtp": -1.0,
+     "gain_db": -3.2,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_bounce_floor_03.wav",
+     "dur": 0.28,
+     "channels": 1,
+     "source": [
+      "fs",
+      319764
+     ],
+     "lufs": -23.1,
+     "dbtp": -1.0,
+     "gain_db": -3.1,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_bounce_floor_04.wav",
+     "dur": 0.16,
+     "channels": 1,
+     "source": [
+      "fs",
+      319783
+     ],
+     "lufs": -25.3,
+     "dbtp": -1.0,
+     "gain_db": -3.3,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ball_bounce_soft": {
+  "cat": "Ball",
+  "kind": "sfx",
+  "note": "3 piques sobre alfombra, más apagados.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ball/ball_bounce_soft_01.wav",
+     "dur": 0.32,
+     "channels": 1,
+     "source": [
+      "fs",
+      451642
+     ],
+     "lufs": -20.7,
+     "dbtp": -1.0,
+     "gain_db": 0.3,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_bounce_soft_02.wav",
+     "dur": 0.32,
+     "channels": 1,
+     "source": [
+      "fs",
+      451642
+     ],
+     "lufs": -20.4,
+     "dbtp": -1.0,
+     "gain_db": 0.8,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_bounce_soft_03.wav",
+     "dur": 0.3,
+     "channels": 1,
+     "source": [
+      "fs",
+      451642
+     ],
+     "lufs": -20.5,
+     "dbtp": -1.0,
+     "gain_db": 0.0,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ball_hit_backboard": {
+  "cat": "Ball",
+  "kind": "sfx",
+  "note": "Tablero real + 2 golpes de madera de Kenney para variar.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ball/ball_hit_backboard_01.wav",
+     "dur": 0.52,
+     "channels": 1,
+     "source": [
+      "fs",
+      324247
+     ],
+     "lufs": -21.8,
+     "dbtp": -1.0,
+     "gain_db": -1.1,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_hit_backboard_02.wav",
+     "dur": 0.44,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_impact-sounds/Audio/impactPlank_medium_000.ogg"
+     ],
+     "lufs": -22.5,
+     "dbtp": -1.0,
+     "gain_db": -2.8,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_hit_backboard_03.wav",
+     "dur": 0.31,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_impact-sounds/Audio/impactWood_heavy_001.ogg"
+     ],
+     "lufs": -22.8,
+     "dbtp": -1.0,
+     "gain_db": -0.7,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ball_hit_pole": {
+  "cat": "Ball",
+  "kind": "sfx",
+  "note": "Golpe en poste metálico + metal pesado de Kenney.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ball/ball_hit_pole_01.wav",
+     "dur": 0.43,
+     "channels": 1,
+     "source": [
+      "fs",
+      336000
+     ],
+     "lufs": -17.9,
+     "dbtp": -1.0,
+     "gain_db": -0.5,
+     "note": null
+    },
+    {
+     "file": "Source/Ball/ball_hit_pole_02.wav",
+     "dur": 0.16,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_impact-sounds/Audio/impactMetal_heavy_000.ogg"
+     ],
+     "lufs": -24.4,
+     "dbtp": -1.0,
+     "gain_db": 3.6,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ball_respawn": {
+  "cat": "Ball",
+  "kind": "sfx",
+  "note": "Pop de aparición.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ball/ball_respawn.wav",
+     "dur": 0.25,
+     "channels": 1,
+     "source": [
+      "fs",
+      824189
+     ],
+     "lufs": -25.0,
+     "dbtp": -1.0,
+     "gain_db": -4.0,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ball_shake_color": {
+  "cat": "Ball",
+  "kind": "sfx",
+  "note": "Destello mágico corto.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Ball/ball_shake_color.wav",
+     "dur": 0.89,
+     "channels": 1,
+     "source": [
+      "fs",
+      511485
+     ],
+     "lufs": -17.4,
+     "dbtp": -1.0,
+     "gain_db": 21.4,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "net_swish_chain": {
+  "cat": "Score",
+  "kind": "sfx",
+  "note": "Red de cadena: tiro que entra y sacude el aro + cadenas cortas. Alternativa: 3 sacudidas de una misma cadena.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Score/net_swish_chain_01.wav",
+     "dur": 1.2,
+     "channels": 1,
+     "source": [
+      "fs",
+      788259
+     ],
+     "lufs": -24.7,
+     "dbtp": -1.0,
+     "gain_db": 0.6,
+     "note": null
+    },
+    {
+     "file": "Source/Score/net_swish_chain_02.wav",
+     "dur": 0.95,
+     "channels": 1,
+     "source": [
+      "fs",
+      536737
+     ],
+     "lufs": -23.2,
+     "dbtp": -1.0,
+     "gain_db": 2.8,
+     "note": null
+    },
+    {
+     "file": "Source/Score/net_swish_chain_03.wav",
+     "dur": 0.14,
+     "channels": 1,
+     "source": [
+      "fs",
+      235960
+     ],
+     "lufs": -21.1,
+     "dbtp": -1.0,
+     "gain_db": -2.9,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": {
+   "files": [
+    {
+     "file": "Source/_alt/net_swish_chain/net_swish_chain_01.wav",
+     "dur": 0.17,
+     "channels": 1,
+     "source": [
+      "fs",
+      387240
+     ],
+     "lufs": -18.3,
+     "dbtp": -1.0,
+     "gain_db": 2.8,
+     "note": null
+    },
+    {
+     "file": "Source/_alt/net_swish_chain/net_swish_chain_02.wav",
+     "dur": 0.14,
+     "channels": 1,
+     "source": [
+      "fs",
+      387240
+     ],
+     "lufs": -23.0,
+     "dbtp": -1.0,
+     "gain_db": 0.6,
+     "note": null
+    },
+    {
+     "file": "Source/_alt/net_swish_chain/net_swish_chain_03.wav",
+     "dur": 0.28,
+     "channels": 1,
+     "source": [
+      "fs",
+      387240
+     ],
+     "lufs": -24.5,
+     "dbtp": -1.0,
+     "gain_db": 3.0,
+     "note": null
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "score_clean": {
+  "cat": "Score",
+  "kind": "sfx",
+  "note": "Ding brillante (power up).",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Score/score_clean.wav",
+     "dur": 0.29,
+     "channels": 1,
+     "source": [
+      "fs",
+      328120
+     ],
+     "lufs": -9.5,
+     "dbtp": -1.0,
+     "gain_db": 8.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "score_rim": {
+  "cat": "Score",
+  "kind": "sfx",
+  "note": "Campanita metálica corta.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Score/score_rim.wav",
+     "dur": 0.35,
+     "channels": 1,
+     "source": [
+      "fs",
+      237105
+     ],
+     "lufs": -15.5,
+     "dbtp": -1.0,
+     "gain_db": 16.3,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "score_backboard": {
+  "cat": "Score",
+  "kind": "sfx",
+  "note": "Pluck suave de Kenney.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Score/score_backboard.wav",
+     "dur": 0.1,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/pluck_001.ogg"
+     ],
+     "lufs": -23.8,
+     "dbtp": -1.0,
+     "gain_db": 0.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "score_plus_one": {
+  "cat": "Score",
+  "kind": "sfx",
+  "note": "Blip con sexta mayor, sube de tono con la racha. Alternativa: moneda 8-bit.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Score/score_plus_one.wav",
+     "dur": 0.24,
+     "channels": 1,
+     "source": [
+      "fs",
+      396193
+     ],
+     "lufs": -13.1,
+     "dbtp": -1.0,
+     "gain_db": 8.6,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": {
+   "files": [
+    {
+     "file": "Source/_alt/score_plus_one/score_plus_one.wav",
+     "dur": 0.2,
+     "channels": 1,
+     "source": [
+      "fs",
+      350876
+     ],
+     "lufs": -15.6,
+     "dbtp": -1.0,
+     "gain_db": 14.8,
+     "note": null
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "score_flash": {
+  "cat": "Score",
+  "kind": "sfx",
+  "note": "Barrido ascendente de Kenney.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Score/score_flash.wav",
+     "dur": 0.45,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_digital-audio/Audio/phaserUp3.ogg"
+     ],
+     "lufs": -14.5,
+     "dbtp": -1.0,
+     "gain_db": 0.5,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "miss_out": {
+  "cat": "Score",
+  "kind": "sfx",
+  "note": "Campana suave de error, sin castigar.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Score/miss_out.wav",
+     "dur": 0.17,
+     "channels": 1,
+     "source": [
+      "fs",
+      405548
+     ],
+     "lufs": -15.5,
+     "dbtp": -1.0,
+     "gain_db": 8.2,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "timer_tick": {
+  "cat": "Mechanics",
+  "kind": "sfx",
+  "note": "Tic de reloj real. Alternativa: tic más seco.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Mechanics/timer_tick.wav",
+     "dur": 0.22,
+     "channels": 1,
+     "source": [
+      "fs",
+      810938
+     ],
+     "lufs": -23.2,
+     "dbtp": -1.0,
+     "gain_db": 19.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": {
+   "files": [
+    {
+     "file": "Source/_alt/timer_tick/timer_tick.wav",
+     "dur": 0.17,
+     "channels": 1,
+     "source": [
+      "fs",
+      509714
+     ],
+     "lufs": -24.6,
+     "dbtp": -1.0,
+     "gain_db": 1.6,
+     "note": null
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "timer_urgent": {
+  "cat": "Mechanics",
+  "kind": "sfx",
+  "note": "Beep 8-bit corto para los últimos segundos.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Mechanics/timer_urgent.wav",
+     "dur": 0.21,
+     "channels": 1,
+     "source": [
+      "fs",
+      391650
+     ],
+     "lufs": -11.1,
+     "dbtp": -1.0,
+     "gain_db": 5.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "timer_reset": {
+  "cat": "Mechanics",
+  "kind": "sfx",
+  "note": "Subida de tono de Kenney.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Mechanics/timer_reset.wav",
+     "dur": 0.4,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_digital-audio/Audio/highUp.ogg"
+     ],
+     "lufs": -13.3,
+     "dbtp": -1.0,
+     "gain_db": -0.9,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "timer_out": {
+  "cat": "Mechanics",
+  "kind": "sfx",
+  "note": "Buzzer deportivo real. Alternativa: buzzer más estridente.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Mechanics/timer_out.wav",
+     "dur": 2.0,
+     "channels": 1,
+     "source": [
+      "fs",
+      510026
+     ],
+     "lufs": -10.5,
+     "dbtp": -1.0,
+     "gain_db": 5.3,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": {
+   "files": [
+    {
+     "file": "Source/_alt/timer_out/timer_out.wav",
+     "dur": 1.19,
+     "channels": 1,
+     "source": [
+      "fs",
+      259290
+     ],
+     "lufs": -10.6,
+     "dbtp": -1.0,
+     "gain_db": 0.2,
+     "note": null
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "hoop_shrink": {
+  "cat": "Mechanics",
+  "kind": "sfx",
+  "note": "Power down.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Mechanics/hoop_shrink.wav",
+     "dur": 1.86,
+     "channels": 1,
+     "source": [
+      "fs",
+      159399
+     ],
+     "lufs": -17.5,
+     "dbtp": -1.0,
+     "gain_db": 0.3,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "hoop_move_loop": {
+  "cat": "Mechanics",
+  "kind": "sfx",
+  "note": "Zumbido de máquina grave y parejo (reemplaza al torno Dremel, que chillaba). Alternativa: drone eléctrico más grave.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Mechanics/hoop_move_loop.wav",
+     "dur": 4.0,
+     "channels": 1,
+     "source": [
+      "fs",
+      587617
+     ],
+     "lufs": -14.4,
+     "dbtp": -1.0,
+     "gain_db": 14.8,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": {
+   "files": [
+    {
+     "file": "Source/_alt/hoop_move_loop/hoop_move_loop.wav",
+     "dur": 4.0,
+     "channels": 1,
+     "source": [
+      "fs",
+      593862
+     ],
+     "lufs": -14.0,
+     "dbtp": -1.0,
+     "gain_db": -1.0,
+     "note": null
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "carousel_loop": {
+  "cat": "Mechanics",
+  "kind": "sfx",
+  "note": "Loop de taladro rotando.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Mechanics/carousel_loop.wav",
+     "dur": 1.0,
+     "channels": 1,
+     "source": [
+      "fs",
+      340656
+     ],
+     "lufs": -13.0,
+     "dbtp": -1.0,
+     "gain_db": -0.4,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "carousel_hoop_done": {
+  "cat": "Mechanics",
+  "kind": "sfx",
+  "note": "Ding corto (sube de tono con cada aro).",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Mechanics/carousel_hoop_done.wav",
+     "dur": 0.33,
+     "channels": 1,
+     "source": [
+      "fs",
+      515643
+     ],
+     "lufs": -21.4,
+     "dbtp": -1.0,
+     "gain_db": -4.4,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "evasive_dash": {
+  "cat": "Mechanics",
+  "kind": "sfx",
+  "note": "3 whooshes rápidos.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Mechanics/evasive_dash_01.wav",
+     "dur": 0.37,
+     "channels": 1,
+     "source": [
+      "fs",
+      521996
+     ],
+     "lufs": -19.2,
+     "dbtp": -1.0,
+     "gain_db": -1.4,
+     "note": null
+    },
+    {
+     "file": "Source/Mechanics/evasive_dash_02.wav",
+     "dur": 0.26,
+     "channels": 1,
+     "source": [
+      "fs",
+      562191
+     ],
+     "lufs": -28.0,
+     "dbtp": -1.0,
+     "gain_db": 13.2,
+     "note": null
+    },
+    {
+     "file": "Source/Mechanics/evasive_dash_03.wav",
+     "dur": 0.19,
+     "channels": 1,
+     "source": [
+      "fs",
+      388004
+     ],
+     "lufs": -17.0,
+     "dbtp": -1.0,
+     "gain_db": 16.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "challenge_start": {
+  "cat": "Mechanics",
+  "kind": "sfx",
+  "note": "Silbato de árbitro.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/Mechanics/challenge_start.wav",
+     "dur": 0.52,
+     "channels": 1,
+     "source": [
+      "fs",
+      538422
+     ],
+     "lufs": -5.3,
+     "dbtp": -1.0,
+     "gain_db": 3.9,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_tap_primary": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Confirmación.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_tap_primary.wav",
+     "dur": 0.29,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/confirmation_001.ogg"
+     ],
+     "lufs": -15.1,
+     "dbtp": -1.0,
+     "gain_db": 0.5,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_back": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Volver.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_back.wav",
+     "dur": 0.06,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/back_001.ogg"
+     ],
+     "lufs": -29.6,
+     "dbtp": -1.0,
+     "gain_db": -0.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_disabled": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Botón deshabilitado o tarjeta bloqueada.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_disabled.wav",
+     "dur": 0.1,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/error_004.ogg"
+     ],
+     "lufs": -21.4,
+     "dbtp": -1.0,
+     "gain_db": -1.2,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_tab": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Cambio de pestaña.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_tab.wav",
+     "dur": 0.09,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_ui-audio/Audio/click1.ogg"
+     ],
+     "lufs": -28.9,
+     "dbtp": -1.0,
+     "gain_db": -1.2,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_select": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Seleccionar tarjeta.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_select.wav",
+     "dur": 0.04,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/select_002.ogg"
+     ],
+     "lufs": -23.8,
+     "dbtp": -1.0,
+     "gain_db": 1.7,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_equip": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Equipar skin o fondo.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_equip.wav",
+     "dur": 0.19,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/drop_002.ogg"
+     ],
+     "lufs": -20.2,
+     "dbtp": -1.0,
+     "gain_db": 2.2,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_pause_in": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Abrir pausa.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_pause_in.wav",
+     "dur": 0.21,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/minimize_003.ogg"
+     ],
+     "lufs": -13.5,
+     "dbtp": -1.0,
+     "gain_db": 6.6,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_pause_out": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Cerrar pausa.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_pause_out.wav",
+     "dur": 0.21,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/maximize_003.ogg"
+     ],
+     "lufs": -13.7,
+     "dbtp": -1.0,
+     "gain_db": 6.5,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_panel_in": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Entrada de panel.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_panel_in.wav",
+     "dur": 0.31,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/open_002.ogg"
+     ],
+     "lufs": -13.2,
+     "dbtp": -1.0,
+     "gain_db": 1.4,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_count_up": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Tic del contador de puntaje.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_count_up.wav",
+     "dur": 0.06,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/tick_004.ogg"
+     ],
+     "lufs": -21.8,
+     "dbtp": -1.0,
+     "gain_db": -0.3,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_progress_fill": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Barra de progreso llenándose.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_progress_fill.wav",
+     "dur": 0.46,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_digital-audio/Audio/phaserUp1.ogg"
+     ],
+     "lufs": -13.9,
+     "dbtp": -1.0,
+     "gain_db": 0.9,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_unlock": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Destello de logro. Alternativa: power up digital de Kenney.",
+  "top10": true,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_unlock.wav",
+     "dur": 1.34,
+     "channels": 1,
+     "source": [
+      "fs",
+      715067
+     ],
+     "lufs": -12.6,
+     "dbtp": -1.0,
+     "gain_db": 25.8,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": {
+   "files": [
+    {
+     "file": "Source/_alt/ui_unlock/ui_unlock.wav",
+     "dur": 0.32,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_digital-audio/Audio/powerUp7.ogg"
+     ],
+     "lufs": -13.7,
+     "dbtp": -1.0,
+     "gain_db": -0.9,
+     "note": null
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "ui_confetti": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Lanzapapeles.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_confetti.wav",
+     "dur": 0.61,
+     "channels": 1,
+     "source": [
+      "fs",
+      26349
+     ],
+     "lufs": -22.6,
+     "dbtp": -1.0,
+     "gain_db": -2.1,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ },
+ "ui_onboarding": {
+  "cat": "UI",
+  "kind": "ui",
+  "note": "Aviso suave del tutorial.",
+  "top10": false,
+  "main": {
+   "files": [
+    {
+     "file": "Source/UI/ui_onboarding.wav",
+     "dur": 0.12,
+     "channels": 1,
+     "source": [
+      "kn",
+      "kenney_interface-sounds/Audio/bong_001.ogg"
+     ],
+     "lufs": -20.6,
+     "dbtp": -1.0,
+     "gain_db": 3.8,
+     "note": null
+    }
+   ],
+   "warnings": []
+  },
+  "alt": null
+ }
+}

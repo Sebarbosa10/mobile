@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: WwiseData_Mac
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: WwiseData_Mac
+  m_GUID: 6fa7b0d726aa0154788a264ee6168a78
+  m_SerializeEntries:
+  - m_GUID: 2cb4b14378cf4c64999e52ddfd50c9ac
+    m_Address: Assets/WwiseData/Bank/Mac/Amb_Espacio.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 492bb31f8846c1742ad249f051deba7a
+    m_Address: Assets/WwiseData/Bank/Mac/Amb_Plaza.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d8f192f62a74c94e8460ed0ba61ea1c
+    m_Address: Assets/WwiseData/Bank/Mac/Main.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a02b1219003239499df549a2838d840
+    m_Address: Assets/WwiseData/Bank/Mac/Amb_Desierto.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a2c63f04e2ec6844b0ae72c903ebac4
+    m_Address: Assets/WwiseData/Bank/Mac/Amb_Playa.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a374c6150b524f84793603f0a97a5d4a
+    m_Address: Assets/WwiseData/Bank/Mac/Music.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c55a1c953c2cc6743ade865e7255345f
+    m_Address: Assets/WwiseData/Bank/Mac/Amb_Nevado.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc72e1a195218b94c8a0ff36cda2b325
+    m_Address: Assets/WwiseData/Bank/Mac/Amb_Azotea.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 91f6d3587c50fdd46bc1e692b23d3889, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d4a338f1ffbf7434bb8795f56bfe4d1b, type: 2}

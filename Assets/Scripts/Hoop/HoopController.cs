@@ -42,6 +42,8 @@ public sealed class HoopController : MonoBehaviour
 
     private HoopStage currentStage;
 
+    private float appliedScale;
+
     private void Awake()
     {
         if (movement != null)
@@ -129,6 +131,11 @@ public sealed class HoopController : MonoBehaviour
             Mathf.Max(
                 0.01f,
                 scale);
+
+        if (appliedScale > 0f && safeScale < appliedScale - 0.001f)
+            AudioManager.PlayHoopShrink();
+
+        appliedScale = safeScale;
 
         if (hoopVisual != null)
         {

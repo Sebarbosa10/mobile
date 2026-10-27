@@ -34,7 +34,14 @@ public sealed class HoopMovement : MonoBehaviour
 
         enabled = movementEnabled;
 
+        AudioManager.SetHoopMoving(this, movementEnabled);
+
         ApplyCurrentPosition();
+    }
+
+    private void OnDestroy()
+    {
+        AudioManager.SetHoopMoving(this, false);
     }
 
     private void Update()

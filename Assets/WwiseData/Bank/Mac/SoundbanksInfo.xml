@@ -9,7 +9,31 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{D326F752-7CA2-0A14-FDB1-63ECE89D0199}">
+		<SoundBank Id="1116324257" Type="User" Language="SFX" Hash="{D64E1A4A-4FFA-7218-A1EB-A34718ED0AD6}">
+			<ShortName>Amb_Desierto</ShortName>
+			<Path>Amb_Desierto.bnk</Path>
+			<Media>
+				<File Id="300589693" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_desierto.wav</ShortName>
+					<Path>Media/300589693.wem</Path>
+					<CachePath>SFX/Ambience/amb_desierto_56CEF360.wem</CachePath>
+				</File>
+			</Media>
+			<StateGroups>
+				<StateGroup Id="1319017392" Name="Theme">
+					<States>
+						<State Id="349474162" Name="Desierto"/>
+						<State Id="450225173" Name="Plaza"/>
+						<State Id="500558156" Name="Playa"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="974063651" Name="Espacio"/>
+						<State Id="998999334" Name="Nevado"/>
+						<State Id="3527560587" Name="Azotea"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{ABEA4772-9B13-0632-3BCA-D919B6D982F6}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -19,9 +43,887 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="85412153" Name="Ambience"/>
+				<Bus Id="393239870" Name="SFX"/>
+				<Bus Id="702482391" Name="Game"/>
+				<Bus Id="1551306167" Name="UI"/>
+				<Bus Id="1777984502" Name="Ball"/>
+				<Bus Id="2940432316" Name="Stingers"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
+				<Bus Id="3991942870" Name="Music"/>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="920026278" Name="ImpactVelocity"/>
+				<GameParameter Id="988953028" Name="SFXVolume"/>
+				<GameParameter Id="1377678975" Name="ScoreStreak"/>
+				<GameParameter Id="2346531308" Name="MusicVolume"/>
+				<GameParameter Id="2398231425" Name="Score"/>
+				<GameParameter Id="3482215671" Name="CarouselHoopIndex"/>
+				<GameParameter Id="3615643280" Name="TimerRemaining"/>
+				<GameParameter Id="3985868512" Name="ThrowForce"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="261089142" Name="GameMode">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="1189762416" Name="Challenge"/>
+						<State Id="1335262199" Name="Endless"/>
+						<State Id="2607556080" Name="Menu"/>
+						<State Id="2946237934" Name="TimeAttack"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="1319017392" Name="Theme">
+					<States>
+						<State Id="349474162" Name="Desierto"/>
+						<State Id="450225173" Name="Plaza"/>
+						<State Id="500558156" Name="Playa"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="974063651" Name="Espacio"/>
+						<State Id="998999334" Name="Nevado"/>
+						<State Id="3527560587" Name="Azotea"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="4091656514" Name="GameState">
+					<States>
+						<State Id="319258907" Name="Paused"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1852808225" Name="Playing"/>
+						<State Id="3780578133" Name="Results"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="1804037722" Type="User" Language="SFX" Hash="{8DDEC6E8-0C35-CFE7-EB71-727EC62193C5}">
+			<ShortName>Amb_Espacio</ShortName>
+			<Path>Amb_Espacio.bnk</Path>
+			<Media>
+				<File Id="207063030" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_espacio.wav</ShortName>
+					<Path>Media/207063030.wem</Path>
+					<CachePath>SFX/Ambience/amb_espacio_56CEF360.wem</CachePath>
+				</File>
+			</Media>
+			<StateGroups>
+				<StateGroup Id="1319017392" Name="Theme">
+					<States>
+						<State Id="349474162" Name="Desierto"/>
+						<State Id="450225173" Name="Plaza"/>
+						<State Id="500558156" Name="Playa"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="974063651" Name="Espacio"/>
+						<State Id="998999334" Name="Nevado"/>
+						<State Id="3527560587" Name="Azotea"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="2178210896" Type="User" Language="SFX" Hash="{36FAF3D0-EE47-4793-26B7-D0D6F68621C1}">
+			<ShortName>Amb_Azotea</ShortName>
+			<Path>Amb_Azotea.bnk</Path>
+			<Media>
+				<File Id="445611676" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_azotea.wav</ShortName>
+					<Path>Media/445611676.wem</Path>
+					<CachePath>SFX/Ambience/amb_azotea_56CEF360.wem</CachePath>
+				</File>
+			</Media>
+			<StateGroups>
+				<StateGroup Id="1319017392" Name="Theme">
+					<States>
+						<State Id="349474162" Name="Desierto"/>
+						<State Id="450225173" Name="Plaza"/>
+						<State Id="500558156" Name="Playa"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="974063651" Name="Espacio"/>
+						<State Id="998999334" Name="Nevado"/>
+						<State Id="3527560587" Name="Azotea"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="2773008625" Type="User" Language="SFX" Hash="{27437D2D-262D-3C56-C296-BA1A6F8B4F27}">
+			<ShortName>Amb_Playa</ShortName>
+			<Path>Amb_Playa.bnk</Path>
+			<Media>
+				<File Id="605226269" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_playa.wav</ShortName>
+					<Path>Media/605226269.wem</Path>
+					<CachePath>SFX/Ambience/amb_playa_56CEF360.wem</CachePath>
+				</File>
+			</Media>
+			<StateGroups>
+				<StateGroup Id="1319017392" Name="Theme">
+					<States>
+						<State Id="349474162" Name="Desierto"/>
+						<State Id="450225173" Name="Plaza"/>
+						<State Id="500558156" Name="Playa"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="974063651" Name="Espacio"/>
+						<State Id="998999334" Name="Nevado"/>
+						<State Id="3527560587" Name="Azotea"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="2823341352" Type="User" Language="SFX" Hash="{84A6A539-2B83-750C-C36F-A608B69F5CDE}">
+			<ShortName>Amb_Plaza</ShortName>
+			<Path>Amb_Plaza.bnk</Path>
+			<Media>
+				<File Id="49830671" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_plaza.wav</ShortName>
+					<Path>Media/49830671.wem</Path>
+					<CachePath>SFX/Ambience/amb_plaza_56CEF360.wem</CachePath>
+				</File>
+			</Media>
+			<StateGroups>
+				<StateGroup Id="1319017392" Name="Theme">
+					<States>
+						<State Id="349474162" Name="Desierto"/>
+						<State Id="450225173" Name="Plaza"/>
+						<State Id="500558156" Name="Playa"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="974063651" Name="Espacio"/>
+						<State Id="998999334" Name="Nevado"/>
+						<State Id="3527560587" Name="Azotea"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="2853637585" Type="User" Language="SFX" Hash="{C0B2EA1C-27F3-ADB4-66B4-2AC8081EBD49}">
+			<ShortName>Amb_Nevado</ShortName>
+			<Path>Amb_Nevado.bnk</Path>
+			<Media>
+				<File Id="394124802" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_nevado.wav</ShortName>
+					<Path>Media/394124802.wem</Path>
+					<CachePath>SFX/Ambience/amb_nevado_56CEF360.wem</CachePath>
+				</File>
+			</Media>
+			<StateGroups>
+				<StateGroup Id="1319017392" Name="Theme">
+					<States>
+						<State Id="349474162" Name="Desierto"/>
+						<State Id="450225173" Name="Plaza"/>
+						<State Id="500558156" Name="Playa"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="974063651" Name="Espacio"/>
+						<State Id="998999334" Name="Nevado"/>
+						<State Id="3527560587" Name="Azotea"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{3B7EE07E-2A46-198D-021A-C5E593A2CEB5}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="16533237" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\hoop_move_loop.wav</ShortName>
+					<CachePath>SFX/Mechanics/hoop_move_loop_806A9D1A.wem</CachePath>
+				</File>
+				<File Id="31223932" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_bounce_floor_02.wav</ShortName>
+					<CachePath>SFX/Ball/ball_bounce_floor_02_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="49830671" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_plaza.wav</ShortName>
+					<Path>Media/49830671.wem</Path>
+					<CachePath>SFX/Ambience/amb_plaza_56CEF360.wem</CachePath>
+				</File>
+				<File Id="55105976" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_bounce_soft_02.wav</ShortName>
+					<CachePath>SFX/Ball/ball_bounce_soft_02_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="65038838" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_onboarding.wav</ShortName>
+					<CachePath>SFX/UI/ui_onboarding_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="70454762" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_hit_backboard_02.wav</ShortName>
+					<CachePath>SFX/Ball/ball_hit_backboard_02_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="73386079" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_bounce_floor_03.wav</ShortName>
+					<CachePath>SFX/Ball/ball_bounce_floor_03_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="80480774" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_select.wav</ShortName>
+					<CachePath>SFX/UI/ui_select_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="110242716" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\timer_tick.wav</ShortName>
+					<CachePath>SFX/Mechanics/timer_tick_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="126317087" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\hoop_shrink.wav</ShortName>
+					<CachePath>SFX/Mechanics/hoop_shrink_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="145353523" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Score\score_backboard.wav</ShortName>
+					<CachePath>SFX/Score/score_backboard_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="147025549" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_pause_in.wav</ShortName>
+					<CachePath>SFX/UI/ui_pause_in_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="147184812" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Score\net_swish_chain_02.wav</ShortName>
+					<CachePath>SFX/Score/net_swish_chain_02_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="174331190" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Score\score_clean.wav</ShortName>
+					<CachePath>SFX/Score/score_clean_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="178224488" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_bounce_soft_01.wav</ShortName>
+					<CachePath>SFX/Ball/ball_bounce_soft_01_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="207063030" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_espacio.wav</ShortName>
+					<Path>Media/207063030.wem</Path>
+					<CachePath>SFX/Ambience/amb_espacio_56CEF360.wem</CachePath>
+				</File>
+				<File Id="215802003" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_bounce_floor_04.wav</ShortName>
+					<CachePath>SFX/Ball/ball_bounce_floor_04_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="226821835" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\challenge_start.wav</ShortName>
+					<CachePath>SFX/Mechanics/challenge_start_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="250282971" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\carousel_hoop_done.wav</ShortName>
+					<CachePath>SFX/Mechanics/carousel_hoop_done_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="257032538" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\carousel_loop.wav</ShortName>
+					<CachePath>SFX/Mechanics/carousel_loop_806A9D1A.wem</CachePath>
+				</File>
+				<File Id="258783750" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_count_up.wav</ShortName>
+					<CachePath>SFX/UI/ui_count_up_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="279076994" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_throw_01.wav</ShortName>
+					<CachePath>SFX/Ball/ball_throw_01_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="300589693" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_desierto.wav</ShortName>
+					<Path>Media/300589693.wem</Path>
+					<CachePath>SFX/Ambience/amb_desierto_56CEF360.wem</CachePath>
+				</File>
+				<File Id="315562530" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Score\score_flash.wav</ShortName>
+					<CachePath>SFX/Score/score_flash_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="328062473" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_unlock.wav</ShortName>
+					<CachePath>SFX/UI/ui_unlock_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="355924840" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_hit_pole_02.wav</ShortName>
+					<CachePath>SFX/Ball/ball_hit_pole_02_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="394124802" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_nevado.wav</ShortName>
+					<Path>Media/394124802.wem</Path>
+					<CachePath>SFX/Ambience/amb_nevado_56CEF360.wem</CachePath>
+				</File>
+				<File Id="395448578" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_throw_03.wav</ShortName>
+					<CachePath>SFX/Ball/ball_throw_03_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="421558589" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_progress_fill.wav</ShortName>
+					<CachePath>SFX/UI/ui_progress_fill_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="430234834" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Score\net_swish_chain_01.wav</ShortName>
+					<CachePath>SFX/Score/net_swish_chain_01_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="445611676" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_azotea.wav</ShortName>
+					<Path>Media/445611676.wem</Path>
+					<CachePath>SFX/Ambience/amb_azotea_56CEF360.wem</CachePath>
+				</File>
+				<File Id="455885797" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Score\score_rim.wav</ShortName>
+					<CachePath>SFX/Score/score_rim_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="474257653" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_bounce_soft_03.wav</ShortName>
+					<CachePath>SFX/Ball/ball_bounce_soft_03_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="536203431" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_hit_backboard_03.wav</ShortName>
+					<CachePath>SFX/Ball/ball_hit_backboard_03_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="539240788" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\timer_urgent.wav</ShortName>
+					<CachePath>SFX/Mechanics/timer_urgent_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="550804673" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Score\score_plus_one.wav</ShortName>
+					<CachePath>SFX/Score/score_plus_one_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="557746558" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_hit_rim_04.wav</ShortName>
+					<CachePath>SFX/Ball/ball_hit_rim_04_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="605226269" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Ambience\amb_playa.wav</ShortName>
+					<Path>Media/605226269.wem</Path>
+					<CachePath>SFX/Ambience/amb_playa_56CEF360.wem</CachePath>
+				</File>
+				<File Id="624077228" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_tap_primary.wav</ShortName>
+					<CachePath>SFX/UI/ui_tap_primary_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="635097245" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_respawn.wav</ShortName>
+					<CachePath>SFX/Ball/ball_respawn_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="656819671" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\evasive_dash_02.wav</ShortName>
+					<CachePath>SFX/Mechanics/evasive_dash_02_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="662472069" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\timer_out.wav</ShortName>
+					<CachePath>SFX/Mechanics/timer_out_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="700273660" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_hit_backboard_01.wav</ShortName>
+					<CachePath>SFX/Ball/ball_hit_backboard_01_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="739020898" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_confetti.wav</ShortName>
+					<CachePath>SFX/UI/ui_confetti_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="764618094" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_back.wav</ShortName>
+					<CachePath>SFX/UI/ui_back_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="796011168" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_disabled.wav</ShortName>
+					<CachePath>SFX/UI/ui_disabled_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="800218913" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Score\miss_out.wav</ShortName>
+					<CachePath>SFX/Score/miss_out_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="802327772" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_panel_in.wav</ShortName>
+					<CachePath>SFX/UI/ui_panel_in_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="810157620" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Score\net_swish_chain_03.wav</ShortName>
+					<CachePath>SFX/Score/net_swish_chain_03_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="813599869" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_hit_rim_02.wav</ShortName>
+					<CachePath>SFX/Ball/ball_hit_rim_02_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="852080839" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\evasive_dash_01.wav</ShortName>
+					<CachePath>SFX/Mechanics/evasive_dash_01_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="863270278" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\timer_reset.wav</ShortName>
+					<CachePath>SFX/Mechanics/timer_reset_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="891259082" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_bounce_floor_01.wav</ShortName>
+					<CachePath>SFX/Ball/ball_bounce_floor_01_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="891281523" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_tab.wav</ShortName>
+					<CachePath>SFX/UI/ui_tab_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="893588000" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_hit_pole_01.wav</ShortName>
+					<CachePath>SFX/Ball/ball_hit_pole_01_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="913725191" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanics\evasive_dash_03.wav</ShortName>
+					<CachePath>SFX/Mechanics/evasive_dash_03_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="926442054" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_hit_rim_03.wav</ShortName>
+					<CachePath>SFX/Ball/ball_hit_rim_03_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="931103629" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_pause_out.wav</ShortName>
+					<CachePath>SFX/UI/ui_pause_out_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="948460902" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_grab.wav</ShortName>
+					<CachePath>SFX/Ball/ball_grab_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="955152131" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_throw_02.wav</ShortName>
+					<CachePath>SFX/Ball/ball_throw_02_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="986075927" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_shake_color.wav</ShortName>
+					<CachePath>SFX/Ball/ball_shake_color_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="998934765" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_equip.wav</ShortName>
+					<CachePath>SFX/UI/ui_equip_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="1001252541" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_hit_rim_01.wav</ShortName>
+					<CachePath>SFX/Ball/ball_hit_rim_01_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="1032800889" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI\ui_tap.wav</ShortName>
+					<CachePath>SFX/UI/ui_tap_A2498ED0.wem</CachePath>
+				</File>
+				<File Id="1058303442" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ball\ball_air.wav</ShortName>
+					<CachePath>SFX/Ball/ball_air_806A9D1A.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="278617630" Name="Play_Ambience">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1319017392" Id="349474162"/>
+							<MediaRefs>
+								<MediaRef Id="300589693"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1319017392" Id="450225173" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="49830671"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1319017392" Id="3527560587"/>
+							<MediaRefs>
+								<MediaRef Id="445611676"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1319017392" Id="974063651"/>
+							<MediaRefs>
+								<MediaRef Id="207063030"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1319017392" Id="998999334"/>
+							<MediaRefs>
+								<MediaRef Id="394124802"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1319017392" Id="500558156"/>
+							<MediaRefs>
+								<MediaRef Id="605226269"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="1583040052" Name="Play_ball_air">
+					<MediaRefs>
+						<MediaRef Id="1058303442"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="697694663" Name="Play_ball_bounce_floor">
+					<MediaRefs>
+						<MediaRef Id="31223932"/>
+						<MediaRef Id="73386079"/>
+						<MediaRef Id="215802003"/>
+						<MediaRef Id="891259082"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3280495167" Name="Play_ball_bounce_soft">
+					<MediaRefs>
+						<MediaRef Id="55105976"/>
+						<MediaRef Id="178224488"/>
+						<MediaRef Id="474257653"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1747990230" Name="Play_ball_grab">
+					<MediaRefs>
+						<MediaRef Id="948460902"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3171106697" Name="Play_ball_hit_backboard">
+					<MediaRefs>
+						<MediaRef Id="70454762"/>
+						<MediaRef Id="536203431"/>
+						<MediaRef Id="700273660"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="927447508" Name="Play_ball_hit_pole">
+					<MediaRefs>
+						<MediaRef Id="355924840"/>
+						<MediaRef Id="893588000"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="882258610" Name="Play_ball_hit_rim">
+					<MediaRefs>
+						<MediaRef Id="557746558"/>
+						<MediaRef Id="813599869"/>
+						<MediaRef Id="926442054"/>
+						<MediaRef Id="1001252541"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3934876004" Name="Play_ball_respawn">
+					<MediaRefs>
+						<MediaRef Id="635097245"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1135700742" Name="Play_ball_shake_color">
+					<MediaRefs>
+						<MediaRef Id="986075927"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2933467824" Name="Play_ball_throw">
+					<MediaRefs>
+						<MediaRef Id="279076994"/>
+						<MediaRef Id="395448578"/>
+						<MediaRef Id="955152131"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4251519120" Name="Play_carousel_hoop_done">
+					<MediaRefs>
+						<MediaRef Id="250282971"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2336897881" Name="Play_carousel_loop">
+					<MediaRefs>
+						<MediaRef Id="257032538"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3608916" Name="Play_challenge_start">
+					<MediaRefs>
+						<MediaRef Id="226821835"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4284634678" Name="Play_evasive_dash">
+					<MediaRefs>
+						<MediaRef Id="656819671"/>
+						<MediaRef Id="852080839"/>
+						<MediaRef Id="913725191"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="260460445" Name="Play_hoop_move_loop">
+					<MediaRefs>
+						<MediaRef Id="16533237"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1624521400" Name="Play_hoop_shrink">
+					<MediaRefs>
+						<MediaRef Id="126317087"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2501962623" Name="Play_miss_out">
+					<MediaRefs>
+						<MediaRef Id="800218913"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2337536774" Name="Play_net_swish_chain">
+					<MediaRefs>
+						<MediaRef Id="147184812"/>
+						<MediaRef Id="430234834"/>
+						<MediaRef Id="810157620"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="627350978" Name="Play_Score_Backboard">
+					<MediaRefs>
+						<MediaRef Id="145353523"/>
+						<MediaRef Id="147184812"/>
+						<MediaRef Id="315562530"/>
+						<MediaRef Id="430234834"/>
+						<MediaRef Id="550804673"/>
+						<MediaRef Id="810157620"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1356231918" Name="Play_Score_Clean">
+					<MediaRefs>
+						<MediaRef Id="147184812"/>
+						<MediaRef Id="174331190"/>
+						<MediaRef Id="315562530"/>
+						<MediaRef Id="430234834"/>
+						<MediaRef Id="550804673"/>
+						<MediaRef Id="810157620"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1901112607" Name="Play_score_flash">
+					<MediaRefs>
+						<MediaRef Id="315562530"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="270909094" Name="Play_score_plus_one">
+					<MediaRefs>
+						<MediaRef Id="550804673"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2626060813" Name="Play_Score_Rim">
+					<MediaRefs>
+						<MediaRef Id="147184812"/>
+						<MediaRef Id="315562530"/>
+						<MediaRef Id="430234834"/>
+						<MediaRef Id="455885797"/>
+						<MediaRef Id="550804673"/>
+						<MediaRef Id="810157620"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="310818276" Name="Play_timer_out">
+					<MediaRefs>
+						<MediaRef Id="662472069"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3070709613" Name="Play_timer_reset">
+					<MediaRefs>
+						<MediaRef Id="863270278"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4093125639" Name="Play_timer_tick">
+					<MediaRefs>
+						<MediaRef Id="110242716"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2486138719" Name="Play_timer_urgent">
+					<MediaRefs>
+						<MediaRef Id="539240788"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1386224142" Name="Play_ui_back">
+					<MediaRefs>
+						<MediaRef Id="764618094"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3128149687" Name="Play_ui_confetti">
+					<MediaRefs>
+						<MediaRef Id="739020898"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="691732596" Name="Play_ui_count_up">
+					<MediaRefs>
+						<MediaRef Id="258783750"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4019884207" Name="Play_ui_disabled">
+					<MediaRefs>
+						<MediaRef Id="796011168"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2877498729" Name="Play_ui_equip">
+					<MediaRefs>
+						<MediaRef Id="998934765"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4025510816" Name="Play_ui_onboarding">
+					<MediaRefs>
+						<MediaRef Id="65038838"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3825898275" Name="Play_ui_panel_in">
+					<MediaRefs>
+						<MediaRef Id="802327772"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1927616251" Name="Play_ui_pause_in">
+					<MediaRefs>
+						<MediaRef Id="147025549"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3264478742" Name="Play_ui_pause_out">
+					<MediaRefs>
+						<MediaRef Id="931103629"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="36974246" Name="Play_ui_progress_fill">
+					<MediaRefs>
+						<MediaRef Id="421558589"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3308548503" Name="Play_ui_select">
+					<MediaRefs>
+						<MediaRef Id="80480774"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2286464668" Name="Play_ui_tab">
+					<MediaRefs>
+						<MediaRef Id="891281523"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2286464654" Name="Play_ui_tap">
+					<MediaRefs>
+						<MediaRef Id="1032800889"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1036594229" Name="Play_ui_tap_primary">
+					<MediaRefs>
+						<MediaRef Id="624077228"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3826685727" Name="Play_ui_unlock">
+					<MediaRefs>
+						<MediaRef Id="328062473"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2477713992" Name="Stop_Ambience" MaxAttenuation="0"/>
+				<Event Id="795209542" Name="Stop_ball_air" MaxAttenuation="0"/>
+				<Event Id="3779479695" Name="Stop_carousel_loop" MaxAttenuation="0"/>
+				<Event Id="869937003" Name="Stop_hoop_move_loop" MaxAttenuation="0"/>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="920026278" Name="ImpactVelocity"/>
+				<GameParameter Id="1377678975" Name="ScoreStreak"/>
+				<GameParameter Id="3482215671" Name="CarouselHoopIndex"/>
+				<GameParameter Id="3615643280" Name="TimerRemaining"/>
+				<GameParameter Id="3985868512" Name="ThrowForce"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="1319017392" Name="Theme">
+					<States>
+						<State Id="349474162" Name="Desierto"/>
+						<State Id="450225173" Name="Plaza"/>
+						<State Id="500558156" Name="Playa"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="974063651" Name="Espacio"/>
+						<State Id="998999334" Name="Nevado"/>
+						<State Id="3527560587" Name="Azotea"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="3991942870" Type="User" Language="SFX" Hash="{36BC06FC-236B-5062-03AD-72FBC4F9093A}">
+			<ShortName>Music</ShortName>
+			<Path>Music.bnk</Path>
+			<Media>
+				<File Id="284942072" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Music\mus_endless_base.wav</ShortName>
+					<Path>Media/284942072.wem</Path>
+					<CachePath>SFX/Music/mus_endless_base_56CEF360.wem</CachePath>
+				</File>
+				<File Id="364965175" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Music\mus_endless_perc.wav</ShortName>
+					<Path>Media/364965175.wem</Path>
+					<CachePath>SFX/Music/mus_endless_perc_56CEF360.wem</CachePath>
+				</File>
+				<File Id="416592740" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stingers\stg_derrota.wav</ShortName>
+					<CachePath>SFX/Stingers/stg_derrota_56CEF360.wem</CachePath>
+				</File>
+				<File Id="418870367" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Music\mus_contrarreloj.wav</ShortName>
+					<Path>Media/418870367.wem</Path>
+					<CachePath>SFX/Music/mus_contrarreloj_56CEF360.wem</CachePath>
+				</File>
+				<File Id="456202160" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stingers\stg_victoria.wav</ShortName>
+					<CachePath>SFX/Stingers/stg_victoria_56CEF360.wem</CachePath>
+				</File>
+				<File Id="596691580" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Music\mus_endless_lead.wav</ShortName>
+					<Path>Media/596691580.wem</Path>
+					<CachePath>SFX/Music/mus_endless_lead_56CEF360.wem</CachePath>
+				</File>
+				<File Id="644153017" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Music\mus_menu.wav</ShortName>
+					<Path>Media/644153017.wem</Path>
+					<CachePath>SFX/Music/mus_menu_56CEF360.wem</CachePath>
+				</File>
+				<File Id="679515709" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stingers\stg_nuevo_record.wav</ShortName>
+					<CachePath>SFX/Stingers/stg_nuevo_record_56CEF360.wem</CachePath>
+				</File>
+				<File Id="709770189" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stingers\stg_game_over.wav</ShortName>
+					<CachePath>SFX/Stingers/stg_game_over_56CEF360.wem</CachePath>
+				</File>
+				<File Id="788979685" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>Music\mus_desafio.wav</ShortName>
+					<Path>Media/788979685.wem</Path>
+					<CachePath>SFX/Music/mus_desafio_56CEF360.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="2932040671" Name="Play_Music">
+					<MediaRefs>
+						<MediaRef Id="416592740"/>
+						<MediaRef Id="456202160"/>
+						<MediaRef Id="679515709"/>
+						<MediaRef Id="709770189"/>
+					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="261089142" Id="2607556080"/>
+							<MediaRefs>
+								<MediaRef Id="644153017"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="261089142" Id="1335262199"/>
+							<MediaRefs>
+								<MediaRef Id="284942072"/>
+								<MediaRef Id="364965175"/>
+								<MediaRef Id="596691580"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="261089142" Id="1189762416"/>
+							<MediaRefs>
+								<MediaRef Id="788979685"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="261089142" Id="2946237934"/>
+							<MediaRefs>
+								<MediaRef Id="418870367"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="274167434" Name="Play_stg_derrota" MaxAttenuation="0">
+					<ActionTrigger>
+						<ActionTriggerEntry Id="2711776683" Name="Stg_Derrota"/>
+					</ActionTrigger>
+				</Event>
+				<Event Id="3362694404" Name="Play_stg_game_over" MaxAttenuation="0">
+					<ActionTrigger>
+						<ActionTriggerEntry Id="504698402" Name="Stg_GameOver"/>
+					</ActionTrigger>
+				</Event>
+				<Event Id="3447437794" Name="Play_stg_nuevo_record" MaxAttenuation="0">
+					<ActionTrigger>
+						<ActionTriggerEntry Id="3085014724" Name="Stg_NuevoRecord"/>
+					</ActionTrigger>
+				</Event>
+				<Event Id="3339741098" Name="Play_stg_victoria" MaxAttenuation="0">
+					<ActionTrigger>
+						<ActionTriggerEntry Id="3291425465" Name="Stg_Victoria"/>
+					</ActionTrigger>
+				</Event>
+				<Event Id="2837384057" Name="Stop_Music" MaxAttenuation="0"/>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="2398231425" Name="Score"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="261089142" Name="GameMode">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="1189762416" Name="Challenge"/>
+						<State Id="1335262199" Name="Endless"/>
+						<State Id="2607556080" Name="Menu"/>
+						<State Id="2946237934" Name="TimeAttack"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<Triggers>
+				<Trigger Id="504698402" Name="Stg_GameOver"/>
+				<Trigger Id="2711776683" Name="Stg_Derrota"/>
+				<Trigger Id="3085014724" Name="Stg_NuevoRecord"/>
+				<Trigger Id="3291425465" Name="Stg_Victoria"/>
+			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{DB3A4E2F-744C-2BF5-1B2B-61FF528562D8}</FileHash>
+	<FileHash>{8B254B5A-679E-43AD-BE6A-F96B60C79F08}</FileHash>
 </SoundBanksInfo>

@@ -82,6 +82,8 @@ public static class SkinProgress
 
         PlayerPrefs.SetString(ThemeKey, theme.id);
         PlayerPrefs.Save();
+
+        AudioManager.SetTheme(theme.id);
     }
 
     public static int EvaluateUnlocks()
