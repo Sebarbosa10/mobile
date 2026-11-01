@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "UIPalette", menuName = "Última Luz/UI Palette")]
+[CreateAssetMenu(fileName = "UIPalette", menuName = "Hoop Rush/UI Palette")]
 public sealed class UIPalette : ScriptableObject
 {
     [Header("Botón primario (acción)")]

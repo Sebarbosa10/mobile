@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 01_clasica
   m_EditorClassIdentifier: Assembly-CSharp::BallSkin
   id: clasica
-  displayName: "Cl\xE1sica"
+  displayName: "Classic"
   prefab: {fileID: 7129270543485497179, guid: 6c9493a439d96de4aab926ae1b5af5e5, type: 3}
   mesh: {fileID: 4300000, guid: 9a1afe5087a48f640a02d51c4b256f0e, type: 2}
   materials:

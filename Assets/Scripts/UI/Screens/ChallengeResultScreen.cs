@@ -24,12 +24,12 @@ public sealed class ChallengeResultScreen : UIScreen
         screen.victory = screen.BuildPanel(
             root, "Victory",
             palette.success, skin.iconCheck, palette.onSuccess,
-            "¡DESAFÍO\nCOMPLETO!", 128f, 3f, palette.success, 290f);
+            "CHALLENGE\nCOMPLETE!", 128f, 3f, palette.success, 290f);
 
         screen.defeat = screen.BuildPanel(
             root, "Defeat",
             palette.urgent, skin.iconClock, palette.text,
-            "PERDISTE", 160f, 4f, palette.text, 180f);
+            "YOU LOST", 160f, 4f, palette.text, 180f);
 
         root.gameObject.SetActive(false);
 
@@ -46,7 +46,7 @@ public sealed class ChallengeResultScreen : UIScreen
 
         UIPalette palette = UIKit.Palette;
 
-        shown.Header.text = $"DESAFÍO {challenge.Number} · {challenge.Name.ToUpperInvariant()}";
+        shown.Header.text = $"CHALLENGE {challenge.Number} · {challenge.Name.ToUpperInvariant()}";
         shown.Summary.text = info.Summary;
 
         Color filled = challenge.Number == 1 ? palette.success : palette.sun;
@@ -116,11 +116,11 @@ public sealed class ChallengeResultScreen : UIScreen
         panel.Pips = PipRow.Create(content, "Pips", 44f);
         overlay.Add(panel.Pips, 44f, 20f);
 
-        UIButton retry = UIButton.Create(content, "RetryButton", "REINTENTAR", ButtonVariant.Secondary);
+        UIButton retry = UIButton.Create(content, "RetryButton", "RETRY", ButtonVariant.Secondary);
         overlay.Add(retry, retry.LayoutHeight, 20f + 52f);
         retry.OnClick.AddListener(() => RestartRequested?.Invoke());
 
-        UIButton menu = UIButton.Create(content, "MenuButton", "MENÚ", ButtonVariant.Neutral);
+        UIButton menu = UIButton.Create(content, "MenuButton", "MENU", ButtonVariant.Neutral);
         overlay.Add(menu, menu.LayoutHeight, 20f + 28f);
         menu.OnClick.AddListener(() => ExitRequested?.Invoke());
 

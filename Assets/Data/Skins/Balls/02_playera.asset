@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 02_playera
   m_EditorClassIdentifier: Assembly-CSharp::BallSkin
   id: playera
-  displayName: Playera
+  displayName: "Beach Ball"
   prefab: {fileID: 5732836898130121883, guid: 182949b825ec3b849a1727b0cd2751b0, type: 3}
   mesh: {fileID: 4300000, guid: 3c41a22d7ee58c64bbb44214ebbeca8b, type: 2}
   materials:

@@ -67,7 +67,7 @@ public sealed class ChallengeHudScreen : UIScreen
     {
         definition = challenge;
 
-        string header = $"DESAFÍO {challenge.Number} · {challenge.Name.ToUpperInvariant()}";
+        string header = $"CHALLENGE {challenge.Number} · {challenge.Name.ToUpperInvariant()}";
 
         headerText.text = header;
 

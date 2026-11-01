@@ -40,7 +40,7 @@ public sealed class OnboardingHint : MonoBehaviour
         hint.caption = UIKit.CreateChip(root, "Caption", 96f, palette.night, 44f, 0f);
         hint.caption.anchorMin = hint.caption.anchorMax = new Vector2(0.5f, 0.5f);
         hint.caption.pivot = new Vector2(0.5f, 0.5f);
-        UIKit.AddChipText(hint.caption, "Deslizá hacia arriba para lanzar", UIFont.Label, 46f, palette.text);
+        UIKit.AddChipText(hint.caption, "Swipe up to shoot", UIFont.Label, 46f, palette.text);
 
         root.gameObject.SetActive(false);
 

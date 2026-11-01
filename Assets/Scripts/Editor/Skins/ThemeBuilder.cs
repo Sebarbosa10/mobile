@@ -112,7 +112,7 @@ public static class ThemeBuilder
     {
         BackgroundTheme theme = Theme(
             "plaza", "Plaza",
-            "La cancha del barrio al atardecer: la reja, dos árboles y el sol cayendo detrás del aro.",
+            "The neighborhood court at sunset: the fence, two trees and the sun dropping behind the hoop.",
             new[] { "#2B1B5E", "#6A2C8C", "#C9437A", "#F2793A", "#FFD071" },
             new[] { "#2B1B5E", "#6A2C8C", "#C9437A", "#F2793A" },
             "#5F5D7C", null, 0f, UnlockCondition.Default());
@@ -127,39 +127,39 @@ public static class ThemeBuilder
     }
 
     private static BackgroundTheme Azotea() => Theme(
-        "azotea", "Azotea",
-        "Una terraza en el centro, de noche: carteles de neón, tanque de agua y la ciudad prendida.",
+        "azotea", "Rooftop",
+        "A downtown rooftop at night: neon signs, a water tank and the city lit up.",
         new[] { "#0E1030", "#3A2470", "#F04E8A", "#2EC4E6", "#FFD071" },
         new[] { "#0E1030", "#3A2470" },
-        "#3A3550", "#2EC4E6", 0.35f, UnlockCondition.Create(UnlockType.CompleteChallenge, 1, "Completá Carrusel"));
+        "#3A3550", "#2EC4E6", 0.35f, UnlockCondition.Create(UnlockType.CompleteChallenge, 1, "Beat Carousel"));
 
     private static BackgroundTheme Playa() => Theme(
-        "playa", "Playa",
-        "Arena caliente, el mar de fondo y una palmera que da sombra al costado de la cancha.",
+        "playa", "Beach",
+        "Hot sand, the sea behind you and a palm tree shading the side of the court.",
         new[] { "#3FB7E8", "#BDEBF5", "#1F8FBF", "#F2D49B", "#2F9E4F" },
         new[] { "#3FB7E8", "#BDEBF5" },
-        "#F2D49B", "#E3701F", 0.5f, UnlockCondition.Create(UnlockType.CompleteChallenge, 2, "Completá Aro esquivo"));
+        "#F2D49B", "#E3701F", 0.5f, UnlockCondition.Create(UnlockType.CompleteChallenge, 2, "Beat Dodgy Hoop"));
 
     private static BackgroundTheme Nevado() => Theme(
-        "nevado", "Nevado",
-        "Una cancha helada entre pinos, con las montañas nevadas y el frío de la tarde.",
+        "nevado", "Snowy",
+        "A frozen court among the pines, with snowy mountains and the afternoon chill.",
         new[] { "#1B2A4A", "#7C93C2", "#E8EEF7", "#B7C6DE", "#1E3B4A" },
         new[] { "#1B2A4A", "#7C93C2" },
-        "#DCE8F2", "#7C93C2", 1f, UnlockCondition.Create(UnlockType.CompleteChallenge, 3, "Completá Contrarreloj"));
+        "#DCE8F2", "#7C93C2", 1f, UnlockCondition.Create(UnlockType.CompleteChallenge, 3, "Beat Time Attack"));
 
     private static BackgroundTheme Desierto() => Theme(
-        "desierto", "Desierto",
-        "Mesetas rojas, cactus y un sol enorme sobre la arena caliente de la tarde.",
+        "desierto", "Desert",
+        "Red mesas, cacti and a huge sun over the hot afternoon sand.",
         new[] { "#F6A54A", "#FBE2A6", "#C4572E", "#E7B46A", "#2F7D4F" },
         new[] { "#F6A54A", "#FBE2A6" },
-        "#E7B46A", "#C4572E", 0.5f, UnlockCondition.Create(UnlockType.CompleteChallenge, 4, "Completá Sin fallar"));
+        "#E7B46A", "#C4572E", 0.5f, UnlockCondition.Create(UnlockType.CompleteChallenge, 4, "Beat No Misses"));
 
     private static BackgroundTheme Espacio() => Theme(
-        "espacio", "Espacio",
-        "Una cancha en la Luna: cráteres, estrellas y la Tierra mirando desde arriba.",
+        "espacio", "Space",
+        "A court on the Moon: craters, stars and the Earth looking down from above.",
         new[] { "#0B0820", "#2A1450", "#2E7DE0", "#40D959", "#8A8798" },
         new[] { "#0B0820", "#2A1450" },
-        "#8A8798", null, 0f, UnlockCondition.Create(UnlockType.CompleteChallenge, 5, "Completá Persecución"));
+        "#8A8798", null, 0f, UnlockCondition.Create(UnlockType.CompleteChallenge, 5, "Beat Hoop Chase"));
 
     private static BackgroundTheme Save(BackgroundTheme theme, Built built)
     {

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 06_espacio
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
   id: espacio
-  displayName: Espacio
-  description: "Una cancha en la Luna: cr\xE1teres, estrellas y la Tierra mirando
-    desde arriba."
+  displayName: "Space"
+  description: "A court on the Moon: craters, stars and the Earth looking down from above."
   palette:
   - {r: 0.043137256, g: 0.03137255, b: 0.1254902, a: 1}
   - {r: 0.16470589, g: 0.078431375, b: 0.3137255, a: 1}
@@ -41,6 +40,6 @@ MonoBehaviour:
   unlock:
     type: 3
     value: 5
-    shortText: "Complet\xE1 Persecuci\xF3n"
+    shortText: "Beat Hoop Chase"
   thumbnail: {fileID: 2800000, guid: 2c660c69cbf2b334eb58d0df6fd6fbe1, type: 3}
   triangleCount: 408

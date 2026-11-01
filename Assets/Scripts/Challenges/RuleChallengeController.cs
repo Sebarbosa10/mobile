@@ -71,7 +71,7 @@ public abstract class RuleChallengeController : ChallengeControllerBase
     private void FinishLost()
     {
         waitingForLanding = false;
-        Finish(false, $"Llegaste a {score} de {TargetProgress}");
+        Finish(false, $"You made {score} of {TargetProgress}");
     }
 
     protected override void ResetChallengeState()
@@ -93,6 +93,6 @@ public abstract class RuleChallengeController : ChallengeControllerBase
         ReportProgress(hoop);
 
         if (score >= TargetProgress)
-            Finish(true, $"Encestaste {score} de {TargetProgress}");
+            Finish(true, $"You made {score} of {TargetProgress}");
     }
 }

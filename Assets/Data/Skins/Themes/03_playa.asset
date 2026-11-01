@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 03_playa
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
   id: playa
-  displayName: Playa
-  description: Arena caliente, el mar de fondo y una palmera que da sombra al costado
-    de la cancha.
+  displayName: "Beach"
+  description: "Hot sand, the sea behind you and a palm tree shading the side of the court."
   palette:
   - {r: 0.24705882, g: 0.7176471, b: 0.9098039, a: 1}
   - {r: 0.7411765, g: 0.92156863, b: 0.9607843, a: 1}
@@ -42,6 +41,6 @@ MonoBehaviour:
   unlock:
     type: 3
     value: 2
-    shortText: "Complet\xE1 Aro esquivo"
+    shortText: "Beat Dodgy Hoop"
   thumbnail: {fileID: 2800000, guid: 4e52dd8198a606c458013c5814c7558a, type: 3}
   triangleCount: 202

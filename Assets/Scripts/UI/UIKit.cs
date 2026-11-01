@@ -270,7 +270,7 @@ public static class UIKit
         chip = CreateChip(parent, name, height, background, paddingX, spacing);
 
         AddChipIcon(chip, Skin.iconTrophy, iconSize, Palette.sun);
-        AddChipText(chip, "RÉCORD", UIFont.Label, labelSize, Palette.text, labelTracking);
+        AddChipText(chip, "BEST", UIFont.Label, labelSize, Palette.text, labelTracking);
 
         return AddChipText(chip, "0", UIFont.Display, valueSize, Palette.sun);
     }

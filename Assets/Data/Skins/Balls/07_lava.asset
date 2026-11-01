@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 07_lava
   m_EditorClassIdentifier: Assembly-CSharp::BallSkin
   id: lava
-  displayName: Lava
+  displayName: "Lava"
   prefab: {fileID: 4746960470481747509, guid: e663ecdf76755fc48b2a8d9bf4100144, type: 3}
   mesh: {fileID: 4300000, guid: 474fecf992d81984c8a4a68aa70cb4bf, type: 2}
   materials:
@@ -31,5 +31,5 @@ MonoBehaviour:
   unlock:
     type: 3
     value: 4
-    shortText: "Complet\xE1 Sin fallar"
+    shortText: "Beat No Misses"
   icon: {fileID: 21300000, guid: c8b5d54b8ddc2c04d8a813aa10f4015f, type: 3}

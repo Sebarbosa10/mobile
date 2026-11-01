@@ -21,7 +21,7 @@ public struct BallVariant
         colors != null && colors.Length > 1;
 }
 
-[CreateAssetMenu(fileName = "BallSkin", menuName = "Última Luz/Ball Skin")]
+[CreateAssetMenu(fileName = "BallSkin", menuName = "Hoop Rush/Ball Skin")]
 public sealed class BallSkin : ScriptableObject
 {
     public string id;

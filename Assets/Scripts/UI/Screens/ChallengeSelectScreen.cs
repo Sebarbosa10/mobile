@@ -35,7 +35,7 @@ public sealed class ChallengeSelectScreen : UIScreen
         RectTransform safe = UIKit.CreateSafeArea(root);
 
         TextMeshProUGUI title = UIKit.CreateText(
-            safe, "Title", "DESAFÍOS", UIFont.Display, 120f, palette.text, 3f);
+            safe, "Title", "CHALLENGES", UIFont.Display, 120f, palette.text, 3f);
         UIKit.PlaceTop(title.rectTransform, 16f, new Vector2(984f, 138f));
 
         Image panel = UIKit.CreateImage(safe, "ProgressPanel", skin.chip, palette.night);
@@ -47,7 +47,7 @@ public sealed class ChallengeSelectScreen : UIScreen
         UIKit.PlaceTopLeft(hoopIcon.rectTransform, 40f, 44f, new Vector2(48f, 48f));
 
         TextMeshProUGUI countLabel = UIKit.CreateText(
-            panelRect, "CountLabel", "Encestadas en el endless:",
+            panelRect, "CountLabel", "Baskets in Endless:",
             UIFont.Body, 38f, palette.text, 0f, TextAlignmentOptions.MidlineLeft);
         UIKit.PlaceTopLeft(countLabel.rectTransform, 106f, 36f, new Vector2(640f, 64f));
 
@@ -80,7 +80,7 @@ public sealed class ChallengeSelectScreen : UIScreen
             screen.cards.Add(card);
         }
 
-        UIButton back = UIButton.Create(safe, "BackButton", "VOLVER", ButtonVariant.Neutral);
+        UIButton back = UIButton.Create(safe, "BackButton", "BACK", ButtonVariant.Neutral);
         UIKit.PlaceBottom(back.RectTransform, 20f, back.RectTransform.sizeDelta);
         back.OnClick.AddListener(() => screen.BackRequested?.Invoke());
 
@@ -124,7 +124,7 @@ public sealed class ChallengeSelectScreen : UIScreen
             bar.SetFraction(1f);
             fromLabel.text = "";
             toLabel.text = "";
-            remainingLabel.text = "¡Desbloqueaste todos los desafíos!";
+            remainingLabel.text = "All challenges unlocked!";
         }
         else
         {
@@ -136,7 +136,7 @@ public sealed class ChallengeSelectScreen : UIScreen
             toLabel.text = to.ToString();
 
             string name = ChallengeCatalog.Get(nextLocked).Name;
-            remainingLabel.text = $"Faltan {to - total} para desbloquear «{name}»";
+            remainingLabel.text = $"{to - total} more to unlock \"{name}\"";
         }
 
         for (int i = 0; i < cards.Count; i++)

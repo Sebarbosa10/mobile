@@ -84,15 +84,15 @@ public sealed class FpsCounter : MonoBehaviour
             float potential = 1000f / Mathf.Max(cpu, gpu, 0.1f);
 
             if (gpuSamples > 0)
-                label.SetText("{0:0} FPS  {1:0.0} ms  mín {2:0}  T{3}\nposible {4:0} FPS  CPU {5:0.0}  GPU {6:0.0} ms",
+                label.SetText("{0:0} FPS  {1:0.0} ms  min {2:0}  T{3}\npossible {4:0} FPS  CPU {5:0.0}  GPU {6:0.0} ms",
                     fps, ms, minFps, thermal, potential, cpu, gpu);
             else
-                label.SetText("{0:0} FPS  {1:0.0} ms  mín {2:0}  T{3}\nposible {4:0} FPS  CPU {5:0.0} ms",
+                label.SetText("{0:0} FPS  {1:0.0} ms  min {2:0}  T{3}\npossible {4:0} FPS  CPU {5:0.0} ms",
                     fps, ms, minFps, thermal, potential, cpu);
         }
         else
         {
-            label.SetText("{0:0} FPS  {1:0.0} ms  mín {2:0}  T{3}", fps, ms, minFps, thermal);
+            label.SetText("{0:0} FPS  {1:0.0} ms  min {2:0}  T{3}", fps, ms, minFps, thermal);
         }
 
         label.color = fps >= 55f ? Good : fps >= 30f ? Warning : Bad;

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 01_plaza
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
   id: plaza
-  displayName: Plaza
-  description: "La cancha del barrio al atardecer: la reja, dos \xE1rboles y el sol
-    cayendo detr\xE1s del aro."
+  displayName: "Plaza"
+  description: "The neighborhood court at sunset: the fence, two trees and the sun dropping behind the hoop."
   palette:
   - {r: 0.16862746, g: 0.105882354, b: 0.36862746, a: 1}
   - {r: 0.41568628, g: 0.17254902, b: 0.54901963, a: 1}

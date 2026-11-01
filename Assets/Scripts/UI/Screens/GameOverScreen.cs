@@ -48,7 +48,7 @@ public sealed class GameOverScreen : UIScreen
 
         if (info.IsNewRecord)
         {
-            previousRecord.text = $"Récord anterior: {info.PreviousRecord}";
+            previousRecord.text = $"Previous best: {info.PreviousRecord}";
 
             normalPanel.Hide();
             recordPanel.Show();
@@ -112,12 +112,12 @@ public sealed class GameOverScreen : UIScreen
         RectTransform content = normalPanel.Content;
 
         TextMeshProUGUI title = UIKit.CreateText(
-            content, "Title", "FIN DEL JUEGO", UIFont.Display, 104f, palette.text, 4f);
+            content, "Title", "GAME OVER", UIFont.Display, 104f, palette.text, 4f);
         title.rectTransform.sizeDelta = new Vector2(760f, 120f);
         normalPanel.Add(title, 120f);
 
         TextMeshProUGUI label = UIKit.CreateText(
-            content, "ScoreLabel", "PUNTAJE", UIFont.Label, 36f, palette.labelMuted, 8f);
+            content, "ScoreLabel", "SCORE", UIFont.Label, 36f, palette.labelMuted, 8f);
         label.rectTransform.sizeDelta = new Vector2(760f, 50f);
         normalPanel.Add(label, 50f, 20f + 24f);
 
@@ -150,7 +150,7 @@ public sealed class GameOverScreen : UIScreen
         recordPanel.Add(trophy, 120f);
 
         TextMeshProUGUI title = UIKit.CreateText(
-            content, "Title", "¡NUEVO RÉCORD!", UIFont.Display, 100f, palette.sun, 3f);
+            content, "Title", "NEW RECORD!", UIFont.Display, 100f, palette.sun, 3f);
         title.rectTransform.sizeDelta = new Vector2(760f, 120f);
         recordPanel.Add(title, 120f, 16f);
         title.rectTransform.localRotation = Quaternion.Euler(0f, 0f, 3f);
@@ -160,7 +160,7 @@ public sealed class GameOverScreen : UIScreen
         recordPanel.Add(recordScore, 315f, 16f);
 
         RectTransform chip = UIKit.CreateChip(content, "PreviousRecord", 80f, palette.background, 36f, 0f);
-        previousRecord = UIKit.AddChipText(chip, "Récord anterior: 0", UIFont.Body, 36f, palette.text);
+        previousRecord = UIKit.AddChipText(chip, "Previous best: 0", UIFont.Body, 36f, palette.text);
         recordPanel.Add(chip, 80f, 16f);
 
         AddButtons(recordPanel, content, 16f);
@@ -168,11 +168,11 @@ public sealed class GameOverScreen : UIScreen
 
     private void AddButtons(OverlayPanel panel, RectTransform content, float gap)
     {
-        UIButton restart = UIButton.Create(content, "RestartButton", "REINICIAR", ButtonVariant.Secondary);
+        UIButton restart = UIButton.Create(content, "RestartButton", "RESTART", ButtonVariant.Secondary);
         panel.Add(restart, restart.LayoutHeight, gap + 52f);
         restart.OnClick.AddListener(() => RestartRequested?.Invoke());
 
-        UIButton menu = UIButton.Create(content, "MenuButton", "MENÚ", ButtonVariant.Neutral);
+        UIButton menu = UIButton.Create(content, "MenuButton", "MENU", ButtonVariant.Neutral);
         panel.Add(menu, menu.LayoutHeight, gap + 28f);
         menu.OnClick.AddListener(() => ExitRequested?.Invoke());
 

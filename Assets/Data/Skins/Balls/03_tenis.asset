@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 03_tenis
   m_EditorClassIdentifier: Assembly-CSharp::BallSkin
   id: tenis
-  displayName: Tenis
+  displayName: "Tennis"
   prefab: {fileID: 1873568411724511752, guid: 748ae93a03ed52b48928096ef257c66a, type: 3}
   mesh: {fileID: 4300000, guid: b900945c8deca5b41a003007252a87a5, type: 2}
   materials:

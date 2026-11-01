@@ -51,11 +51,11 @@ public static class ChallengeCatalog
 
     private static readonly ChallengeDefinition[] Challenges =
     {
-        new(1, "Carrusel", "5 aros girando en círculo. Encestá en cada uno.", "Aros", CarouselRoot),
-        new(2, "Aro esquivo", "Un aro que no se queda quieto. Encestá 3 veces.", "Encestadas", EvasiveRoot, 3),
-        new(3, "Contrarreloj", "8 encestadas en 20 segundos.", "Puntos", FixedRoot, 8, 20f),
-        new(4, "Sin fallar", "5 encestadas seguidas. Un error y perdés.", "Racha", FixedRoot, 5, noMisses: true),
-        new(5, "Persecución", "El aro esquivo, con reloj: 4 encestadas en 40 segundos.", "Encestadas", EvasiveRoot, 4, 40f)
+        new(1, "Carousel", "5 hoops spinning in a circle. Score in each one.", "Hoops", CarouselRoot),
+        new(2, "Dodgy Hoop", "A hoop that won't sit still. Score 3 times.", "Baskets", EvasiveRoot, 3),
+        new(3, "Time Attack", "8 baskets in 20 seconds.", "Points", FixedRoot, 8, 20f),
+        new(4, "No Misses", "5 baskets in a row. One miss and you lose.", "Streak", FixedRoot, 5, noMisses: true),
+        new(5, "Hoop Chase", "The dodgy hoop, on the clock: 4 baskets in 40 seconds.", "Baskets", EvasiveRoot, 4, 40f)
     };
 
     public static int Count =>

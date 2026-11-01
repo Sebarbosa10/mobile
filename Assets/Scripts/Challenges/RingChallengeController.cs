@@ -34,7 +34,7 @@ public sealed class RingChallengeController : ChallengeControllerBase
         ReportProgress(hoop);
 
         if (scoredHoops.Count >= hoops.Length)
-            Finish(true, $"Encestaste en los {hoops.Length} aros");
+            Finish(true, $"You scored on all {hoops.Length} hoops");
     }
 
     private static void MarkHoop(HoopScoreTrigger hoop, bool scored)

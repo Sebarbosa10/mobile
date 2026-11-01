@@ -33,15 +33,15 @@ public sealed class MainMenuScreen : UIScreen
         RectTransform safe = UIKit.CreateSafeArea(root);
 
         TextMeshProUGUI tagline = UIKit.CreateText(
-            safe, "Tagline", "BÁSQUET DE PLAZA", UIFont.Label, 36f, palette.text, 10f);
+            safe, "Tagline", "STREET BASKETBALL", UIFont.Label, 36f, palette.text, 10f);
         UIKit.PlaceTop(tagline.rectTransform, 54f, new Vector2(984f, 44f));
 
         string sunHex = ColorUtility.ToHtmlStringRGB(palette.sun);
 
         RectTransform logo = UIKit.CreateShadowedText(
             safe, "Logo",
-            $"ÚLTIMA <color=#{sunHex}>LUZ</color>",
-            "ÚLTIMA LUZ",
+            $"HOOP <color=#{sunHex}>RUSH</color>",
+            "HOOP RUSH",
             UIFont.Display, 196f, palette.text, 10f, 2f,
             out _, out _);
         UIKit.PlaceTop(logo, 105f, new Vector2(1000f, 226f));
@@ -54,15 +54,15 @@ public sealed class MainMenuScreen : UIScreen
         recordChip.anchorMin = recordChip.anchorMax = new Vector2(0.5f, 1f);
         recordChip.anchoredPosition = new Vector2(0f, -358f);
 
-        UIButton play = UIButton.Create(safe, "PlayButton", "JUGAR", ButtonVariant.Primary, large: true);
+        UIButton play = UIButton.Create(safe, "PlayButton", "PLAY", ButtonVariant.Primary, large: true);
         UIKit.PlaceCenter(play.RectTransform, new Vector2(0f, -190f), play.RectTransform.sizeDelta);
         play.OnClick.AddListener(() => screen.PlayRequested?.Invoke());
 
-        UIButton challenges = UIButton.Create(safe, "ChallengesButton", "DESAFÍOS", ButtonVariant.Primary);
+        UIButton challenges = UIButton.Create(safe, "ChallengesButton", "CHALLENGES", ButtonVariant.Primary);
         UIKit.PlaceCenter(challenges.RectTransform, new Vector2(0f, -389f), challenges.RectTransform.sizeDelta);
         challenges.OnClick.AddListener(() => screen.ChallengesRequested?.Invoke());
 
-        UIButton customize = UIButton.Create(safe, "CustomizeButton", "PERSONALIZAR", ButtonVariant.Primary);
+        UIButton customize = UIButton.Create(safe, "CustomizeButton", "CUSTOMIZE", ButtonVariant.Primary);
         float customizeY = -389f - challenges.RectTransform.sizeDelta.y - 36f;
         UIKit.PlaceCenter(customize.RectTransform, new Vector2(0f, customizeY), customize.RectTransform.sizeDelta);
         customize.OnClick.AddListener(() => screen.CustomizeRequested?.Invoke());
@@ -72,7 +72,7 @@ public sealed class MainMenuScreen : UIScreen
         hint.pivot = new Vector2(0.5f, 0f);
         hint.anchoredPosition = new Vector2(0f, HintBottom);
         UIKit.AddChipIcon(hint, skin.iconShake, 36f, palette.text);
-        UIKit.AddChipText(hint, "Sacudí el celu y la pelota cambia de color", UIFont.Body, 30f, palette.text);
+        UIKit.AddChipText(hint, "Shake your phone to change the ball color", UIFont.Body, 30f, palette.text);
         screen.shakeHint = hint;
 
         screen.removeAdsButton = CreateChipButton(
@@ -80,7 +80,7 @@ public sealed class MainMenuScreen : UIScreen
             out screen.removeAdsLabel);
 
         screen.privacyButton = CreateChipButton(
-            safe, "PrivacyButton", Vector2.up, new Vector2(24f, 0f), "PRIVACIDAD", Monetization.ShowPrivacyOptions,
+            safe, "PrivacyButton", Vector2.up, new Vector2(24f, 0f), "PRIVACY", Monetization.ShowPrivacyOptions,
             out _);
 
         screen.Refresh();
@@ -139,7 +139,7 @@ public sealed class MainMenuScreen : UIScreen
         bool adsRemoved = Monetization.AdsRemoved;
 
         removeAdsButton.gameObject.SetActive(!adsRemoved);
-        removeAdsLabel.text = $"SIN ANUNCIOS {Monetization.RemoveAdsPrice}";
+        removeAdsLabel.text = $"NO ADS {Monetization.RemoveAdsPrice}";
         privacyButton.gameObject.SetActive(!adsRemoved && Monetization.PrivacyOptionsRequired);
         shakeHint.anchoredPosition = new Vector2(0f, adsRemoved ? HintBottom : HintBottomWithBanner);
     }

@@ -20,20 +20,20 @@ public sealed class PauseScreen : UIScreen
         RectTransform content = overlay.Content;
 
         TextMeshProUGUI title = UIKit.CreateText(
-            content, "Title", "PAUSA", UIFont.Display, 160f, UIKit.Palette.text, 6f);
+            content, "Title", "PAUSED", UIFont.Display, 160f, UIKit.Palette.text, 6f);
         title.rectTransform.sizeDelta = new Vector2(720f, 184f);
         overlay.Add(title, 184f);
 
-        UIButton resume = UIButton.Create(content, "ResumeButton", "REANUDAR", ButtonVariant.Primary);
+        UIButton resume = UIButton.Create(content, "ResumeButton", "RESUME", ButtonVariant.Primary);
         overlay.Add(resume, resume.LayoutHeight, 12f + 48f);
         resume.OnClick.AddListener(() => screen.ResumeRequested?.Invoke());
         resume.ClickSound = null; // al reanudar ya suena ui_pause_out
 
-        UIButton restart = UIButton.Create(content, "RestartButton", "REINICIAR", ButtonVariant.Secondary);
+        UIButton restart = UIButton.Create(content, "RestartButton", "RESTART", ButtonVariant.Secondary);
         overlay.Add(restart, restart.LayoutHeight, 48f);
         restart.OnClick.AddListener(() => screen.RestartRequested?.Invoke());
 
-        UIButton menu = UIButton.Create(content, "MenuButton", "MENÚ", ButtonVariant.Neutral);
+        UIButton menu = UIButton.Create(content, "MenuButton", "MENU", ButtonVariant.Neutral);
         overlay.Add(menu, menu.LayoutHeight, 48f);
         menu.OnClick.AddListener(() => screen.ExitRequested?.Invoke());
 
@@ -59,10 +59,10 @@ public sealed class PauseScreen : UIScreen
     }
 
     private static string MusicLabel() =>
-        AudioManager.MusicVolume > 0f ? "MÚSICA: SÍ" : "MÚSICA: NO";
+        AudioManager.MusicVolume > 0f ? "MUSIC: ON" : "MUSIC: OFF";
 
     private static string SfxLabel() =>
-        AudioManager.SfxVolume > 0f ? "EFECTOS: SÍ" : "EFECTOS: NO";
+        AudioManager.SfxVolume > 0f ? "SFX: ON" : "SFX: OFF";
 
     public override void Show()
     {

@@ -13,11 +13,11 @@ using UnityEngine.Rendering.Universal;
 [InitializeOnLoad]
 public static class MobileBuildSettings
 {
-    private const string ProductName = "Última Luz";
+    private const string ProductName = "Hoop Rush";
     private const string CompanyName = "Sebarbosa";
-    private const string AndroidIdentifier = "com.sebarbosa.ultimaluz";
-    private const string ApkPath = "Builds/UltimaLuz.apk";
-    private const string AabPath = "Builds/UltimaLuz.aab";
+    private const string AndroidIdentifier = "com.sebarbosa.hooprush";
+    private const string ApkPath = "Builds/HoopRush.apk";
+    private const string AabPath = "Builds/HoopRush.aab";
 
     static MobileBuildSettings()
     {

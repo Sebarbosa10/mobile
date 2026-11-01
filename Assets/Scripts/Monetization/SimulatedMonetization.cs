@@ -53,7 +53,7 @@ public sealed class SimulatedMonetization : MonoBehaviour, IAdsProvider, IStoreP
         banner.sizeDelta = new Vector2(0f, Monetization.BannerHeight);
 
         TextMeshProUGUI label = UIKit.CreateText(
-            banner, "Label", "ANUNCIO DE PRUEBA", UIFont.Label, 40f, palette.labelMuted, 6f);
+            banner, "Label", "TEST AD", UIFont.Label, 40f, palette.labelMuted, 6f);
         UIKit.Stretch(label.rectTransform);
 
         banner.gameObject.SetActive(false);
@@ -67,15 +67,15 @@ public sealed class SimulatedMonetization : MonoBehaviour, IAdsProvider, IStoreP
         UIKit.Stretch(interstitial.rectTransform);
 
         TextMeshProUGUI title = UIKit.CreateText(
-            interstitial.rectTransform, "Title", "ANUNCIO", UIFont.Display, 180f, palette.text, 6f);
+            interstitial.rectTransform, "Title", "AD", UIFont.Display, 180f, palette.text, 6f);
         UIKit.PlaceCenter(title.rectTransform, new Vector2(0f, 180f), new Vector2(980f, 210f));
 
         TextMeshProUGUI subtitle = UIKit.CreateText(
-            interstitial.rectTransform, "Subtitle", "Simulación de un anuncio de pantalla completa",
+            interstitial.rectTransform, "Subtitle", "Full-screen ad simulation",
             UIFont.Body, 40f, palette.labelMuted);
         UIKit.PlaceCenter(subtitle.rectTransform, new Vector2(0f, 30f), new Vector2(980f, 60f));
 
-        closeButton = UIButton.Create(interstitial.rectTransform, "AdCloseButton", "CERRAR", ButtonVariant.Neutral);
+        closeButton = UIButton.Create(interstitial.rectTransform, "AdCloseButton", "CLOSE", ButtonVariant.Neutral);
         UIKit.PlaceCenter(closeButton.RectTransform, new Vector2(0f, -220f), closeButton.RectTransform.sizeDelta);
         closeButton.OnClick.AddListener(CloseInterstitial);
 
@@ -90,26 +90,26 @@ public sealed class SimulatedMonetization : MonoBehaviour, IAdsProvider, IStoreP
         RectTransform content = purchaseDialog.Content;
 
         TextMeshProUGUI title = UIKit.CreateText(
-            content, "Title", "QUITAR ANUNCIOS", UIFont.Display, 96f, palette.text, 4f);
+            content, "Title", "REMOVE ADS", UIFont.Display, 96f, palette.text, 4f);
         title.rectTransform.sizeDelta = new Vector2(760f, 120f);
         purchaseDialog.Add(title, 120f);
 
         TextMeshProUGUI price = UIKit.CreateText(
-            content, "Price", $"Pago único de {MonetizationConfig.FallbackPrice}", UIFont.Body, 44f, palette.text);
+            content, "Price", $"One-time payment of {MonetizationConfig.FallbackPrice}", UIFont.Body, 44f, palette.text);
         price.rectTransform.sizeDelta = new Vector2(760f, 60f);
         purchaseDialog.Add(price, 60f, 24f);
 
         TextMeshProUGUI test = UIKit.CreateText(
-            content, "TestNotice", "Compra de prueba: no se cobra nada", UIFont.Body, 32f, palette.labelMuted);
+            content, "TestNotice", "Test purchase: you won't be charged", UIFont.Body, 32f, palette.labelMuted);
         test.rectTransform.sizeDelta = new Vector2(760f, 44f);
         purchaseDialog.Add(test, 44f, 12f);
 
-        UIButton buy = UIButton.Create(content, "BuyButton", "COMPRAR", ButtonVariant.Primary);
+        UIButton buy = UIButton.Create(content, "BuyButton", "BUY", ButtonVariant.Primary);
         purchaseDialog.Add(buy, buy.LayoutHeight, 48f);
         buy.OnClick.AddListener(() => FinishPurchase(true));
         buy.ClickSound = null; // la compra exitosa toca ui_unlock
 
-        UIButton cancel = UIButton.Create(content, "BackButton", "CANCELAR", ButtonVariant.Neutral);
+        UIButton cancel = UIButton.Create(content, "BackButton", "CANCEL", ButtonVariant.Neutral);
         purchaseDialog.Add(cancel, cancel.LayoutHeight, 36f);
         cancel.OnClick.AddListener(() => FinishPurchase(false));
 
@@ -160,11 +160,11 @@ public sealed class SimulatedMonetization : MonoBehaviour, IAdsProvider, IStoreP
 
         for (int seconds = InterstitialSeconds; seconds > 0; seconds--)
         {
-            closeButton.SetText($"CERRAR EN {seconds}");
+            closeButton.SetText($"CLOSE IN {seconds}");
             yield return new WaitForSecondsRealtime(1f);
         }
 
-        closeButton.SetText("CERRAR");
+        closeButton.SetText("CLOSE");
         closeButton.SetInteractable(true);
     }
 

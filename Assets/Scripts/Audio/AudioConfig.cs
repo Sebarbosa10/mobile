@@ -4,7 +4,7 @@ using UnityEngine;
 // Referencias a los objetos de Wwise que usa el juego. Cada campo se llama igual que su objeto
 // en Wwise (los States como Grupo_State): Tools > Audio > Vincular objetos de Wwise los completa
 // leyendo Audio/Tools/wwise_objects.json, que exporta Audio/Tools/wwise_build.py.
-[CreateAssetMenu(fileName = "AudioConfig", menuName = "Última Luz/Audio Config")]
+[CreateAssetMenu(fileName = "AudioConfig", menuName = "Hoop Rush/Audio Config")]
 public sealed class AudioConfig : ScriptableObject
 {
     public const string ResourcePath = "AudioConfig";

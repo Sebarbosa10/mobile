@@ -144,7 +144,7 @@ public abstract class ChallengeControllerBase : MonoBehaviour, IGameSession
                 : SkinDatabase.ChallengeRewards(ChallengeNumber);
 
             if (rewards.Length > 0)
-                summary = $"Desbloqueaste: {rewards}";
+                summary = $"Unlocked: {rewards}";
 
             ChallengeProgress.MarkCompleted(ChallengeNumber);
         }

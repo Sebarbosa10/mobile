@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SkinDatabase", menuName = "Última Luz/Skin Database")]
+[CreateAssetMenu(fileName = "SkinDatabase", menuName = "Hoop Rush/Skin Database")]
 public sealed class SkinDatabase : ScriptableObject
 {
     public BallSkin[] balls = Array.Empty<BallSkin>();
@@ -43,7 +43,7 @@ public sealed class SkinDatabase : ScriptableObject
                 names.Add(theme.displayName);
         }
 
-        return string.Join(" y ", names);
+        return string.Join(" & ", names);
     }
 
     private static bool GrantedBy(UnlockCondition unlock, int challengeNumber) =>

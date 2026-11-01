@@ -12,7 +12,7 @@ public enum UIFont
     Label
 }
 
-[CreateAssetMenu(fileName = "UISkin", menuName = "Última Luz/UI Skin")]
+[CreateAssetMenu(fileName = "UISkin", menuName = "Hoop Rush/UI Skin")]
 public sealed class UISkin : ScriptableObject
 {
     private const int SamplingPointSize = 90;

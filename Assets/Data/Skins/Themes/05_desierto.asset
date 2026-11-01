@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 05_desierto
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
   id: desierto
-  displayName: Desierto
-  description: Mesetas rojas, cactus y un sol enorme sobre la arena caliente de la
-    tarde.
+  displayName: "Desert"
+  description: "Red mesas, cacti and a huge sun over the hot afternoon sand."
   palette:
   - {r: 0.9647059, g: 0.64705884, b: 0.2901961, a: 1}
   - {r: 0.9843137, g: 0.8862745, b: 0.6509804, a: 1}
@@ -41,6 +40,6 @@ MonoBehaviour:
   unlock:
     type: 3
     value: 4
-    shortText: "Complet\xE1 Sin fallar"
+    shortText: "Beat No Misses"
   thumbnail: {fileID: 2800000, guid: b34cb1bcf5a83a2428a227ce6d41d58b, type: 3}
   triangleCount: 132

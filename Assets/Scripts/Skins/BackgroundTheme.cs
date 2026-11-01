@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BackgroundTheme", menuName = "Última Luz/Background Theme")]
+[CreateAssetMenu(fileName = "BackgroundTheme", menuName = "Hoop Rush/Background Theme")]
 public sealed class BackgroundTheme : ScriptableObject
 {
     public string id;

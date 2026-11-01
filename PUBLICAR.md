@@ -1,4 +1,4 @@
-# Cómo publicar Última Luz en Google Play
+# Cómo publicar Hoop Rush en Google Play
 
 Hoy el juego usa AdMob y Google Play Billing con **datos de prueba**. Estos pasos los hacés una sola vez
 con tus cuentas; ningún dato real va en este repo salvo los IDs indicados.
@@ -23,7 +23,7 @@ con tus cuentas; ningún dato real va en este repo salvo los IDs indicados.
 - [ ] Publicar `app-ads.txt` en un sitio propio, si AdMob lo pide.
 
 ## 4. Google Play Console
-- [ ] Crear la app con el paquete `com.sebarbosa.ultimaluz`, o cambiarlo antes en
+- [ ] Crear la app con el paquete `com.sebarbosa.hooprush`, o cambiarlo antes en
       [MobileBuildSettings.cs](Assets/Scripts/Editor/MobileBuildSettings.cs). No se puede cambiar después de publicar.
 - [ ] Subir una primera versión a **Prueba interna**: Play no deja crear productos sin una build subida.
 - [ ] Crear el producto único `remove_ads` a US$1. El ID tiene que coincidir con `RemoveAdsProductId`.
@@ -41,4 +41,4 @@ configuración de anuncios.
 - [ ] Poner `ShowInReleaseBuilds` en `false` en [FpsCounter.cs](Assets/Scripts/Gameplay/FpsCounter.cs) para ocultar el contador de FPS.
 - [ ] Subir `bundleVersion` y `Bundle Version Code` en cada versión.
 - [ ] Generar **Tools › Build › Android AAB (publicación)**. Falla a propósito si siguen los IDs de prueba o no hay keystore.
-- [ ] Subir `Builds/UltimaLuz.aab` a Prueba interna y comprobar anuncios, compra, reinstalación y recuperación de la compra.
+- [ ] Subir `Builds/HoopRush.aab` a Prueba interna y comprobar anuncios, compra, reinstalación y recuperación de la compra.

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 04_nevado
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
   id: nevado
-  displayName: Nevado
-  description: "Una cancha helada entre pinos, con las monta\xF1as nevadas y el fr\xEDo
-    de la tarde."
+  displayName: "Snowy"
+  description: "A frozen court among the pines, with snowy mountains and the afternoon chill."
   palette:
   - {r: 0.105882354, g: 0.16470589, b: 0.2901961, a: 1}
   - {r: 0.4862745, g: 0.5764706, b: 0.7607843, a: 1}
@@ -41,6 +40,6 @@ MonoBehaviour:
   unlock:
     type: 3
     value: 3
-    shortText: "Complet\xE1 Contrarreloj"
+    shortText: "Beat Time Attack"
   thumbnail: {fileID: 2800000, guid: 3fcb481543552a84b8dd067ebf21b6c4, type: 3}
   triangleCount: 102

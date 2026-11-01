@@ -20,7 +20,7 @@ public static class UiSpriteAtlasSetup
         };
     }
 
-    [MenuItem("Última Luz/Crear o actualizar Sprite Atlas UI")]
+    [MenuItem("Hoop Rush/Crear o actualizar Sprite Atlas UI")]
     public static void CreateAtlas()
     {
         List<Object> sprites = new();

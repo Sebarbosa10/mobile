@@ -126,11 +126,11 @@ public sealed class SkinCard : MonoBehaviour
         }
         else if (equipped)
         {
-            SetStatus("EN USO", UIFont.Label, palette.success);
+            SetStatus("EQUIPPED", UIFont.Label, palette.success);
         }
         else
         {
-            SetStatus(feminine ? "Desbloqueada" : "Desbloqueado", UIFont.Body, palette.labelMuted);
+            SetStatus(feminine ? "Unlocked" : "Unlocked", UIFont.Body, palette.labelMuted);
         }
 
         border.gameObject.SetActive(equipped || selected);

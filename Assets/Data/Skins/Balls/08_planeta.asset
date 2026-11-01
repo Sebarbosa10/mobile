@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 08_planeta
   m_EditorClassIdentifier: Assembly-CSharp::BallSkin
   id: planeta
-  displayName: Planeta
+  displayName: "Planet"
   prefab: {fileID: 4740749504134824775, guid: 9024ce607c868ab4891bd9b002c0c042, type: 3}
   mesh: {fileID: 4300000, guid: 6f12a9b1df5dadc438cb899a9c84383c, type: 2}
   materials:
@@ -31,5 +31,5 @@ MonoBehaviour:
   unlock:
     type: 3
     value: 5
-    shortText: "Complet\xE1 Persecuci\xF3n"
+    shortText: "Beat Hoop Chase"
   icon: {fileID: 21300000, guid: 8ee897df6bd95c64b8e55ad71bce336b, type: 3}

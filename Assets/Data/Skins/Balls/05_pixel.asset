@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 05_pixel
   m_EditorClassIdentifier: Assembly-CSharp::BallSkin
   id: pixel
-  displayName: Pixel
+  displayName: "Pixel"
   prefab: {fileID: 3456401147751618863, guid: 29b75ac2083954d4d9c6455b46edfd69, type: 3}
   mesh: {fileID: 4300000, guid: dca2fe3f1b64c7248872b14480a8ee0a, type: 2}
   materials:
@@ -30,5 +30,5 @@ MonoBehaviour:
   unlock:
     type: 3
     value: 2
-    shortText: "Complet\xE1 Aro esquivo"
+    shortText: "Beat Dodgy Hoop"
   icon: {fileID: 21300000, guid: 6e13959fb7149df468926e6a30d7c8fc, type: 3}

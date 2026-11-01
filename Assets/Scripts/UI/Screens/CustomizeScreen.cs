@@ -76,8 +76,8 @@ public sealed class CustomizeScreen : UIScreen
         UIKit.SetChipRadius(tabs, 36f);
         UIKit.PlaceTop(tabs.rectTransform, TabsTop, new Vector2(ContentWidth, TabsHeight));
 
-        screen.tabButtons[0] = TabButton.Create(tabs.rectTransform, "PELOTAS", left: true);
-        screen.tabButtons[1] = TabButton.Create(tabs.rectTransform, "FONDOS", left: false);
+        screen.tabButtons[0] = TabButton.Create(tabs.rectTransform, "BALLS", left: true);
+        screen.tabButtons[1] = TabButton.Create(tabs.rectTransform, "COURTS", left: false);
         screen.tabButtons[0].Clicked += () => screen.ClickTab(Tab.Balls);
         screen.tabButtons[1].Clicked += () => screen.ClickTab(Tab.Themes);
 
@@ -99,12 +99,12 @@ public sealed class CustomizeScreen : UIScreen
         Vector2 buttonSize = new(470f, UIButton.DefaultSize.y + UIKit.ButtonLip);
         const float buttonOffset = (470f + 44f) * 0.5f;
 
-        UIButton back = UIButton.Create(safe, "BackButton", "VOLVER", ButtonVariant.Neutral);
+        UIButton back = UIButton.Create(safe, "BackButton", "BACK", ButtonVariant.Neutral);
         back.RectTransform.sizeDelta = buttonSize;
         UIKit.PlaceBottom(back.RectTransform, 0f, buttonSize, -buttonOffset);
         back.OnClick.AddListener(() => screen.BackRequested?.Invoke());
 
-        screen.equipButton = UIButton.Create(safe, "EquipButton", "EQUIPAR", ButtonVariant.Primary);
+        screen.equipButton = UIButton.Create(safe, "EquipButton", "EQUIP", ButtonVariant.Primary);
         screen.equipButton.RectTransform.sizeDelta = buttonSize;
         UIKit.PlaceBottom(screen.equipButton.RectTransform, 0f, buttonSize, buttonOffset);
         screen.equipButton.OnClick.AddListener(screen.Equip);
@@ -133,7 +133,7 @@ public sealed class CustomizeScreen : UIScreen
         ballName = Layout(UIKit.CreateText(text, "Name", "", UIFont.Display, 88f, palette.text, 2f, TextAlignmentOptions.Left), 97f);
         ballStatus = StatusRow.Create(text, 32f);
 
-        TextMeshProUGUI hint = UIKit.CreateText(text, "Hint", "Sacudí el celu para ver sus variantes:", UIFont.Body, 30f,
+        TextMeshProUGUI hint = UIKit.CreateText(text, "Hint", "Shake your phone to see its variants:", UIFont.Body, 30f,
             palette.labelMuted, 0f, TextAlignmentOptions.Left);
         hint.textWrappingMode = TextWrappingModes.Normal;
 
@@ -367,7 +367,7 @@ public sealed class CustomizeScreen : UIScreen
 
         stage.Show(selectedBall);
         ballName.text = selectedBall.displayName.ToUpperInvariant();
-        ballStatus.Set(unlocked, equipped ? "En uso" : unlocked ? "Desbloqueada" : selectedBall.unlock.shortText);
+        ballStatus.Set(unlocked, equipped ? "Equipped" : unlocked ? "Unlocked" : selectedBall.unlock.shortText);
 
         for (int i = 0; i < variantDots.Count; i++)
         {
@@ -402,7 +402,7 @@ public sealed class CustomizeScreen : UIScreen
 
         themeThumbnail.texture = selectedTheme.thumbnail;
         themeName.text = selectedTheme.displayName.ToUpperInvariant();
-        themeStatus.Set(unlocked, equipped ? "En uso" : unlocked ? "Desbloqueado" : selectedTheme.unlock.shortText);
+        themeStatus.Set(unlocked, equipped ? "Equipped" : unlocked ? "Unlocked" : selectedTheme.unlock.shortText);
         themeDescription.text = selectedTheme.description;
 
         for (int i = 0; i < paletteSwatches.Count; i++)

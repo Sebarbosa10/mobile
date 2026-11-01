@@ -112,7 +112,7 @@ public sealed class ChallengeCard : MonoBehaviour
         string rewards = SkinDatabase.ChallengeRewards(definition.Number);
 
         card.rewardText = UIKit.CreateText(
-            textBlock, "Reward", $"Premio: {rewards}",
+            textBlock, "Reward", $"Reward: {rewards}",
             UIFont.Body, 28f, palette.text, 0f, TextAlignmentOptions.Left);
         card.rewardText.gameObject.SetActive(rewards.Length > 0);
 
@@ -166,8 +166,8 @@ public sealed class ChallengeCard : MonoBehaviour
         rewardText.color = locked ? palette.lockedSubtext : palette.text;
         descriptionText.text = state switch
         {
-            ChallengeCardState.Locked => $"Requiere {definition.RequiredBaskets} encestadas",
-            ChallengeCardState.Completed => "Completado. Tocá para volver a jugarlo.",
+            ChallengeCardState.Locked => $"Requires {definition.RequiredBaskets} baskets",
+            ChallengeCardState.Completed => "Completed. Tap to play again.",
             _ => definition.Description
         };
 

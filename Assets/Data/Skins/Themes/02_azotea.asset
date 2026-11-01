@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 02_azotea
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
   id: azotea
-  displayName: Azotea
-  description: "Una terraza en el centro, de noche: carteles de ne\xF3n, tanque de
-    agua y la ciudad prendida."
+  displayName: "Rooftop"
+  description: "A downtown rooftop at night: neon signs, a water tank and the city lit up."
   palette:
   - {r: 0.05490196, g: 0.0627451, b: 0.1882353, a: 1}
   - {r: 0.22745098, g: 0.14117648, b: 0.4392157, a: 1}
@@ -45,6 +44,6 @@ MonoBehaviour:
   unlock:
     type: 3
     value: 1
-    shortText: "Complet\xE1 Carrusel"
+    shortText: "Beat Carousel"
   thumbnail: {fileID: 2800000, guid: 18da6c0b17a67cb4389c331b7856f328, type: 3}
   triangleCount: 666

@@ -36,15 +36,15 @@ public static class BallSkinBuilder
 
         List<BallSkin> skins = new()
         {
-            Save("clasica", "Clásica", 1, Clasica(), UnlockCondition.Default()),
-            Save("playera", "Playera", 2, Playera(outline), UnlockCondition.Default()),
-            Save("tenis", "Tenis", 3, Tenis(faces, outline), UnlockCondition.Default()),
-            Save("sandia", "Sandía", 4, Sandia(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 1, "Completá Carrusel")),
-            Save("pixel", "Pixel", 5, Pixel(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 2, "Completá Aro esquivo")),
-            Save("neon", "Neón", 6, Neon(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 3, "Completá Contrarreloj")),
-            Save("lava", "Lava", 7, Lava(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 4, "Completá Sin fallar")),
-            Save("planeta", "Planeta", 8, Planeta(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 5, "Completá Persecución")),
-            Save("disco", "Disco", 9, Disco(faces, outline), UnlockCondition.Create(UnlockType.CompleteAllChallenges, 0, "Los 5 desafíos"))
+            Save("clasica", "Classic", 1, Clasica(), UnlockCondition.Default()),
+            Save("playera", "Beach Ball", 2, Playera(outline), UnlockCondition.Default()),
+            Save("tenis", "Tennis", 3, Tenis(faces, outline), UnlockCondition.Default()),
+            Save("sandia", "Watermelon", 4, Sandia(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 1, "Beat Carousel")),
+            Save("pixel", "Pixel", 5, Pixel(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 2, "Beat Dodgy Hoop")),
+            Save("neon", "Neon", 6, Neon(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 3, "Beat Time Attack")),
+            Save("lava", "Lava", 7, Lava(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 4, "Beat No Misses")),
+            Save("planeta", "Planet", 8, Planeta(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 5, "Beat Hoop Chase")),
+            Save("disco", "Disco", 9, Disco(faces, outline), UnlockCondition.Create(UnlockType.CompleteAllChallenges, 0, "All 5 challenges"))
         };
 
         foreach (BallSkin skin in skins.Where(s => s.prefab != null))
