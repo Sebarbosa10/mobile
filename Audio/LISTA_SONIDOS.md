@@ -46,11 +46,11 @@ Mandame el link de Freesound o dejá el archivo en cualquier carpeta y decime a 
 | ☐ | Sonido | Var. | Cuándo suena | Qué buscar | Duración | Canales | Suena ahora | Nota |
 |---|---|---|---|---|---|---|---|---|
 | ☐ | `amb_plaza` | 1 | Fondo Plaza, en loop. | Plaza al atardecer: pájaros, tráfico lejano, chicos a lo lejos. | 30–60 s, loop | estéreo | [city park Tel Aviv Israel.wav](https://freesound.org/people/yonts/sounds/268903/) | 🟠 Se pisaba con el piano. |
-| ☐ | `amb_azotea` | 1 | Fondo Azotea, en loop. | Ciudad de noche desde lo alto, zumbido de neón, viento. | 30–60 s, loop | estéreo | [Ambience City Quiet Night Air Tone](https://freesound.org/people/leonelmail/sounds/427841/) |  |
-| ☐ | `amb_playa` | 1 | Fondo Playa, en loop. | Olas y gaviotas. | 30–60 s, loop | estéreo | [Gentle ocean waves birdsong and gull.WAV](https://freesound.org/people/jackmichaelking/sounds/518637/) |  |
-| ☐ | `amb_nevado` | 1 | Fondo Nevado, en loop. | Viento frío, sin tormenta exagerada. | 30–60 s, loop | estéreo | [Wind__Artic__Cold.wav](https://freesound.org/people/cobratronik/sounds/117136/) |  |
-| ☐ | `amb_desierto` | 1 | Fondo Desierto, en loop. | Viento seco con insectos. | 30–60 s, loop | estéreo | [Dry grass rustling in the wind, in the desert of Chile.](https://freesound.org/people/felix.blume/sounds/146436/) | 🟡 No tiene insectos. |
-| ☐ | `amb_espacio` | 1 | Fondo Espacio, en loop. | Drone grave y estable. | 30–60 s, loop | estéreo | [Space Station Drone](https://freesound.org/people/db3005/sounds/686237/) |  |
+| ☐ | `amb_azotea` | 1 | Fondo Rooftop, en loop. | Ciudad de noche desde lo alto, zumbido de neón, viento. | 30–60 s, loop | estéreo | [Ambience City Quiet Night Air Tone](https://freesound.org/people/leonelmail/sounds/427841/) |  |
+| ☐ | `amb_playa` | 1 | Fondo Beach, en loop. | Olas y gaviotas. | 30–60 s, loop | estéreo | [Gentle ocean waves birdsong and gull.WAV](https://freesound.org/people/jackmichaelking/sounds/518637/) |  |
+| ☐ | `amb_nevado` | 1 | Fondo Snowy, en loop. | Viento frío, sin tormenta exagerada. | 30–60 s, loop | estéreo | [Wind__Artic__Cold.wav](https://freesound.org/people/cobratronik/sounds/117136/) |  |
+| ☐ | `amb_desierto` | 1 | Fondo Desert, en loop. | Viento seco con insectos. | 30–60 s, loop | estéreo | [Dry grass rustling in the wind, in the desert of Chile.](https://freesound.org/people/felix.blume/sounds/146436/) | 🟡 No tiene insectos. |
+| ☐ | `amb_espacio` | 1 | Fondo Space, en loop. | Drone grave y estable. | 30–60 s, loop | estéreo | [Space Station Drone](https://freesound.org/people/db3005/sounds/686237/) |  |
 
 ## Pelota
 

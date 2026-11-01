@@ -31,12 +31,14 @@ con tus cuentas; ningún dato real va en este repo salvo los IDs indicados.
 - [ ] Completar **Seguridad de los datos**: AdMob recopila el ID de publicidad y datos del dispositivo.
 - [ ] Declarar que la app contiene anuncios, la clasificación por edades y el público objetivo.
 - [ ] Publicar una **política de privacidad** en una URL pública y cargarla en la ficha.
-- [ ] Preparar la ficha: ícono de 512×512, gráfico de 1024×500, capturas y descripciones.
+- [ ] Preparar la ficha en inglés: título `Hoop Rush: Street Basketball`, ícono de 512×512, gráfico de 1024×500, capturas y descripciones.
+- [ ] Comprobar antes que el nombre esté libre en Google Play y que no choque con una marca registrada.
 
 Si el público objetivo incluye menores de 13 años, avisá antes de publicar: AdMob y Play exigen otra
 configuración de anuncios.
 
 ## 5. Build de publicación
+- [ ] En iOS, reemplazar el identificador de la plantilla de Unity por uno propio antes de compilar para iPhone.
 - [ ] Reemplazar la música, reactivarla en [AudioManager.cs](Assets/Scripts/Audio/AudioManager.cs) y volver a probar.
 - [ ] Poner `ShowInReleaseBuilds` en `false` en [FpsCounter.cs](Assets/Scripts/Gameplay/FpsCounter.cs) para ocultar el contador de FPS.
 - [ ] Subir `bundleVersion` y `Bundle Version Code` en cada versión.
