@@ -131,35 +131,35 @@ public static class ThemeBuilder
         "Una terraza en el centro, de noche: carteles de neón, tanque de agua y la ciudad prendida.",
         new[] { "#0E1030", "#3A2470", "#F04E8A", "#2EC4E6", "#FFD071" },
         new[] { "#0E1030", "#3A2470" },
-        "#3A3550", "#2EC4E6", 0.35f, UnlockCondition.Default());
+        "#3A3550", "#2EC4E6", 0.35f, UnlockCondition.Create(UnlockType.CompleteChallenge, 1, "Completá Carrusel"));
 
     private static BackgroundTheme Playa() => Theme(
         "playa", "Playa",
         "Arena caliente, el mar de fondo y una palmera que da sombra al costado de la cancha.",
         new[] { "#3FB7E8", "#BDEBF5", "#1F8FBF", "#F2D49B", "#2F9E4F" },
         new[] { "#3FB7E8", "#BDEBF5" },
-        "#F2D49B", "#E3701F", 0.5f, UnlockCondition.Create(UnlockType.Record, 25, "Récord 25"));
+        "#F2D49B", "#E3701F", 0.5f, UnlockCondition.Create(UnlockType.CompleteChallenge, 2, "Completá Aro esquivo"));
 
     private static BackgroundTheme Nevado() => Theme(
         "nevado", "Nevado",
         "Una cancha helada entre pinos, con las montañas nevadas y el frío de la tarde.",
         new[] { "#1B2A4A", "#7C93C2", "#E8EEF7", "#B7C6DE", "#1E3B4A" },
         new[] { "#1B2A4A", "#7C93C2" },
-        "#DCE8F2", "#7C93C2", 1f, UnlockCondition.Create(UnlockType.TotalBaskets, 150, "150 encestadas"));
+        "#DCE8F2", "#7C93C2", 1f, UnlockCondition.Create(UnlockType.CompleteChallenge, 3, "Completá Contrarreloj"));
 
     private static BackgroundTheme Desierto() => Theme(
         "desierto", "Desierto",
         "Mesetas rojas, cactus y un sol enorme sobre la arena caliente de la tarde.",
         new[] { "#F6A54A", "#FBE2A6", "#C4572E", "#E7B46A", "#2F7D4F" },
         new[] { "#F6A54A", "#FBE2A6" },
-        "#E7B46A", "#C4572E", 0.5f, UnlockCondition.Create(UnlockType.Record, 50, "Récord 50"));
+        "#E7B46A", "#C4572E", 0.5f, UnlockCondition.Create(UnlockType.CompleteChallenge, 4, "Completá Sin fallar"));
 
     private static BackgroundTheme Espacio() => Theme(
         "espacio", "Espacio",
         "Una cancha en la Luna: cráteres, estrellas y la Tierra mirando desde arriba.",
         new[] { "#0B0820", "#2A1450", "#2E7DE0", "#40D959", "#8A8798" },
         new[] { "#0B0820", "#2A1450" },
-        "#8A8798", null, 0f, UnlockCondition.Create(UnlockType.CompleteAllChallenges, 0, "Los 3 desafíos"));
+        "#8A8798", null, 0f, UnlockCondition.Create(UnlockType.CompleteChallenge, 5, "Completá Persecución"));
 
     private static BackgroundTheme Save(BackgroundTheme theme, Built built)
     {

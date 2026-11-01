@@ -127,11 +127,3 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1032800889	ui_tap	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Windows\SFX\UI\ui_tap_A2498ED0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ui_tap		1752
 	1058303442	ball_air	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Windows\SFX\Ball\ball_air_806A9D1A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ball\ball_air		21696
 
-Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
-	49830671	amb_plaza	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Windows\SFX\Ambience\amb_plaza_56CEF360.wem	49830671.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_plaza	
-	207063030	amb_espacio	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Windows\SFX\Ambience\amb_espacio_56CEF360.wem	207063030.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_espacio	
-	300589693	amb_desierto	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Windows\SFX\Ambience\amb_desierto_56CEF360.wem	300589693.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_desierto	
-	394124802	amb_nevado	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Windows\SFX\Ambience\amb_nevado_56CEF360.wem	394124802.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_nevado	
-	445611676	amb_azotea	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Windows\SFX\Ambience\amb_azotea_56CEF360.wem	445611676.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_azotea	
-	605226269	amb_playa	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Windows\SFX\Ambience\amb_playa_56CEF360.wem	605226269.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_playa	
-

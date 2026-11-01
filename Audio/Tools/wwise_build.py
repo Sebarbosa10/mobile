@@ -183,6 +183,10 @@ STINGERS = {"stg_nuevo_record": "Stg_NuevoRecord", "stg_victoria": "Stg_Victoria
 
 MUSIC_DUCK_DB = -4
 
+# Música y ambientes van dentro de los bancos: el paquete de Addressables 23.1 no registra los .wem
+# de streaming en los grupos, así que no llegarían al APK. Son unos 9 MB en total.
+STREAM_LONG_AUDIO = False
+
 
 # ------------------------------------------------------------------ pasos
 
@@ -305,7 +309,7 @@ def build_ambience():
         "type": "SwitchContainer", "name": "amb_switch", "@SwitchBehavior": 1,
         "@SwitchGroupOrStateGroup": f"{STATES}\\Theme", "@DefaultSwitchOrState": f"{STATES}\\Theme\\Plaza",
         "children": [{"type": "Sound", "name": s, "@IsLoopingEnabled": True, "@IsLoopingInfinite": True,
-                      "@IsStreamingEnabled": True} for s in THEMES.values()]}]}])
+                      "@IsStreamingEnabled": STREAM_LONG_AUDIO} for s in THEMES.values()]}]}])
     sw = am + r"\amb_switch"
     import_audio([{"audioFile": wavs("Ambience", s)[0], "objectPath": f"{sw}\\<Sound SFX>{s}",
                    "originalsSubFolder": "Ambience"} for s in THEMES.values()])
@@ -343,7 +347,7 @@ def build_music():
             "type": "MusicPlaylistContainer", "name": state,
             "children": [{"type": "MusicSegment", "name": seg, "@OverrideClockSettings": True, "@Tempo": bpm,
                           "@TimeSignatureUpper": 4, "@TimeSignatureLower": 4, "@EndPosition": seg_len,
-                          "children": [{"type": "MusicTrack", "name": t, "@IsStreamingEnabled": True, "@Volume": vol,
+                          "children": [{"type": "MusicTrack", "name": t, "@IsStreamingEnabled": STREAM_LONG_AUDIO, "@Volume": vol,
                                         **({"@RTPC": [rtpc("Score", "Volume", curve_pts)]} if curve_pts else {})}
                                        for t, _, vol, curve_pts in tracks]}]}]}])
         seg_path = f"{msc}\\{state}\\{seg}"
@@ -497,7 +501,6 @@ def export_objects():
 def main():
     info = call("ak.wwise.core.getInfo")
     print("Conectado a", info["version"]["displayName"])
-    call("ak.wwise.core.undo.beginGroup")
     try:
         build_buses()
         build_game_parameters()
@@ -508,8 +511,7 @@ def main():
         names = build_events()
         banks = build_banks(names)
     finally:
-        call("ak.wwise.core.undo.endGroup", {"displayName": "Audio: estructura del juego"})
-    call("ak.wwise.core.project.save")
+        call("ak.wwise.core.project.save")
     export_objects()
     if "--generate" in sys.argv:
         generate(banks)

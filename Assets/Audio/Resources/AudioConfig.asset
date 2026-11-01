@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AudioConfig
   m_EditorClassIdentifier: Assembly-CSharp::AudioConfig
   wwiseInitializationSettings: {fileID: 11400000, guid: f793718a5ca59c04ab1b3372cb4932ff, type: 2}
+  wwiseInitBank: {fileID: 11400000, guid: 1954e7503f003fb4eb6642b59be99f46, type: 2}
   Main:
     idInternal: 0
     valueGuidInternal: 

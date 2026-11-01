@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using AK.Wwise.Unity.WwiseAddressables;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public static class AudioSetup
     private const string ConfigFolder = "Assets/Audio/Resources";
     private const string ConfigPath = ConfigFolder + "/AudioConfig.asset";
     private const string InitSettingsPath = "Assets/Wwise/ScriptableObjects/AkWwiseInitializationSettings.asset";
+    private const string InitBankPath = "Assets/Wwise/ScriptableObjects/InitBank.asset";
     private const string LastBindKey = "AudioSetup.LastBoundJsonTicks";
 
     private static string JsonPath =>
@@ -94,6 +96,9 @@ public static class AudioSetup
 
         if (config.wwiseInitializationSettings == null)
             config.wwiseInitializationSettings = AssetDatabase.LoadAssetAtPath<ScriptableObject>(InitSettingsPath);
+
+        if (config.wwiseInitBank == null)
+            config.wwiseInitBank = AssetDatabase.LoadAssetAtPath<WwiseInitBankReference>(InitBankPath);
 
         EditorUtility.SetDirty(config);
         AssetDatabase.SaveAssets();

@@ -2,13 +2,13 @@ using UnityEngine;
 
 public sealed class ChallengeSelector : MonoBehaviour
 {
-    [Tooltip("Índice 0 = Desafío 1, índice 1 = Desafío 2, etc.")]
+    [Tooltip("Raíces de la escena. Cada desafío de ChallengeCatalog indica cuál usa.")]
     [SerializeField]
     private GameObject[] challengeRoots = System.Array.Empty<GameObject>();
 
     private void Awake()
     {
-        int selectedIndex = ChallengeSelection.SelectedChallenge - 1;
+        int selectedIndex = ChallengeCatalog.Get(ChallengeSelection.SelectedChallenge).RootIndex;
 
         for (int i = 0; i < challengeRoots.Length; i++)
         {

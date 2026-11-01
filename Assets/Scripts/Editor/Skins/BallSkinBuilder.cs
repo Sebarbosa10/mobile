@@ -39,12 +39,12 @@ public static class BallSkinBuilder
             Save("clasica", "Clásica", 1, Clasica(), UnlockCondition.Default()),
             Save("playera", "Playera", 2, Playera(outline), UnlockCondition.Default()),
             Save("tenis", "Tenis", 3, Tenis(faces, outline), UnlockCondition.Default()),
-            Save("sandia", "Sandía", 4, Sandia(faces, outline), UnlockCondition.Create(UnlockType.Record, 15, "Récord 15")),
-            Save("pixel", "Pixel", 5, Pixel(faces, outline), UnlockCondition.Create(UnlockType.TotalBaskets, 60, "60 encestadas")),
-            Save("neon", "Neón", 6, Neon(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 1, "Completá Carrusel")),
-            Save("lava", "Lava", 7, Lava(faces, outline), UnlockCondition.Create(UnlockType.Record, 30, "Récord 30")),
-            Save("planeta", "Planeta", 8, Planeta(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 3, "Completá Contrarreloj")),
-            Save("disco", "Disco", 9, Disco(faces, outline), UnlockCondition.Create(UnlockType.CompleteAllChallenges, 0, "Los 3 desafíos"))
+            Save("sandia", "Sandía", 4, Sandia(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 1, "Completá Carrusel")),
+            Save("pixel", "Pixel", 5, Pixel(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 2, "Completá Aro esquivo")),
+            Save("neon", "Neón", 6, Neon(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 3, "Completá Contrarreloj")),
+            Save("lava", "Lava", 7, Lava(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 4, "Completá Sin fallar")),
+            Save("planeta", "Planeta", 8, Planeta(faces, outline), UnlockCondition.Create(UnlockType.CompleteChallenge, 5, "Completá Persecución")),
+            Save("disco", "Disco", 9, Disco(faces, outline), UnlockCondition.Create(UnlockType.CompleteAllChallenges, 0, "Los 5 desafíos"))
         };
 
         foreach (BallSkin skin in skins.Where(s => s.prefab != null))

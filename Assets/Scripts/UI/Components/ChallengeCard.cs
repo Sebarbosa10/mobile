@@ -13,7 +13,7 @@ public enum ChallengeCardState
 
 public sealed class ChallengeCard : MonoBehaviour
 {
-    public static readonly Vector2 Size = new(984f, 280f);
+    public static readonly Vector2 Size = new(984f, 212f);
 
     private const float ShakeDistance = 6f;
     private const float ShakeDuration = 0.15f;
@@ -30,6 +30,7 @@ public sealed class ChallengeCard : MonoBehaviour
     private Image checkIcon;
     private TextMeshProUGUI titleText;
     private TextMeshProUGUI descriptionText;
+    private TextMeshProUGUI rewardText;
     private Image playIcon;
     private Image lockIcon;
 
@@ -71,25 +72,25 @@ public sealed class ChallengeCard : MonoBehaviour
         UIKit.Place(
             card.numberDisc.rectTransform,
             new Vector2(0f, 0.5f), new Vector2(0f, 0.5f),
-            new Vector2(40f, 0f), new Vector2(150f, 150f));
+            new Vector2(36f, 0f), new Vector2(124f, 124f));
 
         card.numberText = UIKit.CreateText(
             card.numberDisc.rectTransform, "Number", definition.Number.ToString(),
-            UIFont.Display, 96f, palette.text);
+            UIFont.Display, 80f, palette.text);
         UIKit.Stretch(card.numberText.rectTransform);
 
         card.checkIcon = UIKit.CreateImage(card.numberDisc.rectTransform, "Check", skin.iconCheck, palette.onSuccess);
-        UIKit.PlaceCenter(card.checkIcon.rectTransform, Vector2.zero, new Vector2(92f, 92f));
+        UIKit.PlaceCenter(card.checkIcon.rectTransform, Vector2.zero, new Vector2(76f, 76f));
 
         RectTransform textBlock = UIKit.CreateRect(card.content, "TextBlock");
         textBlock.anchorMin = new Vector2(0f, 0.5f);
         textBlock.anchorMax = new Vector2(1f, 0.5f);
         textBlock.pivot = new Vector2(0.5f, 0.5f);
-        textBlock.offsetMin = new Vector2(40f + 150f + 32f, 0f);
+        textBlock.offsetMin = new Vector2(36f + 124f + 28f, 0f);
         textBlock.offsetMax = new Vector2(-(40f + 72f + 32f), 0f);
 
         VerticalLayoutGroup layout = textBlock.gameObject.AddComponent<VerticalLayoutGroup>();
-        layout.spacing = 8f;
+        layout.spacing = 4f;
         layout.childAlignment = TextAnchor.MiddleLeft;
         layout.childControlWidth = true;
         layout.childControlHeight = true;
@@ -101,12 +102,19 @@ public sealed class ChallengeCard : MonoBehaviour
 
         card.titleText = UIKit.CreateText(
             textBlock, "Title", definition.Name.ToUpperInvariant(),
-            UIFont.Display, 68f, palette.text, 2f, TextAlignmentOptions.Left);
+            UIFont.Display, 54f, palette.text, 2f, TextAlignmentOptions.Left);
 
         card.descriptionText = UIKit.CreateText(
             textBlock, "Description", definition.Description,
-            UIFont.Body, 34f, palette.text, 0f, TextAlignmentOptions.Left);
+            UIFont.Body, 28f, palette.text, 0f, TextAlignmentOptions.Left);
         card.descriptionText.textWrappingMode = TextWrappingModes.Normal;
+
+        string rewards = SkinDatabase.ChallengeRewards(definition.Number);
+
+        card.rewardText = UIKit.CreateText(
+            textBlock, "Reward", $"Premio: {rewards}",
+            UIFont.Body, 28f, palette.text, 0f, TextAlignmentOptions.Left);
+        card.rewardText.gameObject.SetActive(rewards.Length > 0);
 
         card.playIcon = UIKit.CreateImage(card.content, "Play", skin.iconPlay, palette.text);
         UIKit.Place(
@@ -155,6 +163,7 @@ public sealed class ChallengeCard : MonoBehaviour
         titleText.color = locked ? palette.lockedText : palette.text;
 
         descriptionText.color = locked ? palette.lockedSubtext : palette.text;
+        rewardText.color = locked ? palette.lockedSubtext : palette.text;
         descriptionText.text = state switch
         {
             ChallengeCardState.Locked => $"Requiere {definition.RequiredBaskets} encestadas",

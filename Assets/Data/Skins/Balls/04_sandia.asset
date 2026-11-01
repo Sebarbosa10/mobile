@@ -29,7 +29,7 @@ MonoBehaviour:
   - colors:
     - {r: 0.9490196, g: 0.8235294, b: 0.11764706, a: 1}
   unlock:
-    type: 1
-    value: 15
-    shortText: "R\xE9cord 15"
+    type: 3
+    value: 1
+    shortText: "Complet\xE1 Carrusel"
   icon: {fileID: 21300000, guid: 4d1344b18c12374448325f5d39cdfbdc, type: 3}

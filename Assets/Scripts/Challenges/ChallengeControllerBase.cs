@@ -138,7 +138,16 @@ public abstract class ChallengeControllerBase : MonoBehaviour, IGameSession
         pause.SetAvailable(false);
 
         if (won)
+        {
+            string rewards = ChallengeProgress.IsCompleted(ChallengeNumber)
+                ? ""
+                : SkinDatabase.ChallengeRewards(ChallengeNumber);
+
+            if (rewards.Length > 0)
+                summary = $"Desbloqueaste: {rewards}";
+
             ChallengeProgress.MarkCompleted(ChallengeNumber);
+        }
 
         ChallengeEnded?.Invoke(
             new ChallengeEndInfo(won, CurrentProgress, TargetProgress, summary));

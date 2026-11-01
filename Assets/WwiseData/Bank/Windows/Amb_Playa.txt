@@ -1,0 +1,3 @@
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	605226269	amb_playa	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\Windows\SFX\Ambience\amb_playa_56CEF360.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_playa		788590
+

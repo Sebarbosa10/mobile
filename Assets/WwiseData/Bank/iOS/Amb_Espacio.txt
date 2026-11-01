@@ -1,0 +1,3 @@
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	207063030	amb_espacio	C:\Users\sebas\OneDrive\Escritorio\Repos\mobile\mobile_WwiseProject\.cache\iOS\SFX\Ambience\amb_espacio_56CEF360.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\amb_switch\amb_espacio		826585
+

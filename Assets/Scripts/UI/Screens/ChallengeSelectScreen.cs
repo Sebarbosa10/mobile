@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public sealed class ChallengeSelectScreen : UIScreen
 {
+    private const float CardSpacing = 236f;
+
     private readonly List<ChallengeCard> cards = new();
 
     private TextMeshProUGUI countText;
@@ -73,7 +75,7 @@ public sealed class ChallengeSelectScreen : UIScreen
         for (int number = 1; number <= ChallengeCatalog.Count; number++)
         {
             ChallengeCard card = ChallengeCard.Create(safe, ChallengeCatalog.Get(number));
-            UIKit.PlaceTop(card.RectTransform, 384f + (number - 1) * 320f, cardSize);
+            UIKit.PlaceTop(card.RectTransform, 368f + (number - 1) * CardSpacing, cardSize);
             card.Selected += definition => screen.ChallengeSelected?.Invoke(definition);
             screen.cards.Add(card);
         }

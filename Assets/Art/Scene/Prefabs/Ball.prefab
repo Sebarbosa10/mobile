@@ -144,6 +144,7 @@ MonoBehaviour:
   - {r: 0.18, g: 0.769, b: 0.902, a: 1}
   - {r: 0.941, g: 0.306, b: 0.541, a: 1}
   - {r: 0.949, g: 0.824, b: 0.118, a: 1}
+  extraTints: []
   shakeThreshold: 2.5
   cooldown: 0.5
   transitionDuration: 0.18

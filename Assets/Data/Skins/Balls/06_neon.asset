@@ -30,6 +30,6 @@ MonoBehaviour:
     - {r: 0.2509804, g: 0.8509804, b: 0.34901962, a: 1}
   unlock:
     type: 3
-    value: 1
-    shortText: "Complet\xE1 Carrusel"
+    value: 3
+    shortText: "Complet\xE1 Contrarreloj"
   icon: {fileID: 21300000, guid: cf69730cf5f73f7408c664048fa9a4df, type: 3}

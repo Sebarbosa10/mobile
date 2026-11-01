@@ -39,8 +39,8 @@ MonoBehaviour:
   crack: {r: 0.707451, g: 0.7460392, b: 0.7781961, a: 1}
   key: {r: 0.4862745, g: 0.5764706, b: 0.7607843, a: 1}
   unlock:
-    type: 2
-    value: 150
-    shortText: 150 encestadas
+    type: 3
+    value: 3
+    shortText: "Complet\xE1 Contrarreloj"
   thumbnail: {fileID: 2800000, guid: 3fcb481543552a84b8dd067ebf21b6c4, type: 3}
   triangleCount: 102

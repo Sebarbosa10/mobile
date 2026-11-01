@@ -92,9 +92,9 @@ public sealed class StylizedLook : MonoBehaviour
     [SerializeField, Range(0.01f, 1f)]
     private float vignetteSoftness = 0.6f;
 
-    public bool PosterizeEnabled => posterize;
+    public bool PosterizeEnabled => posterize && AdaptiveQuality.PosterizeAllowed;
     public bool StylizedEnabled => stylized;
-    public bool OutlineEnabled => stylized && outline;
+    public bool OutlineEnabled => stylized && outline && AdaptiveQuality.OutlineAllowed;
 
     private void OnEnable()
     {

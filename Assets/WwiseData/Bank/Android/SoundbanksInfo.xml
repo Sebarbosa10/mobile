@@ -9,13 +9,12 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1116324257" Type="User" Language="SFX" Hash="{D64E1A4A-4FFA-7218-A1EB-A34718ED0AD6}">
+		<SoundBank Id="1116324257" Type="User" Language="SFX" Hash="{FF87C528-D3A6-AAFA-43FB-94102169A2F4}">
 			<ShortName>Amb_Desierto</ShortName>
 			<Path>Amb_Desierto.bnk</Path>
 			<Media>
-				<File Id="300589693" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="300589693" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ambience\amb_desierto.wav</ShortName>
-					<Path>Media/300589693.wem</Path>
 					<CachePath>SFX/Ambience/amb_desierto_56CEF360.wem</CachePath>
 				</File>
 			</Media>
@@ -33,7 +32,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{176807DA-E0FF-39EA-F4FE-7B9D6920B931}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{9CFC0539-0885-48BF-55FB-7D4AABBC75F3}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -93,13 +92,12 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="1804037722" Type="User" Language="SFX" Hash="{8DDEC6E8-0C35-CFE7-EB71-727EC62193C5}">
+		<SoundBank Id="1804037722" Type="User" Language="SFX" Hash="{58A1F696-8B33-19E7-5C8D-A8D5BA56C64B}">
 			<ShortName>Amb_Espacio</ShortName>
 			<Path>Amb_Espacio.bnk</Path>
 			<Media>
-				<File Id="207063030" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="207063030" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ambience\amb_espacio.wav</ShortName>
-					<Path>Media/207063030.wem</Path>
 					<CachePath>SFX/Ambience/amb_espacio_56CEF360.wem</CachePath>
 				</File>
 			</Media>
@@ -117,13 +115,12 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2178210896" Type="User" Language="SFX" Hash="{36FAF3D0-EE47-4793-26B7-D0D6F68621C1}">
+		<SoundBank Id="2178210896" Type="User" Language="SFX" Hash="{AD8E91C2-4232-597E-7902-B5D758366627}">
 			<ShortName>Amb_Azotea</ShortName>
 			<Path>Amb_Azotea.bnk</Path>
 			<Media>
-				<File Id="445611676" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="445611676" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ambience\amb_azotea.wav</ShortName>
-					<Path>Media/445611676.wem</Path>
 					<CachePath>SFX/Ambience/amb_azotea_56CEF360.wem</CachePath>
 				</File>
 			</Media>
@@ -141,13 +138,12 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2773008625" Type="User" Language="SFX" Hash="{27437D2D-262D-3C56-C296-BA1A6F8B4F27}">
+		<SoundBank Id="2773008625" Type="User" Language="SFX" Hash="{4E8DE12E-A035-9048-7DE7-7E709388BC36}">
 			<ShortName>Amb_Playa</ShortName>
 			<Path>Amb_Playa.bnk</Path>
 			<Media>
-				<File Id="605226269" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="605226269" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ambience\amb_playa.wav</ShortName>
-					<Path>Media/605226269.wem</Path>
 					<CachePath>SFX/Ambience/amb_playa_56CEF360.wem</CachePath>
 				</File>
 			</Media>
@@ -165,13 +161,12 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2823341352" Type="User" Language="SFX" Hash="{84A6A539-2B83-750C-C36F-A608B69F5CDE}">
+		<SoundBank Id="2823341352" Type="User" Language="SFX" Hash="{62DFBB75-1E17-5934-DAF6-0EA453A8F9F9}">
 			<ShortName>Amb_Plaza</ShortName>
 			<Path>Amb_Plaza.bnk</Path>
 			<Media>
-				<File Id="49830671" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="49830671" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ambience\amb_plaza.wav</ShortName>
-					<Path>Media/49830671.wem</Path>
 					<CachePath>SFX/Ambience/amb_plaza_56CEF360.wem</CachePath>
 				</File>
 			</Media>
@@ -189,13 +184,12 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2853637585" Type="User" Language="SFX" Hash="{C0B2EA1C-27F3-ADB4-66B4-2AC8081EBD49}">
+		<SoundBank Id="2853637585" Type="User" Language="SFX" Hash="{C596112E-84C9-9831-CA0D-1969EE8A421A}">
 			<ShortName>Amb_Nevado</ShortName>
 			<Path>Amb_Nevado.bnk</Path>
 			<Media>
-				<File Id="394124802" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="394124802" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ambience\amb_nevado.wav</ShortName>
-					<Path>Media/394124802.wem</Path>
 					<CachePath>SFX/Ambience/amb_nevado_56CEF360.wem</CachePath>
 				</File>
 			</Media>
@@ -213,7 +207,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{D5B9D037-0933-C472-D661-3195BB7D0040}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{3D92263C-685F-87BB-B3F4-0F82084EBD1E}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -225,9 +219,8 @@
 					<ShortName>Ball\ball_bounce_floor_02.wav</ShortName>
 					<CachePath>SFX/Ball/ball_bounce_floor_02_A2498ED0.wem</CachePath>
 				</File>
-				<File Id="49830671" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="49830671" Language="SFX" Streaming="false" Location="OtherBank">
 					<ShortName>Ambience\amb_plaza.wav</ShortName>
-					<Path>Media/49830671.wem</Path>
 					<CachePath>SFX/Ambience/amb_plaza_56CEF360.wem</CachePath>
 				</File>
 				<File Id="55105976" Language="SFX" Streaming="false" Location="Memory">
@@ -278,9 +271,8 @@
 					<ShortName>Ball\ball_bounce_soft_01.wav</ShortName>
 					<CachePath>SFX/Ball/ball_bounce_soft_01_A2498ED0.wem</CachePath>
 				</File>
-				<File Id="207063030" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="207063030" Language="SFX" Streaming="false" Location="OtherBank">
 					<ShortName>Ambience\amb_espacio.wav</ShortName>
-					<Path>Media/207063030.wem</Path>
 					<CachePath>SFX/Ambience/amb_espacio_56CEF360.wem</CachePath>
 				</File>
 				<File Id="215802003" Language="SFX" Streaming="false" Location="Memory">
@@ -307,9 +299,8 @@
 					<ShortName>Ball\ball_throw_01.wav</ShortName>
 					<CachePath>SFX/Ball/ball_throw_01_A2498ED0.wem</CachePath>
 				</File>
-				<File Id="300589693" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="300589693" Language="SFX" Streaming="false" Location="OtherBank">
 					<ShortName>Ambience\amb_desierto.wav</ShortName>
-					<Path>Media/300589693.wem</Path>
 					<CachePath>SFX/Ambience/amb_desierto_56CEF360.wem</CachePath>
 				</File>
 				<File Id="315562530" Language="SFX" Streaming="false" Location="Memory">
@@ -324,9 +315,8 @@
 					<ShortName>Ball\ball_hit_pole_02.wav</ShortName>
 					<CachePath>SFX/Ball/ball_hit_pole_02_A2498ED0.wem</CachePath>
 				</File>
-				<File Id="394124802" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="394124802" Language="SFX" Streaming="false" Location="OtherBank">
 					<ShortName>Ambience\amb_nevado.wav</ShortName>
-					<Path>Media/394124802.wem</Path>
 					<CachePath>SFX/Ambience/amb_nevado_56CEF360.wem</CachePath>
 				</File>
 				<File Id="395448578" Language="SFX" Streaming="false" Location="Memory">
@@ -341,9 +331,8 @@
 					<ShortName>Score\net_swish_chain_01.wav</ShortName>
 					<CachePath>SFX/Score/net_swish_chain_01_A2498ED0.wem</CachePath>
 				</File>
-				<File Id="445611676" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="445611676" Language="SFX" Streaming="false" Location="OtherBank">
 					<ShortName>Ambience\amb_azotea.wav</ShortName>
-					<Path>Media/445611676.wem</Path>
 					<CachePath>SFX/Ambience/amb_azotea_56CEF360.wem</CachePath>
 				</File>
 				<File Id="455885797" Language="SFX" Streaming="false" Location="Memory">
@@ -370,9 +359,8 @@
 					<ShortName>Ball\ball_hit_rim_04.wav</ShortName>
 					<CachePath>SFX/Ball/ball_hit_rim_04_A2498ED0.wem</CachePath>
 				</File>
-				<File Id="605226269" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="605226269" Language="SFX" Streaming="false" Location="OtherBank">
 					<ShortName>Ambience\amb_playa.wav</ShortName>
-					<Path>Media/605226269.wem</Path>
 					<CachePath>SFX/Ambience/amb_playa_56CEF360.wem</CachePath>
 				</File>
 				<File Id="624077228" Language="SFX" Streaming="false" Location="Memory">
@@ -793,41 +781,36 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3991942870" Type="User" Language="SFX" Hash="{03CA6C92-28C3-C40B-6168-26092441CC0D}">
+		<SoundBank Id="3991942870" Type="User" Language="SFX" Hash="{6E49A690-B063-14D4-3DC0-17163485C3BF}">
 			<ShortName>Music</ShortName>
 			<Path>Music.bnk</Path>
 			<Media>
-				<File Id="284942072" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="284942072" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Music\mus_endless_base.wav</ShortName>
-					<Path>Media/284942072.wem</Path>
 					<CachePath>SFX/Music/mus_endless_base_56CEF360.wem</CachePath>
 				</File>
-				<File Id="364965175" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="364965175" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Music\mus_endless_perc.wav</ShortName>
-					<Path>Media/364965175.wem</Path>
 					<CachePath>SFX/Music/mus_endless_perc_56CEF360.wem</CachePath>
 				</File>
 				<File Id="416592740" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Stingers\stg_derrota.wav</ShortName>
 					<CachePath>SFX/Stingers/stg_derrota_56CEF360.wem</CachePath>
 				</File>
-				<File Id="418870367" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="418870367" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Music\mus_contrarreloj.wav</ShortName>
-					<Path>Media/418870367.wem</Path>
 					<CachePath>SFX/Music/mus_contrarreloj_56CEF360.wem</CachePath>
 				</File>
 				<File Id="456202160" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Stingers\stg_victoria.wav</ShortName>
 					<CachePath>SFX/Stingers/stg_victoria_56CEF360.wem</CachePath>
 				</File>
-				<File Id="596691580" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="596691580" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Music\mus_endless_lead.wav</ShortName>
-					<Path>Media/596691580.wem</Path>
 					<CachePath>SFX/Music/mus_endless_lead_56CEF360.wem</CachePath>
 				</File>
-				<File Id="644153017" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="644153017" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Music\mus_menu.wav</ShortName>
-					<Path>Media/644153017.wem</Path>
 					<CachePath>SFX/Music/mus_menu_56CEF360.wem</CachePath>
 				</File>
 				<File Id="679515709" Language="SFX" Streaming="false" Location="Memory">
@@ -838,9 +821,8 @@
 					<ShortName>Stingers\stg_game_over.wav</ShortName>
 					<CachePath>SFX/Stingers/stg_game_over_56CEF360.wem</CachePath>
 				</File>
-				<File Id="788979685" Language="SFX" Streaming="true" Location="Loose">
+				<File Id="788979685" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Music\mus_desafio.wav</ShortName>
-					<Path>Media/788979685.wem</Path>
 					<CachePath>SFX/Music/mus_desafio_56CEF360.wem</CachePath>
 				</File>
 			</Media>
@@ -925,5 +907,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{0FD88272-0372-0454-0D39-45F36DE950D7}</FileHash>
+	<FileHash>{C71294FF-533E-57AC-2262-149E1A389166}</FileHash>
 </SoundBanksInfo>

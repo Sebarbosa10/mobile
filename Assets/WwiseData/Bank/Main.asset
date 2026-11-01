@@ -39,12 +39,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 31223932
-        - m_AssetGUID: 7f15a41c00fc6864997349656b161e5a
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 49830671
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -117,12 +111,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 178224488
-        - m_AssetGUID: bee7575e680c25c49b51e641ed2854ed
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 207063030
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -159,12 +147,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 279076994
-        - m_AssetGUID: 6496d6bb46ce0f04e89e0dc473851a44
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 300589693
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -183,12 +165,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 355924840
-        - m_AssetGUID: 4eaac089a15af204aabc54ec0bc3112e
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 394124802
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -207,12 +183,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 430234834
-        - m_AssetGUID: 96176bd9ceb35d847b0c188c6fe69cfa
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 445611676
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -249,12 +219,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 557746558
-        - m_AssetGUID: 0255729e16a51af44bd8ad61aa8cc4fc
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 605226269
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -443,12 +407,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 31223932
-        - m_AssetGUID: ab121c18cf1a59e439874ad8fdcb43aa
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 49830671
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -521,12 +479,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 178224488
-        - m_AssetGUID: f48864a36ad1005478865fd4862ee6ef
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 207063030
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -563,12 +515,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 279076994
-        - m_AssetGUID: 2afca3385773a60458ae125b236c9de5
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 300589693
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -587,12 +533,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 355924840
-        - m_AssetGUID: 796216938059f53469a87e0191ac5e86
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 394124802
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -611,12 +551,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 430234834
-        - m_AssetGUID: 62989e3fd9568f541a6515336a130b5c
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 445611676
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -653,12 +587,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 557746558
-        - m_AssetGUID: c9bd57d9b80a3714a8700fa0c1f00cd0
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 605226269
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -847,12 +775,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 31223932
-        - m_AssetGUID: 609a8f90888edda46906ef015ddceaf0
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 49830671
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -925,12 +847,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 178224488
-        - m_AssetGUID: 1ff36be4d9fc7b3479b2d6351f355fe8
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 207063030
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -967,12 +883,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 279076994
-        - m_AssetGUID: bc5bdfef8743d4b48ae657583df8f3d6
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 300589693
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -991,12 +901,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 355924840
-        - m_AssetGUID: a972333e8b3b48a49b9c42b34c339959
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 394124802
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -1015,12 +919,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 430234834
-        - m_AssetGUID: d160b81ca5f003c4eb9d6f418f598e9f
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 445611676
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -1057,12 +955,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 557746558
-        - m_AssetGUID: 05290273e6c83314e9cbf2807a99a421
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 605226269
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -1656,12 +1548,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 31223932
-        - m_AssetGUID: 7f15a41c00fc6864997349656b161e5a
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 49830671
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -1734,12 +1620,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 178224488
-        - m_AssetGUID: bee7575e680c25c49b51e641ed2854ed
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 207063030
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -1776,12 +1656,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 279076994
-        - m_AssetGUID: 6496d6bb46ce0f04e89e0dc473851a44
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 300589693
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -1800,12 +1674,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 355924840
-        - m_AssetGUID: 4eaac089a15af204aabc54ec0bc3112e
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 394124802
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -1824,12 +1692,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 430234834
-        - m_AssetGUID: 96176bd9ceb35d847b0c188c6fe69cfa
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 445611676
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 
@@ -1866,12 +1728,6 @@ MonoBehaviour:
           m_SubObjectGUID: 
           m_EditorAssetChanged: 0
           id: 557746558
-        - m_AssetGUID: 0255729e16a51af44bd8ad61aa8cc4fc
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 605226269
         - m_AssetGUID: 
           m_SubObjectName: 
           m_SubObjectType: 

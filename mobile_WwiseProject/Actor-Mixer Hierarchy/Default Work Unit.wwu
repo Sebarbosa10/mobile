@@ -177,7 +177,7 @@
 								<ObjectList Name="RTPC">
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{330D45A5-188F-4625-9E1F-2347B96EA849}" ShortID="665979500">
+											<RTPC Name="" ID="{2B4B2806-B24B-49DC-B6D3-BA0FCAADFAD9}" ShortID="718042973">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="Pitch"/>
 												</PropertyList>
@@ -187,7 +187,7 @@
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{DB5F2F09-47DF-421E-8C61-AECD2333DF86}">
+															<Curve Name="" ID="{4FECC88A-4E21-478C-A009-26C8CE4581CA}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="65537"/>
 																</PropertyList>
@@ -212,7 +212,7 @@
 									</Reference>
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{EBAE51A9-B3F6-4684-80A6-8F4B4CE34ABB}" ShortID="558765275">
+											<RTPC Name="" ID="{C38C1EE3-80E9-478B-882F-A00A01FA4BB5}" ShortID="851840292">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="Volume"/>
 												</PropertyList>
@@ -222,7 +222,7 @@
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{50126B95-F3E6-424C-9BBD-721206769172}">
+															<Curve Name="" ID="{14E89613-BA73-40BC-9E15-7B80EE943C34}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="3"/>
 																</PropertyList>
@@ -970,7 +970,7 @@
 								<ObjectList Name="RTPC">
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{6167CF79-C761-41ED-A69E-662241CC6181}" ShortID="784775489">
+											<RTPC Name="" ID="{9FEC474C-BF21-4DF0-A009-A79CC1D25CE8}" ShortID="984326918">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="Volume"/>
 												</PropertyList>
@@ -980,7 +980,7 @@
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{232956A8-8238-45F1-B8B3-A1451C509E2A}">
+															<Curve Name="" ID="{1ACCC532-E2B9-4720-AFCE-BA3508E9E115}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="3"/>
 																</PropertyList>
@@ -1222,7 +1222,7 @@
 								<ObjectList Name="RTPC">
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{236ECD1C-B030-426B-AFBF-C2AD0D7BD99D}" ShortID="401842170">
+											<RTPC Name="" ID="{81C088DA-FAF6-48CA-87E3-20741B9C824B}" ShortID="344566763">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="Pitch"/>
 												</PropertyList>
@@ -1232,7 +1232,7 @@
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{165EE17F-294D-41E1-8552-45A207869A1D}">
+															<Curve Name="" ID="{7FD05939-F79F-4DC1-91D5-8B078076BB6E}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="65537"/>
 																</PropertyList>
@@ -1343,7 +1343,7 @@
 								<ObjectList Name="RTPC">
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{D8E4A76C-0F4D-4846-BBEE-B659B7877CE0}" ShortID="853594954">
+											<RTPC Name="" ID="{B2712757-9E78-4949-B73A-84588C3304DA}" ShortID="184518486">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="Pitch"/>
 												</PropertyList>
@@ -1353,7 +1353,7 @@
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{41C2655A-E5AD-48C3-A34C-78074015F819}">
+															<Curve Name="" ID="{776D4596-2867-44BF-9FCA-CF556ECBA83D}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="65537"/>
 																</PropertyList>
@@ -1547,7 +1547,7 @@
 								<ObjectList Name="RTPC">
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{B7928B89-D129-4AAE-B218-BD5E8DF1141D}" ShortID="854535832">
+											<RTPC Name="" ID="{B38D6356-E48B-496C-9EE9-D4931A1CB7C1}" ShortID="676184993">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="Pitch"/>
 												</PropertyList>
@@ -1557,7 +1557,7 @@
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{CC5AFF12-0957-4F37-8BB4-83F48658FBC5}">
+															<Curve Name="" ID="{8B55AB94-9A23-4C0C-87F0-4E4E0520AC14}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="65537"/>
 																</PropertyList>
@@ -2073,11 +2073,6 @@
 								<Sound Name="amb_plaza" ID="{7C22CD02-5001-4E99-B705-39B6C8AF0A16}" ShortID="839901709">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="IsStreamingEnabled" Type="bool">
-											<ValueList>
-												<Value>True</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2103,11 +2098,6 @@
 								<Sound Name="amb_azotea" ID="{3469B744-8698-49F5-8B8E-52EF1FB32DDA}" ShortID="709945322">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="IsStreamingEnabled" Type="bool">
-											<ValueList>
-												<Value>True</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2133,11 +2123,6 @@
 								<Sound Name="amb_playa" ID="{028ECA3A-7D9C-4988-8C90-533E33EA240B}" ShortID="109663305">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="IsStreamingEnabled" Type="bool">
-											<ValueList>
-												<Value>True</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2163,11 +2148,6 @@
 								<Sound Name="amb_nevado" ID="{DABE6413-F906-47BE-B722-36876C4219F3}" ShortID="271188817">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="IsStreamingEnabled" Type="bool">
-											<ValueList>
-												<Value>True</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2193,11 +2173,6 @@
 								<Sound Name="amb_desierto" ID="{610D14B2-1656-468D-904F-1F4EC65ADD65}" ShortID="739017200">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="IsStreamingEnabled" Type="bool">
-											<ValueList>
-												<Value>True</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2223,11 +2198,6 @@
 								<Sound Name="amb_espacio" ID="{AE010A68-AB30-4917-8E40-085B974A36E7}" ShortID="899522413">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="IsStreamingEnabled" Type="bool">
-											<ValueList>
-												<Value>True</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">

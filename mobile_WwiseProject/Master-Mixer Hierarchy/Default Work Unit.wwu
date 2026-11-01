@@ -37,11 +37,11 @@
 								<CustomStateList>
 									<CustomState>
 										<StateRef Name="Playing" ID="{35CA6DBA-CD71-4131-B4AA-1DF99B66B645}"/>
-										<CustomState Name="" ID="{07C28856-A940-42B9-8559-EC7EC6F96657}" ShortID="353788196"/>
+										<CustomState Name="" ID="{933DC1DD-41D9-48CD-93CB-C061EBFD139D}" ShortID="369547604"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Paused" ID="{2B624984-33F2-428C-808A-E5B3DA5831FD}"/>
-										<CustomState Name="" ID="{EFD2B2CD-967B-4401-9F03-B4AA75687A5E}" ShortID="1017587760">
+										<CustomState Name="" ID="{A511A47F-90F4-44FC-88AB-AF521C7C4D74}" ShortID="1059515071">
 											<PropertyList>
 												<Property Name="Lowpass" Type="int16" Value="55"/>
 												<Property Name="Volume" Type="Real64" Value="-6"/>
@@ -50,11 +50,11 @@
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Results" ID="{764DEC6C-44D4-4856-B14B-645556A5EF58}"/>
-										<CustomState Name="" ID="{B435E429-1B5F-4963-A3F3-7EAAEFA3EDFF}" ShortID="796281908"/>
+										<CustomState Name="" ID="{20E65388-BB5B-4620-8C03-DE816AA7DA8F}" ShortID="419375790"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="None" ID="{EF48129E-70E5-4A92-BA83-8BF1C16C6ACA}"/>
-										<CustomState Name="" ID="{BDA734C5-4429-41E0-A362-4C3C9D8A5190}" ShortID="860661061"/>
+										<CustomState Name="" ID="{F9E36F32-E5D0-4525-B0A4-AC296C74197E}" ShortID="32352851"/>
 									</CustomState>
 								</CustomStateList>
 							</StateInfo>
@@ -62,7 +62,7 @@
 								<ObjectList Name="RTPC">
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{EDE8AC65-E687-4C38-8A63-8BFF5500EE71}" ShortID="746414761">
+											<RTPC Name="" ID="{6E9F19D4-88F2-4C71-918E-AC55E18DEC51}" ShortID="353287460">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="BusVolume"/>
 												</PropertyList>
@@ -72,7 +72,7 @@
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{59910DE5-C33A-491C-9A39-01EEC007EEAA}">
+															<Curve Name="" ID="{2A91ABC0-C747-406D-B175-7EADF1E44E33}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="3"/>
 																</PropertyList>
@@ -122,11 +122,11 @@
 								<CustomStateList>
 									<CustomState>
 										<StateRef Name="Playing" ID="{35CA6DBA-CD71-4131-B4AA-1DF99B66B645}"/>
-										<CustomState Name="" ID="{EC1A5402-9741-4D10-A85D-413A0CE0D877}" ShortID="38206336"/>
+										<CustomState Name="" ID="{38E99CF4-8B76-4E90-8FBC-05BB7395AF75}" ShortID="44032148"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Paused" ID="{2B624984-33F2-428C-808A-E5B3DA5831FD}"/>
-										<CustomState Name="" ID="{FA4ECB84-7C7E-4BA3-9A12-80EC7E549141}" ShortID="1068928074">
+										<CustomState Name="" ID="{6E24E822-2E34-49C5-B50E-68CAAE74609B}" ShortID="357409971">
 											<PropertyList>
 												<Property Name="Lowpass" Type="int16" Value="55"/>
 												<Property Name="Volume" Type="Real64" Value="-6"/>
@@ -135,11 +135,11 @@
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Results" ID="{764DEC6C-44D4-4856-B14B-645556A5EF58}"/>
-										<CustomState Name="" ID="{A6E714D7-8FA0-41B5-BF19-F19B802AB8D7}" ShortID="957947838"/>
+										<CustomState Name="" ID="{96043E10-2F55-4F7F-B172-E1D54A0C3DF1}" ShortID="121907684"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="None" ID="{EF48129E-70E5-4A92-BA83-8BF1C16C6ACA}"/>
-										<CustomState Name="" ID="{423BE990-AEDA-4D7A-AD85-B48125509B49}" ShortID="699026702"/>
+										<CustomState Name="" ID="{5CC7BCAD-A444-43D2-83A2-56CB124DCB94}" ShortID="326024862"/>
 									</CustomState>
 								</CustomStateList>
 							</StateInfo>
@@ -147,7 +147,7 @@
 								<ObjectList Name="RTPC">
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{29538B16-EA53-42C9-AE61-6DE4821B30FD}" ShortID="197132252">
+											<RTPC Name="" ID="{2E22B6F9-5FD0-47B4-BE03-33E59743FE4F}" ShortID="134793891">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="BusVolume"/>
 												</PropertyList>
@@ -157,7 +157,7 @@
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{485A2ECF-6B66-46F6-B03D-63511AA555F1}">
+															<Curve Name="" ID="{0253E797-FFB3-4666-A19D-3B3C52D05F1E}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="3"/>
 																</PropertyList>
@@ -207,11 +207,11 @@
 								<CustomStateList>
 									<CustomState>
 										<StateRef Name="Playing" ID="{35CA6DBA-CD71-4131-B4AA-1DF99B66B645}"/>
-										<CustomState Name="" ID="{3BBC408F-AF57-4E7E-A385-A030D8D9BF92}" ShortID="317882851"/>
+										<CustomState Name="" ID="{AA6D0EAF-66CA-425D-8335-83EB0A08369C}" ShortID="569258064"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Paused" ID="{2B624984-33F2-428C-808A-E5B3DA5831FD}"/>
-										<CustomState Name="" ID="{8F392784-3B3F-4C7C-A307-C38E19C65ECD}" ShortID="886868303">
+										<CustomState Name="" ID="{71DF0F09-EEBE-4BDF-87EC-57588586A76A}" ShortID="33107056">
 											<PropertyList>
 												<Property Name="Lowpass" Type="int16" Value="55"/>
 												<Property Name="Volume" Type="Real64" Value="-6"/>
@@ -220,11 +220,11 @@
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Results" ID="{764DEC6C-44D4-4856-B14B-645556A5EF58}"/>
-										<CustomState Name="" ID="{EBC5154E-EBC7-42C6-B409-9E1DF362E41D}" ShortID="524930524"/>
+										<CustomState Name="" ID="{A44ADC16-ED50-4C7D-8C51-F77412E1F22C}" ShortID="432460271"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="None" ID="{EF48129E-70E5-4A92-BA83-8BF1C16C6ACA}"/>
-										<CustomState Name="" ID="{E7556499-3221-40C3-B35E-A079ADB7CFCC}" ShortID="896098051"/>
+										<CustomState Name="" ID="{0871133E-D283-437E-AD03-FC20613A0B79}" ShortID="186719310"/>
 									</CustomState>
 								</CustomStateList>
 							</StateInfo>
@@ -232,7 +232,7 @@
 								<ObjectList Name="RTPC">
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{93FF9366-E92F-4D5E-8BF0-D4F15BD93F5D}" ShortID="319319469">
+											<RTPC Name="" ID="{3425C8DB-DDE4-446B-B565-8FE937A914AA}" ShortID="984138250">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="BusVolume"/>
 												</PropertyList>
@@ -242,7 +242,7 @@
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{ED9F3B2A-6923-422E-8F7E-81B8A65A9ECE}">
+															<Curve Name="" ID="{8D62FECF-8A94-4FBA-8A6E-1C2745DFC463}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="3"/>
 																</PropertyList>
@@ -296,11 +296,11 @@
 								<CustomStateList>
 									<CustomState>
 										<StateRef Name="Playing" ID="{35CA6DBA-CD71-4131-B4AA-1DF99B66B645}"/>
-										<CustomState Name="" ID="{12275261-B191-473A-96E4-84914C7086A9}" ShortID="337536064"/>
+										<CustomState Name="" ID="{0542F0B7-8458-4214-BE3F-4E342EB83311}" ShortID="895419567"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Paused" ID="{2B624984-33F2-428C-808A-E5B3DA5831FD}"/>
-										<CustomState Name="" ID="{D2F1D236-BC9C-4DB1-86EC-313B454E218E}" ShortID="1010461502">
+										<CustomState Name="" ID="{6D28FE9B-656B-467A-A235-ED0B5114FA4B}" ShortID="598085742">
 											<PropertyList>
 												<Property Name="Volume" Type="Real64" Value="-10"/>
 											</PropertyList>
@@ -308,11 +308,11 @@
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Results" ID="{764DEC6C-44D4-4856-B14B-645556A5EF58}"/>
-										<CustomState Name="" ID="{58D5792C-E140-4787-841A-B6C4C46F72A3}" ShortID="683784250"/>
+										<CustomState Name="" ID="{20CD32F1-2E15-4C13-89BF-6D08BDEB8623}" ShortID="1022232539"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="None" ID="{EF48129E-70E5-4A92-BA83-8BF1C16C6ACA}"/>
-										<CustomState Name="" ID="{A4E648E6-CC05-402F-B660-67A9F68F8FDB}" ShortID="860998377"/>
+										<CustomState Name="" ID="{66FDCBD3-F95F-4481-80C3-FA9588CEA3CB}" ShortID="752851582"/>
 									</CustomState>
 								</CustomStateList>
 							</StateInfo>
@@ -320,7 +320,7 @@
 								<ObjectList Name="RTPC">
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{BBDBE76C-600F-494A-9200-530DEE01A837}" ShortID="434980482">
+											<RTPC Name="" ID="{13C6EE0B-FF1E-4C44-A78B-2460228F85B1}" ShortID="215669999">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="BusVolume"/>
 												</PropertyList>
@@ -330,7 +330,7 @@
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{3B9A81D4-3B18-41F2-9E0F-84C86BEC8C71}">
+															<Curve Name="" ID="{3487012E-A45B-43E7-83F3-80716D856416}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="3"/>
 																</PropertyList>

@@ -39,8 +39,8 @@ MonoBehaviour:
   crack: {r: 0.44376472, g: 0.43411767, b: 0.48878434, a: 1}
   key: {r: 0.5411765, g: 0.5294118, b: 0.59607846, a: 1}
   unlock:
-    type: 4
-    value: 0
-    shortText: "Los 3 desaf\xEDos"
+    type: 3
+    value: 5
+    shortText: "Complet\xE1 Persecuci\xF3n"
   thumbnail: {fileID: 2800000, guid: 2c660c69cbf2b334eb58d0df6fd6fbe1, type: 3}
   triangleCount: 408

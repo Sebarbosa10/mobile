@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using AK.Wwise.Unity.WwiseAddressables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -80,9 +81,10 @@ public sealed class AudioManager : MonoBehaviour
         instance.config = audioConfig;
     }
 
-    // Si la escena no tiene WwiseGlobal (por ejemplo al dar Play desde Challenges en el editor),
-    // crea un AkInitializer con la configuración del proyecto. Si después aparece el de la escena,
-    // ese se descarta solo porque ya existe una instancia.
+    // Crea el AkInitializer antes de la primera escena, para que el audio funcione desde cualquiera.
+    // Si después aparece el de la escena, ese se descarta solo porque ya existe una instancia.
+    // El InitBankHolder tiene que estar antes de activar: el motor lo busca una sola vez al arrancar
+    // y, sin él, ningún banco termina de cargar (fuera del editor no hay respaldo).
     private static void EnsureSoundEngine(AudioConfig audioConfig)
     {
         if (FindAnyObjectByType<AkInitializer>() != null || audioConfig.wwiseInitializationSettings == null)
@@ -90,6 +92,8 @@ public sealed class AudioManager : MonoBehaviour
 
         GameObject wwise = new("WwiseGlobal (AudioManager)");
         wwise.SetActive(false);
+
+        wwise.AddComponent<InitBankHolder>().InitBank = audioConfig.wwiseInitBank;
 
         AkInitializer initializer = wwise.AddComponent<AkInitializer>();
         typeof(AkInitializer).GetField(nameof(AkInitializer.InitializationSettings))

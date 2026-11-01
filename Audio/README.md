@@ -31,4 +31,6 @@
 - Stingers: Music Stingers al próximo beat; el evento baja el bus Music 4 dB mientras suena.
 - Ambientes: `amb_switch` por State Theme, crossfade de 1 s; un banco por fondo.
 - Pausa (State GameState = Paused): low-pass en Music/Stingers/Ambience y −10 dB en SFX.
-- Conversión: Vorbis calidad 4 (streaming) para música y ambientes, ADPCM para SFX y UI.
+- Conversión: Vorbis calidad 4 para música y ambientes, ADPCM para SFX y UI. Todo va dentro de los bancos
+  (`STREAM_LONG_AUDIO = False` en `wwise_build.py`): el paquete de Addressables 23.1 no registra los `.wem`
+  de streaming en los grupos, así que no llegarían al APK.

@@ -28,7 +28,7 @@ MonoBehaviour:
   - colors:
     - {r: 0.9490196, g: 0.5411765, b: 0.11764706, a: 1}
   unlock:
-    type: 2
-    value: 60
-    shortText: 60 encestadas
+    type: 3
+    value: 2
+    shortText: "Complet\xE1 Aro esquivo"
   icon: {fileID: 21300000, guid: 6e13959fb7149df468926e6a30d7c8fc, type: 3}

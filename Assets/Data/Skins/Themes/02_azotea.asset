@@ -43,8 +43,8 @@ MonoBehaviour:
   crack: {r: 0.1865098, g: 0.17043138, b: 0.2572549, a: 1}
   key: {r: 0.2109804, g: 0.40411764, b: 0.51960784, a: 1}
   unlock:
-    type: 0
-    value: 0
-    shortText: 
+    type: 3
+    value: 1
+    shortText: "Complet\xE1 Carrusel"
   thumbnail: {fileID: 2800000, guid: 18da6c0b17a67cb4389c331b7856f328, type: 3}
   triangleCount: 666

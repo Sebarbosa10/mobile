@@ -2,6 +2,8 @@ using UnityEngine;
 
 public sealed class GameplayUI : MonoBehaviour
 {
+    private const float InterstitialDelay = 0.8f;
+
     private IGameSession session;
     private UIManager ui;
 
@@ -156,11 +158,25 @@ public sealed class GameplayUI : MonoBehaviour
     {
         runEnded = true;
 
-        PlayUnlockSoundIf(SkinProgress.EvaluateUnlocks() > 0);
+        bool unlocked = SkinProgress.EvaluateUnlocks() > 0;
 
         pauseButton.gameObject.SetActive(false);
         endlessHud.SetRecord(info.Record);
-        gameOverScreen.Show(info);
+
+        StartCoroutine(InterstitialThen(() =>
+        {
+            gameOverScreen.Show(info);
+            PlayUnlockSoundIf(unlocked);
+        }));
+    }
+
+    // Después de perder: un momento para ver la jugada, el anuncio y recién ahí los resultados
+    private static System.Collections.IEnumerator InterstitialThen(System.Action next)
+    {
+        if (Monetization.InterstitialDue)
+            yield return new WaitForSecondsRealtime(InterstitialDelay);
+
+        Monetization.ShowInterstitial(next);
     }
 
     // El desbloqueo suena después del stinger de fin de partida
@@ -185,9 +201,19 @@ public sealed class GameplayUI : MonoBehaviour
     {
         runEnded = true;
 
-        PlayUnlockSoundIf(SkinProgress.EvaluateUnlocks() > 0);
+        bool unlocked = SkinProgress.EvaluateUnlocks() > 0;
 
         pauseButton.gameObject.SetActive(false);
-        resultScreen.Show(session.Challenge, info);
+
+        void ShowResult()
+        {
+            resultScreen.Show(session.Challenge, info);
+            PlayUnlockSoundIf(unlocked);
+        }
+
+        if (info.Won)
+            ShowResult();
+        else
+            StartCoroutine(InterstitialThen(ShowResult));
     }
 }

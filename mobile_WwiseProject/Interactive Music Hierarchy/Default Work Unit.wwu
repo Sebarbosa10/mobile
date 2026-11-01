@@ -45,12 +45,12 @@
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
-										<MusicPlaylistItem Name="" ID="{339D9B23-303D-41D2-90D8-2AE7E5DEBF3D}" ShortID="390374492">
+										<MusicPlaylistItem Name="" ID="{8266DC4C-8460-4181-9BFC-13B67DDD3638}" ShortID="296443115">
 											<PropertyList>
 												<Property Name="LoopCount" Type="int16" Value="0"/>
 											</PropertyList>
 											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{5647DE24-3EEA-4D3D-A02D-58BF884D80FC}" ShortID="715149186">
+												<MusicPlaylistItem Name="" ID="{C5CAE6F8-F7CE-48D9-A082-842951A50CEA}" ShortID="527567885">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
@@ -97,13 +97,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<MusicTrack Name="mus_menu" ID="{4378DA25-E021-4FC6-B91F-D234FF27EF1C}" ShortID="457305747">
-											<PropertyList>
-												<Property Name="IsStreamingEnabled" Type="bool">
-													<ValueList>
-														<Value>True</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{227CDDB7-1D82-4467-A781-AD58D4FEC7ED}"/>
@@ -188,12 +181,12 @@
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
-										<MusicPlaylistItem Name="" ID="{1BCFC5A9-CA77-4360-94AE-9C532809CC1C}" ShortID="1029200021">
+										<MusicPlaylistItem Name="" ID="{AD2CF5AE-BF90-4E81-A8AF-C1536B26BC34}" ShortID="823084036">
 											<PropertyList>
 												<Property Name="LoopCount" Type="int16" Value="0"/>
 											</PropertyList>
 											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{9D6FE973-CA84-4318-B6A9-6B97E5C5362D}" ShortID="555262007">
+												<MusicPlaylistItem Name="" ID="{CFB6BC4D-B81B-4889-8EE5-18FA6E4D3463}" ShortID="173235263">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
@@ -240,13 +233,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<MusicTrack Name="base" ID="{AB60B290-74DB-4DF5-A72C-C3F04164579E}" ShortID="1032992275">
-											<PropertyList>
-												<Property Name="IsStreamingEnabled" Type="bool">
-													<ValueList>
-														<Value>True</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{227CDDB7-1D82-4467-A781-AD58D4FEC7ED}"/>
@@ -300,11 +286,6 @@
 										</MusicTrack>
 										<MusicTrack Name="perc" ID="{6EBAB53A-9D26-4707-BC5B-6DD7EB703FDB}" ShortID="341648191">
 											<PropertyList>
-												<Property Name="IsStreamingEnabled" Type="bool">
-													<ValueList>
-														<Value>True</Value>
-													</ValueList>
-												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>4</Value>
@@ -339,7 +320,7 @@
 												<ObjectList Name="RTPC">
 													<Reference>
 														<Local>
-															<RTPC Name="" ID="{AA62CAB9-650B-436F-84AC-981AEFCDD960}" ShortID="329398975">
+															<RTPC Name="" ID="{B8EAE738-6C54-42FC-8A9E-02CBF84D8934}" ShortID="855457057">
 																<PropertyList>
 																	<Property Name="PropertyName" Type="string" Value="Volume"/>
 																</PropertyList>
@@ -349,7 +330,7 @@
 																	</Reference>
 																	<Reference Name="Curve">
 																		<Custom>
-																			<Curve Name="" ID="{C33F6568-B706-4E22-AED0-E475D72C8859}">
+																			<Curve Name="" ID="{7B7A2381-C9F0-490B-A576-19E384C07A04}">
 																				<PropertyList>
 																					<Property Name="Flags" Type="int32" Value="3"/>
 																				</PropertyList>
@@ -410,13 +391,6 @@
 											</ObjectLists>
 										</MusicTrack>
 										<MusicTrack Name="lead" ID="{F65CD839-F555-4396-BEB2-B3CC17FF64C0}" ShortID="138320764">
-											<PropertyList>
-												<Property Name="IsStreamingEnabled" Type="bool">
-													<ValueList>
-														<Value>True</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{227CDDB7-1D82-4467-A781-AD58D4FEC7ED}"/>
@@ -445,7 +419,7 @@
 												<ObjectList Name="RTPC">
 													<Reference>
 														<Local>
-															<RTPC Name="" ID="{4F118746-4ABF-46D1-8A93-0AC2DFCE3424}" ShortID="688442601">
+															<RTPC Name="" ID="{1EA95C8A-0D02-49FA-8D52-B6F73D0BF99C}" ShortID="36063167">
 																<PropertyList>
 																	<Property Name="PropertyName" Type="string" Value="Volume"/>
 																</PropertyList>
@@ -455,7 +429,7 @@
 																	</Reference>
 																	<Reference Name="Curve">
 																		<Custom>
-																			<Curve Name="" ID="{98498C7B-6132-4FE5-ABDB-4D2530292CE9}">
+																			<Curve Name="" ID="{058DF8B6-5ECF-4515-AA19-B321F79DBA9C}">
 																				<PropertyList>
 																					<Property Name="Flags" Type="int32" Value="3"/>
 																				</PropertyList>
@@ -548,12 +522,12 @@
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
-										<MusicPlaylistItem Name="" ID="{297C5FC3-CBE0-4605-A209-C69715E820A1}" ShortID="91740333">
+										<MusicPlaylistItem Name="" ID="{79405B7B-42F3-4A1C-A9A5-286955606061}" ShortID="817038175">
 											<PropertyList>
 												<Property Name="LoopCount" Type="int16" Value="0"/>
 											</PropertyList>
 											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{B365C866-7A5D-4F65-ACFB-50E7D9661664}" ShortID="153194583">
+												<MusicPlaylistItem Name="" ID="{A960F8D2-3397-4706-9DF1-0363CA1AA368}" ShortID="909868726">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
@@ -599,13 +573,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<MusicTrack Name="mus_desafio" ID="{02B210F0-B0C3-48EF-936C-EC752EFD448B}" ShortID="242964737">
-											<PropertyList>
-												<Property Name="IsStreamingEnabled" Type="bool">
-													<ValueList>
-														<Value>True</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{227CDDB7-1D82-4467-A781-AD58D4FEC7ED}"/>
@@ -690,12 +657,12 @@
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
-										<MusicPlaylistItem Name="" ID="{232F53E1-E197-4728-B811-9EA16A00E314}" ShortID="1064780325">
+										<MusicPlaylistItem Name="" ID="{19735AAF-3830-41C1-BC45-659204C09E0C}" ShortID="258717321">
 											<PropertyList>
 												<Property Name="LoopCount" Type="int16" Value="0"/>
 											</PropertyList>
 											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{A7ABE9E5-ADB8-4D30-9A3C-54D5632CA15D}" ShortID="407414637">
+												<MusicPlaylistItem Name="" ID="{7579BDF0-DF29-4BD8-A3E7-930828239F98}" ShortID="404436946">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
@@ -742,13 +709,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<MusicTrack Name="mus_contrarreloj" ID="{F11643BB-9895-4F53-B682-68EF31720F0D}" ShortID="367147550">
-											<PropertyList>
-												<Property Name="IsStreamingEnabled" Type="bool">
-													<ValueList>
-														<Value>True</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{227CDDB7-1D82-4467-A781-AD58D4FEC7ED}"/>
@@ -833,7 +793,7 @@
 						<ObjectList Name="Entries">
 							<Reference>
 								<Local>
-									<MultiSwitchEntry Name="" ID="{A059A340-356C-447B-960D-4F7447CAA89F}">
+									<MultiSwitchEntry Name="" ID="{27790DEA-A87C-4977-9117-124C9CFA06E7}">
 										<ReferenceList>
 											<Reference Name="AudioNode">
 												<ObjectRef Name="Menu" ID="{5E171129-1A89-46F1-9639-12F8CF04A868}" WorkUnitID="{777EF7CD-D72D-49CF-82C1-1AC3A3704DDD}"/>
@@ -851,7 +811,7 @@
 							</Reference>
 							<Reference>
 								<Local>
-									<MultiSwitchEntry Name="" ID="{B0AFCD5D-ED14-4D5C-B94D-0D043E1D7B12}">
+									<MultiSwitchEntry Name="" ID="{2C6066B4-42F1-4480-A2EA-5B59E844EE2C}">
 										<ReferenceList>
 											<Reference Name="AudioNode">
 												<ObjectRef Name="Endless" ID="{7C187BE1-AC08-4B80-86D3-8701FEBD2F37}" WorkUnitID="{777EF7CD-D72D-49CF-82C1-1AC3A3704DDD}"/>
@@ -869,7 +829,7 @@
 							</Reference>
 							<Reference>
 								<Local>
-									<MultiSwitchEntry Name="" ID="{946C1DA3-A1DF-4C9F-B60A-06BD6A82C5BC}">
+									<MultiSwitchEntry Name="" ID="{7254C5FF-7C3C-4BDF-A19F-F642801B01E6}">
 										<ReferenceList>
 											<Reference Name="AudioNode">
 												<ObjectRef Name="Challenge" ID="{A5E3C77F-2861-4F4E-8189-CC091BFC4D82}" WorkUnitID="{777EF7CD-D72D-49CF-82C1-1AC3A3704DDD}"/>
@@ -887,7 +847,7 @@
 							</Reference>
 							<Reference>
 								<Local>
-									<MultiSwitchEntry Name="" ID="{D28DBF20-24C0-4804-AE88-8F4971622AF9}">
+									<MultiSwitchEntry Name="" ID="{B220551E-DA48-4AC0-BB2A-266060F6DF53}">
 										<ReferenceList>
 											<Reference Name="AudioNode">
 												<ObjectRef Name="TimeAttack" ID="{C66721EF-EDF0-46CC-8AE9-2149B11C5B10}" WorkUnitID="{777EF7CD-D72D-49CF-82C1-1AC3A3704DDD}"/>
@@ -907,7 +867,7 @@
 						<ObjectList Name="Stingers">
 							<Reference>
 								<Local>
-									<MusicStinger Name="" ID="{5E4780AF-B3D5-47A8-830E-7ED3F26A9905}">
+									<MusicStinger Name="" ID="{EEF60AA1-1EE6-4144-B8A6-155EA640BB6C}">
 										<PropertyList>
 											<Property Name="DontPlayAgainTime" Type="Real64" Value="0.5"/>
 											<Property Name="PlaySegmentAt" Type="int16" Value="3"/>
@@ -925,7 +885,7 @@
 							</Reference>
 							<Reference>
 								<Local>
-									<MusicStinger Name="" ID="{32745267-EAFB-44B9-BE73-3BFB8A9DCCBC}">
+									<MusicStinger Name="" ID="{8FBD4BED-5BDD-47D8-8033-9491986FACEA}">
 										<PropertyList>
 											<Property Name="DontPlayAgainTime" Type="Real64" Value="0.5"/>
 											<Property Name="PlaySegmentAt" Type="int16" Value="3"/>
@@ -943,7 +903,7 @@
 							</Reference>
 							<Reference>
 								<Local>
-									<MusicStinger Name="" ID="{D9C3BB46-3FCE-4732-82D7-2EBB15FCF8DC}">
+									<MusicStinger Name="" ID="{CD0E0507-159D-4EE8-8A31-94F9D98A3A66}">
 										<PropertyList>
 											<Property Name="DontPlayAgainTime" Type="Real64" Value="0.5"/>
 											<Property Name="PlaySegmentAt" Type="int16" Value="3"/>
@@ -961,7 +921,7 @@
 							</Reference>
 							<Reference>
 								<Local>
-									<MusicStinger Name="" ID="{D70F091D-AD6A-495B-8DE9-65B09FBB8692}">
+									<MusicStinger Name="" ID="{BC5E2732-4D5F-4AD6-8090-3B134220DA73}">
 										<PropertyList>
 											<Property Name="DontPlayAgainTime" Type="Real64" Value="0.5"/>
 											<Property Name="PlaySegmentAt" Type="int16" Value="3"/>

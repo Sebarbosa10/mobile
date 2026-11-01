@@ -26,13 +26,7 @@ MonoBehaviour:
     - SFX
     LocalizedStreamingMediaValues:
       localizedMediaList:
-      - media:
-        - m_AssetGUID: a972333e8b3b48a49b9c42b34c339959
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 394124802
+      - media: []
   - WwisePlatform: Windows
     LocalizedBankKeys:
     - SFX
@@ -46,13 +40,7 @@ MonoBehaviour:
     - SFX
     LocalizedStreamingMediaValues:
       localizedMediaList:
-      - media:
-        - m_AssetGUID: 796216938059f53469a87e0191ac5e86
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 394124802
+      - media: []
   - WwisePlatform: Android
     LocalizedBankKeys:
     - SFX
@@ -66,13 +54,7 @@ MonoBehaviour:
     - SFX
     LocalizedStreamingMediaValues:
       localizedMediaList:
-      - media:
-        - m_AssetGUID: 4eaac089a15af204aabc54ec0bc3112e
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 394124802
+      - media: []
   - WwisePlatform: Mac
     LocalizedBankKeys:
     - SFX
@@ -107,10 +89,4 @@ MonoBehaviour:
     - SFX
     LocalizedStreamingMediaValues:
       localizedMediaList:
-      - media:
-        - m_AssetGUID: 4eaac089a15af204aabc54ec0bc3112e
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_SubObjectGUID: 
-          m_EditorAssetChanged: 0
-          id: 394124802
+      - media: []

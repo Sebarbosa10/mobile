@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public sealed class SessionAudio : MonoBehaviour
 {
     private const float UrgentSeconds = 3f;
-    private const float StingerDelay = 0.6f;
+    private const float StingerDelay = 1f;
 
     private IGameSession session;
     private bool isTimeAttack;
@@ -166,10 +166,15 @@ public sealed class SessionAudio : MonoBehaviour
         StartCoroutine(StingerLater(info.Won ? Stinger.Victory : Stinger.Defeat));
     }
 
-    // El stinger entra un poco después del buzzer o del último sonido de juego para no pisarlos
+    // El stinger entra un poco después del buzzer o del último sonido de juego para no pisarlos.
+    // Si al perder aparece un anuncio, espera a que se cierre.
     private static IEnumerator StingerLater(Stinger stinger)
     {
         yield return new WaitForSecondsRealtime(StingerDelay);
+
+        while (Monetization.InterstitialShowing)
+            yield return null;
+
         AudioManager.PlayStinger(stinger);
     }
 

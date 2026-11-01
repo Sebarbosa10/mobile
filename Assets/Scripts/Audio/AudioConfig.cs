@@ -1,3 +1,4 @@
+using AK.Wwise.Unity.WwiseAddressables;
 using UnityEngine;
 
 // Referencias a los objetos de Wwise que usa el juego. Cada campo se llama igual que su objeto
@@ -15,6 +16,9 @@ public sealed class AudioConfig : ScriptableObject
 
     [Tooltip("AkWwiseInitializationSettings: se usa para crear el AkInitializer si la escena no tiene WwiseGlobal.")]
     public ScriptableObject wwiseInitializationSettings;
+
+    [Tooltip("Banco Init: fuera del editor no se encuentra solo, hay que pasárselo al InitBankHolder.")]
+    public WwiseInitBankReference wwiseInitBank;
 
     [Header("Bancos")]
     public AK.Wwise.Bank Main;
