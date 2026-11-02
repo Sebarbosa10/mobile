@@ -42,6 +42,9 @@ public sealed class AdMobAds : IAdsProvider
     {
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
 
+        // ExecuteInUpdate necesita este ejecutor, y el SDK recién lo crea al iniciarse
+        MobileAdsEventExecutor.Initialize();
+
         ConsentInformation.Update(new ConsentRequestParameters(), error =>
             MobileAdsEventExecutor.ExecuteInUpdate(() => HandleConsentInfo(error)));
 

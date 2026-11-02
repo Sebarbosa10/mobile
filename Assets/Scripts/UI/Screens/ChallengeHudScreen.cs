@@ -35,7 +35,7 @@ public sealed class ChallengeHudScreen : UIScreen
         UIKit.PlaceTop(screen.headerText.rectTransform, 24f, new Vector2(ChipWidth - 40f, 34f));
 
         RectTransform counter = UIKit.CreateRect(chipRect, "Counter");
-        UIKit.PlaceTop(counter, 68f, new Vector2(ChipWidth - 64f, 114f));
+        UIKit.PlaceTop(counter, 112f, new Vector2(ChipWidth - 64f, 114f));
 
         HorizontalLayoutGroup row = counter.gameObject.AddComponent<HorizontalLayoutGroup>();
         row.spacing = 20f;

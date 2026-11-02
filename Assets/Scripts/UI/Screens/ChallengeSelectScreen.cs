@@ -40,7 +40,7 @@ public sealed class ChallengeSelectScreen : UIScreen
 
         Image panel = UIKit.CreateImage(safe, "ProgressPanel", skin.chip, palette.night);
         UIKit.SetChipRadius(panel, 36f);
-        UIKit.PlaceTop(panel.rectTransform, 86f, new Vector2(984f, 258f));
+        UIKit.PlaceTop(panel.rectTransform, 154f, new Vector2(984f, 258f));
         RectTransform panelRect = panel.rectTransform;
 
         Image hoopIcon = UIKit.CreateImage(panelRect, "HoopIcon", skin.iconHoop, palette.sun);
@@ -75,7 +75,7 @@ public sealed class ChallengeSelectScreen : UIScreen
         for (int number = 1; number <= ChallengeCatalog.Count; number++)
         {
             ChallengeCard card = ChallengeCard.Create(safe, ChallengeCatalog.Get(number));
-            UIKit.PlaceTop(card.RectTransform, 368f + (number - 1) * CardSpacing, cardSize);
+            UIKit.PlaceTop(card.RectTransform, 428f + (number - 1) * CardSpacing, cardSize);
             card.Selected += definition => screen.ChallengeSelected?.Invoke(definition);
             screen.cards.Add(card);
         }
