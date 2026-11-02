@@ -28,9 +28,11 @@ public static class MobileBuildSettings
     {
         bool changed = false;
 
-        if (!PlayerSettings.Android.optimizedFramePacing)
+        // Frame pacing calcula su ritmo con los Hz del arranque. Si el panel cambia a 60 Hz después,
+        // ese ritmo queda corto y el juego se traba en 30 FPS.
+        if (PlayerSettings.Android.optimizedFramePacing)
         {
-            PlayerSettings.Android.optimizedFramePacing = true;
+            PlayerSettings.Android.optimizedFramePacing = false;
             changed = true;
         }
 

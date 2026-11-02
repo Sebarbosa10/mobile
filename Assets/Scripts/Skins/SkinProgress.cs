@@ -6,6 +6,7 @@ public static class SkinProgress
     private const string UnlockedKey = "Skins.Unlocked";
     private const string BallKey = "Skins.Ball";
     private const string ThemeKey = "Skins.Theme";
+    private const string VariantKeyPrefix = "Skins.Variant.";
 
     private static HashSet<string> unlocked;
 
@@ -59,6 +60,15 @@ public static class SkinProgress
 
     public static BackgroundTheme EquippedTheme =>
         SkinDatabase.Instance != null ? SkinDatabase.Instance.GetTheme(EquippedThemeId) : null;
+
+    public static int GetVariant(BallSkin skin) =>
+        skin != null ? PlayerPrefs.GetInt(VariantKeyPrefix + skin.id, 0) : 0;
+
+    public static void SetVariant(BallSkin skin, int variant)
+    {
+        PlayerPrefs.SetInt(VariantKeyPrefix + skin.id, variant);
+        PlayerPrefs.Save();
+    }
 
     public static bool IsEquipped(BallSkin skin) =>
         skin != null && skin == EquippedBall;

@@ -97,6 +97,11 @@ public sealed class SkinPreviewStage : MonoBehaviour
         ball.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         SetLayer(ball, PreviewLayer);
 
+        BallColor color = ball.GetComponentInChildren<BallColor>(true);
+
+        if (color != null)
+            color.Bind(skin);
+
         Frame();
     }
 

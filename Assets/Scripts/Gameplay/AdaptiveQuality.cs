@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 //   1: sin MSAA · 2: menos resolución · 3: sin posterizado · 4: sin contorno
 public sealed class AdaptiveQuality : MonoBehaviour
 {
-    private const string LevelKey = "Quality.Level";
+    private const string LevelKey = "Quality.Level.2";
     private const int MaxLevel = 4;
 
     private const float WindowSeconds = 4f;

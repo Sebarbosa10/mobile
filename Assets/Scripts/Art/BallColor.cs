@@ -5,6 +5,9 @@ public sealed class BallColor : MonoBehaviour
 {
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
 
+    // Hay varias pelotas a la vez al cambiar de skin o de escena: el sensor se apaga con la última
+    private static int accelerometerUsers;
+
     [System.Serializable]
     public struct ExtraTint
     {
@@ -55,6 +58,7 @@ public sealed class BallColor : MonoBehaviour
     private float popScale = 1.15f;
 
     private MaterialPropertyBlock block;
+    private BallSkin skin;
     private int index;
     private Color fromColor;
     private Color toColor;
@@ -78,24 +82,40 @@ public sealed class BallColor : MonoBehaviour
         extraFrom = new Color[extraTints.Length];
         extraTo = new Color[extraTints.Length];
 
-        if (colors.Length > 0)
-        {
-            ApplyColor(colors[0]);
+        ApplyCurrentVariant();
+    }
 
-            for (int i = 0; i < extraTints.Length; i++)
-                ApplyExtra(i, ExtraColor(i, 0));
-        }
+    // Vincula la pelota a su skin: arranca con la variante guardada y guarda las que elija el jugador
+    public void Bind(BallSkin ballSkin)
+    {
+        skin = ballSkin;
+        index = Mathf.Clamp(SkinProgress.GetVariant(skin), 0, Mathf.Max(colors.Length - 1, 0));
+        transitionTime = -1f;
+
+        if (block != null)
+            ApplyCurrentVariant();
+    }
+
+    private void ApplyCurrentVariant()
+    {
+        if (colors.Length == 0)
+            return;
+
+        ApplyColor(colors[index]);
+
+        for (int i = 0; i < extraTints.Length; i++)
+            ApplyExtra(i, ExtraColor(i, index));
     }
 
     private void OnEnable()
     {
-        if (Accelerometer.current != null)
+        if (accelerometerUsers++ == 0 && Accelerometer.current != null)
             InputSystem.EnableDevice(Accelerometer.current);
     }
 
     private void OnDisable()
     {
-        if (Accelerometer.current != null)
+        if (--accelerometerUsers == 0 && Accelerometer.current != null)
             InputSystem.DisableDevice(Accelerometer.current);
 
         if (popTarget != null)
@@ -150,6 +170,9 @@ public sealed class BallColor : MonoBehaviour
 
         index = (index + 1) % colors.Length;
         toColor = colors[index];
+
+        if (skin != null)
+            SkinProgress.SetVariant(skin, index);
 
         for (int i = 0; i < extraTints.Length; i++)
             extraTo[i] = ExtraColor(i, index);

@@ -95,8 +95,8 @@ public static class MobileRuntimeSettings
     }
 
 #if UNITY_ANDROID && !UNITY_EDITOR
-    // Pide el modo de pantalla directamente a Android. Con el panel en 90 Hz y frame pacing, 60 FPS
-    // no entran en el ritmo de la pantalla y el juego cae a 45 (90 ÷ 2).
+    // Pide el modo de pantalla directamente a Android, para que 60 FPS entren parejos en el ritmo
+    // de la pantalla en paneles de 90 o 120 Hz.
     private static void RequestDisplayMode(int fps)
     {
         try

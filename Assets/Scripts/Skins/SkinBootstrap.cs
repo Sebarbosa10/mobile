@@ -34,9 +34,20 @@ public static class SkinBootstrap
     {
         SkinDatabase db = SkinDatabase.Instance;
 
-        if (skin == null || skin.prefab == null || (db != null && skin == db.DefaultBall))
+        if (skin == null)
             return;
 
+        if (skin.prefab != null && (db == null || skin != db.DefaultBall))
+            ReplaceArt(ball, skin);
+
+        BallColor color = ball.GetComponentInChildren<BallColor>();
+
+        if (color != null)
+            color.Bind(skin);
+    }
+
+    private static void ReplaceArt(BallLauncher ball, BallSkin skin)
+    {
         Transform oldArt = ball.transform.Find(BallArtName);
 
         if (oldArt == null)
