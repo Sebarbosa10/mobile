@@ -24,6 +24,42 @@
         [SerializeField]
         private HoopStage[] stages;
 
+        [Header("Size")]
+        [Tooltip("Tamaño del aro al empezar la partida.")]
+        [SerializeField, Min(0.01f)]
+        private float startScale = 1.15f;
+
+        [Tooltip("Tamaño mínimo que puede tocar después de cada encestada.")]
+        [SerializeField, Min(0.01f)]
+        private float minScale = 0.95f;
+
+        [Tooltip("Tamaño máximo que puede tocar después de cada encestada.")]
+        [SerializeField, Min(0.01f)]
+        private float maxScale = 1.15f;
+
+        [Tooltip("Diferencia mínima con el tamaño anterior, para que el cambio se note.")]
+        [SerializeField, Min(0f)]
+        private float minScaleChange = 0.05f;
+
+        // Sin puntos usa el tamaño inicial; después, uno al azar que no quede pegado al anterior
+        public float PickScale(int score, float currentScale)
+        {
+            if (score <= 0)
+                return startScale;
+
+            float blockedLow = Mathf.Clamp(currentScale - minScaleChange, minScale, maxScale);
+            float blockedHigh = Mathf.Clamp(currentScale + minScaleChange, minScale, maxScale);
+
+            float roomBelow = blockedLow - minScale;
+            float roomAbove = maxScale - blockedHigh;
+
+            float pick = Random.Range(0f, roomBelow + roomAbove);
+
+            return pick < roomBelow
+                ? minScale + pick
+                : blockedHigh + (pick - roomBelow);
+        }
+
         public HoopStage GetStageForScore(int score)
         {
             if (stages == null || stages.Length == 0)
@@ -64,8 +100,4 @@
 
         [Min(0f)]
         public float movementSpeed;
-
-        [Header("Size")]
-        [Min(0.01f)]
-        public float scale;
     }

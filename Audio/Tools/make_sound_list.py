@@ -80,7 +80,7 @@ NOTES = {
     "amb_plaza": "🟠 Se pisaba con el piano.",
     "net_swish_chain": "🟠 Una variación puede traer voces; otra dura 0,14 s.",
     "ball_throw": "🟡 Una variación dura solo 0,18 s.",
-    "hoop_shrink": "⚪ Hoy no suena: todos los niveles del aro tienen la misma escala.",
+    "hoop_shrink": "🟡 Dura 1,86 s, un poco más de lo pedido.",
     "amb_desierto": "🟡 No tiene insectos.",
     "stg_nuevo_record": "🟡 Dura 1,44 s, un poco menos de lo pedido.",
     "hoop_move_loop": "🟡 Recién reemplazado, falta confirmarlo.",

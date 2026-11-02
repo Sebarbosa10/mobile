@@ -116,7 +116,7 @@ public sealed class HoopController : MonoBehaviour
         currentStage =
             difficultyProfile.GetStageForScore(score);
 
-        ApplyScale(currentStage.scale);
+        ApplyScale(difficultyProfile.PickScale(score, appliedScale));
 
         if (movement != null)
         {

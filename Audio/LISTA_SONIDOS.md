@@ -87,7 +87,7 @@ Mandame el link de Freesound o dejá el archivo en cualquier carpeta y decime a 
 | ☐ | `timer_urgent` | 1 | Cada segundo de los últimos 3. | Beep o tic urgente. | 0,1–0,3 s | mono | [beep.wav](https://freesound.org/people/jeckkech/sounds/391650/) |  |
 | ☐ | `timer_reset` | 1 | Cuando el timer se recarga al encestar. | Subida corta y positiva. | 0,2–0,5 s | mono | Kenney `highUp.ogg` |  |
 | ☐ | `timer_out` | 1 | Cuando se acaba el tiempo. | Buzzer real de cancha de básquet. | 1–2 s | mono | [buzzer sportif.wav](https://freesound.org/people/Na%C3%AFma/sounds/510026/) |  |
-| ☐ | `hoop_shrink` | 1 | Cuando el aro se achica. | Bajada de tono corta. | 0,5–1,5 s | mono | [Power Down](https://freesound.org/people/noirenex/sounds/159399/) | ⚪ Hoy no suena: todos los niveles del aro tienen la misma escala. |
+| ☐ | `hoop_shrink` | 1 | Cuando el aro se achica. | Bajada de tono corta. | 0,5–1,5 s | mono | [Power Down](https://freesound.org/people/noirenex/sounds/159399/) | 🟡 Dura 1,86 s, un poco más de lo pedido. |
 | ☐ | `hoop_move_loop` | 1 | Mientras el aro se mueve, desde 2 puntos, en loop. | Zumbido suave de máquina, parejo y sin agudos. | 2–5 s, loop | mono | [low_machine_hum.wav](https://freesound.org/people/Foxicity/sounds/587617/) | 🟡 Recién reemplazado, falta confirmarlo. |
 | ☐ | `carousel_loop` | 1 | Mientras gira el carrusel, en loop. | Mecanismo rotando, suave y regular. | 1–3 s, loop | mono | [Pillar_Drill_Rotating_Loop.wav](https://freesound.org/people/mickyman5000/sounds/340656/) |  |
 | ☐ | `carousel_hoop_done` | 1 | Al encestar en un aro nuevo del carrusel. Sube de tono con cada aro. | Ding corto y afinado. | 0,2–0,6 s | mono | [ding2.wav](https://freesound.org/people/MashedTatoes2/sounds/515643/) |  |
